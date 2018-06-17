@@ -9,20 +9,19 @@ import pygame
 import constant
 
 class SpriteSheet(object):
-	""" Put an all images from sprite sheets """
+    """ Put an all images from sprite sheets """
 
-	def __init__(self, file_name):
-		""" Constructor. Pass in the file name of the sprite sheet. """
- 
+    def __init__(self, file_name):
+        """ Constructor. Pass in the file name of the sprite sheet. """
         # Load the sprite sheet.
         self.sprite_sheet = pygame.image.load(file_name).convert()
 
 
     def get_image(self, x, y, width, height):
-    	""" Grab a single image out of a larger spritesheet
+        """ Grab a single image out of a larger spritesheet
             Pass in the x, y location of the sprite
             and the width and height of the sprite. """
- 
+
         # Create a new blank image
         image = pygame.Surface([width, height]).convert()
         
