@@ -49,3 +49,27 @@ class Level():
 		for platform in self.platform_list:
 			platform.rect.x += shift_x
 
+# Create platforms for the level
+class Level_01(Level):
+	""" Definition for level 1. """
+
+	def __init__(self, player):
+		""" Create Level 1 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		# self.background = pygame.image.load("background_01.png").convert()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -2500
+
+		# Array with type of platform, and x, y location of the platform.
+		level = [[platform.GRASS_MIDDLE, 500, 500]]
+
+		for platform in level:
+			block = platfrom.Platforms(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
