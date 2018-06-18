@@ -6,7 +6,7 @@
 # import pygame module
 import pygame
 # import contstant file
-import constant
+import constants
 
 class SpriteSheet(object):
     """ Put an all images from sprite sheets """

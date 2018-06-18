@@ -3,8 +3,9 @@
 
 import pygame
 
-import constant
+import constants
 import platforms
+import platform_scroller
 
 class Level():
 
@@ -22,7 +23,7 @@ class Level():
 		self.world_shift = 0
 		self.level_limit = -1000
 		self.platform_list = pygame.sprite.Group()
-		self.enemy_list = pygame.sprite.Group()
+		# self.enemy_list = pygame.sprite.Group()
 		self.player = player
 
 	# Update everythign on this level
@@ -33,8 +34,8 @@ class Level():
 	def draw(self, screen):
 		""" Draw everything on this level. """
 
-		screen.fill(constant.BLUE)
-		screen.blit(self.background,(self.world_shift // 0,3))
+		screen.fill(constants.BLUE)
+		screen.blit(self.background,(self.world_shift // 3,0))
 
 		# Draw all the sprite lists that we have
 		self.platform_list.draw(screen)
@@ -59,15 +60,15 @@ class Level_01(Level):
 		# Call the parent constructor
 		Level.__init__(self, player)
 
-		# self.background = pygame.image.load("background_01.png").convert()
+		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
 		self.level_limit = -2500
 
 		# Array with type of platform, and x, y location of the platform.
-		level = [[platform.GRASS_MIDDLE, 500, 500]]
+		level = [[platforms.GRASS_MIDDLE, 500, 500]]
 
 		for platform in level:
-			block = platfrom.Platforms(platform[0])
+			block = platforms.Platform(platform[0])
 			block.rect.x = platform[1]
 			block.rect.y = platform[2]
 			block.player = self.player
