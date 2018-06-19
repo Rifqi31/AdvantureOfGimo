@@ -82,10 +82,10 @@ class Level_01(Level):
 				[platforms.DIRT, -70, 40],
 				[platforms.DIRT, -70, -30],
 				# for wall dirt grassy
-				[platforms.GRASS_LEFT_RIGHT, 0, 390],
-				[platforms.GRASS_LEFT_RIGHT, 0, 320],
-				[platforms.GRASS_LEFT_RIGHT, 0, 250],
-				[platforms.GRASS_LEFT_RIGHT, 0, 180],
+				[platforms.DIRT, 0, 390],
+				[platforms.DIRT, 0, 320],
+				[platforms.DIRT, 0, 250],
+				[platforms.DIRT, 0, 180],
 				# for dirt up wall
 				[platforms.DIRT, 0, 110],
 				[platforms.DIRT, 0, 40],
@@ -139,7 +139,59 @@ class Level_01(Level):
 				[platforms.GRASS_MIDDLE, 1770, 460],
 				[platforms.GRASS_MIDDLE, 1840, 460],
 				[platforms.GRASS_MIDDLE, 1910, 460],
-				[platforms.GRASS_RIGHT, 1980, 460]]
+				[platforms.GRASS_RIGHT, 1980, 460],
+				# end wall
+				[platforms.DIRT, 2050, 530],
+				[platforms.DIRT, 2120, 530],
+				[platforms.DIRT, 2190, 530],
+				[platforms.DIRT, 2260, 530],
+				[platforms.DIRT, 2330, 530],
+				[platforms.DIRT, 2050, 460],
+				[platforms.DIRT, 2120, 460],
+				[platforms.DIRT, 2190, 460],
+				[platforms.DIRT, 2260, 460],
+				[platforms.DIRT, 2330, 460],
+				# ---
+				[platforms.DIRT, 2050, 390],
+				[platforms.DIRT, 2120, 390],
+				[platforms.DIRT, 2190, 390],
+				[platforms.DIRT, 2260, 390],
+				[platforms.DIRT, 2330, 390],
+				# wall
+				[platforms.DIRT, 2050, 320],
+				[platforms.DIRT, 2050, 250],
+				[platforms.DIRT, 2050, 180],
+				[platforms.DIRT, 2050, 110],
+				[platforms.DIRT, 2050, 40],
+				[platforms.DIRT, 2050, -30],
+				# --
+				[platforms.DIRT, 2120, 320],
+				[platforms.DIRT, 2120, 250],
+				[platforms.DIRT, 2120, 180],
+				[platforms.DIRT, 2120, 110],
+				[platforms.DIRT, 2120, 40],
+				[platforms.DIRT, 2120, -30],
+				# --
+				[platforms.DIRT, 2190, 320],
+				[platforms.DIRT, 2190, 250],
+				[platforms.DIRT, 2190, 180],
+				[platforms.DIRT, 2190, 110],
+				[platforms.DIRT, 2190, 40],
+				[platforms.DIRT, 2190, -30],
+				# --
+				[platforms.DIRT, 2260, 320],
+				[platforms.DIRT, 2260, 250],
+				[platforms.DIRT, 2260, 180],
+				[platforms.DIRT, 2260, 110],
+				[platforms.DIRT, 2260, 40],
+				[platforms.DIRT, 2260, -30],
+				# --
+				[platforms.DIRT, 2330, 320],
+				[platforms.DIRT, 2330, 250],
+				[platforms.DIRT, 2330, 180],
+				[platforms.DIRT, 2330, 110],
+				[platforms.DIRT, 2330, 40],
+				[platforms.DIRT, 2330, -30],]
 
 
 		for platform in level:
@@ -149,3 +201,17 @@ class Level_01(Level):
 			block.player = self.player
 			self.platform_list.add(block)
 
+
+
+class Level_02(Level):
+	""" Definition for level 2 """
+
+	def __init__(self, player):
+		""" Create Level 1 """
+
+		# call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/snow_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -2500
