@@ -2,7 +2,8 @@ import pygame
  
 import constants
 import levels
- 
+import levels01
+
 from player import Player
  
 def main():
@@ -20,7 +21,7 @@ def main():
  
     # Create all the levels
     level_list = []
-    level_list.append(levels.Level_01(player))
+    level_list.append(levels01.Level_01(player))
     # level_list.append(levels.Level_02(player))
  
     # Set the current level
