@@ -21,139 +21,87 @@ class Level_01(levels.Level):
 		self.background.set_colorkey(constants.WHITE)
 		self.level_limit = -2500
 
+		def push_tiles_screen(name_tiles):
+			for platform in name_tiles:
+				block = platforms.Platform(platform[0])
+				block.rect.x = platform[1]
+				block.rect.y = platform[2]
+				block.player = self.player
+				self.platform_list.add(block)
+
+		# optimation code fucking this !!!!
+		# go mastrubate dude!!!!
+
 		# Array with type of platform, and x, y location of the platform.
-		level = [[platforms.DIRT, 0, 530],
-				[platforms.DIRT, 70, 530],
-				[platforms.DIRT, 140, 530],
-				[platforms.DIRT, 210, 530],
-				[platforms.DIRT, 280, 530],
-				[platforms.DIRT, 350, 530],
-				# for dirty wall
-				[platforms.DIRT, -70, 530],
-				[platforms.DIRT, -70, 460],
-				[platforms.DIRT, -70, 390],
-				[platforms.DIRT, -70, 320],
-				[platforms.DIRT, -70, 250],
-				[platforms.DIRT, -70, 180],
-				[platforms.DIRT, -70, 110],
-				[platforms.DIRT, -70, 40],
-				[platforms.DIRT, -70, -30],
-				# for wall dirt grassy
-				[platforms.DIRT, 0, 390],
-				[platforms.DIRT, 0, 320],
-				[platforms.DIRT, 0, 250],
-				[platforms.DIRT, 0, 180],
-				# for dirt up wall
-				[platforms.DIRT, 0, 110],
-				[platforms.DIRT, 0, 40],
-				# [platforms.DIRT_HALF, 0, 0],
-				[platforms.DIRT, 0, -30],
-				[platforms.DIRT, 70, 110],
-				[platforms.DIRT, 70, 40],
-				# [platforms.DIRT_HALF, 70, 0],
-				[platforms.DIRT, 70, -30],
-				[platforms.DIRT, 140, 110],
-				[platforms.DIRT, 140, 40],
-				# [platforms.DIRT_HALF, 140, 0],
-				[platforms.DIRT, 140, -30],
-				[platforms.DIRT, 210, 40],
-				[platforms.DIRT, 210, -30],
-				# [platforms.DIRT_HALF, 210, 0],
-				# new line up platforms
-				[platforms.DIRT, 0, 460],
-				[platforms.GRASS_MIDDLE, 70, 460],
-				[platforms.GRASS_MIDDLE, 140, 460],
-				[platforms.GRASS_MIDDLE, 210, 460],
-				[platforms.GRASS_MIDDLE, 280, 460],
-				[platforms.GRASS_MIDDLE, 350, 460],
-				# new line bottom platforms
-				[platforms.DIRT, 600, 530],
-				[platforms.DIRT, 670, 530],
-				[platforms.GRASS_LEFT, 600, 460],
-				[platforms.GRASS_RIGHT, 670, 460],
-				# new line bottom platforms
-				[platforms.DIRT, 900, 530],
-				[platforms.DIRT, 970, 530],
-				[platforms.DIRT, 1040, 530],
-				[platforms.DIRT, 1110, 530],
-				[platforms.DIRT, 1040, 460],
-				[platforms.DIRT, 1110, 460],
-				[platforms.DIRT, 1110, 390],
-				[platforms.GRASS_LEFT, 900, 460],
-				[platforms.GRASS_MIDDLE, 970, 460],
-				[platforms.GRASS_MIDDLE, 1040, 390],
-				[platforms.GRASS_RIGHT, 1110, 320],
-				# new flying dirt grass
-				[platforms.GRASS_ROUNDED, 1250, 320],
-				[platforms.GRASS_ROUNDED, 1390, 320],
-				# new line platform]
-				[platforms.DIRT,  1700, 530],
-				[platforms.DIRT, 1770, 530],
-				[platforms.DIRT, 1840, 530],
-				[platforms.DIRT, 1910, 530],
-				[platforms.DIRT, 1980, 530],
-				[platforms.GRASS_LEFT, 1700, 460],
-				[platforms.GRASS_MIDDLE, 1770, 460],
-				[platforms.GRASS_MIDDLE, 1840, 460],
-				[platforms.GRASS_MIDDLE, 1910, 460],
-				[platforms.GRASS_RIGHT, 1980, 460],
-				# end wall
-				[platforms.DIRT, 2050, 530],
-				[platforms.DIRT, 2120, 530],
-				[platforms.DIRT, 2190, 530],
-				[platforms.DIRT, 2260, 530],
-				[platforms.DIRT, 2330, 530],
-				[platforms.DIRT, 2050, 460],
-				[platforms.DIRT, 2120, 460],
-				[platforms.DIRT, 2190, 460],
-				[platforms.DIRT, 2260, 460],
-				[platforms.DIRT, 2330, 460],
-				# ---
-				[platforms.DIRT, 2050, 390],
-				[platforms.DIRT, 2120, 390],
-				[platforms.DIRT, 2190, 390],
-				[platforms.DIRT, 2260, 390],
-				[platforms.DIRT, 2330, 390],
-				# wall
-				[platforms.DIRT, 2050, 320],
-				[platforms.DIRT, 2050, 250],
-				[platforms.DIRT, 2050, 180],
-				[platforms.DIRT, 2050, 110],
-				[platforms.DIRT, 2050, 40],
-				[platforms.DIRT, 2050, -30],
-				# --
-				[platforms.DIRT, 2120, 320],
-				[platforms.DIRT, 2120, 250],
-				[platforms.DIRT, 2120, 180],
-				[platforms.DIRT, 2120, 110],
-				[platforms.DIRT, 2120, 40],
-				[platforms.DIRT, 2120, -30],
-				# --
-				[platforms.DIRT, 2190, 320],
-				[platforms.DIRT, 2190, 250],
-				[platforms.DIRT, 2190, 180],
-				[platforms.DIRT, 2190, 110],
-				[platforms.DIRT, 2190, 40],
-				[platforms.DIRT, 2190, -30],
-				# --
-				[platforms.DIRT, 2260, 320],
-				[platforms.DIRT, 2260, 250],
-				[platforms.DIRT, 2260, 180],
-				[platforms.DIRT, 2260, 110],
-				[platforms.DIRT, 2260, 40],
-				[platforms.DIRT, 2260, -30],
-				# --
-				[platforms.DIRT, 2330, 320],
-				[platforms.DIRT, 2330, 250],
-				[platforms.DIRT, 2330, 180],
-				[platforms.DIRT, 2330, 110],
-				[platforms.DIRT, 2330, 40],
-				[platforms.DIRT, 2330, -30],]
+
+		# for base bottom dirt
+		for base_dirt in range(0, 390, 70):
+			dirt_down = [[platforms.DIRT, base_dirt, 530]]
+			push_tiles_screen(dirt_down)
+
+		# for left wall dirt
+		for wall_dirt in range(0, 600, 70):
+			wall_left = [[platforms.DIRT, 0, wall_dirt], [platforms.DIRT, -70, wall_dirt]]
+			push_tiles_screen(wall_left)
+
+		# for grass bottom near left wall
+		for grass_dirt_middle in range(70, 350, 70):
+			grass_middle = [[platforms.GRASS_MIDDLE, grass_dirt_middle, 460]]
+			push_tiles_screen(grass_middle)
+
+		# for long grass corner right
+		grass_right = [[platforms.GRASS_RIGHT, 350, 460]]
+		push_tiles_screen(grass_right)
+
+		# for top dirt
+		for base_up_dirt in range(0, 180, 70):
+			dirt_up = [[platforms.DIRT, 70, base_up_dirt], [platforms.DIRT, 140, base_up_dirt]]
+			push_tiles_screen(dirt_up)
+		
+		# for top dirt
+		for base_up_dirt2 in range(0, 110, 70):
+			dirt_up2 = [[platforms.DIRT, 210, base_up_dirt2], [platforms.DIRT, 280, base_up_dirt2]]
+			push_tiles_screen(dirt_up2)
+		
+		# for top dirt
+		dirt_top3 = [[platforms.DIRT, 350, 0]]
+		push_tiles_screen(dirt_top3)
+		
+
+		# new line dirt
+		for short_base_dirt in range(600, 740, 70):
+			dirt_down_short = [[platforms.DIRT, short_base_dirt, 530]]
+			push_tiles_screen(dirt_down_short)
 
 
-		for platform in level:
-			block = platforms.Platform(platform[0])
-			block.rect.x = platform[1]
-			block.rect.y = platform[2]
-			block.player = self.player
-			self.platform_list.add(block)
+		# new line dirt
+		for long_base_dirt in range(900, 1180, 70):
+			dirt_down_long = [[platforms.DIRT, long_base_dirt, 530]]
+			push_tiles_screen(dirt_down_long)
+		
+		
+		# for two line up grass
+		grass_corner_left = [[platforms.GRASS_LEFT, 600, 460], [platforms.GRASS_LEFT, 900, 460]]
+		push_tiles_screen(grass_corner_left)
+
+		grass_corner_right = [[platforms.GRASS_RIGHT, 670, 460], [platforms.GRASS_RIGHT, 970, 460]]
+		push_tiles_screen(grass_corner_right)
+
+
+		for some_dirt in range(1040, 1180, 70):
+			dirt_short = [[platforms.DIRT, some_dirt, 460]]
+			push_tiles_screen(dirt_short)
+
+
+		one_grass_middle = [[platforms.GRASS_MIDDLE, 1040, 390]]
+		push_tiles_screen(one_grass_middle)
+
+		one_dirt = [[platforms.DIRT, 1110, 390]]
+		push_tiles_screen(one_dirt)
+
+		one_grass_right = [[platforms.GRASS_RIGHT, 1110, 320]]
+		push_tiles_screen(one_grass_right)
+
+
+		single_tiles_grass_rounded = [[platforms.GRASS_ROUNDED, 1250, 320], [platfroms.GRASS_ROUNDED, 1390, 320]]
+		push_tiles_screen(single_tiles_grass_rounded)
