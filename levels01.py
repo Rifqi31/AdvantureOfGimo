@@ -102,6 +102,36 @@ class Level_01(levels.Level):
 		one_grass_right = [[platforms.GRASS_RIGHT, 1110, 320]]
 		push_tiles_screen(one_grass_right)
 
-
-		single_tiles_grass_rounded = [[platforms.GRASS_ROUNDED, 1250, 320], [platfroms.GRASS_ROUNDED, 1390, 320]]
+		single_tiles_grass_rounded = [[platforms.GRASS_ROUNDED, 1250, 320], [platforms.GRASS_ROUNDED, 1390, 320]]
 		push_tiles_screen(single_tiles_grass_rounded)
+
+
+		# new line dirt
+		for long_end_base_dirt in range(1700, 2050, 70):
+			dirt_down_long_end = [[platforms.DIRT, long_end_base_dirt, 530]]
+			push_tiles_screen(dirt_down_long_end)
+		
+		# then the grass
+		grass_corner_end = [[platforms.GRASS_LEFT, 1700, 460], [platforms.GRASS_RIGHT, 1980, 460]]
+		push_tiles_screen(grass_corner_end)
+
+		for long_grass_end in range(1770, 1980, 70):
+			grass_end = [[platforms.GRASS_MIDDLE, long_grass_end, 460]]
+			push_tiles_screen(grass_end)
+
+		# for end wall
+		for end_wall_down in range(2050, 2400, 70):
+			wall_dirt_end_down = [[platforms.DIRT, end_wall_down, 530], 
+								[platforms.DIRT, end_wall_down, 460],
+								[platforms.DIRT, end_wall_down, 390]]
+			push_tiles_screen(wall_dirt_end_down)
+		
+		# wall
+		for tall_wall_end in range(-30, 390, 70):
+			wall_right_corner = [[platforms.DIRT, 2050, tall_wall_end],
+								[platforms.DIRT, 2120,  tall_wall_end],
+								[platforms.DIRT, 2190, tall_wall_end],
+								[platforms.DIRT, 2260, tall_wall_end],
+								[platforms.DIRT, 2330, tall_wall_end]]
+			push_tiles_screen(wall_right_corner)
+
