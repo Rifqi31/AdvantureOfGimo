@@ -21,6 +21,7 @@ def main():
 	# Create all the levels
 	level_list = []
 	level_list.append(levels.Level_01(player))
+	level_list.append(levels.Level_02(player))
  
 	# Set the current level
 	current_level_no = 0
@@ -33,6 +34,15 @@ def main():
 	player.rect.x = 70
 	player.rect.y = 360
 	active_sprite_list.add(player)
+	#if current_level_no == 0:
+	#	player.rect.x = 70
+	#	player.rect.y = 360
+	#	active_sprite_list.add(player)
+	#elif current_level_no == 1:
+	#	player.rect.x = 1500
+	#	player.rect.y = 360
+	#	active_sprite_list.add(player)
+	
  
 	#Loop until the user clicks the close button.
 	gameExit = False
@@ -65,6 +75,37 @@ def main():
 		textSurf, textRect = text_objects(msg, color, size)
 		textRect.center = (constants.SCREEN_WIDTH / 2), (constants.SCREEN_HEIGHT / 2) + y_displace
 		screen.blit(textSurf, textRect)
+	
+
+	# function to pause game
+	def pause():
+		# set boolean true
+		paused = True
+		# bring text to the screen
+		msg_to_screen("Paused", constants.BLACK, -100, size="large")
+		msg_to_screen("Press C to continue or Q Press to Quit", constants.BLACK, 25)
+		# update the display
+		pygame.display.update()
+
+		while paused:
+			# logic for quit game
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+					quit()
+				# event if keydown
+				if event.type == pygame.KEYDOWN:
+					# for resume game
+					if event.key == pygame.K_c:
+						paused = False
+					elif event.key == pygame.K_q:
+						pygame.quit()
+						quit()
+		
+
+			clock.tick(5)
+
+
 
 	# -------- Main Program Loop -----------
 	while not gameExit:
@@ -84,6 +125,7 @@ def main():
 						gameExit = True
 						gameOver = False
 					elif event.key == pygame.K_c:
+						# this is sucks too
 						main()
 		
 		for event in pygame.event.get(): # User did something
@@ -97,6 +139,8 @@ def main():
 					player.go_right()
 				elif event.key == pygame.K_UP:
 					player.jump()
+				elif event.key == pygame.K_p:
+					pause()
  
 			elif event.type == pygame.KEYUP:
 				if event.key == pygame.K_LEFT and player.change_x < 0:
@@ -121,6 +165,16 @@ def main():
 			diff = 120 - player.rect.left
 			player.rect.left = 120
 			current_level.shift_world(diff)
+		
+		# if player got to portal # this is sucks
+		current_position = player.rect.x + current_level.world_shift
+		if current_position < current_level.level_limit:
+			player.rect.x = 120
+			if current_level_no < len(level_list)-1:
+				current_level_no += 1
+				current_level = level_list[current_level_no]
+				player.level = current_level
+
 
 		# if player fall is game over
 		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0 :
