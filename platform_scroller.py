@@ -1,18 +1,88 @@
+# name file : platform_scroller.py
+# python version 3
+
+# import pygame module
 import pygame
- 
+
+# import constants variable
 import constants
+# import levels
 import levels
+# import config font and screen
+import configfont
+import configscreen
  
 from player import Player
- 
+
+class BasicSettings(object):
+	"""this is basic settings"""
+
+	def text_objects(self ,text, color, size):
+		"""Function for store variable size font"""
+
+		# config text size small
+		if size == "small":
+			textSurface = configfont.smallfont.render(text, True, color)
+		# config text size medium
+		elif size == "medium":
+			textSurface = configfont.medfont.render(text, True, color)
+		# config text size large
+		elif size == "large":
+			textSurface = configfont.largefont.render(text, True, color)
+		
+		return textSurface, textSurface.get_rect()
+
+	def msg_to_screen(self, msg, color, y_displace=0, size = "small"):
+		"""Function for render text to the screen """
+		
+		# for calling it self
+		settings = BasicSettings()
+
+		textSurf, textRect = settings.text_objects(msg, color, size)
+		textRect.center = (constants.SCREEN_WIDTH / 2), (constants.SCREEN_HEIGHT / 2) + y_displace
+		configscreen.screen.blit(textSurf, textRect)
+
+	def pause(self):
+		"""Function for paused the game """
+		# set boolean true
+		paused = True
+		# for calling it self
+		settings = BasicSettings()
+		# for frame pause
+		clock = pygame.time.Clock()
+		# bring text to the screen
+		settings.msg_to_screen("Paused", constants.BLACK, -100, size="large")
+		settings.msg_to_screen("Press P to continue or Q Press to Quit", constants.BLACK, 25)
+		# update the display
+		pygame.display.update()
+
+		while paused:
+			# logic for quit game
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+					quit()
+				# event if keydown
+				if event.type == pygame.KEYDOWN:
+					# for resume game
+					if event.key == pygame.K_p:
+						paused = False
+					elif event.key == pygame.K_q:
+						pygame.quit()
+						quit()
+		
+
+			clock.tick(5)
+
+
 def main():
 	""" Main Program """
 	pygame.init()
  
-	# Set the height and width of the screen
-	size = [constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT]
-	screen = pygame.display.set_mode(size)
- 
+	configscreen.size = [constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT]
+	configscreen.screen = pygame.display.set_mode(configscreen.size)
+
+	# set for title my game
 	pygame.display.set_caption("Advanture of Gimo")
  
 	# Create the player
@@ -51,67 +121,13 @@ def main():
 	# Used to manage how fast the screen updates
 	clock = pygame.time.Clock()
 
-	# config font
-	smallfont = pygame.font.SysFont("comicsansms", 25)
-	medfont = pygame.font.SysFont("comicsansms", 30)
-	largefont = pygame.font.SysFont("comicsansms", 50)
-
-	# function for create text size from variable
-	def text_objects(text, color, size):
-		# config text size small
-		if size == "small":
-			textSurface = smallfont.render(text, True, color)
-		# config text size medium
-		elif size == "medium":
-			textSurface = medfont.render(text, True, color)
-		# config text size large
-		elif size == "large":
-			textSurface = largefont.render(text, True, color)
-		
-		return textSurface, textSurface.get_rect()
-	
-	# function for render text to the screen
-	def msg_to_screen(msg, color, y_displace=0, size = "small"):
-		textSurf, textRect = text_objects(msg, color, size)
-		textRect.center = (constants.SCREEN_WIDTH / 2), (constants.SCREEN_HEIGHT / 2) + y_displace
-		screen.blit(textSurf, textRect)
-	
-
-	# function to pause game
-	def pause():
-		# set boolean true
-		paused = True
-		# bring text to the screen
-		msg_to_screen("Paused", constants.BLACK, -100, size="large")
-		msg_to_screen("Press C to continue or Q Press to Quit", constants.BLACK, 25)
-		# update the display
-		pygame.display.update()
-
-		while paused:
-			# logic for quit game
-			for event in pygame.event.get():
-				if event.type == pygame.QUIT:
-					pygame.quit()
-					quit()
-				# event if keydown
-				if event.type == pygame.KEYDOWN:
-					# for resume game
-					if event.key == pygame.K_c:
-						paused = False
-					elif event.key == pygame.K_q:
-						pygame.quit()
-						quit()
-		
-
-			clock.tick(5)
-
-
+	settings = BasicSettings()
 
 	# -------- Main Program Loop -----------
 	while not gameExit:
 		if gameOver == True:
-			msg_to_screen("You Lose", constants.RED, y_displace=-50, size = "large")
-			msg_to_screen("Press Q to Quit and Press C to play again", constants.BLACK, 50, size = "medium")
+			settings.msg_to_screen("You Lose", constants.RED, y_displace=-50, size = "large")
+			settings.msg_to_screen("Press Q to Quit and Press C to play again", constants.BLACK, 50, size = "medium")
 			pygame.display.update()
 		
 		while gameOver == True:
@@ -140,7 +156,7 @@ def main():
 				elif event.key == pygame.K_UP:
 					player.jump()
 				elif event.key == pygame.K_p:
-					pause()
+					settings.pause()
  
 			elif event.type == pygame.KEYUP:
 				if event.key == pygame.K_LEFT and player.change_x < 0:
@@ -181,8 +197,8 @@ def main():
 			gameOver = True
 
 		# ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
-		current_level.draw(screen)
-		active_sprite_list.draw(screen)
+		current_level.draw(configscreen.screen)
+		active_sprite_list.draw(configscreen.screen)
  
 		# ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
  
