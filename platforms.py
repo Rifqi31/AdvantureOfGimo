@@ -30,6 +30,8 @@ dirt_small_half_grass = (219, 219, 140, 70)
 one_dirt = (365, 219, 70, 70)
 # for flying dirt
 dirt_rounded = (438, 219, 70, 70)
+# portal tiles
+portal_level1 = (365, 803, 70 ,70)
 
 
 class Platform(pygame.sprite.Sprite):
@@ -42,13 +44,18 @@ class Platform(pygame.sprite.Sprite):
 
         super().__init__()
 
+        # for map tileset
         sprite_sheet = SpriteSheet("spritesheet/dirt_tile_assets.png")
+        
+        # for main menu tileset
+        # main_menu_sheet = SpriteSheet("spritesheet/menus_asset.png")
+
         # Grab the image for this platform
         self.image = sprite_sheet.get_image(sprite_sheet_data[0],
                                             sprite_sheet_data[1],
                                             sprite_sheet_data[2],
                                             sprite_sheet_data[3])
- 
+    
         self.rect = self.image.get_rect()
 
 
