@@ -1,8 +1,16 @@
 # name file : platform_scroller.py
 # python version 3
 
+# Import pygame and libraries
+from pygame.locals import *
+
 # import pygame module
+import os
 import pygame
+
+# import pygameMenu module
+import pygameMenu 
+from pygameMenu.locals import *
 
 # import constants variable
 import constants
@@ -75,7 +83,105 @@ class BasicSettings(object):
 			clock.tick(5)
 
 
-def main():
+
+def main_background():
+    """
+    Function used by menus, draw on background while menu is active.
+    
+    :return: None
+    """
+    configscreen.screen.fill(constants.BLUE)
+
+
+# Main Menu
+def main_menu():
+	""" Function for Main Menu """
+	clock = pygame.time.Clock()
+
+	# Play Menu
+	play_menu = pygameMenu.Menu(configscreen.screen,
+								bgfun=main_background,
+								color_selected=constants.WHITE,
+								font=pygameMenu.fonts.FONT_BEBAS,
+								font_size=30,
+								menu_alpha=100,
+								menu_color=constants.DARK_BROWN_DIRT,
+								menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+								menu_width=int(constants.SCREEN_WIDTH * 0.6),
+								onclose=PYGAME_MENU_DISABLE_CLOSE,
+								option_shadow=False,
+								title='Play Menu',
+								window_height=constants.SCREEN_HEIGHT,
+								window_width=constants.SCREEN_WIDTH)
+	play_menu.add_option('Start', gameplay)
+	play_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
+
+	# About Menu
+	about_menu = pygameMenu.TextMenu(configscreen.screen,
+								bgfun=main_background,
+								color_selected=constants.WHITE,
+								font=pygameMenu.fonts.FONT_BEBAS,
+								font_color=constants.DARK_GRASS_GREEN,
+								font_size_title=30,
+								font_title=pygameMenu.fonts.FONT_8BIT,
+								menu_color=constants.LIGHT_BROWN_DIRT,
+								menu_color_title=constants.LIGHT_GRASS_GREEN,
+								menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+								menu_width=int(constants.SCREEN_WIDTH * 0.6),
+								onclose=PYGAME_MENU_DISABLE_CLOSE,
+								option_shadow=False,
+								text_color=constants.WHITE,
+								text_fontsize=20,
+								title='About',
+								window_height=constants.SCREEN_HEIGHT,
+								window_width=constants.SCREEN_WIDTH)
+	for m in constants.ABOUT:
+		about_menu.add_line(m)
+		about_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)					
+	about_menu.add_option('Return to menu', PYGAME_MENU_BACK)
+
+
+	# Core Menu
+	main_menu = pygameMenu.Menu(configscreen.screen,
+								bgfun=main_background,
+								color_selected=constants.WHITE,
+								font=pygameMenu.fonts.FONT_BEBAS,
+								font_size=30,
+								menu_alpha=100,
+								menu_color=constants.DARK_BROWN_DIRT,
+								menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+								menu_width=int(constants.SCREEN_WIDTH * 0.6),
+								onclose=PYGAME_MENU_DISABLE_CLOSE,
+								option_shadow=False,
+								title='Main Menu',
+								window_height=constants.SCREEN_HEIGHT,
+								window_width=constants.SCREEN_WIDTH)
+	
+	main_menu.add_option('Play', play_menu)
+	main_menu.add_option('About', about_menu)
+	main_menu.add_option('Quit', PYGAME_MENU_EXIT)
+	
+	while True:
+
+		# Tick
+		clock.tick(60)
+
+		# Application events
+		events = pygame.event.get()
+		for event in events:
+			if event.type == QUIT:
+				exit()
+
+		# Main menu
+		main_menu.mainloop(events)
+
+		# Flip surface
+		pygame.display.flip()
+
+
+
+
+def gameplay():
 	""" Main Program """
 	pygame.init()
  
@@ -94,25 +200,22 @@ def main():
 	level_list.append(levels.Level_02(player))
  
 	# Set the current level
-	current_level_no = 0
+	current_level_no = 0 # dis is suck # mentok disini
 	current_level = level_list[current_level_no]
  
 	active_sprite_list = pygame.sprite.Group()
 	player.level = current_level
  
 	# player position
-	player.rect.x = 70
-	player.rect.y = 360
-	active_sprite_list.add(player)
-	#if current_level_no == 0:
-	#	player.rect.x = 70
-	#	player.rect.y = 360
-	#	active_sprite_list.add(player)
-	#elif current_level_no == 1:
-	#	player.rect.x = 1500
-	#	player.rect.y = 360
-	#	active_sprite_list.add(player)
-	
+	if current_level == level_list[0]:
+		player.rect.x = 70
+		player.rect.y = 360
+		active_sprite_list.add(player)
+	elif current_level == level_list[1]:
+		player.rect.x = 70
+		player.rect.y = 360
+		active_sprite_list.add(player)
+
  
 	#Loop until the user clicks the close button.
 	gameExit = False
@@ -141,8 +244,8 @@ def main():
 						gameExit = True
 						gameOver = False
 					elif event.key == pygame.K_c:
-						# this is sucks too
-						main()
+						# main()
+						gameplay()
 		
 		for event in pygame.event.get(): # User did something
 			if event.type == pygame.QUIT: # If user clicked close
@@ -193,13 +296,14 @@ def main():
 
 
 		# if player fall is game over
-		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0 :
-			gameOver = True
+		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
+			if current_level == level_list[0] or level_list[1]:
+				gameOver = True
 
 		# ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
 		current_level.draw(configscreen.screen)
 		active_sprite_list.draw(configscreen.screen)
- 
+
 		# ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
  
 		# Limit to 60 frames per second
@@ -213,5 +317,7 @@ def main():
 	pygame.quit()
 	quit()
  
-if __name__ == "__main__":
-	main()
+# if __name__ == "__main__":
+#	main()
+
+main_menu()
