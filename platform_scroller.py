@@ -116,6 +116,78 @@ def main_menu():
 	play_menu.add_option('Start', gameplay)
 	play_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
 
+
+	# Language Menu
+	language_menu = pygameMenu.Menu(configscreen.screen,
+									bgfun=main_background,
+									color_selected=constants.WHITE,
+									font=pygameMenu.fonts.FONT_BEBAS,
+									font_size=30,
+									menu_alpha=100,
+									menu_color=constants.DARK_BROWN_DIRT,
+									menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+									menu_width=int(constants.SCREEN_WIDTH * 0.6),
+									onclose=PYGAME_MENU_DISABLE_CLOSE,
+									option_shadow=False,
+									title='Language Settings',
+									window_height=constants.SCREEN_HEIGHT,
+									window_width=constants.SCREEN_WIDTH)
+	language_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
+	
+	# Display Menu
+	display_menu = pygameMenu.Menu(configscreen.screen,
+									bgfun=main_background,
+									color_selected=constants.WHITE,
+									font=pygameMenu.fonts.FONT_BEBAS,
+									font_size=30,
+									menu_alpha=100,
+									menu_color=constants.DARK_BROWN_DIRT,
+									menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+									menu_width=int(constants.SCREEN_WIDTH * 0.6),
+									onclose=PYGAME_MENU_DISABLE_CLOSE,
+									option_shadow=False,
+									title='Display Settings',
+									window_height=constants.SCREEN_HEIGHT,
+									window_width=constants.SCREEN_WIDTH)
+	display_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
+	
+	# Sounds Menu
+	sounds_menu = pygameMenu.Menu(configscreen.screen,
+									bgfun=main_background,
+									color_selected=constants.WHITE,
+									font=pygameMenu.fonts.FONT_BEBAS,
+									font_size=30,
+									menu_alpha=100,
+									menu_color=constants.DARK_BROWN_DIRT,
+									menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+									menu_width=int(constants.SCREEN_WIDTH * 0.6),
+									onclose=PYGAME_MENU_DISABLE_CLOSE,
+									option_shadow=False,
+									title='Sounds Settings',
+									window_height=constants.SCREEN_HEIGHT,
+									window_width=constants.SCREEN_WIDTH)
+	sounds_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
+
+	# Option Menu
+	option_menu = pygameMenu.Menu(configscreen.screen,
+								bgfun=main_background,
+								color_selected=constants.WHITE,
+								font=pygameMenu.fonts.FONT_BEBAS,
+								font_size=30,
+								menu_alpha=100,
+								menu_color=constants.DARK_BROWN_DIRT,
+								menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+								menu_width=int(constants.SCREEN_WIDTH * 0.6),
+								onclose=PYGAME_MENU_DISABLE_CLOSE,
+								option_shadow=False,
+								title="Option",
+								window_height=constants.SCREEN_HEIGHT,
+								window_width=constants.SCREEN_WIDTH)
+	option_menu.add_option('Language', language_menu)
+	option_menu.add_option('Display', display_menu)
+	option_menu.add_option('Sounds', sounds_menu)
+	option_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
+
 	# About Menu
 	about_menu = pygameMenu.TextMenu(configscreen.screen,
 								bgfun=main_background,
@@ -158,6 +230,7 @@ def main_menu():
 								window_width=constants.SCREEN_WIDTH)
 	
 	main_menu.add_option('Play', play_menu)
+	main_menu.add_option('Option', option_menu)
 	main_menu.add_option('About', about_menu)
 	main_menu.add_option('Quit', PYGAME_MENU_EXIT)
 	
