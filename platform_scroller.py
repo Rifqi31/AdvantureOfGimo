@@ -19,7 +19,9 @@ import levels
 # import config font and screen
 import configfont
 import configscreen
-
+# import sounds file
+import configsounds
+# import player module
 from player import Player
 
 class BasicSettings(object):
@@ -59,6 +61,16 @@ def fullscreen_settings():
 def windowed_settings():
 	""" This function for windowed screen settings """
 	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
+
+
+# ----- For Sounds Settings -----
+def turn_off_sounds():
+	""" This function for turn off all sounds """
+	pygame.mixer.music.stop()
+
+def turn_on_sounds():
+	""" This function for turn on all sounds """
+	pygame.mixer.music.play()
 
 
 # ----- Main Menu ----- 
@@ -109,7 +121,6 @@ def option_menu():
 									title='Display Settings',
 									window_height=constants.SCREEN_HEIGHT,
 									window_width=constants.SCREEN_WIDTH)
-	# SOMETHING WRONG IN HERE
 	display_menu.add_option('Windowed', windowed_settings)
 	display_menu.add_option('Fullscreen', fullscreen_settings)
 	display_menu.add_option('Return to Option', PYGAME_MENU_BACK)
@@ -129,6 +140,8 @@ def option_menu():
 									title='Sounds Settings',
 									window_height=constants.SCREEN_HEIGHT,
 									window_width=constants.SCREEN_WIDTH)
+	sounds_menu.add_option('On', turn_on_sounds)
+	sounds_menu.add_option('Off', turn_off_sounds)
 	sounds_menu.add_option('Return to Main Menu', PYGAME_MENU_BACK)
 
 	# Option Menu
@@ -146,10 +159,9 @@ def option_menu():
 								title="Option",
 								window_height=constants.SCREEN_HEIGHT,
 								window_width=constants.SCREEN_WIDTH)
-	# NEED FIX THIS
-	option_menu.add_option('Language', language_menu)
-	option_menu.add_option('Display', display_menu)
-	option_menu.add_option('Sounds', sounds_menu)
+	option_menu.add_option(language_menu.get_title(), language_menu)
+	option_menu.add_option(display_menu.get_title(), display_menu)
+	option_menu.add_option(sounds_menu.get_title(), sounds_menu)
 	option_menu.add_option('Return to Main Menu', main_menu)
 
 	while True:
@@ -175,7 +187,6 @@ def option_menu():
 def main_menu():
 	""" Function for Main Menu """
 	clock = pygame.time.Clock()
-
 	# Play Menu
 	play_menu = pygameMenu.Menu(configscreen.screen,
 								bgfun=main_background,
@@ -253,10 +264,10 @@ def main_menu():
 								window_height=constants.SCREEN_HEIGHT,
 								window_width=constants.SCREEN_WIDTH)
 
-	main_menu.add_option('Play', play_menu)
-	main_menu.add_option('Option', option_menu)
-	main_menu.add_option('How To Play', how_to_play_menu)
-	main_menu.add_option('About', about_menu)
+	main_menu.add_option(play_menu.get_title(), play_menu)
+	main_menu.add_option(option_menu.get_title() , option_menu)
+	main_menu.add_option(how_to_play_menu.get_title(), how_to_play_menu)
+	main_menu.add_option(about_menu.get_title(), about_menu)
 	main_menu.add_option('Quit', PYGAME_MENU_EXIT)
 
 	while True:
@@ -316,15 +327,17 @@ def gameplay():
 
 
 	#Loop until the user clicks the close button.
+	# variable for game exit of course
 	gameExit = False
+	# variabel for game over of course
 	gameOver = False
 
 	# Used to manage how fast the screen updates
 	clock = pygame.time.Clock()
-
+	# call a class with a variable
 	settings = BasicSettings()
 
-	# stuck in here, or change type pause, with a simple pause
+	# display in game settings
 	option_display_settings = pygameMenu.Menu(configscreen.screen,
 					   bgfun=main_background,
 					   enabled=False,
@@ -340,6 +353,37 @@ def gameplay():
 	option_display_settings.add_option('Windowed', windowed_settings)
 	option_display_settings.add_option('Back', PYGAME_MENU_BACK)
 
+	# sounds in game settings
+	option_sounds_settings = pygameMenu.Menu(configscreen.screen,
+							bgfun=main_background,
+							enabled=False,
+							font=pygameMenu.fonts.FONT_NEVIS,
+							menu_alpha=90,
+							onclose=PYGAME_MENU_CLOSE,
+							title='Sounds Settings',
+							title_offsety=5,
+							window_height=constants.SCREEN_HEIGHT,
+							window_width=constants.SCREEN_WIDTH)
+
+	option_sounds_settings.add_option('On', turn_on_sounds)
+	option_sounds_settings.add_option('Off', turn_off_sounds)
+	option_sounds_settings.add_option('Back', PYGAME_MENU_BACK)
+	
+	# help in game setitings
+	help_in_game = pygameMenu.Menu(configscreen.screen,
+								bgfun=main_background,
+								enabled=False,
+								font=pygameMenu.fonts.FONT_NEVIS,
+								menu_alpha=90,
+								onclose=PYGAME_MENU_CLOSE,
+								title='Help Menu',
+								title_offsety=5,
+								window_height=constants.SCREEN_HEIGHT,
+								window_width=constants.SCREEN_WIDTH)
+
+	help_in_game.add_option('Back', PYGAME_MENU_BACK)
+
+	# pause menu
 	menu = pygameMenu.Menu(configscreen.screen,
 					   bgfun=main_background,
 					   enabled=False,
@@ -352,7 +396,8 @@ def gameplay():
 					   window_width=constants.SCREEN_WIDTH)
 
 	# menu.add_option('Resume', PYGAME_MENU_CLOSE)
-	menu.add_option('Option', option_display_settings)
+	menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
+	menu.add_option(option_display_settings.get_title(), option_display_settings)
 	menu.add_option('Exit', PYGAME_MENU_EXIT)  # Add exit function
 
 	# -------- Main Program Loop -----------
