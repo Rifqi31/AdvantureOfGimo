@@ -26,3 +26,8 @@ SCREEN_HEIGHT = 600
 # for about
 ABOUT = ['Author: Rifqi Muttaqin',
          'Email: muttaqinrifqi31@gmail.com']
+
+HELP = ['--> : Move Right',
+        '<-- : Move Left',
+        'Arror up : Jump',
+        'ESC : Pause/Resume']
