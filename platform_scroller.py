@@ -265,7 +265,7 @@ def main_menu():
 								window_width=constants.SCREEN_WIDTH)
 
 	main_menu.add_option(play_menu.get_title(), play_menu)
-	main_menu.add_option(option_menu.get_title() , option_menu)
+	main_menu.add_option('Option' , option_menu)
 	main_menu.add_option(how_to_play_menu.get_title(), how_to_play_menu)
 	main_menu.add_option(about_menu.get_title(), about_menu)
 	main_menu.add_option('Quit', PYGAME_MENU_EXIT)
@@ -344,7 +344,7 @@ def gameplay():
 					   font=pygameMenu.fonts.FONT_NEVIS,
 					   menu_alpha=90,
 					   onclose=PYGAME_MENU_CLOSE,
-					   title='Display Settings',
+					   title='Display',
 					   title_offsety=5,
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
@@ -360,7 +360,7 @@ def gameplay():
 							font=pygameMenu.fonts.FONT_NEVIS,
 							menu_alpha=90,
 							onclose=PYGAME_MENU_CLOSE,
-							title='Sounds Settings',
+							title='Sounds',
 							title_offsety=5,
 							window_height=constants.SCREEN_HEIGHT,
 							window_width=constants.SCREEN_WIDTH)
@@ -370,18 +370,23 @@ def gameplay():
 	option_sounds_settings.add_option('Back', PYGAME_MENU_BACK)
 	
 	# help in game setitings
-	help_in_game = pygameMenu.Menu(configscreen.screen,
-								bgfun=main_background,
-								enabled=False,
-								font=pygameMenu.fonts.FONT_NEVIS,
-								menu_alpha=90,
-								onclose=PYGAME_MENU_CLOSE,
-								title='Help Menu',
-								title_offsety=5,
-								window_height=constants.SCREEN_HEIGHT,
-								window_width=constants.SCREEN_WIDTH)
+	help_menu = pygameMenu.TextMenu(configscreen.screen,
+									bgfun=main_background,
+									font=pygameMenu.fonts.FONT_NEVIS,
+									font_size_title=30,
+									font_title=pygameMenu.fonts.FONT_8BIT,
+									menu_color_title=constants.BLUE,
+									onclose=PYGAME_MENU_CLOSE,
+									text_fontsize=20,
+									title='Help',
+									window_height=constants.SCREEN_HEIGHT,
+									window_width=constants.SCREEN_WIDTH
+									)
+	help_menu.add_option('Return to Menu', PYGAME_MENU_BACK)
+	for m in constants.HELP:
+		help_menu.add_line(m)
+	help_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)
 
-	help_in_game.add_option('Back', PYGAME_MENU_BACK)
 
 	# pause menu
 	menu = pygameMenu.Menu(configscreen.screen,
@@ -395,9 +400,9 @@ def gameplay():
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
 
-	# menu.add_option('Resume', PYGAME_MENU_CLOSE)
 	menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
 	menu.add_option(option_display_settings.get_title(), option_display_settings)
+	menu.add_option(help_menu.get_title(), help_menu)
 	menu.add_option('Exit', PYGAME_MENU_EXIT)  # Add exit function
 
 	# -------- Main Program Loop -----------
@@ -432,6 +437,8 @@ def gameplay():
 					player.go_right()
 				elif event.key == pygame.K_UP:
 					player.jump()
+					# jump sound has been activated
+					configsounds.jump_sfx.play()
 				elif event.key == pygame.K_ESCAPE:
 					menu.enable()
 
