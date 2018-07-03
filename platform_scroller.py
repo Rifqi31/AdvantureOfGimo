@@ -85,6 +85,12 @@ def main_background():
 	configscreen.screen.blit(background_image, background_position)
 
 
+def pause_background():
+	""" Function for pause background color """
+
+	configscreen.screen.fill(constants.BLUE)
+
+
 # Option Menu
 def option_menu():
 	""" Function for Option Menu """
@@ -339,13 +345,15 @@ def gameplay():
 
 	# display in game settings
 	option_display_settings = pygameMenu.Menu(configscreen.screen,
-					   bgfun=main_background,
+					   bgfun=pause_background,
 					   enabled=False,
 					   font=pygameMenu.fonts.FONT_NEVIS,
 					   menu_alpha=90,
 					   onclose=PYGAME_MENU_CLOSE,
 					   title='Display',
 					   title_offsety=5,
+					   menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+					   menu_width=int(constants.SCREEN_WIDTH * 0.6),
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
 	
@@ -355,13 +363,15 @@ def gameplay():
 
 	# sounds in game settings
 	option_sounds_settings = pygameMenu.Menu(configscreen.screen,
-							bgfun=main_background,
+							bgfun=pause_background,
 							enabled=False,
 							font=pygameMenu.fonts.FONT_NEVIS,
 							menu_alpha=90,
 							onclose=PYGAME_MENU_CLOSE,
 							title='Sounds',
 							title_offsety=5,
+							menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+							menu_width=int(constants.SCREEN_WIDTH * 0.6),
 							window_height=constants.SCREEN_HEIGHT,
 							window_width=constants.SCREEN_WIDTH)
 
@@ -371,7 +381,7 @@ def gameplay():
 	
 	# help in game setitings
 	help_menu = pygameMenu.TextMenu(configscreen.screen,
-									bgfun=main_background,
+									bgfun=pause_background,
 									font=pygameMenu.fonts.FONT_NEVIS,
 									font_size_title=30,
 									font_title=pygameMenu.fonts.FONT_8BIT,
@@ -379,6 +389,8 @@ def gameplay():
 									onclose=PYGAME_MENU_CLOSE,
 									text_fontsize=20,
 									title='Help',
+									menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+									menu_width=int(constants.SCREEN_WIDTH * 0.6),
 									window_height=constants.SCREEN_HEIGHT,
 									window_width=constants.SCREEN_WIDTH
 									)
@@ -390,13 +402,15 @@ def gameplay():
 
 	# pause menu
 	menu = pygameMenu.Menu(configscreen.screen,
-					   bgfun=main_background,
+					   bgfun=pause_background,
 					   enabled=False,
 					   font=pygameMenu.fonts.FONT_NEVIS,
 					   menu_alpha=90,
 					   onclose=PYGAME_MENU_CLOSE,
-					   title='Main Menu',
+					   title='Pause Menu',
 					   title_offsety=5,
+					   menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+					   menu_width=int(constants.SCREEN_WIDTH * 0.6),
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
 
@@ -408,22 +422,38 @@ def gameplay():
 	# -------- Main Program Loop -----------
 	while not gameExit:
 		if gameOver == True:
-			settings.msg_to_screen("You Lose", constants.RED, y_displace=-50, size = "large")
-			settings.msg_to_screen("Press Q to Quit and Press C to play again", constants.BLACK, 50, size = "medium")
-			pygame.display.update()
+			game_over_screen = pygameMenu.Menu(configscreen.screen,
+                                 dopause=False,
+                                 font=pygameMenu.fonts.FONT_NEVIS,
+                                 font_size_title=30,
+                                 font_title=pygameMenu.fonts.FONT_8BIT,
+                                 menu_color_title=constants.BLUE,
+                                 onclose=PYGAME_MENU_DISABLE_CLOSE,
+                                 title='Game Over',
+                                 menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+                                 menu_width=int(constants.SCREEN_WIDTH * 0.6),
+								 window_height=constants.SCREEN_HEIGHT,
+								 window_width=constants.SCREEN_WIDTH
+                                 )
+			game_over_screen.add_option('Play Gain', gameplay)
+			game_over_screen.add_option('Quit Game', PYGAME_MENU_EXIT)
 
-		while gameOver == True:
-			for event in pygame.event.get():
-				# event game quit
-				if event.type == pygame.QUIT:
-					gameExit = True
-					gameOver = False
-				elif event.type == pygame.KEYDOWN:
-					if event.key == pygame.K_q:
-						gameExit = True
-						gameOver = False
-					elif event.key == pygame.K_c:
-						gameplay()
+			while True:
+
+				# Tick
+				clock.tick(60)
+
+				# Application events
+				events = pygame.event.get()
+				for event in events:
+					if event.type == QUIT:
+						exit()
+
+				# Main menu
+				game_over_screen.mainloop(events)
+
+				# Flip surface
+				pygame.display.flip()
 
 		events = pygame.event.get()
 		for event in events: # User did something
