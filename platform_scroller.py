@@ -466,9 +466,6 @@ def gameplay():
 				# Flip surface
 				pygame.display.flip()
 		
-		if gameSoundOFF == True:
-			configsounds.jump_sfx.stop()
-
 		events = pygame.event.get()
 		for event in events: # User did something
 			if event.type == pygame.QUIT: # If user clicked close
