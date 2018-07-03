@@ -54,6 +54,7 @@ class BasicSettings(object):
 
 
 # ----- For Display Settings -----
+# have a problem with this
 def fullscreen_settings():
 	""" This function for fullscreen settings """
 	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT), pygame.FULLSCREEN)
@@ -66,11 +67,11 @@ def windowed_settings():
 # ----- For Sounds Settings -----
 def turn_off_sounds():
 	""" This function for turn off all sounds """
-	pygame.mixer.music.stop()
+	pygame.mixer.stop()
 
 def turn_on_sounds():
 	""" This function for turn on all sounds """
-	pygame.mixer.music.play()
+	configsounds.background_music.play(loops=-1)
 
 
 # ----- Main Menu ----- 
@@ -192,7 +193,16 @@ def option_menu():
 # Main Menu
 def main_menu():
 	""" Function for Main Menu """
+	
+	# initialize
+	pygame.init()
+	
+	# set for title my game
+	pygame.display.set_caption("Advanture of Gimo")
+	
+	# set clock
 	clock = pygame.time.Clock()
+	
 	# Play Menu
 	play_menu = pygameMenu.Menu(configscreen.screen,
 								bgfun=main_background,
@@ -270,7 +280,7 @@ def main_menu():
 								window_height=constants.SCREEN_HEIGHT,
 								window_width=constants.SCREEN_WIDTH)
 
-	main_menu.add_option(play_menu.get_title(), play_menu)
+	main_menu.add_option('Play', play_menu)
 	main_menu.add_option('Option' , option_menu)
 	main_menu.add_option(how_to_play_menu.get_title(), how_to_play_menu)
 	main_menu.add_option(about_menu.get_title(), about_menu)
@@ -299,9 +309,6 @@ def main_menu():
 def gameplay():
 	""" Main Program """
 	pygame.init()
-
-	configscreen.size = [constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT]
-	configscreen.screen = pygame.display.set_mode(configscreen.size)
 
 	# set for title my game
 	pygame.display.set_caption("Advanture of Gimo")
@@ -343,6 +350,9 @@ def gameplay():
 	# call a class with a variable
 	settings = BasicSettings()
 
+	# playing the music without stop
+	configsounds.background_music.play(loops=-1)
+
 	# display in game settings
 	option_display_settings = pygameMenu.Menu(configscreen.screen,
 					   bgfun=pause_background,
@@ -362,6 +372,7 @@ def gameplay():
 	option_display_settings.add_option('Back', PYGAME_MENU_BACK)
 
 	# sounds in game settings
+	# something wrong in these
 	option_sounds_settings = pygameMenu.Menu(configscreen.screen,
 							bgfun=pause_background,
 							enabled=False,
@@ -375,8 +386,8 @@ def gameplay():
 							window_height=constants.SCREEN_HEIGHT,
 							window_width=constants.SCREEN_WIDTH)
 
-	option_sounds_settings.add_option('On', turn_on_sounds)
-	option_sounds_settings.add_option('Off', turn_off_sounds)
+	option_sounds_settings.add_option('On Music', turn_on_sounds)
+	option_sounds_settings.add_option('Off Music', turn_off_sounds)
 	option_sounds_settings.add_option('Back', PYGAME_MENU_BACK)
 	
 	# help in game setitings
@@ -413,7 +424,7 @@ def gameplay():
 					   menu_width=int(constants.SCREEN_WIDTH * 0.6),
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
-
+	
 	menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
 	menu.add_option(option_display_settings.get_title(), option_display_settings)
 	menu.add_option(help_menu.get_title(), help_menu)
@@ -454,6 +465,9 @@ def gameplay():
 
 				# Flip surface
 				pygame.display.flip()
+		
+		if gameSoundOFF == True:
+			configsounds.jump_sfx.stop()
 
 		events = pygame.event.get()
 		for event in events: # User did something
@@ -467,11 +481,9 @@ def gameplay():
 					player.go_right()
 				elif event.key == pygame.K_UP:
 					player.jump()
-					# jump sound has been activated
-					configsounds.jump_sfx.play()
 				elif event.key == pygame.K_ESCAPE:
 					menu.enable()
-
+					
 			elif event.type == pygame.KEYUP:
 				if event.key == pygame.K_LEFT and player.change_x < 0:
 					player.stop()
