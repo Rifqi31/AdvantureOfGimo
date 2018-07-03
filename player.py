@@ -5,6 +5,9 @@ controlled sprite on the screen.
 import pygame
  
 import constants
+
+# import sounds module
+import configsounds
  
 from platforms import MovingPlatform
 from spritesheet_functions import SpriteSheet
@@ -148,12 +151,15 @@ class Player(pygame.sprite.Sprite):
         # move down a bit and see if there is a platform below us.
         # Move down 2 pixels because it doesn't work well if we only move down 1
         # when working with a platform moving down.
+        
         self.rect.y += 2
         platform_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
         self.rect.y -= 2
  
         # If it is ok to jump, set our speed upwards
         if len(platform_hit_list) > 0 or self.rect.bottom >= constants.SCREEN_HEIGHT:
+            # play the sound
+            configsounds.jump_sfx.play()
             self.change_y = -10
  
     # Player-controlled movement:
