@@ -26,7 +26,9 @@ import pygame as _pygame
 import pygame.gfxdraw as _gfxdraw
 import types
 
+# my own import module
 import pygame
+import configsounds
 
 
 # noinspection PyBroadException
@@ -546,34 +548,56 @@ class Menu(object):
             elif event.type == _pygame.locals.KEYDOWN:
                 if event.key == _ctrl.MENU_CTRL_DOWN:
                     self._down()
+                    # my own code
+                    configsounds.menu_sfx.play()
                 elif event.key == _ctrl.MENU_CTRL_UP:
                     self._up()
+                    # my own code
+                    configsounds.menu_sfx.play()
                 elif event.key == _ctrl.MENU_CTRL_ENTER:
                     self._select()
+                    # my own code
+                    configsounds.menu_sfx.play()
                     if not self._actual._dopause:
                         return True
                 elif event.key == _ctrl.MENU_CTRL_LEFT:
                     self._left()
+                    # my own code
+                    configsounds.menu_sfx.play()
                 elif event.key == _ctrl.MENU_CTRL_RIGHT:
                     self._right()
+                    # my own code
+                    configsounds.menu_sfx.play()
                 elif event.key == _ctrl.MENU_CTRL_BACK:
                     self.reset(1)
+                    # my own code
+                    configsounds.menu_sfx.play()
                 elif event.key == _ctrl.MENU_CTRL_CLOSE_MENU and \
                         not self._closelocked:
                     onclose = self._actual._onclose
                     close = True
+                    # my own code
+                    configsounds.menu_sfx.play()
                     if not isinstance(onclose, type(None)):
                         a = isinstance(onclose, _locals.PymenuAction)
                         b = str(type(onclose)) == _locals.PYGAMEMENU_PYMENUACTION
                         if a or b:
                             if onclose == _locals.PYGAME_MENU_RESET:
                                 self.reset(100)
+                                # my own code
+                                configsounds.menu_sfx.play()
                             elif onclose == _locals.PYGAME_MENU_BACK:
                                 self.reset(1)
+                                # my own code
+                                configsounds.menu_sfx.play()
                             elif onclose == _locals.PYGAME_MENU_EXIT:
+                                # my own code
+                                configsounds.menu_sfx.play()
                                 exit()
                             elif onclose == _locals.PYGAME_MENU_DISABLE_CLOSE:
                                 close = False
+                                # my own code
+                                configsounds.menu_sfx.play()
                         elif isinstance(onclose, types.FunctionType):
                             onclose()
                     else:
