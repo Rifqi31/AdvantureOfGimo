@@ -26,6 +26,8 @@ import pygame as _pygame
 import pygame.gfxdraw as _gfxdraw
 import types
 
+import pygame
+
 
 # noinspection PyBroadException
 class Menu(object):
@@ -367,6 +369,10 @@ class Menu(object):
             self._enabled = False
             self._closelocked = True
 
+        # my own code
+        # this spell for resume background music after quit pause menu
+        pygame.mixer.unpause()
+
     def _down(self):
         """
         Move selection down.
@@ -489,6 +495,10 @@ class Menu(object):
         if self.is_disabled():
             self._enabled = True
             self._closelocked = True
+        
+        # my own code
+        # this spell for pause the music while in pause menu
+        pygame.mixer.pause()
 
     def get_title(self):
         """
