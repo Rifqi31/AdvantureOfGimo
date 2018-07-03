@@ -7,9 +7,7 @@ import pygame
 # intialize
 pygame.init()
 
-# load from file
 # for music
-main_menu_background_music = pygame.mixer.music.load("sounds/01_Invitation.ogg")
-
+background_music = pygame.mixer.Sound("sounds/01_Invitation.ogg")
 # for SFX
 jump_sfx = pygame.mixer.Sound("sounds/jump_sfx.wav")
