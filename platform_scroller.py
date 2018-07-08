@@ -24,6 +24,41 @@ import configsounds
 # import player module
 from player import Player
 
+from spritesheet_functions import SpriteSheet
+
+import random
+
+class BasicSettings(object):
+	"""this is basic settings"""
+
+	def text_objects(self ,text, color, size):
+		"""Function for store variable size font"""
+
+		# config text size small
+		if size == "small":
+			textSurface = configfont.smallfont.render(text, True, color)
+		# config text size medium
+		elif size == "medium":
+			textSurface = configfont.medfont.render(text, True, color)
+		# config text size large
+		elif size == "large":
+			textSurface = configfont.largefont.render(text, True, color)
+
+		return textSurface, textSurface.get_rect()
+
+	def msg_to_screen(self, msg, color, size = "small"):
+		"""Function for render text to the screen """
+
+		# for calling it self
+		settings = BasicSettings()
+
+		textSurf, textRect = settings.text_objects(msg, color, size)
+		# textRect.center = (constants.SCREEN_WIDTH / 2), (constants.SCREEN_HEIGHT / 2) + y_displace
+		configscreen.screen.blit(textSurf, [0, 550])
+		# configscreen.screen.blit(textSurf, textRect)
+
+
+
 # ----- For Display Settings -----
 def fullscreen_settings():
 	""" This function for fullscreen settings """
@@ -251,14 +286,9 @@ def gameplay():
 	player.level = current_level
 
 	# player position
-	if current_level == level_list[0]:
-		player.rect.x = 70
-		player.rect.y = 360
-		active_sprite_list.add(player)
-	elif current_level == level_list[1]:
-		player.rect.x = 70
-		player.rect.y = 360
-		active_sprite_list.add(player)
+	player.rect.x = 70
+	player.rect.y = 360
+	active_sprite_list.add(player)
 
 
 	#Loop until the user clicks the close button.
@@ -269,6 +299,19 @@ def gameplay():
 
 	# play the sound
 	turn_on_sounds()
+
+	settings = BasicSettings()
+
+
+	# creating a snows
+	# create an empty array
+	snow_list = []
+
+	for i in range(50):
+		x = random.randrange(0, 790)
+		y = random.randrange(0, 590)
+		# pygame.draw.circle(screen, WHITE, [x, y], 2)
+		snow_list.append([x, y])
 
 	# Used to manage how fast the screen updates
 	clock = pygame.time.Clock()
@@ -397,7 +440,7 @@ def gameplay():
 
 				# Flip surface
 				pygame.display.flip()
-		
+			
 		events = pygame.event.get()
 		for event in events: # User did something
 			if event.type == pygame.QUIT: # If user clicked close
@@ -437,7 +480,6 @@ def gameplay():
 			player.rect.left = 120
 			current_level.shift_world(diff)
 
-		# if player got to portal # this is sucks
 		current_position = player.rect.x + current_level.world_shift
 		if current_position < current_level.level_limit:
 			player.rect.x = 120
@@ -445,8 +487,7 @@ def gameplay():
 				current_level_no += 1
 				current_level = level_list[current_level_no]
 				player.level = current_level
-
-
+						
 		# if player fall is game over
 		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
 			if current_level == level_list[0] or level_list[1]:
@@ -457,6 +498,30 @@ def gameplay():
 		active_sprite_list.draw(configscreen.screen)
 
 		# ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
+
+		if current_level == level_list[0]:
+
+			settings.msg_to_screen("Level 1", constants.WHITE, size = "medium")
+			pygame.display.update()
+			
+
+			# process each snow flake in the list
+			for i in range(len(snow_list)):
+
+				# draw the snow flake
+				pygame.draw.circle(configscreen.screen, constants.WHITE, snow_list[i], 2)
+
+				# move the snow flake down one pixel
+				snow_list[i][1] += 1
+
+				# if the snow flake has moved off the bottom of the screen
+				if snow_list[i][1] > 450:
+					# reset it just above the top
+					y = random.randrange(-50, -10)
+					snow_list[i][1] = y
+					# give it new x position
+					x = random.randrange(0, 790)
+					snow_list[i][0] = x
 
 		# Limit to 60 frames per second
 		clock.tick(60)
