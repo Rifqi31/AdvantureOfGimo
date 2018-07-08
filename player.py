@@ -132,7 +132,7 @@ class Player(pygame.sprite.Sprite):
             elif self.change_x < 0:
                 # Otherwise if we are moving left, do the opposite.
                 self.rect.left = block.rect.right
- 
+        
         # Move up/down
         self.rect.y += self.change_y
  
@@ -151,7 +151,6 @@ class Player(pygame.sprite.Sprite):
  
             if isinstance(block, MovingPlatform):
                 self.rect.x += block.change_x
-
  
     def calc_grav(self):
         """ Calculate effect of gravity. """
@@ -181,7 +180,7 @@ class Player(pygame.sprite.Sprite):
             # play the sound
             configsounds.jump_sfx.play()
             self.change_y = -10
- 
+        
     # Player-controlled movement:
     def go_left(self):
         """ Called when the user hits the left arrow. """
