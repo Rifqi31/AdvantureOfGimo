@@ -8,7 +8,7 @@ Module for managing platforms.
 # import pygame module
 import pygame
 # import spritesheet_functions file
-from spritesheet_functions import SpriteSheet 
+from spritesheet_functions import SpriteSheet
 
 # These constants define our platform types:
 #   Name of file
@@ -30,8 +30,37 @@ dirt_small_half_grass = (219, 219, 140, 70)
 one_dirt = (365, 219, 70, 70)
 # for flying dirt
 dirt_rounded = (438, 219, 70, 70)
-# portal tiles
-portal_level1 = (365, 803, 70 ,70)
+
+
+# for snow dirt
+snow_dirt_wall = (770, 162, 140, 630)
+snow_dirt_big_wall = (325, 162, 350, 630)
+snow_dirt_intro = (0, 0, 770, 140)
+
+# proto portal
+portal_snow = (228, 523, 70, 70)
+
+
+class Platform_snow(pygame.sprite.Sprite):
+    """ Platform the user can jump on """
+ 
+    def __init__(self, sprite_sheet_data):
+        """ Platform constructor. Assumes constructed with user passing in
+            an array of 5 numbers like what's defined at the top of this
+            code. """
+
+        super().__init__()
+        
+        # dirt tileset
+        sprite_sheet_dirt = SpriteSheet("spritesheet/snow_tile_assets.png")
+        
+        # Grab the image for this platform
+        self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
+                                            sprite_sheet_data[1],
+                                            sprite_sheet_data[2],
+                                            sprite_sheet_data[3])
+            
+        self.rect = self.image.get_rect()
 
 
 class Platform(pygame.sprite.Sprite):
@@ -43,19 +72,16 @@ class Platform(pygame.sprite.Sprite):
             code. """
 
         super().__init__()
-
-        # for map tileset
-        sprite_sheet = SpriteSheet("spritesheet/dirt_tile_assets.png")
         
-        # for main menu tileset
-        # main_menu_sheet = SpriteSheet("spritesheet/menus_asset.png")
-
+        # dirt tileset
+        sprite_sheet_dirt = SpriteSheet("spritesheet/dirt_tile_assets.png")
+        
         # Grab the image for this platform
-        self.image = sprite_sheet.get_image(sprite_sheet_data[0],
+        self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
                                             sprite_sheet_data[1],
                                             sprite_sheet_data[2],
                                             sprite_sheet_data[3])
-    
+            
         self.rect = self.image.get_rect()
 
 
