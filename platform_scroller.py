@@ -28,36 +28,7 @@ from spritesheet_functions import SpriteSheet
 
 import random
 
-class BasicSettings(object):
-	"""this is basic settings"""
-
-	def text_objects(self ,text, color, size):
-		"""Function for store variable size font"""
-
-		# config text size small
-		if size == "small":
-			textSurface = configfont.smallfont.render(text, True, color)
-		# config text size medium
-		elif size == "medium":
-			textSurface = configfont.medfont.render(text, True, color)
-		# config text size large
-		elif size == "large":
-			textSurface = configfont.largefont.render(text, True, color)
-
-		return textSurface, textSurface.get_rect()
-
-	def msg_to_screen(self, msg, color, size = "small"):
-		"""Function for render text to the screen """
-
-		# for calling it self
-		settings = BasicSettings()
-
-		textSurf, textRect = settings.text_objects(msg, color, size)
-		# textRect.center = (constants.SCREEN_WIDTH / 2), (constants.SCREEN_HEIGHT / 2) + y_displace
-		configscreen.screen.blit(textSurf, [0, 550])
-		# configscreen.screen.blit(textSurf, textRect)
-
-
+import fontsettings
 
 # ----- For Display Settings -----
 def fullscreen_settings():
@@ -279,7 +250,7 @@ def gameplay():
 	level_list.append(levels.Level_02(player))
 
 	# Set the current level
-	current_level_no = 0 # dis is suck # mentok disini
+	current_level_no = 0
 	current_level = level_list[current_level_no]
 
 	active_sprite_list = pygame.sprite.Group()
@@ -300,8 +271,10 @@ def gameplay():
 	# play the sound
 	turn_on_sounds()
 
-	settings = BasicSettings()
-
+	# call BasicSettings class
+	settings = fontsettings.BasicSettings()
+	# access_sprite_level = levels.Level(player)
+	# access_level_2 = levels.Level_02(player)
 
 	# creating a snows
 	# create an empty array
@@ -409,18 +382,18 @@ def gameplay():
 			configsounds.game_over_sfx.set_volume(0.5)
 
 			game_over_screen = pygameMenu.Menu(configscreen.screen,
-                                 dopause=False,
-                                 font=pygameMenu.fonts.FONT_8BIT,
-                                 font_size_title=30,
-                                 font_title=pygameMenu.fonts.FONT_8BIT,
-                                 menu_color_title=constants.BLUE,
-                                 onclose=PYGAME_MENU_DISABLE_CLOSE,
-                                 title='Game Over',
-                                 menu_height=int(constants.SCREEN_HEIGHT * 0.6),
-                                 menu_width=int(constants.SCREEN_WIDTH * 0.6),
+								 dopause=False,
+								 font=pygameMenu.fonts.FONT_8BIT,
+								 font_size_title=30,
+								 font_title=pygameMenu.fonts.FONT_8BIT,
+								 menu_color_title=constants.BLUE,
+								 onclose=PYGAME_MENU_DISABLE_CLOSE,
+								 title='Game Over',
+								 menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+								 menu_width=int(constants.SCREEN_WIDTH * 0.6),
 								 window_height=constants.SCREEN_HEIGHT,
 								 window_width=constants.SCREEN_WIDTH
-                                 )
+								 )
 			game_over_screen.add_option('Retry', gameplay)
 			game_over_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
@@ -464,7 +437,6 @@ def gameplay():
 
 		# Update the player.
 		active_sprite_list.update()
-
 		# Update items in the level
 		current_level.update()
 
@@ -487,7 +459,7 @@ def gameplay():
 				current_level_no += 1
 				current_level = level_list[current_level_no]
 				player.level = current_level
-						
+				
 		# if player fall is game over
 		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
 			if current_level == level_list[0] or level_list[1]:
@@ -499,10 +471,24 @@ def gameplay():
 
 		# ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
 
+		# if player in the level 01
 		if current_level == level_list[0]:
 
-			settings.msg_to_screen("Level 1", constants.WHITE, size = "medium")
-			pygame.display.update()
+			settings.msg_to_screen("Level 1", constants.WHITE, 0, 0, size = "small")
+			settings.msg_to_screen("Cara Bermain :",
+									constants.WHITE,
+									100, 50, size= "small")
+			settings.msg_to_screen("Tombol tanda panah ----> : jalan ke kanan", 
+									constants.WHITE,
+									100, 100, size= "small")
+			settings.msg_to_screen("Tombol tanda panah <---- : jalan ke kiri",
+									constants.WHITE,
+									100, 150, size="small")
+			settings.msg_to_screen("Tombol tanda panah ^ : melompat",
+									constants.WHITE,
+									100, 200, size="small")
+			settings.msg_to_screen("|", constants.WHITE, 340, 210, size="small")
+			settings.msg_to_screen("Esc : Pause/Resume", constants.WHITE, 100, 250, size="small")
 			
 
 			# process each snow flake in the list
@@ -523,6 +509,13 @@ def gameplay():
 					x = random.randrange(0, 790)
 					snow_list[i][0] = x
 
+		# if the player in the level 02
+		if current_level == level_list[1]:
+			
+			settings.msg_to_screen("Level 2", constants.WHITE, 0, 0, size = "small")
+			settings.msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+			settings.msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			
 		# Limit to 60 frames per second
 		clock.tick(60)
 
