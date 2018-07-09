@@ -41,6 +41,33 @@ snow_dirt_intro = (0, 0, 770, 140)
 portal_snow = (228, 523, 70, 70)
 
 
+# for hiragana & katakana
+hiragana_a = (0, 0, 70, 70)
+hiragana_i = (0, 72, 70, 70)
+
+
+class Platform_hiragana_katakana(pygame.sprite.Sprite):
+    """ Platform the user can take the point """
+
+    def __init__(self, sprite_sheet_data):
+        """ Platform constructor. Assumes constructed with user passing in
+            an array of 5 numbers like what's defined at the top of this
+            code. """
+
+        super().__init__()
+
+        # hiragana&katakana tileset
+        sprite_sheet_wibu = SpriteSheet("spritesheet/hiragana_katakana_tileset.png")
+
+        # Grab the image for this platform
+        self.image = sprite_sheet_wibu.get_image(sprite_sheet_data[0],
+                                                sprite_sheet_data[1],
+                                                sprite_sheet_data[2],
+                                                sprite_sheet_data[3])
+        
+        self.rect = self.image.get_rect()
+
+
 class Platform_snow(pygame.sprite.Sprite):
     """ Platform the user can jump on """
  
