@@ -13,7 +13,11 @@ class Level():
 		# Lists of sprites used in all levels. Add or remove
 		# lists as needed for your game.
 		self.platform_list = None
-		# self.enemy_list = None
+		self.enemy_list = None
+		self.portal_list = None
+		# self.hiragana_katakana = None
+		self.hiragana_A = None
+		self.hiragana_I = None
 
 		# Background image
 		self.background = None
@@ -21,13 +25,20 @@ class Level():
 		# How far this world has been scrolled left/right
 		self.world_shift = 0
 		self.platform_list = pygame.sprite.Group()
-		# self.enemy_list = pygame.sprite.Group()
+		self.enemy_list = pygame.sprite.Group()
+		self.portal_list = pygame.sprite.Group()
+		self.hiragana_A = pygame.sprite.Group()
+		self.hiragana_I = pygame.sprite.Group()
 		self.player = player
 
 	# Update everythign on this level
 	def update(self):
 		""" Update everything in this level."""
 		self.platform_list.update()
+		self.portal_list.update()
+		self.enemy_list.update()
+		self.hiragana_A.update()
+		self.hiragana_I.update()
 
 	def draw(self, screen):
 		""" Draw everything on this level. """
@@ -36,6 +47,10 @@ class Level():
 
 		# Draw all the sprite lists that we have
 		self.platform_list.draw(screen)
+		self.portal_list.draw(screen)
+		self.enemy_list.draw(screen)
+		self.hiragana_A.draw(screen)
+		self.hiragana_I.draw(screen)
 
 	def shift_world(self, shift_x):
 		""" When the user moves left/right and we need to scroll everything: """
@@ -46,10 +61,23 @@ class Level():
 		# Go through all the sprite lists and shift
 		for platform in self.platform_list:
 			platform.rect.x += shift_x
+		
+		for platform in self.portal_list:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_A:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_I:
+			platform.rect.x += shift_x
+		
+		#for platform in self.enemy_list:
+		#	platform.rect.x += shift_x
 
 
 
 # Create platforms for intro game
+# for intro how to play the game
 class Level_01(Level):
 	""" This class for introduce the player """
 
@@ -66,6 +94,8 @@ class Level_01(Level):
 		intro = [[platforms.snow_dirt_wall, -140, 0],
 			[platforms.snow_dirt_intro, 0 , 460],
 			[platforms.snow_dirt_big_wall, 769, 0]]
+		
+		portal = [[platforms.portal_snow, 670, 380]]
 
 		for platform in intro:
 			block = platforms.Platform_snow(platform[0])
@@ -74,6 +104,13 @@ class Level_01(Level):
 			block.player = self.player
 			self.platform_list.add(block)
 		
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
+
 
 # this level 2 for prototype
 # Create platforms for the level
@@ -104,6 +141,10 @@ class Level_02(Level):
 				[platforms.dirt_land_bottom, 1980, 460],
 				[platforms.dirt_big_wall, 2480, 0]]
 		
+		
+		hiragana_a = [[platforms.hiragana_a, 200, 200]]
+		hiragana_i = [[platforms.hiragana_i, 400, 200]]
+		
 
 		for platform in level01:
 			block = platforms.Platform(platform[0])
@@ -111,3 +152,17 @@ class Level_02(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
+		
+		for platform in hiragana_a :
+			point = platforms.Platform_hiragana_katakana(platform[0])
+			point.rect.x = platform[1]
+			point.rect.y = platform[2]
+			point.player = self.player
+			self.hiragana_A.add(point)
+		
+		for platform in hiragana_i :
+			point = platforms.Platform_hiragana_katakana(platform[0])
+			point.rect.x = platform[1]
+			point.rect.y = platform[2]
+			point.player = self.player
+			self.hiragana_I.add(point)
