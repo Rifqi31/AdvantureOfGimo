@@ -161,6 +161,17 @@ class Player(pygame.sprite.Sprite):
 			if isinstance(block, MovingPlatform):
 				self.rect.x += block.change_x
  
+
+
+		# for enemy list
+
+
+
+
+
+
+
+
 		# for portal list
 		go_to_portal_list = pygame.sprite.spritecollide(self, self.level.portal_list, True)
 
