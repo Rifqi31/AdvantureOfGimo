@@ -15,7 +15,6 @@ class Level():
 		self.platform_list = None
 		self.enemy_list = None
 		self.portal_list = None
-		# self.hiragana_katakana = None
 		self.hiragana_A = None
 		self.hiragana_I = None
 
@@ -71,8 +70,8 @@ class Level():
 		for platform in self.hiragana_I:
 			platform.rect.x += shift_x
 		
-		#for platform in self.enemy_list:
-		#	platform.rect.x += shift_x
+		for platform in self.enemy_list:
+			platform.rect.x += shift_x
 
 
 
@@ -144,10 +143,12 @@ class Level_02(Level):
 		
 		hiragana_a = [[platforms.hiragana_a, 200, 200]]
 		hiragana_i = [[platforms.hiragana_i, 400, 200]]
+
+		enemy_skull = [[platforms.skull_ghost, 200, 400]]
 		
 
 		for platform in level01:
-			block = platforms.Platform(platform[0])
+			block = platforms.Platform_dirt(platform[0])
 			block.rect.x = platform[1]
 			block.rect.y = platform[2]
 			block.player = self.player
@@ -166,3 +167,28 @@ class Level_02(Level):
 			point.rect.y = platform[2]
 			point.player = self.player
 			self.hiragana_I.add(point)
+		
+
+
+
+		for platform in enemy_skull:
+			block = platforms.Platform_enemy(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
+
+
+		# add moving sprites using platform algorithmic
+		block = platforms.MovingPlatform(platforms.skull_ghost)
+		block.rect.x = 400
+		block.rect.y = 400
+		block.boundary_left = 100
+		block.boundary_right = 550
+		block.change_x = 1
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+
