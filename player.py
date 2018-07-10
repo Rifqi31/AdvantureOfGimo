@@ -14,6 +14,8 @@ import constants
 
 # import sounds module
 import configsounds
+
+import gameoverscreen
  
 from platforms import MovingPlatform
 from spritesheet_functions import SpriteSheet
@@ -166,7 +168,9 @@ class Player(pygame.sprite.Sprite):
 		# for enemy list
 		hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 		for eaten in hit_by_enemy_list:
-			print("game over!!!!")
+			# print("game over!!!!")
+
+			gameoverscreen.show_game_over()
 
 
 
