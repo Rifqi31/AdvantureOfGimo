@@ -164,6 +164,9 @@ class Player(pygame.sprite.Sprite):
 
 
 		# for enemy list
+		hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
+		for eaten in hit_by_enemy_list:
+			print("game over!!!!")
 
 
 
