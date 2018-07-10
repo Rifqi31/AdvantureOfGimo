@@ -1,6 +1,10 @@
-# Advanture of Gimo
+<h1 align="center">
+  <a href="https://github.com/Rifqi31/AdvantureOfGimo" title="Advanture of Gimo">
+    <img alt="gimo" src="https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/gimo.png" width="200px" height="200px" />
+  </a>
+  <br /><br />
+  Advanture Of Gimo</h1>
 
-<img alt="Gimo" src="https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/gimo.png" width="200px" height="200px" />
 
 <p align="center">Educational Game for learning Hiragana &amp; Katakana</p>
 
