@@ -172,23 +172,23 @@ class Level_02(Level):
 
 
 		for platform in enemy_skull:
-			block = platforms.Platform_enemy(platform[0])
-			block.rect.x = platform[1]
-			block.rect.y = platform[2]
-			block.player = self.player
-			self.platform_list.add(block)
+			eaten = platforms.Platform_enemy(platform[0])
+			eaten.rect.x = platform[1]
+			eaten.rect.y = platform[2]
+			eaten.player = self.player
+			self.enemy_list.add(eaten)
 
 
 
 		# add moving sprites using platform algorithmic
-		block = platforms.MovingPlatform(platforms.skull_ghost)
-		block.rect.x = 400
-		block.rect.y = 400
-		block.boundary_left = 100
-		block.boundary_right = 550
-		block.change_x = 1
-		block.player = self.player
-		block.level = self
-		self.platform_list.add(block)
+		eaten = platforms.MovingPlatform(platforms.skull_ghost)
+		eaten.rect.x = 400
+		eaten.rect.y = 400
+		eaten.boundary_left = 100
+		eaten.boundary_right = 550
+		eaten.change_x = 5
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
 
 
