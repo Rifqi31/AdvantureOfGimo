@@ -5,8 +5,7 @@
   <br /><br />
   Advanture Of Gimo</h1>
 
-->Educational Game for learning Hiragana &amp; Katakana<-
-
+<p align="center">Educational Game for learning Hiragana &amp; Katakana</p>
 
 [![Author](https://img.shields.io/badge/Author-Rifqi%20Muttaqin-orange.svg)](https://github.com/Rifqi31)
 [![GPL License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/)
