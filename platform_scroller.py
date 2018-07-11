@@ -71,69 +71,6 @@ def pause_background():
 	configscreen.screen.fill(constants.BLUE)
 
 
-# Option Menu
-def option_menu():
-	""" Function for Option Menu """
-	clock = pygame.time.Clock()
-	
-	# Display Menu
-	display_menu = pygameMenu.Menu(configscreen.screen,
-									bgfun=main_background,
-									color_selected=constants.WHITE,
-									font=pygameMenu.fonts.FONT_8BIT,
-									font_size=25,
-									font_size_title=30,
-									menu_alpha=100,
-									menu_color=constants.DARK_BROWN_DIRT,
-									menu_height=int(constants.SCREEN_HEIGHT * 0.6),
-									menu_width=int(constants.SCREEN_WIDTH * 0.6),
-									onclose=PYGAME_MENU_DISABLE_CLOSE,
-									option_shadow=False,
-									title='Display Settings',
-									window_height=constants.SCREEN_HEIGHT,
-									window_width=constants.SCREEN_WIDTH)
-	display_menu.add_option('Windowed', windowed_settings)
-	display_menu.add_option('Fullscreen', fullscreen_settings)
-	display_menu.add_option('Return to Option', PYGAME_MENU_BACK)
-
-	# Option Menu
-	option_menu = pygameMenu.Menu(configscreen.screen,
-								bgfun=main_background,
-								color_selected=constants.WHITE,
-								font=pygameMenu.fonts.FONT_8BIT,
-								font_size=25,
-								font_size_title=30,
-								menu_alpha=100,
-								menu_color=constants.DARK_BROWN_DIRT,
-								menu_height=int(constants.SCREEN_HEIGHT * 0.6),
-								menu_width=int(constants.SCREEN_WIDTH * 0.6),
-								onclose=PYGAME_MENU_DISABLE_CLOSE,
-								option_shadow=False,
-								title="Option",
-								window_height=constants.SCREEN_HEIGHT,
-								window_width=constants.SCREEN_WIDTH)
-	option_menu.add_option('Display', display_menu)
-	# option_menu.add_option('Sounds', sounds_menu)
-	option_menu.add_option('Back', main_menu)
-
-	while True:
-
-		# Tick
-		clock.tick(60)
-
-		# Application events
-		events = pygame.event.get()
-		for event in events:
-			if event.type == QUIT:
-				exit()
-
-		# Main menu
-		option_menu.mainloop(events)
-
-		# Flip surface
-		pygame.display.flip()
-
-
 def gameplay():
 	""" Main Program """
 	pygame.init()
@@ -173,8 +110,6 @@ def gameplay():
 
 	# call BasicSettings class
 	settings = fontsettings.BasicSettings()
-	# access_sprite_level = levels.Level(player)
-	# access_level_2 = levels.Level_02(player)
 
 	# creating a snows
 	# create an empty array
@@ -277,7 +212,7 @@ def gameplay():
 		if gameOver == True:
 			
 			gameoverscreen.show_game_over()
-
+		
 		events = pygame.event.get()
 		for event in events: # User did something
 			if event.type == pygame.QUIT: # If user clicked close
