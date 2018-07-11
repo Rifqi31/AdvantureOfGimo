@@ -9,4 +9,6 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://www.python.org/downloads/)
+
 I made this game for my last year project software in my college who interisting about creating game with python language, and fully free, you can learn this code for your knowledge, your experiment or your curious about how it works.
