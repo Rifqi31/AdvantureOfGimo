@@ -20,6 +20,7 @@ import gameoverscreen
 from platforms import MovingPlatform
 from spritesheet_functions import SpriteSheet
 
+
 class Player(pygame.sprite.Sprite):
 	""" This class represents the bar at the bottom that the player
 	controls. """
@@ -173,18 +174,12 @@ class Player(pygame.sprite.Sprite):
 			gameoverscreen.show_game_over()
 
 
-
-
-
-
-
-
 		# for portal list
 		go_to_portal_list = pygame.sprite.spritecollide(self, self.level.portal_list, True)
 
 		for gate in go_to_portal_list:
 			print("next!!!!!")
-
+			
 
 		# for hiragana and katakana list
 		point_wibu_list1 = pygame.sprite.spritecollide(self, self.level.hiragana_A, True)
