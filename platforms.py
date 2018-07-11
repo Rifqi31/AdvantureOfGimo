@@ -10,6 +10,8 @@ import pygame
 # import spritesheet_functions file
 from spritesheet_functions import SpriteSheet
 
+import gameoverscreen
+
 # These constants define our platform types:
 #   Name of file
 #   X location of sprite
@@ -247,16 +249,9 @@ class MovingPlatform(Platform_enemy):
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
- 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+			# if the player just stand up/ not move
+			# in front of enemy, he/she will die!
+			gameoverscreen.show_game_over()
  
 		# Move up/down
 		self.rect.y += self.change_y
@@ -264,14 +259,10 @@ class MovingPlatform(Platform_enemy):
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+			# if the player just stand up/ not move
+			# in front of enemy, he/she will die!
+			gameoverscreen.show_game_over()
  
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
  
 		# Check the boundaries and see if we need to reverse
 		# direction.
