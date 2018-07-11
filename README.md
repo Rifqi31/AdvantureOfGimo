@@ -13,4 +13,6 @@
 
 [![Rifqi Muttaqin](https://img.shields.io/badge/Author-Rifqi%20Muttaqin-orange.svg)](https://github.com/Rifqi31/)
 
+[![Pygame-Version](https://img.shields.io/badge/Pygame-1.9.3-brightgreen.svg)](https://www.pygame.org/download.shtml)
+
 I made this game for my last year project software in my college who interisting about creating game with python language, and fully free, you can learn this code for your knowledge, your experiment or your curious about how it works.
