@@ -1,18 +1,23 @@
-<h1 align="center">
-  <a href="https://github.com/Rifqi31/AdvantureOfGimo" title="Advanture of Gimo">
-    <img alt="gimo" src="https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/gimo.png" width="190px" height="200px" />
-  </a>
-  <br /><br />
-  Advanture Of Gimo</h1>
+# Advanture of Gimo
 
-<p align="center">Educational Game for learning Hiragana &amp; Katakana</p>
+[![Rifqi Muttaqin](https://img.shields.io/badge/Author-Rifqi%20Muttaqin-orange.svg)](https://github.com/Rifqi31/) [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://www.python.org/downloads/) [![Pygame-Version](https://img.shields.io/badge/Pygame-1.9.3-brightgreen.svg)](https://www.pygame.org/download.shtml) [![License GPL](https://img.shields.io/badge/License-GPL--3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+### Educational Game for Learning Hiragana &amp; Katakana
 
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)](https://www.python.org/downloads/)
+I made this game for my last year project software in my college, who interisting about creating game with python language, and fully *free*, you can learn this code for your knowledge, your experiment or your curious about how this game it works.
 
-[![Rifqi Muttaqin](https://img.shields.io/badge/Author-Rifqi%20Muttaqin-orange.svg)](https://github.com/Rifqi31/)
+### Running from source
 
-[![Pygame-Version](https://img.shields.io/badge/Pygame-1.9.3-brightgreen.svg)](https://www.pygame.org/download.shtml)
+If you wanna run this program from source just command and execute the `main.py` program in your command line (Windows) or terminal (Linux)
 
-I made this game for my last year project software in my college who interisting about creating game with python language, and fully free, you can learn this code for your knowledge, your experiment or your curious about how it works.
+`python main.py`
+
+be sure what python version has installed in your system, this code need python version 3, and pygame module version 1.9.3, if the pygame module is not installed, just using this command
+
+`pip install pygame` or `sudo pip install pygame`
+
+but be sure your `pip` and `setuptools` to the latest version installed in your system.
+
+[logo]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/sc_mainmenu.PNG "Main Menu"
+
+![alt text][logo]
