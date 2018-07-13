@@ -9,14 +9,14 @@ from pygame.locals import *
 # import pygame module
 import os
 import pygame
- 
+
 import constants
 
 # import sounds module
 import configsounds
 
 import gameoverscreen
- 
+
 from platforms import MovingPlatform
 from spritesheet_functions import SpriteSheet
 
@@ -24,12 +24,10 @@ from spritesheet_functions import SpriteSheet
 class Player(pygame.sprite.Sprite):
 	""" This class represents the bar at the bottom that the player
 	controls. """
- 
- 
 	# -- Methods
 	def __init__(self):
 		""" Constructor function """
- 
+
 		# Call the parent's constructor
 		super().__init__()
 
@@ -144,7 +142,7 @@ class Player(pygame.sprite.Sprite):
 			elif self.change_x < 0:
 				# Otherwise if we are moving left, do the opposite.
 				self.rect.left = block.rect.right
-			   
+
 		# Move up/down
 		self.rect.y += self.change_y
  
@@ -169,8 +167,6 @@ class Player(pygame.sprite.Sprite):
 		# for enemy list
 		hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 		for eaten in hit_by_enemy_list:
-			# print("game over!!!!")
-
 			gameoverscreen.show_game_over()
 
 
@@ -200,15 +196,15 @@ class Player(pygame.sprite.Sprite):
 			self.change_y = 1
 		else:
 			self.change_y += .35
- 
+
 		# See if we are on the ground.
 		if self.rect.y >= constants.SCREEN_HEIGHT - self.rect.height and self.change_y >= 0:
 			self.change_y = 0
 			self.rect.y = constants.SCREEN_HEIGHT - self.rect.height
- 
+	
 	def jump(self):
 		""" Called when user hits 'jump' button. """
- 
+
 		# move down a bit and see if there is a platform below us.
 		# Move down 2 pixels because it doesn't work well if we only move down 1
 		# when working with a platform moving down.
@@ -216,7 +212,7 @@ class Player(pygame.sprite.Sprite):
 		self.rect.y += 2
 		platform_hit_list = pygame.sprite.spritecollide(self, self.level.platform_list, False)
 		self.rect.y -= 2
- 
+
 		# If it is ok to jump, set our speed upwards
 		if len(platform_hit_list) > 0 or self.rect.bottom >= constants.SCREEN_HEIGHT:
 			# play the sound
@@ -228,13 +224,37 @@ class Player(pygame.sprite.Sprite):
 		""" Called when the user hits the left arrow. """
 		self.change_x = -6
 		self.direction = "L"
- 
+
 	def go_right(self):
 		""" Called when the user hits the right arrow. """
 		self.change_x = 6
 		self.direction = "R"
- 
+
 	def stop(self):
 		""" Called when the user lets off the keyboard. """
 		self.change_x = 0
 
+
+
+# class for bullet
+class Bullet(Player):
+	""" This Class represent the bullet from player"""
+	def __init__(self, player):
+		super().__init__()
+
+		self.image = pygame.Surface([4, 10])
+		self.image.fill(constants.MAGIC_BULLET)
+
+		self.rect = self.image.get_rect()
+
+		self.direction = player.direction
+
+	def casebullet(self):
+		if self.direction == "R":
+			self.rect.x += 5
+		else:
+			self.rect.x -= 5
+
+	def update(self):
+		""" move the bullet """
+		self.casebullet()
