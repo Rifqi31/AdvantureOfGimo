@@ -233,7 +233,7 @@ class Player(pygame.sprite.Sprite):
 	def stop(self):
 		""" Called when the user lets off the keyboard. """
 		self.change_x = 0
-
+	
 
 
 # class for bullet
@@ -247,14 +247,25 @@ class Bullet(Player):
 
 		self.rect = self.image.get_rect()
 
-		self.direction = player.direction
+		self.bullet_list = pygame.sprite.Group()
 
-	def casebullet(self):
-		if self.direction == "R":
-			self.rect.x += 5
-		else:
-			self.rect.x -= 5
+		# access variable from player class
+		self.direction = player.direction
+		self.level = player.level
 
 	def update(self):
 		""" move the bullet """
-		self.casebullet()
+		if self.direction == "R":
+			self.rect.x += 5
+
+		elif self.direction == "L":
+			self.rect.x -= 5
+
+		hitting_enemy = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
+
+		for eaten in hitting_enemy:
+			if self.direction == "R":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+			elif self.direction == "L":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+			
