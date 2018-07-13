@@ -266,6 +266,8 @@ class Bullet(Player):
 		for eaten in hitting_enemy:
 			if self.direction == "R":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
 			elif self.direction == "L":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
 			
