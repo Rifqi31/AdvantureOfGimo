@@ -261,6 +261,7 @@ class Bullet(Player):
 		elif self.direction == "L":
 			self.rect.x -= 5
 
+		# when hit enemy the bullet is gone
 		hitting_enemy = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 
 		for eaten in hitting_enemy:
@@ -270,4 +271,12 @@ class Bullet(Player):
 			elif self.direction == "L":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
 				configsounds.ouch_sfx.play()
-			
+		
+		# when hit platform the bullet is gone
+		hitting_platform = pygame.sprite.spritecollide(self, self.level.platform_list, False)
+
+		for block in hitting_platform:
+			if self.direction == "R":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+			elif self.direction == "L":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
