@@ -23,6 +23,7 @@ import configscreen
 import configsounds
 # import player module
 from player import Player
+from player import Bullet
 
 from spritesheet_functions import SpriteSheet
 
@@ -98,6 +99,7 @@ def gameplay():
 	player.rect.y = 360
 	active_sprite_list.add(player)
 
+	bullet_list = pygame.sprite.Group()
 
 	#Loop until the user clicks the close button.
 	# variable for game exit of course
@@ -225,6 +227,23 @@ def gameplay():
 					player.go_right()
 				elif event.key == pygame.K_UP:
 					player.jump()
+				
+				# for player skill
+				
+				elif event.key == pygame.K_x:
+					# Call the function
+					bullet = Bullet(player)
+					# play the sounds skill
+					configsounds.magic_sfx.play()
+					configsounds.magic_sfx.set_volume(0.5)
+					# Set the bullet so it is where the player is
+					bullet.rect.x = player.rect.x + 50
+					bullet.rect.y = player.rect.y + 30
+					# Add the bullet to the lists
+					active_sprite_list.add(bullet)
+					bullet_list.add(bullet)
+				
+
 				elif event.key == pygame.K_ESCAPE:
 					menu.enable()
 					
