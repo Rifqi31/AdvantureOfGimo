@@ -98,9 +98,7 @@ def gameplay():
 	player.rect.x = 70
 	player.rect.y = 360
 	active_sprite_list.add(player)
-
-	bullet_list = pygame.sprite.Group()
-
+	
 	#Loop until the user clicks the close button.
 	# variable for game exit of course
 	gameExit = False
@@ -229,20 +227,24 @@ def gameplay():
 					player.jump()
 				
 				# for player skill
-				
 				elif event.key == pygame.K_x:
-					# Call the function
+
 					bullet = Bullet(player)
 					# play the sounds skill
 					configsounds.magic_sfx.play()
 					configsounds.magic_sfx.set_volume(0.5)
+
 					# Set the bullet so it is where the player is
-					bullet.rect.x = player.rect.x + 50
-					bullet.rect.y = player.rect.y + 30
+					if player.direction == "R":
+						bullet.rect.x = player.rect.x + 50
+						bullet.rect.y = player.rect.y + 30
+					elif player.direction == "L":
+						bullet.rect.x = player.rect.x
+						bullet.rect.y = player.rect.y + 30
+					
 					# Add the bullet to the lists
 					active_sprite_list.add(bullet)
-					bullet_list.add(bullet)
-				
+					bullet.bullet_list.add(bullet)
 
 				elif event.key == pygame.K_ESCAPE:
 					menu.enable()
@@ -282,7 +284,7 @@ def gameplay():
 		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
 			if current_level == level_list[0] or level_list[1]:
 				gameOver = True
-
+		
 		# ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
 		current_level.draw(configscreen.screen)
 		active_sprite_list.draw(configscreen.screen)
