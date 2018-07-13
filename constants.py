@@ -19,6 +19,9 @@ LIGHT_GRASS_GREEN = (35, 188, 39)
 DARK_GRASS_GREEN = (2, 99, 5)
 TRANSPARENT = (40, 0, 40)
 
+# define color for bullet
+MAGIC_BULLET = (184, 12, 49)
+
 # size of screen
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
