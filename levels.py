@@ -29,7 +29,7 @@ class Level():
 		self.hiragana_A = pygame.sprite.Group()
 		self.hiragana_I = pygame.sprite.Group()
 		self.player = player
-
+		
 	# Update everythign on this level
 	def update(self):
 		""" Update everything in this level."""
