@@ -294,7 +294,7 @@ def gameplay():
 		# if player in the level 01
 		if current_level == level_list[0]:
 
-			settings.msg_to_screen("Level 1", constants.WHITE, 0, 0, size = "small")
+			settings.msg_to_screen("Tutorial", constants.WHITE, 0, 0, size="small")
 			settings.msg_to_screen("Cara Bermain :",
 									constants.WHITE,
 									100, 50, size= "small")
@@ -308,7 +308,8 @@ def gameplay():
 									constants.WHITE,
 									100, 200, size="small")
 			settings.msg_to_screen("|", constants.WHITE, 340, 210, size="small")
-			settings.msg_to_screen("Esc : Pause/Resume", constants.WHITE, 100, 250, size="small")
+			settings.msg_to_screen("Tombol huruf X : Menembak", constants.WHITE, 100, 250, size="small")
+			settings.msg_to_screen("Esc : Pause/Resume", constants.WHITE, 100, 300, size="small")
 			
 
 			# process each snow flake in the list
