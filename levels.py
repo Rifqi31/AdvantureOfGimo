@@ -77,7 +77,7 @@ class Level():
 
 # Create platforms for intro game
 # for intro how to play the game
-class Level_01(Level):
+class Level_Tutorial(Level):
 	""" This class for introduce the player """
 
 	def __init__(self, player):
@@ -88,13 +88,13 @@ class Level_01(Level):
 
 		self.background = pygame.image.load("spritesheet/intro_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -10
+		self.level_limit = 165
 
 		intro = [[platforms.snow_dirt_wall, -140, 0],
 			[platforms.snow_dirt_intro, 0 , 460],
 			[platforms.snow_dirt_big_wall, 769, 0]]
 		
-		portal = [[platforms.portal_snow, 670, 380]]
+		portal = [[platforms.portal_snow, 700, 380]]
 
 		for platform in intro:
 			block = platforms.Platform_snow(platform[0])
