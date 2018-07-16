@@ -84,7 +84,7 @@ def gameplay():
 
 	# Create all the levels
 	level_list = []
-	level_list.append(levels.Level_01(player))
+	level_list.append(levels.Level_Tutorial(player))
 	level_list.append(levels.Level_02(player))
 
 	# Set the current level
@@ -212,7 +212,7 @@ def gameplay():
 		if gameOver == True:
 			
 			gameoverscreen.show_game_over()
-		
+
 		events = pygame.event.get()
 		for event in events: # User did something
 			if event.type == pygame.QUIT: # If user clicked close
@@ -273,7 +273,8 @@ def gameplay():
 			current_level.shift_world(diff)
 
 		current_position = player.rect.x + current_level.world_shift
-		if current_position < current_level.level_limit:
+		# print(current_position)
+		if current_position == current_level.level_limit:
 			player.rect.x = 120
 			if current_level_no < len(level_list)-1:
 				current_level_no += 1
@@ -282,7 +283,7 @@ def gameplay():
 				
 		# if player fall is game over
 		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
-			if current_level == level_list[0] or level_list[1]:
+			if current_level == level_list[1]:
 				gameOver = True
 		
 		# ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
@@ -333,7 +334,7 @@ def gameplay():
 		# if the player in the level 02
 		if current_level == level_list[1]:
 			
-			settings.msg_to_screen("Level 2", constants.WHITE, 0, 0, size = "small")
+			settings.msg_to_screen("Level 1", constants.WHITE, 0, 0, size = "small")
 			settings.msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			
