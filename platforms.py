@@ -39,8 +39,8 @@ snow_dirt_wall = (770, 162, 140, 630)
 snow_dirt_big_wall = (325, 162, 350, 630)
 snow_dirt_intro = (0, 0, 770, 140)
 
-# proto portal
-portal_snow = (228, 523, 70, 70)
+# portal
+portal_snow = (219, 511, 70, 70)
 
 
 # for hiragana & katakana
@@ -235,13 +235,6 @@ class MovingPlatform(Platform_enemy):
 		self.player = None
  
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
- 
  
 		# Move left/right
 		self.rect.x += self.change_x
