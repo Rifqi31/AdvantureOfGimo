@@ -20,6 +20,8 @@ import gameoverscreen
 from platforms import MovingPlatform
 from spritesheet_functions import SpriteSheet
 
+from random import randint
+
 
 class Player(pygame.sprite.Sprite):
 	""" This class represents the bar at the bottom that the player
@@ -34,6 +36,8 @@ class Player(pygame.sprite.Sprite):
 		# -- Attributes
 		# set score for player
 		self.scores = 0
+		# set health point
+		self.health_point = 194
 		# Set speed vector of player
 		self.change_x = 0
 		self.change_y = 0
@@ -163,7 +167,6 @@ class Player(pygame.sprite.Sprite):
 				self.rect.x += block.change_x
  
 
-
 		# for enemy list
 		hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 		for eaten in hit_by_enemy_list:
@@ -174,8 +177,8 @@ class Player(pygame.sprite.Sprite):
 		go_to_portal_list = pygame.sprite.spritecollide(self, self.level.portal_list, True)
 
 		for gate in go_to_portal_list:
-			print("next!!!!!")
-			
+			configsounds.portal_sfx.play()
+
 
 		# for hiragana and katakana list
 		point_wibu_list1 = pygame.sprite.spritecollide(self, self.level.hiragana_A, True)
