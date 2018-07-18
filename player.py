@@ -20,8 +20,6 @@ import gameoverscreen
 from platforms import MovingPlatform
 from spritesheet_functions import SpriteSheet
 
-from random import randint
-
 
 class Player(pygame.sprite.Sprite):
 	""" This class represents the bar at the bottom that the player
@@ -36,8 +34,11 @@ class Player(pygame.sprite.Sprite):
 		# -- Attributes
 		# set score for player
 		self.scores = 0
-		# set health point
-		self.health_point = 194
+		# set health number for player
+		self.health_number = 100
+		# set damage for enemy
+		self.general_enemy_dmg = 50
+		self.false_point_dmg = 40
 		# Set speed vector of player
 		self.change_x = 0
 		self.change_y = 0
@@ -49,6 +50,10 @@ class Player(pygame.sprite.Sprite):
  
 		# What direction is the player facing?
 		self.direction = "R"
+
+		# removing special enemy
+		self.special_remove_A = False
+		self.special_remove_I = False
  
 		# List of sprites we can bump against
 		self.level = None
@@ -167,30 +172,51 @@ class Player(pygame.sprite.Sprite):
 				self.rect.x += block.change_x
  
 
-		# for enemy list
+		# for general enemy list
 		hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 		for eaten in hit_by_enemy_list:
-			gameoverscreen.show_game_over()
+			self.health_number -= self.general_enemy_dmg
+			configsounds.ouch_sfx.play()
+			
+			if self.health_number == 0:
+				gameoverscreen.show_game_over()
 
+
+		# for special enemy list
+		# Symbol hiragana A
+		special_hit_enemy_list_A = pygame.sprite.spritecollide(self, self.level.special_enemy_list, True)
+		for special_eaten_A in special_hit_enemy_list_A:
+
+			if self.special_remove_A == False or self.special_remove_I == False:
+				gameoverscreen.show_game_over()
+		
 
 		# for portal list
 		go_to_portal_list = pygame.sprite.spritecollide(self, self.level.portal_list, True)
-
 		for gate in go_to_portal_list:
 			configsounds.portal_sfx.play()
 
 
 		# for hiragana and katakana list
+		# FOR LEVEL 1
 		point_wibu_list1 = pygame.sprite.spritecollide(self, self.level.hiragana_A, True)
 		point_wibu_list2 = pygame.sprite.spritecollide(self, self.level.hiragana_I, True)
 		
-		for point in point_wibu_list1:
+		for true_point in point_wibu_list1:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 1
+			self.special_remove_A = True
 		
-		for point in point_wibu_list2:
+		for false_point in point_wibu_list2:
+			configsounds.ouch_sfx.play()
 			self.scores -= 1
+			# self.special_remove_I = True
+			self.health_number -= self.false_point_dmg
+			if self.health_number == 0:
+				gameoverscreen.show_game_over()
+
+
 
 
 	def calc_grav(self):
@@ -255,6 +281,7 @@ class Bullet(Player):
 		# access variable from player class
 		self.direction = player.direction
 		self.level = player.level
+		self.special_remove_A = player.special_remove_A
 
 	def update(self):
 		""" move the bullet """
@@ -268,6 +295,24 @@ class Bullet(Player):
 		hitting_enemy = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 
 		for eaten in hitting_enemy:
+			if self.direction == "R":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+			elif self.direction == "L":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+		
+		# just for special enemy list they are immune
+		# if the player not get point mission enemy are immnune
+		# for point mission hiragana symbol A
+		if self.special_remove_A == False:
+			hitting_special_enemy_A = pygame.sprite.spritecollide(self, self.level.special_enemy_list, False)
+		# if the player get point mission enemy are not immnune
+		elif self.special_remove_A == True:
+			hitting_special_enemy_A = pygame.sprite.spritecollide(self, self.level.special_enemy_list, True)
+
+		# attack an enemy
+		for special_eaten_A in hitting_special_enemy_A:
 			if self.direction == "R":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
 				configsounds.ouch_sfx.play()
