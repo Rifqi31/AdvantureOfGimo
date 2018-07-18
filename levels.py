@@ -14,6 +14,7 @@ class Level():
 		# lists as needed for your game.
 		self.platform_list = None
 		self.enemy_list = None
+		self.special_enemy_list = None
 		self.portal_list = None
 		self.hiragana_A = None
 		self.hiragana_I = None
@@ -25,6 +26,7 @@ class Level():
 		self.world_shift = 0
 		self.platform_list = pygame.sprite.Group()
 		self.enemy_list = pygame.sprite.Group()
+		self.special_enemy_list = pygame.sprite.Group()
 		self.portal_list = pygame.sprite.Group()
 		self.hiragana_A = pygame.sprite.Group()
 		self.hiragana_I = pygame.sprite.Group()
@@ -36,6 +38,7 @@ class Level():
 		self.platform_list.update()
 		self.portal_list.update()
 		self.enemy_list.update()
+		self.special_enemy_list.update()
 		self.hiragana_A.update()
 		self.hiragana_I.update()
 
@@ -48,6 +51,7 @@ class Level():
 		self.platform_list.draw(screen)
 		self.portal_list.draw(screen)
 		self.enemy_list.draw(screen)
+		self.special_enemy_list.draw(screen)
 		self.hiragana_A.draw(screen)
 		self.hiragana_I.draw(screen)
 
@@ -72,6 +76,10 @@ class Level():
 		
 		for platform in self.enemy_list:
 			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list:
+			platform.rect.x += shift_x
+
 
 
 
@@ -144,7 +152,10 @@ class Level_02(Level):
 		hiragana_a = [[platforms.hiragana_a, 200, 200]]
 		hiragana_i = [[platforms.hiragana_i, 400, 200]]
 
-		enemy_skull = [[platforms.skull_ghost, 200, 400]]
+		enemy_skull = [[platforms.skull_ghost, 300, 400]]
+
+		# for prototye special enemy
+		fat_frog = [[platforms.fat_frog, 600, 400]]
 		
 
 		for platform in level01:
@@ -155,30 +166,33 @@ class Level_02(Level):
 			self.platform_list.add(block)
 		
 		for platform in hiragana_a :
-			point = platforms.Platform_hiragana_katakana(platform[0])
-			point.rect.x = platform[1]
-			point.rect.y = platform[2]
-			point.player = self.player
-			self.hiragana_A.add(point)
+			true_point = platforms.Platform_hiragana_katakana(platform[0])
+			true_point.rect.x = platform[1]
+			true_point.rect.y = platform[2]
+			true_point.player = self.player
+			self.hiragana_A.add(true_point)
 		
 		for platform in hiragana_i :
-			point = platforms.Platform_hiragana_katakana(platform[0])
-			point.rect.x = platform[1]
-			point.rect.y = platform[2]
-			point.player = self.player
-			self.hiragana_I.add(point)
+			false_point = platforms.Platform_hiragana_katakana(platform[0])
+			false_point.rect.x = platform[1]
+			false_point.rect.y = platform[2]
+			false_point.player = self.player
+			self.hiragana_I.add(false_point)
 		
-
-
-
 		for platform in enemy_skull:
 			eaten = platforms.Platform_enemy(platform[0])
 			eaten.rect.x = platform[1]
 			eaten.rect.y = platform[2]
 			eaten.player = self.player
 			self.enemy_list.add(eaten)
-
-
+		
+		# for prototype
+		for platform in fat_frog:
+			special_eaten_A = platforms.Platform_enemy(platform[0])
+			special_eaten_A.rect.x = platform[1]
+			special_eaten_A.rect.y = platform[2]
+			special_eaten_A.player = self.player
+			self.special_enemy_list.add(special_eaten_A)
 
 		# add moving sprites using platform algorithmic
 		eaten = platforms.MovingPlatform(platforms.skull_ghost)
