@@ -49,7 +49,8 @@ hiragana_i = (0, 72, 70, 70)
 
 # for enemys
 skull_ghost = (10, 5, 42, 51)
-
+# proto special enemy
+fat_frog = (62, 7, 49, 49)
 
 class Platform_enemy(pygame.sprite.Sprite):
 	""" Platform for enemy """
@@ -244,6 +245,7 @@ class MovingPlatform(Platform_enemy):
 		if hit:
 			# if the player just stand up/ not move
 			# in front of enemy, he/she will die!
+			# need to fix this
 			gameoverscreen.show_game_over()
  
 		# Move up/down
