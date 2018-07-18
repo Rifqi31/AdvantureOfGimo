@@ -11,6 +11,8 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (144, 195, 212)
 RED = (200, 0, 0)
+GREEN = (53, 201, 63)
+YELLOW = (238, 238, 57)
 
 # define color for main menu
 DARK_BROWN_DIRT = (46, 23, 6)
