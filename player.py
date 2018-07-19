@@ -173,33 +173,41 @@ class Player(pygame.sprite.Sprite):
  
 
 		# for general enemy list
-		hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
+		"""hit_by_enemy_list = pygame.sprite.spritecollide(self, self.level.enemy_list, True)
 		for eaten in hit_by_enemy_list:
 			self.health_number -= self.general_enemy_dmg
 			configsounds.ouch_sfx.play()
 			
 			if self.health_number == 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over()"""
 
 
 		# for special enemy list
 		# Symbol hiragana A
-		special_hit_enemy_list_A = pygame.sprite.spritecollide(self, self.level.special_enemy_list, True)
+		"""special_hit_enemy_list_A = pygame.sprite.spritecollide(self, self.level.special_enemy_list, True)
 		for special_eaten_A in special_hit_enemy_list_A:
 
 			if self.special_remove_A == False or self.special_remove_I == False:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over()"""
 		
 
 		# for portal list
 		go_to_portal_list = pygame.sprite.spritecollide(self, self.level.portal_list, True)
 		for gate in go_to_portal_list:
 			configsounds.portal_sfx.play()
+		
+
+		# for death sprite
+		you_die_in_hell = pygame.sprite.spritecollide(self, self.level.death_place_list, False)
+		for water_suicide in you_die_in_hell:
+			self.rect.y += 20
+			if self.rect.bottom >= constants.SCREEN_HEIGHT or self.rect.bottom < 0:
+				gameoverscreen.show_game_over()
 
 
 		# for hiragana and katakana list
 		# FOR LEVEL 1
-		point_wibu_list1 = pygame.sprite.spritecollide(self, self.level.hiragana_A, True)
+		"""point_wibu_list1 = pygame.sprite.spritecollide(self, self.level.hiragana_A, True)
 		point_wibu_list2 = pygame.sprite.spritecollide(self, self.level.hiragana_I, True)
 		
 		for true_point in point_wibu_list1:
@@ -214,7 +222,7 @@ class Player(pygame.sprite.Sprite):
 			# self.special_remove_I = True
 			self.health_number -= self.false_point_dmg
 			if self.health_number == 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over()"""
 
 
 
