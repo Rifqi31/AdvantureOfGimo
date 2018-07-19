@@ -16,6 +16,7 @@ class Level():
 		self.enemy_list = None
 		self.special_enemy_list = None
 		self.portal_list = None
+		self.death_place_list = None
 		self.hiragana_A = None
 		self.hiragana_I = None
 
@@ -28,6 +29,7 @@ class Level():
 		self.enemy_list = pygame.sprite.Group()
 		self.special_enemy_list = pygame.sprite.Group()
 		self.portal_list = pygame.sprite.Group()
+		self.death_place_list = pygame.sprite.Group()
 		self.hiragana_A = pygame.sprite.Group()
 		self.hiragana_I = pygame.sprite.Group()
 		self.player = player
@@ -37,6 +39,7 @@ class Level():
 		""" Update everything in this level."""
 		self.platform_list.update()
 		self.portal_list.update()
+		self.death_place_list.update()
 		self.enemy_list.update()
 		self.special_enemy_list.update()
 		self.hiragana_A.update()
@@ -50,6 +53,7 @@ class Level():
 		# Draw all the sprite lists that we have
 		self.platform_list.draw(screen)
 		self.portal_list.draw(screen)
+		self.death_place_list.draw(screen)
 		self.enemy_list.draw(screen)
 		self.special_enemy_list.draw(screen)
 		self.hiragana_A.draw(screen)
@@ -66,6 +70,9 @@ class Level():
 			platform.rect.x += shift_x
 		
 		for platform in self.portal_list:
+			platform.rect.x += shift_x
+		
+		for platform in self.death_place_list:
 			platform.rect.x += shift_x
 
 		for platform in self.hiragana_A:
@@ -119,9 +126,9 @@ class Level_Tutorial(Level):
 			self.portal_list.add(gate)
 
 
-# this level 2 for prototype
 # Create platforms for the level
-class Level_02(Level):
+# Level 01
+class Level_01(Level):
 	""" Definition for level 1. """
 
 	def __init__(self, player):
@@ -132,30 +139,35 @@ class Level_02(Level):
 
 		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -1700
+		self.level_limit = -1166
 
 			
 		# Array with type of platform, and x, y location of the platform.
 		# for level 01
 		level01 = [[platforms.dirt_wall, -140, 0],
-				[platforms.dirt_land_bottom, 0, 460],
-				[platforms.dirt_small, 670, 460],
-				[platforms.dirt_half_grass, 1110, 460],
-				[platforms.dirt_small_half_grass, 1250, 390],
-				[platforms.one_dirt, 1320, 320],
-				[platforms.dirt_rounded, 1460, 320],
-				[platforms.dirt_rounded, 1600, 320],
-				[platforms.dirt_land_bottom, 1980, 460],
-				[platforms.dirt_big_wall, 2480, 0]]
+				[platforms.dirt_medium_long_land, 0, 460],
+				[platforms.dirt_medium_long_land, 700, 460],
+				[platforms.dirt_medium_short_land, 770, 196],
+				[platforms.dirt_short_land, 1330, 460],
+				[platforms.dirt_grass_rounded, 1146, 319],
+				[platforms.dirt_medium_short_land, 1218, 125],
+				[platforms.dirt_medium_long_land, 1680, 460],
+				[platforms.dirt_big_wall, 2100, 0]]
 		
+		water_level01 = [[platforms.medium_long_water, 490, 531],
+						[platforms.medium_short_water, 1190, 531],
+						[platforms.medium_long_water, 1470, 531]]
 		
-		hiragana_a = [[platforms.hiragana_a, 200, 200]]
+		portal = [[platforms.portal_snow, 2030, 380]]
+		
+		"""hiragana_a = [[platforms.hiragana_a, 200, 200]]
 		hiragana_i = [[platforms.hiragana_i, 400, 200]]
 
 		enemy_skull = [[platforms.skull_ghost, 300, 400]]
 
 		# for prototye special enemy
-		fat_frog = [[platforms.fat_frog, 600, 400]]
+		fat_frog = [[platforms.fat_frog, 600, 400]]"""
+
 		
 
 		for platform in level01:
@@ -165,7 +177,25 @@ class Level_02(Level):
 			block.player = self.player
 			self.platform_list.add(block)
 		
-		for platform in hiragana_a :
+
+		for platform in water_level01:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
+		
+
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
+
+		
+		
+		"""for platform in hiragana_a :
 			true_point = platforms.Platform_hiragana_katakana(platform[0])
 			true_point.rect.x = platform[1]
 			true_point.rect.y = platform[2]
@@ -203,6 +233,45 @@ class Level_02(Level):
 		eaten.change_x = 5
 		eaten.player = self.player
 		eaten.level = self
-		self.enemy_list.add(eaten)
+		self.enemy_list.add(eaten)"""
 
 
+# Level 02
+class Level_02(Level):
+	
+	def __init__(self, player):
+		""" Create Level 1 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/night_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1700
+
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 02
+		level02 = [[platforms.brick_dark_wall, -140, 0],
+				[platforms.brick_medium_short_land, 0, 529],
+				[platforms.brick_medium_large_land, 0, 141],
+				[platforms.brick_dark_small_stairs1, 281, 459],
+				[platforms.brick_dark_small_stairs2, 351, 389],
+				[platforms.brick_dark_small_stairs3, 421, 319],
+				[platforms.brick_dark_grass_rounded, 281, 214],
+				[platforms.brick_small_short_land, 642, 102],
+				[platforms.brick_dark_grass_rounded, 713, 384],
+				[platforms.brick_medium_long_land, 797, 528],
+				[platforms.brick_medium_large_long_land, 869, 272],
+				[platforms.brick_half_short_land, 943, 131],
+				[platforms.brick_half_small_land, 1302, 483],
+				[platforms.brick_dark_small_stairs1, 1680, 480],
+				[platforms.brick_large_high_land, 1750, 410],
+				[platforms.brick_dark_big_wall, 2100, 0]]
+
+		for platform in level02:
+			block = platforms.Platform_dark_brick(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
