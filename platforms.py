@@ -19,29 +19,44 @@ import gameoverscreen
 #   Width of sprite
 #   Height of sprite
 
-# asset for tileset level 01
-# for wall dirt
-dirt_wall = (0, 219, 140, 630)
-dirt_big_wall = (584, 219, 350, 630)
-# for landing dirt
-dirt_land_bottom = (0, 0, 502, 140)
-dirt_small = (584, 0, 140, 140)
-# one platforms
-dirt_half_grass = (219, 365, 280, 140)
-dirt_small_half_grass = (219, 219, 140, 70)
-one_dirt = (365, 219, 70, 70)
-# for flying dirt
-dirt_rounded = (438, 219, 70, 70)
-
-
+# asset for tileset Intro Game
 # for snow dirt
 snow_dirt_wall = (770, 162, 140, 630)
 snow_dirt_big_wall = (325, 162, 350, 630)
 snow_dirt_intro = (0, 0, 770, 140)
-
 # portal
 portal_snow = (219, 511, 70, 70)
 
+# asset for tileset level 01
+dirt_wall = (0, 0, 140, 630)
+dirt_big_wall = (584, 149, 350, 630)
+dirt_medium_long_land = (0, 777, 490, 140)
+dirt_medium_short_land = (148, 0, 280, 140)
+dirt_short_land = (445, 0, 140, 140)
+dirt_grass_rounded = (744, 73, 70, 70)
+dirt_medium_long_top = (0, 692, 490, 70)
+dirt_large_land = (148, 149, 420, 280)
+
+small_water = (591, 0, 70, 70)
+medium_short_water = (592, 73, 140, 70)
+medium_long_water = (665, 0, 210, 70)
+
+
+# asset for tileset level 02
+brick_dark_wall = (0, 0, 140, 630)
+brick_dark_big_wall = (455, 230, 280, 630)
+brick_medium_short_land = (148, 0, 280, 70)
+brick_medium_large_land = (146, 80, 210, 140)
+brick_medium_long_land = (440, 0, 420, 70)
+brick_medium_large_long_land = (368, 80, 280, 140)
+brick_small_short_land = (224, 528, 140, 70)
+brick_half_short_land = (662, 80, 140, 43)
+brick_half_small_land = (815, 80, 70, 43)
+brick_dark_grass_rounded = (146, 528, 70, 70)
+brick_dark_small_stairs1 = (146, 374, 70, 140)
+brick_dark_small_stairs2 = (218, 302, 70, 210)
+brick_dark_small_stairs3 = (290, 230, 70, 280)
+brick_large_high_land = (0, 687, 350, 210)
 
 # for hiragana & katakana
 hiragana_a = (0, 0, 70, 70)
@@ -49,7 +64,6 @@ hiragana_i = (0, 72, 70, 70)
 
 # for enemys
 skull_ghost = (10, 5, 42, 51)
-# proto special enemy
 fat_frog = (62, 7, 49, 49)
 
 class Platform_enemy(pygame.sprite.Sprite):
@@ -139,6 +153,27 @@ class Platform_dirt(pygame.sprite.Sprite):
 			
 		self.rect = self.image.get_rect()
 
+
+class Platform_dark_brick(pygame.sprite.Sprite):
+	""" Platform the user can jump on """
+ 
+	def __init__(self, sprite_sheet_data):
+		""" Platform constructor. Assumes constructed with user passing in
+			an array of 5 numbers like what's defined at the top of this
+			code. """
+
+		super().__init__()
+		
+		# dirt tileset
+		sprite_sheet_dirt = SpriteSheet("spritesheet/brick_castle_night.png")
+		
+		# Grab the image for this platform
+		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
+											sprite_sheet_data[1],
+											sprite_sheet_data[2],
+											sprite_sheet_data[3])
+			
+		self.rect = self.image.get_rect()
 
 
 
