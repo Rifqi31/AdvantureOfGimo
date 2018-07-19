@@ -85,6 +85,7 @@ def gameplay():
 	# Create all the levels
 	level_list = []
 	level_list.append(levels.Level_Tutorial(player))
+	level_list.append(levels.Level_01(player))
 	level_list.append(levels.Level_02(player))
 
 	# Set the current level
@@ -282,9 +283,9 @@ def gameplay():
 				player.level = current_level
 				
 		# if player fall is game over
-		if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
-			if current_level == level_list[1]:
-				gameOver = True
+		#if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
+		#	if current_level == level_list[1]:
+		#		gameOver = True
 		
 		# ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
 		current_level.draw(configscreen.screen)
