@@ -36,7 +36,7 @@ dirt_short_land = (445, 0, 140, 140)
 dirt_grass_rounded = (744, 73, 70, 70)
 dirt_medium_long_top = (0, 692, 490, 70)
 dirt_large_land = (148, 149, 420, 280)
-
+# death sprite
 small_water = (591, 0, 70, 70)
 medium_short_water = (592, 73, 140, 70)
 medium_long_water = (665, 0, 210, 70)
@@ -44,7 +44,7 @@ medium_long_water = (665, 0, 210, 70)
 
 # asset for tileset level 02
 brick_dark_wall = (0, 0, 140, 630)
-brick_dark_big_wall = (455, 230, 280, 630)
+brick_dark_big_wall = (374, 230, 280, 630)
 brick_medium_short_land = (148, 0, 280, 70)
 brick_medium_large_land = (146, 80, 210, 140)
 brick_medium_long_land = (440, 0, 420, 70)
@@ -57,6 +57,9 @@ brick_dark_small_stairs1 = (146, 374, 70, 140)
 brick_dark_small_stairs2 = (218, 302, 70, 210)
 brick_dark_small_stairs3 = (290, 230, 70, 280)
 brick_large_high_land = (0, 687, 350, 210)
+# death sprite
+medium_sharp_rock = (662, 126, 210, 70)
+small_sharp_rock = (667, 188, 140, 70)
 
 # for hiragana & katakana
 hiragana_a = (0, 0, 70, 70)
@@ -178,7 +181,7 @@ class Platform_dark_brick(pygame.sprite.Sprite):
 
 
 
-class MovingPlatform(Platform_dirt):
+class MovingPlatform(Platform_dark_brick):
 	""" This is a fancier platform that can actually move. """
  
 	def __init__(self, sprite_sheet_data):
@@ -252,7 +255,7 @@ class MovingPlatform(Platform_dirt):
 
 
 # for prototype
-class MovingPlatform(Platform_enemy):
+class MovingEnemy(Platform_enemy):
 	""" This is a fancier platform that can actually move. """
  
 	def __init__(self, sprite_sheet_data):
