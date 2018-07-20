@@ -261,13 +261,20 @@ class Level_02(Level):
 				[platforms.brick_dark_grass_rounded, 281, 214],
 				[platforms.brick_small_short_land, 642, 102],
 				[platforms.brick_dark_grass_rounded, 713, 384],
-				[platforms.brick_medium_long_land, 797, 528],
+				[platforms.brick_medium_long_land, 840, 528],
 				[platforms.brick_medium_large_long_land, 869, 272],
 				[platforms.brick_half_short_land, 943, 131],
-				[platforms.brick_half_small_land, 1302, 483],
+				#[platforms.brick_half_small_land, 1302, 483],
 				[platforms.brick_dark_small_stairs1, 1680, 480],
 				[platforms.brick_large_high_land, 1750, 410],
 				[platforms.brick_dark_big_wall, 2100, 0]]
+		
+		sharp_rock_level02 = [[platforms.medium_sharp_rock, 490, 540],
+							[platforms.small_sharp_rock, 700, 540],
+							[platforms.medium_sharp_rock, 1260, 540],
+							[platforms.medium_sharp_rock, 1470, 540]]
+
+
 
 		for platform in level02:
 			block = platforms.Platform_dark_brick(platform[0])
@@ -275,3 +282,22 @@ class Level_02(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
+		
+		for platform in sharp_rock_level02:
+			sharp_rock = platforms.Platform_dark_brick(platform[0])
+			sharp_rock.rect.x = platform[1]
+			sharp_rock.rect.y = platform[2]
+			sharp_rock.player = self.player
+			self.death_place_list.add(sharp_rock)
+		
+
+		# add moving sprites
+		block = platforms.MovingPlatform(platforms.brick_half_small_land)
+		block.rect.x = 1302
+		block.rect.y = 483
+		block.boundary_left = 1302
+		block.boundary_right = 1600
+		block.change_x = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
