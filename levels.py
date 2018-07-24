@@ -325,7 +325,20 @@ class Level_03(Level):
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 03
-		level03 = [[platforms.brick_red_wall, -140, 0]]
+		level03 = [[platforms.brick_red_wall, -140, 0],
+				[platforms.brick_red_medium_long_land, 0, 529],
+				[platforms.brick_red_medium_long_land, 210, 529],
+				[platforms.brick_red_grass_rounded, 300, 150],
+				[platforms.brick_red_medium_short_land, 0, 150],
+				[platforms.brick_red_grass_left_right_long, 700, 180],
+				[platforms.brick_red_medium_long_land, 970, 80],
+				[platforms.brick_red_medium_long_land, 970, 280],
+				[platforms.brick_red_medium_high_land, 970, 470],
+				[platforms.brick_red_medium_short_land, 1040, 529],
+				[platforms.brick_red_medium_high_land, 1180, 470],
+				[platforms.brick_red_medium_high_large_land, 1600, 470],
+				[platforms.brick_red_medium_short_land, 1810, 540],
+				[platforms.brick_red_big_wall, 2020, 0]]
 
 		for platform in level03:
 			block = platforms.Platform_grass_brick(platform[0])
@@ -333,3 +346,26 @@ class Level_03(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
+
+
+		# add moving sprites
+		block = platforms.MovingPlatform_brick_red(platforms.brick_red_small_half)
+		block.rect.x = 560
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_brick_red(platforms.brick_red_small_half)
+		block.rect.x = 800
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
