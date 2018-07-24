@@ -321,7 +321,7 @@ class Level_03(Level):
 
 		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -1700
+		self.level_limit = -1095
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 03
@@ -338,13 +338,15 @@ class Level_03(Level):
 				[platforms.brick_red_medium_high_land, 1189, 470],
 				[platforms.brick_red_medium_high_large_land, 1609, 470],
 				[platforms.brick_red_medium_short_land, 1819, 540],
+				[platforms.brick_red_medium_short_land, 1959, 540],
 				[platforms.brick_red_big_wall, 2029, 0]]
 		
 		water_level03 = [[platforms.medium_long_water, 490, 532],
 						[platforms.medium_long_water, 770, 532],
 						[platforms.medium_long_water, 1260, 532],
-						[platforms.medium_short_water, 1470, 532],
-						[platforms.small_water, 1960, 532]]
+						[platforms.medium_short_water, 1470, 532]]
+		
+		portal = [[platforms.portal_snow, 1930, 440]]
 
 		for platform in level03:
 			block = platforms.Platform_grass_brick(platform[0])
@@ -359,6 +361,13 @@ class Level_03(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
+		
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
 
 		# add moving sprites
 		block = platforms.MovingPlatform_brick_red(platforms.brick_red_small_half)
@@ -381,3 +390,28 @@ class Level_03(Level):
 		block.player = self.player
 		block.level = self
 		self.platform_list.add(block)
+
+
+class Level_04(Level):
+	def __init__(self, player):
+		""" Definition for Level 04 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1700
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 04
+		level04 = [[platforms.brick_red_wall, -140, 0]]
+
+
+		for platform in level04:
+			block = platforms.Platform_grass_brick(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+		
