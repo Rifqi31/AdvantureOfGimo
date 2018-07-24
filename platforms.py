@@ -61,6 +61,26 @@ brick_large_high_land = (0, 687, 350, 210)
 medium_sharp_rock = (662, 126, 210, 70)
 small_sharp_rock = (667, 188, 140, 70)
 
+
+# aset for tileset level 03
+brick_red_wall = (0, 0, 140, 630)
+brick_red_big_wall = (625, 0, 280, 630)
+brick_red_medium_tall = (147, 0, 140, 210)
+brick_red_medium_short_land = (294, 0, 140, 70)
+brick_red_medium_long_land = (294, 76, 280, 70)
+brick_red_small_half = (521, 0, 70, 45)
+brick_red_snow_small_half = (441, 151, 70, 45)
+brick_red_grass_left_right_long = (147, 221, 70, 420)
+brick_red_medium_high_land = (221, 221, 70, 140)
+brick_red_medium_high_large_land = (297, 226, 210, 140)
+brick_red_snow_medium_short_land = (297, 373, 210, 70)
+brick_red_snow_high_small_left_right = (121, 515, 70, 140)
+brick_red_snow_medium_short_land = (0, 675, 280, 70)
+brick_red_medium_bottom = (0, 749, 280, 70)
+brick_red_medium_short_grass_snow = (0, 823, 210, 70)
+brick_basic = (219, 824, 70, 70)
+brick_red_grass_snow_medium_land = (626, 675, 280, 70)
+
 # for hiragana & katakana
 hiragana_a = (0, 0, 70, 70)
 hiragana_i = (0, 72, 70, 70)
@@ -178,6 +198,27 @@ class Platform_dark_brick(pygame.sprite.Sprite):
 			
 		self.rect = self.image.get_rect()
 
+
+class Platform_grass_brick(pygame.sprite.Sprite):
+	""" Platform the user can jump on """
+
+	def __init__(self, sprite_sheet_data):
+		""" Platform constructor. Assumes constructed with user passing in
+			an array of 5 numbers like what's defined at the top of this
+			code. """
+
+		super().__init__()
+
+		# brick grass tileset
+		sprite_sheet_red_brick = SpriteSheet("spritesheet/brick_red_castle.png")
+
+		# Grab the omage for this platform
+		self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
+													sprite_sheet_data[1],
+													sprite_sheet_data[2],
+													sprite_sheet_data[3])
+
+		self.rect = self.image.get_rect()
 
 
 
