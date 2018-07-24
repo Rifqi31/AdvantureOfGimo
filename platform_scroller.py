@@ -87,6 +87,7 @@ def gameplay():
 	level_list.append(levels.Level_Tutorial(player))
 	level_list.append(levels.Level_01(player))
 	level_list.append(levels.Level_02(player))
+	level_list.append(levels.Level_03(player))
 
 	# Set the current level
 	current_level_no = 0
@@ -274,7 +275,7 @@ def gameplay():
 			current_level.shift_world(diff)
 
 		current_position = player.rect.x + current_level.world_shift
-		# print(current_position)
+		print(current_position)
 		if current_position == current_level.level_limit:
 			player.rect.x = 120
 			if current_level_no < len(level_list)-1:
@@ -351,7 +352,7 @@ def gameplay():
 		
 		elif current_level == level_list[2]:
 			# level number
-			settings.hud_msg_to_screen("Level 1", constants.WHITE, 0, 0, size = "small")
+			settings.hud_msg_to_screen("Level 2", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
 			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
