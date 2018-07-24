@@ -331,14 +331,20 @@ class Level_03(Level):
 				[platforms.brick_red_grass_rounded, 300, 150],
 				[platforms.brick_red_medium_short_land, 0, 150],
 				[platforms.brick_red_grass_left_right_long, 700, 180],
-				[platforms.brick_red_medium_long_land, 970, 80],
-				[platforms.brick_red_medium_long_land, 970, 280],
-				[platforms.brick_red_medium_high_land, 970, 470],
-				[platforms.brick_red_medium_short_land, 1040, 529],
-				[platforms.brick_red_medium_high_land, 1180, 470],
-				[platforms.brick_red_medium_high_large_land, 1600, 470],
-				[platforms.brick_red_medium_short_land, 1810, 540],
-				[platforms.brick_red_big_wall, 2020, 0]]
+				[platforms.brick_red_medium_long_land, 979, 80],
+				[platforms.brick_red_medium_long_land, 979, 280],
+				[platforms.brick_red_medium_high_land, 979, 470],
+				[platforms.brick_red_medium_short_land, 1049, 529],
+				[platforms.brick_red_medium_high_land, 1189, 470],
+				[platforms.brick_red_medium_high_large_land, 1609, 470],
+				[platforms.brick_red_medium_short_land, 1819, 540],
+				[platforms.brick_red_big_wall, 2029, 0]]
+		
+		water_level03 = [[platforms.medium_long_water, 490, 532],
+						[platforms.medium_long_water, 770, 532],
+						[platforms.medium_long_water, 1260, 532],
+						[platforms.medium_short_water, 1470, 532],
+						[platforms.small_water, 1960, 532]]
 
 		for platform in level03:
 			block = platforms.Platform_grass_brick(platform[0])
@@ -346,7 +352,13 @@ class Level_03(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-
+		
+		for platform in water_level03:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
 
 		# add moving sprites
 		block = platforms.MovingPlatform_brick_red(platforms.brick_red_small_half)
