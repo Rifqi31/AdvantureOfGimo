@@ -405,7 +405,38 @@ class Level_04(Level):
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 04
-		level04 = [[platforms.brick_red_wall, -140, 0]]
+		level04 = [[platforms.brick_red_wall, -140, 0],
+				[platforms.brick_red_snow_medium_short_land, 0, 529],
+				[platforms.brick_red_medium_bottom, 500, 300],
+				[platforms.brick_red_snow_high_small_left_right, 499, 160],
+				[platforms.brick_red_snow_medium_short_land, 500, 90],
+				[platforms.brick_red_snow_medium_short_land, 640, 90],
+				[platforms.brick_basic, 980, 529],
+				[platforms.brick_red_snow_medium_short_land, 1050, 529],
+				[platforms.brick_red_snow_high_small_left_right, 978, 387],
+				[platforms.brick_red_snow_medium_short_land, 978, 317],
+				[platforms.brick_red_snow_high_small_left_right, 1188, 177],
+				[platforms.brick_red_snow_medium_short_land, 1188, 177],
+				[platforms.brick_red_snow_high_small_left_right, 1677, 177],
+				[platforms.brick_basic, 1680, 317],
+				[platforms.brick_red_snow_medium_short_land, 1750, 317],
+				[platforms.brick_basic, 2030, 317],
+				[platforms.brick_red_snow_high_small_left_right, 2027, 177],
+				[platforms.brick_red_snow_high_small_left_right, 2027, 37],
+				[platforms.brick_red_snow_medium_short_land, 2237, 529],
+				[platforms.brick_red_big_wall,  2517, 0]]
+		
+
+		water_level04 = [[platforms.medium_long_water, 280, 530],
+						[platforms.medium_long_water, 490, 530],
+						[platforms.medium_long_water, 700, 530],
+						[platforms.medium_short_water, 770, 530],
+						[platforms.medium_short_water, 840, 530],
+						[platforms.medium_long_water, 1330, 530],
+						[platforms.medium_long_water, 1540, 530],
+						[platforms.medium_long_water, 1750, 530],
+						[platforms.medium_long_water, 1960, 530],
+						[platforms.medium_short_water, 2100, 530]]
 
 
 		for platform in level04:
@@ -414,4 +445,54 @@ class Level_04(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
+
+		for platform in water_level04:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_brick_red(platforms.brick_red_snow_small_half)
+		block.rect.x = 350
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
 		
+		# add moving sprites
+		block = platforms.MovingPlatform_brick_red(platforms.brick_red_snow_small_half)
+		block.rect.x = 850
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_brick_red(platforms.brick_red_snow_small_half)
+		block.rect.x = 1538
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 2
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_brick_red(platforms.brick_red_snow_small_half)
+		block.rect.x = 1302
+		block.rect.y = 483
+		block.boundary_left = 1302
+		block.boundary_right = 2167
+		block.change_x = 2
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
