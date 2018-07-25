@@ -518,13 +518,31 @@ class Level_05(Level):
 		# Call the parent constructor
 		Level.__init__(self, player)
 
-		self.background = pygame.image.load("spritesheet/intro_background.png").convert_alpha()
+		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
 		self.level_limit = -1700
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 05
-		level05 = [[platforms.snow_dirt_wall, -140, 0]]
+		level05 = [[platforms.snow_dirt_wall, -140, 0],
+				[platforms.snow_dirt_grass_medium_large, 0, 530],
+				[platforms.snow_dirt_grass_short_tall, 490, 390],
+				[platforms.snow_dirt_grass_medium_tall, 560, 320],
+				[platforms.snow_dirt_grass_rounded, 320, 190],
+				[platforms.snow_dirt_grass_small_large, 0, 120],
+				[platforms.snow_dirt_tall_grass_left_right, 1240, 260],
+				[platforms.snow_dirt_grass_up_down, 1310, 260],
+				[platforms.snow_dirt_grass_medium_large, 1380, 460],
+				[platforms.snow_dirt_grass_basic, 1590, 260],
+				[platforms.snow_dirt_grass_medium_large, 1870, 460],
+				[platforms.snow_dirt_big_wall, 2080, 0]]
+		
+		water_level05 = [[platforms.medium_long_water, 280, 531],
+						[platforms.medium_long_water, 630, 531],
+						[platforms.medium_long_water, 840, 531],
+						[platforms.medium_long_water, 1030, 531],
+						[platforms.medium_short_water, 1310, 531],
+						[platforms.medium_long_water, 1660, 531]]
 
 		for platform in level05:
 			block = platforms.Platform_snow(platform[0])
@@ -532,3 +550,34 @@ class Level_05(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
+
+		for platform in water_level05:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
+		
+		# add moving sprites
+		block = platforms.MovingPlatform_snow(platforms.snow_dirt_half)
+		block.rect.x = 710
+		block.rect.y = 483
+		block.boundary_left = 710
+		block.boundary_right = 1100
+		block.change_x = 2
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+
+		# add moving sprites
+		block = platforms.MovingPlatform_snow(platforms.snow_dirt_half)
+		block.rect.x = 780
+		block.rect.y = 343
+		block.boundary_left = 780
+		block.boundary_right = 1100
+		block.change_x = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
