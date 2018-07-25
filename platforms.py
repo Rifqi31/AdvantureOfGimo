@@ -19,11 +19,21 @@ import gameoverscreen
 #   Width of sprite
 #   Height of sprite
 
-# asset for tileset Intro Game
+# asset for tileset Intro Game and level 05
 # for snow dirt
 snow_dirt_wall = (770, 162, 140, 630)
 snow_dirt_big_wall = (325, 162, 350, 630)
 snow_dirt_intro = (0, 0, 770, 140)
+snow_dirt_half = (231, 162, 70, 38)
+snow_dirt_grass_basic = (231, 203, 70, 70)
+snow_dirt_grass_rounded = (155, 162, 70, 70)
+snow_dirt_tall_grass_left_right = (0, 308, 70, 350)
+snow_dirt_grass_medium_tall = (75, 308, 70, 280)
+snow_dirt_grass_short_tall = (155, 238, 70, 210)
+snow_dirt_grass_medium_large = (0, 676, 280, 140)
+snow_dirt_grass_up_down = (0, 829, 210, 70)
+snow_dirt_grass_small_large = (0, 162, 140, 140)
+
 # portal
 portal_snow = (219, 511, 70, 70)
 
@@ -62,7 +72,7 @@ medium_sharp_rock = (662, 126, 210, 70)
 small_sharp_rock = (667, 188, 140, 70)
 
 
-# aset for tileset level 03
+# asset for tileset level 03 and level 04
 brick_red_wall = (0, 0, 140, 630)
 brick_red_big_wall = (625, 0, 280, 630)
 brick_red_medium_tall = (147, 0, 140, 210)
@@ -293,6 +303,76 @@ class MovingPlatform(Platform_dark_brick):
 
 
 class MovingPlatform_brick_red(Platform_grass_brick):
+	""" This is a fancier platform that can actually move. """
+ 
+	def __init__(self, sprite_sheet_data):
+ 
+		super().__init__(sprite_sheet_data)
+ 
+		self.change_x = 0
+		self.change_y = 0
+ 
+		self.boundary_top = 0
+		self.boundary_bottom = 0
+		self.boundary_left = 0
+		self.boundary_right = 0
+ 
+		self.level = None
+		self.player = None
+ 
+	def update(self):
+		""" Move the platform.
+			If the player is in the way, it will shove the player
+			out of the way. This does NOT handle what happens if a
+			platform shoves a player into another object. Make sure
+			moving platforms have clearance to push the player around
+			or add code to handle what happens if they don't. """
+ 
+ 
+		# Move left/right
+		self.rect.x += self.change_x
+ 
+		# See if we hit the player
+		hit = pygame.sprite.collide_rect(self, self.player)
+		if hit:
+			# We did hit the player. Shove the player around and
+			# assume he/she won't hit anything else.
+ 
+			# If we are moving right, set our right side
+			# to the left side of the item we hit
+			if self.change_x < 0:
+				self.player.rect.right = self.rect.left
+			else:
+				# Otherwise if we are moving left, do the opposite.
+				self.player.rect.left = self.rect.right
+ 
+		# Move up/down
+		self.rect.y += self.change_y
+ 
+		# Check and see if we the player
+		hit = pygame.sprite.collide_rect(self, self.player)
+		if hit:
+			# We did hit the player. Shove the player around and
+			# assume he/she won't hit anything else.
+ 
+			# Reset our position based on the top/bottom of the object.
+			if self.change_y < 0:
+				self.player.rect.bottom = self.rect.top
+			else:
+				self.player.rect.top = self.rect.bottom
+ 
+		# Check the boundaries and see if we need to reverse
+		# direction.
+		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+			self.change_y *= -1
+ 
+		cur_pos = self.rect.x - self.level.world_shift
+		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+			self.change_x *= -1
+
+
+
+class MovingPlatform_snow(Platform_snow):
 	""" This is a fancier platform that can actually move. """
  
 	def __init__(self, sprite_sheet_data):
