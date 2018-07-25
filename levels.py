@@ -401,7 +401,7 @@ class Level_04(Level):
 
 		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -1700
+		self.level_limit = -1583
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 04
@@ -441,6 +441,8 @@ class Level_04(Level):
 						[platforms.medium_long_water, 1960, 531],
 						[platforms.medium_short_water, 2100, 531]]
 
+		portal = [[platforms.portal_snow, 2447, 440]]
+
 
 		for platform in level04:
 			block = platforms.Platform_grass_brick(platform[0])
@@ -455,6 +457,14 @@ class Level_04(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
+		
+				
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
 
 		# add moving sprites
 		block = platforms.MovingPlatform_brick_red(platforms.brick_red_snow_small_half)
@@ -499,3 +509,26 @@ class Level_04(Level):
 		block.player = self.player
 		block.level = self
 		self.platform_list.add(block)
+
+
+class Level_05(Level):
+	def __init__(self, player):
+		""" Definition for Level 05 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/intro_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1700
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 05
+		level05 = [[platforms.snow_dirt_wall, -140, 0]]
+
+		for platform in level05:
+			block = platforms.Platform_snow(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
