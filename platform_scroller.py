@@ -295,7 +295,7 @@ def gameplay():
 
 		# ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
 
-		# if player in the level 01
+		# if player in the intro
 		if current_level == level_list[0]:
 
 			settings.msg_to_screen("Tutorial", constants.WHITE, 0, 0, size="small")
@@ -399,26 +399,7 @@ def gameplay():
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			# for player scores
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
-
-			# process each snow flake in the list
-			for i in range(len(snow_list)):
-
-				# draw the snow flake
-				pygame.draw.circle(configscreen.screen, constants.WHITE, snow_list[i], 2)
-
-				# move the snow flake down one pixel
-				snow_list[i][1] += 1
-
-				# if the snow flake has moved off the bottom of the screen
-				if snow_list[i][1] > 450:
-					# reset it just above the top
-					y = random.randrange(-50, -10)
-					snow_list[i][1] = y
-					# give it new x position
-					x = random.randrange(0, 790)
-					snow_list[i][0] = x
-
-			
+	
 		# Limit to 60 frames per second
 		clock.tick(60)
 
