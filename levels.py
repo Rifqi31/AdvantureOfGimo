@@ -405,14 +405,15 @@ class Level_04(Level):
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 04
-		level04 = [[platforms.brick_red_wall, -140, 0],
-				[platforms.brick_red_snow_medium_short_land, 0, 529],
+		level04 = [[platforms.brick_red_wall, -220, 0],
+				[platforms.brick_basic, -80, 530],
+				[platforms.brick_red_snow_medium_short_land, -20, 530],
 				[platforms.brick_red_medium_bottom, 500, 300],
 				[platforms.brick_red_snow_high_small_left_right, 499, 160],
 				[platforms.brick_red_snow_medium_short_land, 500, 90],
 				[platforms.brick_red_snow_medium_short_land, 640, 90],
 				[platforms.brick_basic, 980, 529],
-				[platforms.brick_red_snow_medium_short_land, 1050, 529],
+				[platforms.brick_red_snow_medium_short_land, 1050, 530],
 				[platforms.brick_red_snow_high_small_left_right, 978, 387],
 				[platforms.brick_red_snow_medium_short_land, 978, 317],
 				[platforms.brick_red_snow_high_small_left_right, 1188, 177],
@@ -423,20 +424,22 @@ class Level_04(Level):
 				[platforms.brick_basic, 2030, 317],
 				[platforms.brick_red_snow_high_small_left_right, 2027, 177],
 				[platforms.brick_red_snow_high_small_left_right, 2027, 37],
-				[platforms.brick_red_snow_medium_short_land, 2237, 529],
-				[platforms.brick_red_big_wall,  2517, 0]]
+				[platforms.brick_red_snow_medium_short_land, 2237, 530],
+				[platforms.brick_red_big_wall,  2517, 0],
+				[platforms.brick_red_wall, 2790, 0]]
 		
 
-		water_level04 = [[platforms.medium_long_water, 280, 530],
-						[platforms.medium_long_water, 490, 530],
-						[platforms.medium_long_water, 700, 530],
-						[platforms.medium_short_water, 770, 530],
-						[platforms.medium_short_water, 840, 530],
-						[platforms.medium_long_water, 1330, 530],
-						[platforms.medium_long_water, 1540, 530],
-						[platforms.medium_long_water, 1750, 530],
-						[platforms.medium_long_water, 1960, 530],
-						[platforms.medium_short_water, 2100, 530]]
+		water_level04 = [[platforms.medium_short_water, 260, 531],
+						[platforms.medium_long_water, 280, 531],
+						[platforms.medium_long_water, 490, 531],
+						[platforms.medium_long_water, 700, 531],
+						[platforms.medium_short_water, 770, 531],
+						[platforms.medium_short_water, 840, 531],
+						[platforms.medium_long_water, 1330, 531],
+						[platforms.medium_long_water, 1540, 531],
+						[platforms.medium_long_water, 1750, 531],
+						[platforms.medium_long_water, 1960, 531],
+						[platforms.medium_short_water, 2100, 531]]
 
 
 		for platform in level04:
