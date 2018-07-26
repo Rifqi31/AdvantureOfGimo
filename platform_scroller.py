@@ -90,6 +90,7 @@ def gameplay():
 	level_list.append(levels.Level_03(player))
 	level_list.append(levels.Level_04(player))
 	level_list.append(levels.Level_05(player))
+	level_list.append(levels.Level_06(player))
 
 	# Set the current level
 	current_level_no = 0
@@ -403,6 +404,22 @@ def gameplay():
 		elif current_level == level_list[5]:
 			# level number
 			settings.hud_msg_to_screen("Level 5", constants.WHITE, 0, 0, size = "small")
+
+			# for player health
+			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
+			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
+			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
+
+			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+			# for player scores
+			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+		
+		elif current_level == level_list[6]:
+			# level number
+			settings.hud_msg_to_screen("Level 6", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
 			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
