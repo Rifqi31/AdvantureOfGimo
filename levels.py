@@ -520,7 +520,7 @@ class Level_05(Level):
 
 		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -1700
+		self.level_limit = -1146
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 05
@@ -543,6 +543,8 @@ class Level_05(Level):
 						[platforms.medium_long_water, 1030, 531],
 						[platforms.medium_short_water, 1310, 531],
 						[platforms.medium_long_water, 1660, 531]]
+		
+		portal = [[platforms.portal_snow, 2010, 390]]
 
 		for platform in level05:
 			block = platforms.Platform_snow(platform[0])
@@ -557,6 +559,13 @@ class Level_05(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
+		
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
 		
 		# add moving sprites
 		block = platforms.MovingPlatform_snow(platforms.snow_dirt_half)
@@ -581,3 +590,54 @@ class Level_05(Level):
 		block.level = self
 		self.platform_list.add(block)
 
+
+class Level_06(Level):
+	def __init__(self, player):
+		""" Definition for Level 06 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1700
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 06
+		level06 = [[platforms.sand_dirt_wall, -140, 0],
+				[platforms.sand_dirt_medium_long_land, 0, 530],
+				[platforms.sand_dirt_tall_small, 560, 390],
+				[platforms.sand_dirt_tall_medium, 630, 320],
+				[platforms.sand_dirt_tall_long, 700, 250],
+				[platforms.sand_dirt_half, 560, 120],
+				[platforms.sand_dirt_basic_medium, 280, 120],
+				[platforms.sand_dirt_basic_medium, 0, 80],
+				[platforms.sand_dirt_tall_large_medium, 1190, 390],
+				[platforms.sand_dirt_medium_long_land, 1330, 460],
+				[platforms.sand_dirt_tall_large_medium, 1680, 390],
+				[platforms.sand_dirt_long_soft_up_down, 1200, 190],
+				[platforms.sand_dirt_medium_long_land, 2240, 460],
+				[platforms.sand_dirt_big_wall, 2660, 0],
+				[platforms.sand_dirt_wall, 2520, 0]]
+		
+		water_level06 = [[platforms.medium_long_water, 350, 531],
+						[platforms.medium_long_water, 770, 531],
+						[platforms.medium_long_water, 980, 531],
+						[platforms.medium_long_water, 1820, 531],
+						[platforms.medium_long_water, 2030, 531]]
+
+		for platform in level06:
+			block = platforms.Platform_dirt_sand(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
+
+		for platform in water_level06:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
+		
