@@ -659,7 +659,7 @@ class Level_07(Level):
 
 		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -1700
+		self.level_limit = -1686
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 07
@@ -688,6 +688,8 @@ class Level_07(Level):
 						[platforms.medium_short_water, 1660, 531],
 						[platforms.medium_long_water, 1940, 531],
 						[platforms.medium_short_water, 2060, 531]]
+
+		portal = [[platforms.portal_snow, 2550, 459]]
 		
 		for platform in level07:
 			block = platforms.Platform_ancient_brick(platform[0])
@@ -703,6 +705,13 @@ class Level_07(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
+		
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
 		
 		# add moving sprites
 		block = platforms.MovingPlatform_ancient_brick(platforms.ancient_brick_half)
@@ -744,6 +753,69 @@ class Level_07(Level):
 		block.boundary_left = 1120
 		block.boundary_right = 1500
 		block.change_x = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+
+class Level_08(Level):
+	def __init__(self, player):
+		""" Definition for Level 08 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/lava_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1700
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 08
+		level08 = [[platforms.lava_rock_wall, -140, 0],
+				[platforms.lava_rock_medium_large_land, 0, 530],
+				[platforms.lava_rock_medium_large_land, 280, 530],
+				[platforms.lava_rock_small_tall, 770, 390],
+				[platforms.lava_rock_medium_tall, 840, 320],
+				[platforms.lava_rock_long_tall, 910, 250],
+				[platforms.lava_rock_basic, 1050, 98],
+				[platforms.lava_rock_basic_medium, 560, 80],
+				[platforms.lava_rock_short_small_land, 0, 98],
+				[platforms.lava_rock_medium_large_land, 1540, 410],
+				[platforms.lava_rock_long_tall, 2100, 110],
+				[platforms.lava_rock_medium_large_land, 2380, 410],
+				[platforms.lava_rock_big_wall, 2590, 0],
+				[platforms.lava_rock_wall, 2870, 0]]
+		
+		lava_water_level08 = [[platforms.lava_water_long, 560, 531],
+							[platforms.lava_water_long, 980, 531],
+							[platforms.lava_water_long, 1190, 531],
+							[platforms.lava_water, 1400, 531],
+							[platforms.lava_water, 1470, 531],
+							[platforms.lava_water_long, 1820, 531],
+							[platforms.lava_water, 2030, 531],
+							[platforms.lava_water_long, 2170, 531]]
+
+		for platform in level08:
+			block = platforms.Platform_lava_rock(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+		
+		for platform in lava_water_level08:
+			lava_water_suicide = platforms.Platform_lava_rock(platform[0])
+			lava_water_suicide.rect.x = platform[1]
+			lava_water_suicide.rect.y = platform[2]
+			lava_water_suicide.player = self.player
+			self.death_place_list.add(lava_water_suicide)
+		
+		# add moving sprites
+		block = platforms.MovingPlatform_lava_rock(platforms.lava_rock_half)
+		block.rect.x = 1960
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
 		block.player = self.player
 		block.level = self
 		self.platform_list.add(block)
