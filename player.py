@@ -17,7 +17,7 @@ import configsounds
 
 import gameoverscreen
 
-from platforms import MovingPlatform
+from platforms import MovingPlatform, MovingPlatform_snow, MovingPlatform_dirt_sand, MovingPlatform_brick_red, MovingPlatform_ancient_brick
 from spritesheet_functions import SpriteSheet
 
 
@@ -169,6 +169,18 @@ class Player(pygame.sprite.Sprite):
 			self.change_y = 0
  
 			if isinstance(block, MovingPlatform):
+				self.rect.x += block.change_x
+			
+			if isinstance(block, MovingPlatform_ancient_brick):
+				self.rect.x += block.change_x
+
+			if isinstance(block, MovingPlatform_brick_red):
+				self.rect.x += block.change_x
+			
+			if isinstance(block, MovingPlatform_dirt_sand):
+				self.rect.x += block.change_x
+			
+			if isinstance(block, MovingPlatform_snow):
 				self.rect.x += block.change_x
  
 
