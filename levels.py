@@ -600,7 +600,7 @@ class Level_06(Level):
 
 		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
 		self.background.set_colorkey(constants.WHITE)
-		self.level_limit = -1700
+		self.level_limit = -1586
 
 		# Array with type of platform, and x, y location of the platform.
 		# for level 06
@@ -625,6 +625,8 @@ class Level_06(Level):
 						[platforms.medium_long_water, 980, 531],
 						[platforms.medium_long_water, 1820, 531],
 						[platforms.medium_long_water, 2030, 531]]
+		
+		portal = [[platforms.portal_snow, 2450, 389]]
 
 		for platform in level06:
 			block = platforms.Platform_dirt_sand(platform[0])
@@ -633,7 +635,6 @@ class Level_06(Level):
 			block.player = self.player
 			self.platform_list.add(block)
 
-
 		for platform in water_level06:
 			water_suicide = platforms.Platform_dirt(platform[0])
 			water_suicide.rect.x = platform[1]
@@ -641,3 +642,108 @@ class Level_06(Level):
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
 		
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
+
+
+class Level_07(Level):
+	def __init__(self, player):
+		""" Definition for Level 07 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1700
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 07
+		level07 = [[platforms.ancient_brick_wall, -140, 0],
+				[platforms.ancient_brick_tall_large_long, 0, 530],
+				[platforms.ancient_brick_tall_large_long, 0, 74],
+				[platforms.ancient_brick_long_tall_sand_left_right, 420, 180],
+				[platforms.ancient_brick_basic, 420, 130],
+				[platforms.ancient_brick_medium_sand_top_down, 490, 130],
+				[platforms.ancient_brick_medium_sand_top_down, 490, 340],
+				[platforms.ancient_brick_tall_large_small, 910, 410],
+				[platforms.ancient_brick_tall_large_medium, 980, 480],
+				[platforms.ancient_brick_short_land, 1570, 70],
+				[platforms.ancient_brick_tall_large_long, 2200, 530],
+				[platforms.ancient_brick_tall_large_long, 2410, 530],
+				[platforms.ancient_brick_big_wall, 2620, 0],
+				[platforms.ancient_brick_wall, 2900, 0],
+				[platforms.ancient_brick_tall_large_medium, 1800, 480]]
+		
+		water_level07 = [[platforms.medium_long_water, 210, 531],
+						[platforms.medium_long_water, 490, 531],
+						[platforms.medium_long_water, 700, 531],
+						[platforms.medium_long_water, 1120, 531],
+						[platforms.medium_long_water, 1330, 531],
+						[platforms.medium_long_water, 1540, 531],
+						[platforms.medium_short_water, 1660, 531],
+						[platforms.medium_long_water, 1940, 531],
+						[platforms.medium_short_water, 2060, 531]]
+		
+		for platform in level07:
+			block = platforms.Platform_ancient_brick(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
+
+		for platform in water_level07:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
+		
+		# add moving sprites
+		block = platforms.MovingPlatform_ancient_brick(platforms.ancient_brick_half)
+		block.rect.x = 280
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_ancient_brick(platforms.ancient_brick_half)
+		block.rect.x = 700
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 2
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_ancient_brick(platforms.ancient_brick_half)
+		block.rect.x = 1120
+		block.rect.y = 343
+		block.boundary_left = 1120
+		block.boundary_right = 1500
+		block.change_x = 2
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# add moving sprites
+		block = platforms.MovingPlatform_ancient_brick(platforms.ancient_brick_half)
+		block.rect.x = 1120
+		block.rect.y = 203
+		block.boundary_left = 1120
+		block.boundary_right = 1500
+		block.change_x = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
