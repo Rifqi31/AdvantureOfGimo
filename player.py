@@ -220,6 +220,11 @@ class Player(pygame.sprite.Sprite):
 			self.rect.y += 20
 			if self.rect.bottom >= constants.SCREEN_HEIGHT or self.rect.bottom < 0:
 				gameoverscreen.show_game_over()
+		
+		for lava_water_suicide in you_die_in_hell:
+			self.rect.y += 20
+			if self.rect.bottom >= constants.SCREEN_HEIGHT or self.rect.bottom < 0:
+				gameoverscreen.show_game_over()
 
 
 		# for hiragana and katakana list
