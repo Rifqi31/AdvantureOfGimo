@@ -38,8 +38,8 @@ def option_menu():
 									title='Display Settings',
 									window_height=constants.SCREEN_HEIGHT,
 									window_width=constants.SCREEN_WIDTH)
-	display_menu.add_option('Windowed', platform_scroller.windowed_settings)
-	display_menu.add_option('Fullscreen', platform_scroller.fullscreen_settings)
+	display_menu.add_option('Windowed', configscreen.windowed_settings)
+	display_menu.add_option('Fullscreen', configscreen.fullscreen_settings)
 	display_menu.add_option('Return to Option', PYGAME_MENU_BACK)
 
 	# Option Menu
