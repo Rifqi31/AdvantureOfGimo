@@ -19,3 +19,14 @@ coin_sfx = pygame.mixer.Sound("sounds/mattix_8bit-coin.wav")
 magic_sfx = pygame.mixer.Sound("sounds/8bit-laser-shot.wav")
 ouch_sfx = pygame.mixer.Sound("sounds/ouch_sfx.wav")
 portal_sfx = pygame.mixer.Sound("sounds/retro-accomplished-sfx.wav")
+
+
+# ----- For Sounds Settings -----
+def turn_off_sounds():
+	""" This function for turn off all sounds """
+	pygame.mixer.stop()
+
+def turn_on_sounds():
+	""" This function for turn on all sounds """
+	background_music.play(-1)
+	background_music.set_volume(0.5)
