@@ -22,8 +22,7 @@ import configscreen
 # import sounds file
 import configsounds
 # import player module
-from player import Player
-from player import Bullet
+from player import Player, Bullet
 
 from spritesheet_functions import SpriteSheet
 
@@ -32,27 +31,6 @@ import random
 import fontsettings
 
 import gameoverscreen
-
-# ----- For Display Settings -----
-def fullscreen_settings():
-	""" This function for fullscreen settings """
-	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT), pygame.FULLSCREEN)
-
-def windowed_settings():
-	""" This function for windowed screen settings """
-	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
-
-
-# ----- For Sounds Settings -----
-def turn_off_sounds():
-	""" This function for turn off all sounds """
-	pygame.mixer.stop()
-
-def turn_on_sounds():
-	""" This function for turn on all sounds """
-	configsounds.background_music.play(-1)
-	configsounds.background_music.set_volume(0.5)
-
 
 # ----- Main Menu ----- 
 def main_background():
@@ -71,6 +49,19 @@ def pause_background():
 
 	configscreen.screen.fill(constants.BLUE)
 
+def hud_screen_player():
+    # for player health
+	player = Player()
+	settings = fontsettings.BasicSettings()
+	if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
+		settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
+	elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
+		settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
+	elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
+		settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
+	
+	# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+	settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 
 def gameplay():
 	""" Main Program """
@@ -113,7 +104,7 @@ def gameplay():
 	gameOver = False
 
 	# play the sound
-	turn_on_sounds()
+	configsounds.turn_on_sounds()
 
 	# call BasicSettings class
 	settings = fontsettings.BasicSettings()
@@ -147,8 +138,8 @@ def gameplay():
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
 	
-	option_display_settings.add_option('Fullscreen', fullscreen_settings)
-	option_display_settings.add_option('Windowed', windowed_settings)
+	option_display_settings.add_option('Fullscreen', configscreen.fullscreen_settings)
+	option_display_settings.add_option('Windowed', configscreen.windowed_settings)
 	option_display_settings.add_option('Back', PYGAME_MENU_BACK)
 
 	# sounds in game settings
@@ -167,8 +158,8 @@ def gameplay():
 							window_height=constants.SCREEN_HEIGHT,
 							window_width=constants.SCREEN_WIDTH)
 
-	option_sounds_settings.add_option('On Music', turn_on_sounds)
-	option_sounds_settings.add_option('Off Music', turn_off_sounds)
+	option_sounds_settings.add_option('On Music', configsounds.turn_on_sounds)
+	option_sounds_settings.add_option('Off Music', configsounds.turn_off_sounds)
 	option_sounds_settings.add_option('Back', PYGAME_MENU_BACK)
 	
 	# help in game setitings
@@ -345,127 +336,56 @@ def gameplay():
 			settings.hud_msg_to_screen("Level 1", constants.WHITE, 0, 0, size = "small")
 			
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 		
 		elif current_level == level_list[2]:
 			# level number
 			settings.hud_msg_to_screen("Level 2", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 		
 		elif current_level == level_list[3]:
 			# level number
 			settings.hud_msg_to_screen("Level 3", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 
 		elif current_level == level_list[4]:
 			# level number
 			settings.hud_msg_to_screen("Level 4", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 		
 		elif current_level == level_list[5]:
 			# level number
 			settings.hud_msg_to_screen("Level 5", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 		
 		elif current_level == level_list[6]:
 			# level number
 			settings.hud_msg_to_screen("Level 6", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 		
 		elif current_level == level_list[7]:
 			# level number
 			settings.hud_msg_to_screen("Level 7", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 		
 		elif current_level == level_list[8]:
 			# level number
 			settings.hud_msg_to_screen("Level 8", constants.WHITE, 0, 0, size = "small")
 
 			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			# for player scores
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			hud_screen_player()
 	
 		# Limit to 60 frames per second
 		clock.tick(60)
