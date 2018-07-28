@@ -315,7 +315,7 @@ def gameplay():
 			settings.msg_to_screen("Tombol tanda panah ^ : melompat",
 									constants.WHITE,
 									100, 200, size="small")
-			settings.msg_to_screen("|", constants.WHITE, 340, 210, size="small")
+			settings.msg_to_screen("|", constants.WHITE, 296, 210, size="small")
 			settings.msg_to_screen("Tombol huruf X : Menembak", constants.WHITE, 100, 250, size="small")
 			settings.msg_to_screen("Esc : Pause/Resume", constants.WHITE, 100, 300, size="small")
 			
