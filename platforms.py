@@ -138,8 +138,123 @@ lava_rock_big_wall = (626, 0, 280, 630)
 
 
 # for hiragana & katakana
+# hiragana symbol
+# vocal
 hiragana_a = (0, 0, 70, 70)
 hiragana_i = (0, 72, 70, 70)
+hiragana_u = (0, 146, 70, 70)
+hiragana_e = (0, 219, 70, 70)
+hiragana_o = (0, 292, 70, 70)
+# vocal K
+hiragana_ka = (73, 0, 70, 70)
+hiragana_ki = (73, 73, 70, 70)
+hiragana_ku = (73, 146, 70, 70)
+hiragana_ke = (73, 219, 70, 70)
+hiragana_ko = (73, 292, 70, 70)
+# vocal S
+hiragana_sa = (146, 0, 70, 70)
+hiragana_si = (146, 73, 70, 70)
+hiragana_su = (146, 146, 70, 70)
+hiragana_se = (146, 219, 70, 70)
+hiragana_so = (146, 292, 70, 70)
+# vocal T
+hiragana_ta = (219, 0, 70, 70)
+hiragana_ti = (219, 73, 70, 70)
+hiragana_tu = (219, 146, 70, 70)
+hiragana_te = (219, 219, 70, 70)
+hiragana_to = (219, 292, 70, 70)
+# vocal N
+hiragana_na = (292, 0, 70, 70)
+hiragana_ni = (292, 73, 70, 70)
+hiragana_nu = (292, 146, 70, 70)
+hiragana_ne = (292, 219, 70, 70)
+hiragana_no = (292, 292, 70, 70)
+# vocal H
+hiragana_ha = (365, 0, 70, 70)
+hiragana_hi = (365, 73, 70, 70)
+hiragana_hu = (365, 146, 70, 70)
+hiragana_he = (365, 219, 70, 70)
+hiragana_ho = (365, 292, 70, 70)
+# vocal M
+hiragana_ma = (438, 0, 70, 70)
+hiragana_mi = (438, 73, 70, 70)
+hiragana_mu = (438, 146, 70, 70)
+hiragana_me = (438, 219, 70, 70)
+hiragana_mo = (438, 292, 70, 70)
+# vocal Y
+hiragana_ya = (511, 0, 70, 70)
+hiragana_yu = (511, 73, 70, 70)
+hiragana_yo = (511, 146, 70, 70)
+# vocal R
+hiragana_ra = (584, 0, 70, 70)
+hiragana_ri = (584, 73, 70, 70)
+hiragana_ru = (584, 146, 70, 70)
+hiragana_re = (584, 219, 70, 70)
+hiragana_ro = (584, 292, 70, 70)
+# vocal W
+hiragana_wa = (657, 0, 70, 70)
+hiragana_wo = (657, 73, 70, 70)
+# vocal N
+hiragana_n = (730, 0, 70, 70)
+
+# Katakana Symbol
+katakana_a = (0, 438, 70, 70)
+katakana_i = (0, 511, 70, 70)
+katakana_u = (0, 584, 70, 70)
+katakana_e = (0, 657, 70, 70)
+katakana_o = (0, 730, 70, 70)
+# vocal K
+katakana_ka = (73, 438, 70, 70)
+katakana_ki = (73, 511, 70, 70)
+katakana_ku = (73, 584, 70, 70)
+katakana_ke = (73, 657, 70, 70)
+katakana_ko = (73, 730, 70, 70)
+# vocal S
+katakana_sa = (146, 438, 70, 70)
+katakana_si = (146, 511, 70, 70)
+katakana_su = (146, 584, 70, 70)
+katakana_se = (146, 657, 70, 70)
+katakana_so = (146, 730, 70, 70)
+# vocal T
+katakana_ta = (219, 438, 70, 70)
+katakana_ti = (219, 511, 70, 70)
+katakana_tu = (219, 584, 70, 70)
+katakana_te = (219, 657, 70, 70)
+katakana_to = (219, 730, 70, 70)
+# vocal N
+katakana_na = (292, 438, 70, 70)
+katakana_ni = (292, 511, 70, 70)
+katakana_nu = (292, 584, 70, 70)
+katakana_ne = (292, 657, 70, 70)
+katakana_no = (292, 730, 70, 70)
+# vocal H
+katakana_ha = (365, 438, 70, 70)
+katakana_hi = (365, 511, 70, 70)
+katakana_hu = (365, 484, 70, 70)
+katakana_he = (365, 657, 70, 70)
+katakana_ho = (365, 730, 70, 70)
+# vocal M
+katakana_ma = (438, 438, 70, 70)
+katakana_mi = (438, 511, 70, 70)
+katakana_mu = (438, 484, 70, 70)
+katakana_me = (438, 657, 70, 70)
+katakana_mo = (438, 730, 70, 70)
+# vocal Y
+katakana_ya = (584, 438, 70, 70)
+katakana_yu = (584, 511, 70, 70)
+katakana_yo = (584, 484, 70, 70)
+# vocal R
+katakana_ra = (511, 438, 70, 70)
+katakana_ri = (511, 511, 70, 70)
+katakana_ru = (511, 484, 70, 70)
+katakana_re = (511, 657, 70, 70)
+katakana_ro = (511, 730, 70, 70)
+# vocal W
+katakana_wa = (657, 438, 70, 70)
+katakana_wo = (657, 511, 70, 70)
+# vocal N
+katakana_Na = (730, 438, 70, 70)
+
 
 # for enemys
 skull_ghost = (10, 5, 42, 51)
