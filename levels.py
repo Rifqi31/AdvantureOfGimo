@@ -160,13 +160,13 @@ class Level_01(Level):
 		
 		portal = [[platforms.portal_snow, 2030, 380]]
 		
-		"""hiragana_a = [[platforms.hiragana_a, 200, 200]]
+		hiragana_a = [[platforms.hiragana_a, 200, 200]]
 		hiragana_i = [[platforms.hiragana_i, 400, 200]]
 
 		enemy_skull = [[platforms.skull_ghost, 300, 400]]
 
 		# for prototye special enemy
-		fat_frog = [[platforms.fat_frog, 600, 400]]"""
+		special_enemy = [[platforms.big_ogre_a, 700, 360]]
 
 		
 
@@ -195,7 +195,7 @@ class Level_01(Level):
 
 		
 		
-		"""for platform in hiragana_a :
+		for platform in hiragana_a :
 			true_point = platforms.Platform_hiragana_katakana(platform[0])
 			true_point.rect.x = platform[1]
 			true_point.rect.y = platform[2]
@@ -217,15 +217,15 @@ class Level_01(Level):
 			self.enemy_list.add(eaten)
 		
 		# for prototype
-		for platform in fat_frog:
-			special_eaten_A = platforms.Platform_enemy(platform[0])
+		for platform in special_enemy:
+			special_eaten_A = platforms.Platform_special_enemy(platform[0])
 			special_eaten_A.rect.x = platform[1]
 			special_eaten_A.rect.y = platform[2]
 			special_eaten_A.player = self.player
 			self.special_enemy_list.add(special_eaten_A)
 
 		# add moving sprites using platform algorithmic
-		eaten = platforms.MovingPlatform(platforms.skull_ghost)
+		eaten = platforms.MovingEnemy(platforms.skull_ghost)
 		eaten.rect.x = 400
 		eaten.rect.y = 400
 		eaten.boundary_left = 100
@@ -233,7 +233,7 @@ class Level_01(Level):
 		eaten.change_x = 5
 		eaten.player = self.player
 		eaten.level = self
-		self.enemy_list.add(eaten)"""
+		self.enemy_list.add(eaten)
 
 
 # Level 02
