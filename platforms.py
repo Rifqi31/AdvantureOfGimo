@@ -145,57 +145,68 @@ hiragana_i = (0, 72, 70, 70)
 hiragana_u = (0, 146, 70, 70)
 hiragana_e = (0, 219, 70, 70)
 hiragana_o = (0, 292, 70, 70)
+
 # vocal K
 hiragana_ka = (73, 0, 70, 70)
 hiragana_ki = (73, 73, 70, 70)
 hiragana_ku = (73, 146, 70, 70)
 hiragana_ke = (73, 219, 70, 70)
 hiragana_ko = (73, 292, 70, 70)
+
 # vocal S
 hiragana_sa = (146, 0, 70, 70)
 hiragana_si = (146, 73, 70, 70)
 hiragana_su = (146, 146, 70, 70)
 hiragana_se = (146, 219, 70, 70)
 hiragana_so = (146, 292, 70, 70)
+
 # vocal T
 hiragana_ta = (219, 0, 70, 70)
 hiragana_ti = (219, 73, 70, 70)
 hiragana_tu = (219, 146, 70, 70)
 hiragana_te = (219, 219, 70, 70)
 hiragana_to = (219, 292, 70, 70)
+
 # vocal N
 hiragana_na = (292, 0, 70, 70)
 hiragana_ni = (292, 73, 70, 70)
 hiragana_nu = (292, 146, 70, 70)
 hiragana_ne = (292, 219, 70, 70)
 hiragana_no = (292, 292, 70, 70)
+
 # vocal H
 hiragana_ha = (365, 0, 70, 70)
 hiragana_hi = (365, 73, 70, 70)
 hiragana_hu = (365, 146, 70, 70)
 hiragana_he = (365, 219, 70, 70)
 hiragana_ho = (365, 292, 70, 70)
+
 # vocal M
 hiragana_ma = (438, 0, 70, 70)
 hiragana_mi = (438, 73, 70, 70)
 hiragana_mu = (438, 146, 70, 70)
 hiragana_me = (438, 219, 70, 70)
 hiragana_mo = (438, 292, 70, 70)
+
 # vocal Y
 hiragana_ya = (511, 0, 70, 70)
 hiragana_yu = (511, 73, 70, 70)
 hiragana_yo = (511, 146, 70, 70)
+
 # vocal R
 hiragana_ra = (584, 0, 70, 70)
 hiragana_ri = (584, 73, 70, 70)
 hiragana_ru = (584, 146, 70, 70)
 hiragana_re = (584, 219, 70, 70)
 hiragana_ro = (584, 292, 70, 70)
+
 # vocal W
 hiragana_wa = (657, 0, 70, 70)
 hiragana_wo = (657, 73, 70, 70)
+
 # vocal N
 hiragana_n = (730, 0, 70, 70)
+
 
 # Katakana Symbol
 katakana_a = (0, 438, 70, 70)
@@ -203,55 +214,65 @@ katakana_i = (0, 511, 70, 70)
 katakana_u = (0, 584, 70, 70)
 katakana_e = (0, 657, 70, 70)
 katakana_o = (0, 730, 70, 70)
+
 # vocal K
 katakana_ka = (73, 438, 70, 70)
 katakana_ki = (73, 511, 70, 70)
 katakana_ku = (73, 584, 70, 70)
 katakana_ke = (73, 657, 70, 70)
 katakana_ko = (73, 730, 70, 70)
+
 # vocal S
 katakana_sa = (146, 438, 70, 70)
 katakana_si = (146, 511, 70, 70)
 katakana_su = (146, 584, 70, 70)
 katakana_se = (146, 657, 70, 70)
 katakana_so = (146, 730, 70, 70)
+
 # vocal T
 katakana_ta = (219, 438, 70, 70)
 katakana_ti = (219, 511, 70, 70)
 katakana_tu = (219, 584, 70, 70)
 katakana_te = (219, 657, 70, 70)
 katakana_to = (219, 730, 70, 70)
+
 # vocal N
 katakana_na = (292, 438, 70, 70)
 katakana_ni = (292, 511, 70, 70)
 katakana_nu = (292, 584, 70, 70)
 katakana_ne = (292, 657, 70, 70)
 katakana_no = (292, 730, 70, 70)
+
 # vocal H
 katakana_ha = (365, 438, 70, 70)
 katakana_hi = (365, 511, 70, 70)
 katakana_hu = (365, 484, 70, 70)
 katakana_he = (365, 657, 70, 70)
 katakana_ho = (365, 730, 70, 70)
+
 # vocal M
 katakana_ma = (438, 438, 70, 70)
 katakana_mi = (438, 511, 70, 70)
 katakana_mu = (438, 484, 70, 70)
 katakana_me = (438, 657, 70, 70)
 katakana_mo = (438, 730, 70, 70)
+
 # vocal Y
 katakana_ya = (584, 438, 70, 70)
 katakana_yu = (584, 511, 70, 70)
 katakana_yo = (584, 484, 70, 70)
+
 # vocal R
 katakana_ra = (511, 438, 70, 70)
 katakana_ri = (511, 511, 70, 70)
 katakana_ru = (511, 484, 70, 70)
 katakana_re = (511, 657, 70, 70)
 katakana_ro = (511, 730, 70, 70)
+
 # vocal W
 katakana_wa = (657, 438, 70, 70)
 katakana_wo = (657, 511, 70, 70)
+
 # vocal N
 katakana_Na = (730, 438, 70, 70)
 
@@ -259,6 +280,83 @@ katakana_Na = (730, 438, 70, 70)
 # for enemys
 skull_ghost = (10, 5, 42, 51)
 fat_frog = (62, 7, 49, 49)
+old_skull = (122, 7, 31, 49)
+dark_bat = (158, 8, 57, 48)
+orange_slime = (14, 60, 33, 33)
+bad_mushroom = (65, 60, 42, 42)
+bad_octo = (122, 60, 31, 33)
+bad_ogre = (167, 60, 39, 42)
+
+# special enemys
+# basic vokal
+big_ogre_a = (5, 5, 65, 109)
+big_ogre_i = (79, 5, 65, 109)
+big_ogre_u = (152, 5, 65, 109)
+big_ogre_e = (225, 5, 65, 109)
+big_ogre_o = (301, 5, 65, 109)
+
+# Vocal K
+dark_rabbit_ka = (5, 117, 71, 108)
+dark_rabbit_ki = (79, 117, 71, 108)
+dark_rabbit_ku = (152, 117, 71, 108)
+dark_rabbit_ke = (225, 117, 71, 108)
+dark_rabbit_ko = (301, 117, 71, 108)
+
+# Vocal S
+orange_slime_sa = (5, 234, 80, 99)
+orange_slime_si = (88, 234, 80, 99)
+orange_slime_su = (170, 234, 80, 99)
+orange_slime_se = (254, 234, 80, 99)
+orange_slime_so = (336, 234, 80, 99)
+
+# vocal T
+big_ogre_ta = (380, 5, 65, 109)
+big_ogre_ti = (452, 5, 65, 109)
+big_ogre_tu = (523, 5, 65, 109)
+big_ogre_te = (596, 5, 65, 109)
+big_ogre_to = (670, 5, 65, 109)
+
+# Vocal N
+dark_rabbit_na = (380, 117, 71, 108)
+dark_rabbit_ni = (452, 117, 71, 108)
+dark_rabbit_nu = (523, 117, 71, 108)
+dark_rabbit_ne = (596, 117, 71, 108)
+dark_rabbit_no = (670, 117, 71, 108)
+
+# Vocal H
+orange_slime_ha = (420, 234, 80, 99)
+orange_slime_hi = (504, 234, 80, 99)
+orange_slime_hu = (588, 234, 80, 99)
+orange_slime_he = (674, 234, 80, 99)
+orange_slime_ho = (758, 234, 80, 99)
+
+# Vocal M
+zombie_skull_ma = (5, 348, 65, 96)
+zombie_skull_mi = (79, 348, 65, 96)
+zombie_skull_mu = (152, 348, 65, 96)
+zombie_skull_me = (223, 348, 65, 96)
+zombie_skull_mo = (297, 348, 65, 96)
+
+# Vocal Yo
+zombie_skull_ya = (372, 348, 65, 96)
+zombie_skull_yu = (445, 348, 65, 96)
+zombie_skull_yo = (517, 348, 65, 96)
+
+# Vocal R
+slime_lava_ra = (5, 456, 80, 99)
+slime_lava_ri = (91, 456, 80, 99)
+slime_lava_ru = (176, 456, 80, 99)
+slime_lava_re = (260, 456, 80, 99)
+slime_lava_ro = (344, 456, 80, 99)
+
+# Vocal W
+slime_lava_wa = (430, 456, 80, 99)
+slime_lava_wo = (517, 456, 80, 99)
+
+# Vocal N
+slime_lava_n = (603, 456, 80, 99)
+
+
 
 class Platform_enemy(pygame.sprite.Sprite):
 	""" Platform for enemy """
@@ -272,6 +370,28 @@ class Platform_enemy(pygame.sprite.Sprite):
 
 		# enemy tileset
 		sprite_sheet_enemys = SpriteSheet("spritesheet/enemy.png")
+
+		# Grab the image for this platform
+		self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
+												sprite_sheet_data[1],
+												sprite_sheet_data[2],
+												sprite_sheet_data[3])
+		
+		self.rect = self.image.get_rect()
+
+
+class Platform_special_enemy(pygame.sprite.Sprite):
+	""" Platform for enemy """
+	
+	def __init__(self, sprite_sheet_data):
+		""" Platform constructor. Assumes constructed with user passing in
+			 an array of 5 numbers like what's defined at the top of this
+			code. """
+		
+		super().__init__()
+
+		# enemy tileset
+		sprite_sheet_enemys = SpriteSheet("spritesheet/special_enemy_characters.png")
 
 		# Grab the image for this platform
 		self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
@@ -879,6 +999,59 @@ class MovingPlatform_lava_rock(Platform_lava_rock):
 
 # for prototype
 class MovingEnemy(Platform_enemy):
+	""" This is a fancier platform that can actually move. """
+ 
+	def __init__(self, sprite_sheet_data):
+ 
+		super().__init__(sprite_sheet_data)
+ 
+		self.change_x = 0
+		self.change_y = 0
+ 
+		self.boundary_top = 0
+		self.boundary_bottom = 0
+		self.boundary_left = 0
+		self.boundary_right = 0
+ 
+		self.level = None
+		self.player = None
+ 
+	def update(self):
+ 
+		# Move left/right
+		self.rect.x += self.change_x
+ 
+		# See if we hit the player
+		hit = pygame.sprite.collide_rect(self, self.player)
+		if hit:
+			# if the player just stand up/ not move
+			# in front of enemy, he/she will die!
+			# need to fix this
+			gameoverscreen.show_game_over()
+ 
+		# Move up/down
+		self.rect.y += self.change_y
+ 
+		# Check and see if we the player
+		hit = pygame.sprite.collide_rect(self, self.player)
+		if hit:
+			# if the player just stand up/ not move
+			# in front of enemy, he/she will die!
+			gameoverscreen.show_game_over()
+ 
+ 
+		# Check the boundaries and see if we need to reverse
+		# direction.
+		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+			self.change_y *= -1
+ 
+		cur_pos = self.rect.x - self.level.world_shift
+		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+			self.change_x *= -1
+
+
+# for special enemy
+class MovingEnemySpecial(Platform_enemy):
 	""" This is a fancier platform that can actually move. """
  
 	def __init__(self, sprite_sheet_data):
