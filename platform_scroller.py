@@ -62,14 +62,14 @@ def gameplay():
 	# Create all the levels
 	level_list = []
 	level_list.append(levels.Level_Tutorial(player))
-	level_list.append(levels.Level_01(player))
-	level_list.append(levels.Level_02(player))
-	level_list.append(levels.Level_03(player))
+	#level_list.append(levels.Level_01(player))
+	#level_list.append(levels.Level_02(player))
+	#level_list.append(levels.Level_03(player))
 	level_list.append(levels.Level_04(player))
-	level_list.append(levels.Level_05(player))
-	level_list.append(levels.Level_06(player))
-	level_list.append(levels.Level_07(player))
-	level_list.append(levels.Level_08(player))
+	#level_list.append(levels.Level_05(player))
+	#level_list.append(levels.Level_06(player))
+	#level_list.append(levels.Level_07(player))
+	#level_list.append(levels.Level_08(player))
 
 	# Set the current level
 	current_level_no = 0
@@ -90,7 +90,7 @@ def gameplay():
 	gameOver = False
 
 	# play the sound
-	# configsounds.turn_on_sounds()
+	#configsounds.turn_on_sounds()
 
 	# call BasicSettings class
 	settings = fontsettings.BasicSettings()
@@ -257,7 +257,14 @@ def gameplay():
 			current_level.shift_world(diff)
 
 		current_position = player.rect.x + current_level.world_shift
-		# print(current_position)
+		
+		# debugging purpose
+		#print(current_position)
+		# check the position x and y
+		#mouse_pos = pygame.mouse.get_pos()
+		#print(mouse_pos)
+		
+		
 		if current_position == current_level.level_limit:
 			player.rect.x = 120
 			if current_level_no < len(level_list)-1:
@@ -330,11 +337,12 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
 			
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+			settings.hud_msg_to_screen("Kills : " + str(player.kills), constants.WHITE, 400, 0, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
 		
-		elif current_level == level_list[2]:
+		"""elif current_level == level_list[2]:
 			# level number
 			settings.hud_msg_to_screen("Level 2", constants.WHITE, 0, 0, size = "small")
 
@@ -451,7 +459,7 @@ def gameplay():
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
-			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
+			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")"""
 	
 		# Limit to 60 frames per second
 		clock.tick(60)
