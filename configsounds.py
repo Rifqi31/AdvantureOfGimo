@@ -19,6 +19,7 @@ coin_sfx = pygame.mixer.Sound("sounds/mattix_8bit-coin.wav")
 magic_sfx = pygame.mixer.Sound("sounds/8bit-laser-shot.wav")
 ouch_sfx = pygame.mixer.Sound("sounds/ouch_sfx.wav")
 portal_sfx = pygame.mixer.Sound("sounds/retro-accomplished-sfx.wav")
+denied_sfx = pygame.mixer.Sound("sounds/suntemple_access-denied.wav")
 
 
 # ----- For Sounds Settings -----
