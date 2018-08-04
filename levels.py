@@ -14,11 +14,212 @@ class Level():
 		# lists as needed for your game.
 		self.platform_list = None
 		self.enemy_list = None
-		self.special_enemy_list = None
 		self.portal_list = None
 		self.death_place_list = None
+		self.love_restore_health = None
+
+		# for special_enemys
+		# basic vocal
+		self.special_enemy_list_A = None
+		self.special_enemy_list_I = None
+		self.special_enemy_list_U = None
+		self.special_enemy_list_E = None
+		self.special_enemy_list_O = None
+
+		# Vocal K
+		self.special_enemy_list_KA = None
+		self.special_enemy_list_KI = None
+		self.special_enemy_list_KU = None
+		self.special_enemy_list_KE = None
+		self.special_enemy_list_KO = None
+
+		# Vocal S
+		self.special_enemy_list_SA = None
+		self.special_enemy_list_SI = None
+		self.special_enemy_list_SU = None
+		self.special_enemy_list_SE = None
+		self.special_enemy_list_SO = None
+
+		# Vocal T
+		self.special_enemy_list_TA = None
+		self.special_enemy_list_TI = None
+		self.special_enemy_list_TU = None
+		self.special_enemy_list_TE = None
+		self.special_enemy_list_TO = None
+
+		# Vocal N
+		self.special_enemy_list_NA = None
+		self.special_enemy_list_NI = None
+		self.special_enemy_list_NU = None
+		self.special_enemy_list_NE = None
+		self.special_enemy_list_NO = None
+
+		# Vocal H
+		self.special_enemy_list_HA = None
+		self.special_enemy_list_HI = None
+		self.special_enemy_list_HU = None
+		self.special_enemy_list_HE = None
+		self.special_enemy_list_HO = None
+		
+		# Vocal M
+		self.special_enemy_list_MA = None
+		self.special_enemy_list_MI = None
+		self.special_enemy_list_MU = None
+		self.special_enemy_list_ME = None
+		self.special_enemy_list_MO = None
+
+		# Vocal Y
+		self.special_enemy_list_YA = None
+		self.special_enemy_list_YU = None
+		self.special_enemy_list_YO = None
+
+		# Vocal R
+		self.special_enemy_list_RA = None
+		self.special_enemy_list_RI = None
+		self.special_enemy_list_RU = None
+		self.special_enemy_list_RE = None
+		self.special_enemy_list_RO = None
+
+		# Vocal W
+		self.special_enemy_list_WA = None
+		self.special_enemy_list_WO = None
+
+		# Vocal N
+		self.special_enemy_list_N = None
+
+		# sprite content for hiragana and katakana
+		# basic vocal
 		self.hiragana_A = None
 		self.hiragana_I = None
+		self.hiragana_U = None
+
+		self.hiragana_E = None
+		self.hiragana_O = None
+
+		self.katakana_A = None
+		self.katakana_I = None
+		self.katakana_U = None
+		self.katakana_E = None
+		self.katakana_O = None
+		
+		# Vocal K
+		self.hiragana_KA = None
+		self.hiragana_KI = None
+		self.hiragana_KU = None
+		self.hiragana_KE = None
+		self.hiragana_KO = None
+
+		self.katakana_KA = None
+		self.katakana_KI = None
+		self.katakana_KU = None
+		self.katakana_KE = None
+		self.katakana_KO = None
+		
+		# Vocal S
+		self.hiragana_SA = None
+		self.hiragana_SI = None
+		self.hiragana_SU = None
+		self.hiragana_SE = None
+		self.hiragana_SO = None
+
+		self.katakana_SA = None
+		self.katakana_SI = None
+		self.katakana_SU = None
+		self.katakana_SE = None
+		self.katakana_SO = None
+
+		# Vocal T
+		self.hiragana_TA = None
+		self.hiragana_TI = None
+		self.hiragana_TU = None
+		self.hiragana_TE = None
+		self.hiragana_TO = None
+
+		self.katakana_TA = None
+		self.katakana_TI = None
+		self.katakana_TU = None
+		self.katakana_TE = None
+		self.katakana_TO = None
+
+		# Vocal N
+		self.hiragana_NA = None
+		self.hiragana_NI = None
+		self.hiragana_NU = None
+		self.hiragana_NE = None
+		self.hiragana_NO = None
+
+		self.katakana_NA = None
+		self.katakana_NI = None
+		self.katakana_NU = None
+		self.katakana_NE = None
+		self.katakana_NO = None
+
+		# Vocal H
+		self.hiragana_HA = None
+		self.hiragana_HI = None
+		self.hiragana_HU = None
+		self.hiragana_HE = None
+		self.hiragana_HO = None
+
+		self.katakana_HA = None
+		self.katakana_HI = None
+		self.katakana_HU = None
+		self.katakana_HE = None
+		self.katakana_HO = None
+
+		# Vocal M
+		self.hiragana_MA = None
+		self.hiragana_MI = None
+		self.hiragana_MU = None
+		self.hiragana_ME = None
+		self.hiragana_MO = None
+
+		self.katakana_MA = None
+		self.katakana_MI = None
+		self.katakana_MU = None
+		self.katakana_ME = None
+		self.katakana_MO = None
+
+		# Vocal Y
+		self.hiragana_YA = None
+		self.hiragana_YU = None
+		self.hiragana_YO = None
+
+		self.katakana_YA = None
+		self.katakana_YU = None
+		self.katakana_YO = None
+
+		# Vocal R
+		self.hiragana_RA = None
+		self.hiragana_RI = None
+		self.hiragana_RU = None
+		self.hiragana_RE = None
+		self.hiragana_RO = None
+
+		self.katakana_RA = None
+		self.katakana_RI = None
+		self.katakana_RU = None
+		self.katakana_RE = None
+		self.katakana_RO = None
+
+		# Vocal W
+		self.hiragana_WA = None
+		self.hiragana_WO = None
+
+		self.katakana_WA = None
+		self.katakana_WO = None
+
+		# Vocal N
+		self.hiragana_N = None
+		
+		self.katakana_N = None
+
+
+		# for fix bug point
+		# prototype
+		self.hiragana_U_lv2 = None
+		self.hiragana_KA_lv3 = None
+		self.hiragana_KI_lv3 = None
 
 		# Background image
 		self.background = None
@@ -27,11 +228,210 @@ class Level():
 		self.world_shift = 0
 		self.platform_list = pygame.sprite.Group()
 		self.enemy_list = pygame.sprite.Group()
-		self.special_enemy_list = pygame.sprite.Group()
 		self.portal_list = pygame.sprite.Group()
 		self.death_place_list = pygame.sprite.Group()
+		self.love_restore_health = pygame.sprite.Group()
+
+		# for special enemys
+		# Basic Vocal
+		self.special_enemy_list_A = pygame.sprite.Group()
+		self.special_enemy_list_I = pygame.sprite.Group()
+		self.special_enemy_list_U = pygame.sprite.Group()
+		self.special_enemy_list_E = pygame.sprite.Group()
+		self.special_enemy_list_O = pygame.sprite.Group()
+
+		# Vocal K
+		self.special_enemy_list_KA = pygame.sprite.Group()
+		self.special_enemy_list_KI = pygame.sprite.Group()
+		self.special_enemy_list_KU = pygame.sprite.Group()
+		self.special_enemy_list_KE = pygame.sprite.Group()
+		self.special_enemy_list_KO = pygame.sprite.Group()
+
+		# Vocal S
+		self.special_enemy_list_SA = pygame.sprite.Group()
+		self.special_enemy_list_SI = pygame.sprite.Group()
+		self.special_enemy_list_SU = pygame.sprite.Group()
+		self.special_enemy_list_SE = pygame.sprite.Group()
+		self.special_enemy_list_SO = pygame.sprite.Group()
+
+		# Vocal T
+		self.special_enemy_list_TA = pygame.sprite.Group()
+		self.special_enemy_list_TI = pygame.sprite.Group()
+		self.special_enemy_list_TU = pygame.sprite.Group()
+		self.special_enemy_list_TE = pygame.sprite.Group()
+		self.special_enemy_list_TO = pygame.sprite.Group()
+
+		# Vocal N
+		self.special_enemy_list_NA = pygame.sprite.Group()
+		self.special_enemy_list_NI = pygame.sprite.Group()
+		self.special_enemy_list_NU = pygame.sprite.Group()
+		self.special_enemy_list_NE = pygame.sprite.Group()
+		self.special_enemy_list_NO = pygame.sprite.Group()
+
+		# Vocal H
+		self.special_enemy_list_HA = pygame.sprite.Group()
+		self.special_enemy_list_HI = pygame.sprite.Group()
+		self.special_enemy_list_HU = pygame.sprite.Group()
+		self.special_enemy_list_HE = pygame.sprite.Group()
+		self.special_enemy_list_HO = pygame.sprite.Group()
+
+		# Vocal M
+		self.special_enemy_list_MA = pygame.sprite.Group()
+		self.special_enemy_list_MI = pygame.sprite.Group()
+		self.special_enemy_list_MU = pygame.sprite.Group()
+		self.special_enemy_list_ME = pygame.sprite.Group()
+		self.special_enemy_list_MO = pygame.sprite.Group()
+
+		# Vocal Y
+		self.special_enemy_list_YA = pygame.sprite.Group()
+		self.special_enemy_list_YU = pygame.sprite.Group()
+		self.special_enemy_list_YO = pygame.sprite.Group()
+
+		# Vocal R
+		self.special_enemy_list_RA = pygame.sprite.Group()
+		self.special_enemy_list_RI = pygame.sprite.Group()
+		self.special_enemy_list_RU = pygame.sprite.Group()
+		self.special_enemy_list_RE = pygame.sprite.Group()
+		self.special_enemy_list_RO = pygame.sprite.Group()
+
+		# Vocal W
+		self.special_enemy_list_WA = pygame.sprite.Group()
+		self.special_enemy_list_WO = pygame.sprite.Group()
+
+		# Vocal N
+		self.special_enemy_list_N = pygame.sprite.Group()
+		
+		# group sprite for hiragana and katakana
+		# Basic Vokal
 		self.hiragana_A = pygame.sprite.Group()
 		self.hiragana_I = pygame.sprite.Group()
+		self.hiragana_U = pygame.sprite.Group()
+		self.hiragana_E = pygame.sprite.Group()
+		self.hiragana_O = pygame.sprite.Group()
+
+		self.katakana_A = pygame.sprite.Group()
+		self.katakana_I = pygame.sprite.Group()
+		self.katakana_U = pygame.sprite.Group()
+		self.katakana_E = pygame.sprite.Group()
+		self.katakana_O = pygame.sprite.Group()
+
+		# Vocal K
+		self.hiragana_KA = pygame.sprite.Group()
+		self.hiragana_KI = pygame.sprite.Group()
+		self.hiragana_KU = pygame.sprite.Group()
+		self.hiragana_KE = pygame.sprite.Group()
+		self.hiragana_KO = pygame.sprite.Group()
+
+		self.katakana_KA = pygame.sprite.Group()
+		self.katakana_KI = pygame.sprite.Group()
+		self.katakana_KU = pygame.sprite.Group()
+		self.katakana_KE = pygame.sprite.Group()
+		self.katakana_KO = pygame.sprite.Group()
+
+		# Vocal S
+		self.hiragana_SA = pygame.sprite.Group()
+		self.hiragana_SI = pygame.sprite.Group()
+		self.hiragana_SU = pygame.sprite.Group()
+		self.hiragana_SE = pygame.sprite.Group()
+		self.hiragana_SO = pygame.sprite.Group()
+
+		self.katakana_SA = pygame.sprite.Group()
+		self.katakana_SI = pygame.sprite.Group()
+		self.katakana_SU = pygame.sprite.Group()
+		self.katakana_SE = pygame.sprite.Group()
+		self.katakana_SO = pygame.sprite.Group()
+
+		# Vocal T
+		self.hiragana_TA = pygame.sprite.Group()
+		self.hiragana_TI = pygame.sprite.Group()
+		self.hiragana_TU = pygame.sprite.Group()
+		self.hiragana_TE = pygame.sprite.Group()
+		self.hiragana_TO = pygame.sprite.Group()
+
+		self.katakana_TA = pygame.sprite.Group()
+		self.katakana_TI = pygame.sprite.Group()
+		self.katakana_TU = pygame.sprite.Group()
+		self.katakana_TE = pygame.sprite.Group()
+		self.katakana_TO = pygame.sprite.Group()
+
+		# Vocal N
+		self.hiragana_NA = pygame.sprite.Group()
+		self.hiragana_NI = pygame.sprite.Group()
+		self.hiragana_NU = pygame.sprite.Group()
+		self.hiragana_NE = pygame.sprite.Group()
+		self.hiragana_NO = pygame.sprite.Group()
+
+		self.katakana_NA = pygame.sprite.Group()
+		self.katakana_NI = pygame.sprite.Group()
+		self.katakana_NU = pygame.sprite.Group()
+		self.katakana_NE = pygame.sprite.Group()
+		self.katakana_NO = pygame.sprite.Group()
+
+		# Vocal H
+		self.hiragana_HA = pygame.sprite.Group()
+		self.hiragana_HI = pygame.sprite.Group()
+		self.hiragana_HU = pygame.sprite.Group()
+		self.hiragana_HE = pygame.sprite.Group()
+		self.hiragana_HO = pygame.sprite.Group()
+
+		self.katakana_HA = pygame.sprite.Group()
+		self.katakana_HI = pygame.sprite.Group()
+		self.katakana_HU = pygame.sprite.Group()
+		self.katakana_HE = pygame.sprite.Group()
+		self.katakana_HO = pygame.sprite.Group()
+
+		# Vocal M
+		self.hiragana_MA = pygame.sprite.Group()
+		self.hiragana_MI = pygame.sprite.Group()
+		self.hiragana_MU = pygame.sprite.Group()
+		self.hiragana_ME = pygame.sprite.Group()
+		self.hiragana_MO = pygame.sprite.Group()
+
+		self.katakana_MA = pygame.sprite.Group()
+		self.katakana_MI = pygame.sprite.Group()
+		self.katakana_MU = pygame.sprite.Group()
+		self.katakana_ME = pygame.sprite.Group()
+		self.katakana_MO = pygame.sprite.Group()
+
+		# Vocal Y
+		self.hiragana_YA = pygame.sprite.Group()
+		self.hiragana_YU = pygame.sprite.Group()
+		self.hiragana_YO = pygame.sprite.Group()
+
+		self.katakana_YA = pygame.sprite.Group()
+		self.katakana_YU = pygame.sprite.Group()
+		self.katakana_YO = pygame.sprite.Group()
+
+		# Vocal R
+		self.hiragana_RA = pygame.sprite.Group()
+		self.hiragana_RI = pygame.sprite.Group()
+		self.hiragana_RU = pygame.sprite.Group()
+		self.hiragana_RE = pygame.sprite.Group()
+		self.hiragana_RO = pygame.sprite.Group()
+
+		self.katakana_RA = pygame.sprite.Group()
+		self.katakana_RI = pygame.sprite.Group()
+		self.katakana_RU = pygame.sprite.Group()
+		self.katakana_RE = pygame.sprite.Group()
+		self.katakana_RO = pygame.sprite.Group()
+
+		# Vocal W
+		self.hiragana_WA = pygame.sprite.Group()
+		self.hiragana_WO = pygame.sprite.Group()
+
+		self.katakana_WA = pygame.sprite.Group()
+		self.katakana_WO = pygame.sprite.Group()
+
+		# Vocal N
+		self.hiragana_N = pygame.sprite.Group()
+
+		self.katakana_N = pygame.sprite.Group()
+
+		# for fix bug i point
+		self.hiragana_U_lv2 = pygame.sprite.Group()
+		self.hiragana_KA_lv3 = pygame.sprite.Group()
+		self.hiragana_KI_lv3 = pygame.sprite.Group()
+		
 		self.player = player
 		
 	# Update everythign on this level
@@ -41,9 +441,209 @@ class Level():
 		self.portal_list.update()
 		self.death_place_list.update()
 		self.enemy_list.update()
-		self.special_enemy_list.update()
+		self.love_restore_health.update()
+		
+		# for special enemys
+		# Basic Vocal
+		self.special_enemy_list_A.update()
+		self.special_enemy_list_I.update()
+		self.special_enemy_list_U.update()
+		self.special_enemy_list_E.update()
+		self.special_enemy_list_O.update()
+
+		# Vocal K
+		self.special_enemy_list_KA.update()
+		self.special_enemy_list_KI.update()
+		self.special_enemy_list_KU.update()
+		self.special_enemy_list_KE.update()
+		self.special_enemy_list_KO.update()
+
+		# Vocal S
+		self.special_enemy_list_SA.update()
+		self.special_enemy_list_SI.update()
+		self.special_enemy_list_SU.update()
+		self.special_enemy_list_SE.update()
+		self.special_enemy_list_SO.update()
+
+		# Vocal T
+		self.special_enemy_list_TA.update()
+		self.special_enemy_list_TI.update()
+		self.special_enemy_list_TU.update()
+		self.special_enemy_list_TE.update()
+		self.special_enemy_list_TO.update()
+
+		# Vocal N
+		self.special_enemy_list_NA.update()
+		self.special_enemy_list_NI.update()
+		self.special_enemy_list_NU.update()
+		self.special_enemy_list_NE.update()
+		self.special_enemy_list_NO.update()
+
+		# Vocal H
+		self.special_enemy_list_HA.update()
+		self.special_enemy_list_HI.update()
+		self.special_enemy_list_HU.update()
+		self.special_enemy_list_HE.update()
+		self.special_enemy_list_HO.update()
+
+		# Vocal M
+		self.special_enemy_list_MA.update()
+		self.special_enemy_list_MI.update()
+		self.special_enemy_list_MU.update()
+		self.special_enemy_list_ME.update()
+		self.special_enemy_list_MO.update()
+
+		# Vocal Y
+		self.special_enemy_list_YA.update()
+		self.special_enemy_list_YU.update()
+		self.special_enemy_list_YO.update()
+
+		# Vocal R
+		self.special_enemy_list_RA.update()
+		self.special_enemy_list_RI.update()
+		self.special_enemy_list_RU.update()
+		self.special_enemy_list_RE.update()
+		self.special_enemy_list_RO.update()
+
+		# Vocal W
+		self.special_enemy_list_WA.update()
+		self.special_enemy_list_WO.update()
+
+		# Vocal N
+		self.special_enemy_list_N.update()
+
+		
+		# for update sprites hiragana and katakana
+		# Basic Vocal
 		self.hiragana_A.update()
 		self.hiragana_I.update()
+		self.hiragana_U.update()
+		self.hiragana_E.update()
+		self.hiragana_O.update()
+
+		self.katakana_A.update()
+		self.katakana_I.update()
+		self.katakana_U.update()
+		self.katakana_E.update()
+		self.katakana_O.update()
+
+		# Vocal K
+		self.hiragana_KA.update()
+		self.hiragana_KI.update()
+		self.hiragana_KU.update()
+		self.hiragana_KE.update()
+		self.hiragana_KO.update()
+
+		self.katakana_KA.update()
+		self.katakana_KI.update()
+		self.katakana_KU.update()
+		self.katakana_KE.update()
+		self.katakana_KO.update()
+
+		# Vocal S
+		self.hiragana_SA.update()
+		self.hiragana_SI.update()
+		self.hiragana_SU.update()
+		self.hiragana_SE.update()
+		self.hiragana_SO.update()
+
+		self.katakana_SA.update()
+		self.katakana_SI.update()
+		self.katakana_SU.update()
+		self.katakana_SE.update()
+		self.katakana_SO.update()
+
+		# Vocal T
+		self.hiragana_TA.update()
+		self.hiragana_TI.update()
+		self.hiragana_TU.update()
+		self.hiragana_TE.update()
+		self.hiragana_TO.update()
+
+		self.katakana_TA.update()
+		self.katakana_TI.update()
+		self.katakana_TU.update()
+		self.katakana_TE.update()
+		self.katakana_TO.update()
+
+		# Vocal N
+		self.hiragana_NA.update()
+		self.hiragana_NI.update()
+		self.hiragana_NU.update()
+		self.hiragana_NE.update()
+		self.hiragana_NO.update()
+
+		self.katakana_NA.update()
+		self.katakana_NI.update()
+		self.katakana_NU.update()
+		self.katakana_NE.update()
+		self.katakana_NO.update()
+
+		# Vocal H
+		self.hiragana_HA.update()
+		self.hiragana_HI.update()
+		self.hiragana_HU.update()
+		self.hiragana_HE.update()
+		self.hiragana_HO.update()
+
+		self.katakana_HA.update()
+		self.katakana_HI.update()
+		self.katakana_HU.update()
+		self.katakana_HE.update()
+		self.katakana_HO.update()
+
+		# Vocal M
+		self.hiragana_MA.update()
+		self.hiragana_MI.update()
+		self.hiragana_MU.update()
+		self.hiragana_ME.update()
+		self.hiragana_MO.update()
+
+		self.katakana_MA.update()
+		self.katakana_MI.update()
+		self.katakana_MU.update()
+		self.katakana_ME.update()
+		self.katakana_MO.update()
+
+		# Vocal Y
+		self.hiragana_YA.update()
+		self.hiragana_YU.update()
+		self.hiragana_YO.update()
+
+		self.katakana_YA.update()
+		self.katakana_YU.update()
+		self.katakana_YO.update()
+
+		# Vocal R
+		self.hiragana_RA.update()
+		self.hiragana_RI.update()
+		self.hiragana_RU.update()
+		self.hiragana_RE.update()
+		self.hiragana_RO.update()
+
+		self.katakana_RA.update()
+		self.katakana_RI.update()
+		self.katakana_RU.update()
+		self.katakana_RE.update()
+		self.katakana_RO.update()
+
+		# Vocal W
+		self.hiragana_WA.update()
+		self.hiragana_WO.update()
+
+		self.katakana_WA.update()
+		self.katakana_WO.update()
+
+		# Vocal N
+		self.hiragana_N.update()
+
+		self.katakana_N.update()
+
+		# for fix bug point
+		self.hiragana_U_lv2.update()
+		self.hiragana_KA_lv3.update()
+		self.hiragana_KI_lv3.update()
+
 
 	def draw(self, screen):
 		""" Draw everything on this level. """
@@ -55,9 +655,210 @@ class Level():
 		self.portal_list.draw(screen)
 		self.death_place_list.draw(screen)
 		self.enemy_list.draw(screen)
-		self.special_enemy_list.draw(screen)
+		self.love_restore_health.draw(screen)
+		
+		# For special enemy
+		# Basic Vocal
+		self.special_enemy_list_A.draw(screen)
+		self.special_enemy_list_I.draw(screen)
+		self.special_enemy_list_U.draw(screen)
+		self.special_enemy_list_E.draw(screen)
+		self.special_enemy_list_O.draw(screen)
+
+		# Vocal K
+		self.special_enemy_list_KA.draw(screen)
+		self.special_enemy_list_KI.draw(screen)
+		self.special_enemy_list_KU.draw(screen)
+		self.special_enemy_list_KE.draw(screen)
+		self.special_enemy_list_KO.draw(screen)
+
+		# Vocal S
+		self.special_enemy_list_SA.draw(screen)
+		self.special_enemy_list_SI.draw(screen)
+		self.special_enemy_list_SU.draw(screen)
+		self.special_enemy_list_SE.draw(screen)
+		self.special_enemy_list_SO.draw(screen)
+
+		# Vocal T
+		self.special_enemy_list_TA.draw(screen)
+		self.special_enemy_list_TI.draw(screen)
+		self.special_enemy_list_TU.draw(screen)
+		self.special_enemy_list_TE.draw(screen)
+		self.special_enemy_list_TO.draw(screen)
+
+		# Vocal N
+		self.special_enemy_list_NA.draw(screen)
+		self.special_enemy_list_NI.draw(screen)
+		self.special_enemy_list_NU.draw(screen)
+		self.special_enemy_list_NE.draw(screen)
+		self.special_enemy_list_NO.draw(screen)
+
+		# Vocal H
+		self.special_enemy_list_HA.draw(screen)
+		self.special_enemy_list_HI.draw(screen)
+		self.special_enemy_list_HU.draw(screen)
+		self.special_enemy_list_HE.draw(screen)
+		self.special_enemy_list_HO.draw(screen)
+
+		# Vocal M
+		self.special_enemy_list_MA.draw(screen)
+		self.special_enemy_list_MI.draw(screen)
+		self.special_enemy_list_MU.draw(screen)
+		self.special_enemy_list_ME.draw(screen)
+		self.special_enemy_list_MO.draw(screen)
+
+		# Vocal Y
+		self.special_enemy_list_YA.draw(screen)
+		self.special_enemy_list_YU.draw(screen)
+		self.special_enemy_list_YO.draw(screen)
+
+		# Vocal R
+		self.special_enemy_list_RA.draw(screen)
+		self.special_enemy_list_RI.draw(screen)
+		self.special_enemy_list_RU.draw(screen)
+		self.special_enemy_list_RE.draw(screen)
+		self.special_enemy_list_RO.draw(screen)
+
+		# Vocal W
+		self.special_enemy_list_WA.draw(screen)
+		self.special_enemy_list_WO.draw(screen)
+
+		# Vocal N
+		self.special_enemy_list_N.draw(screen)
+
+		# for hiragana and katakana sprites
+		# Basic Vocal
 		self.hiragana_A.draw(screen)
 		self.hiragana_I.draw(screen)
+		self.hiragana_U.draw(screen)
+		self.hiragana_E.draw(screen)
+		self.hiragana_O.draw(screen)
+
+		self.katakana_A.draw(screen)
+		self.katakana_I.draw(screen)
+		self.katakana_U.draw(screen)
+		self.katakana_E.draw(screen)
+		self.katakana_O.draw(screen)
+
+		# Vocal K
+		self.hiragana_KA.draw(screen)
+		self.hiragana_KI.draw(screen)
+		self.hiragana_KU.draw(screen)
+		self.hiragana_KE.draw(screen)
+		self.hiragana_KO.draw(screen)
+		
+		self.katakana_KA.draw(screen)
+		self.katakana_KI.draw(screen)
+		self.katakana_KU.draw(screen)
+		self.katakana_KE.draw(screen)
+		self.katakana_KO.draw(screen)
+
+		# Vocal S
+		self.hiragana_SA.draw(screen)
+		self.hiragana_SI.draw(screen)
+		self.hiragana_SU.draw(screen)
+		self.hiragana_SE.draw(screen)
+		self.hiragana_SO.draw(screen)
+
+		self.katakana_SA.draw(screen)
+		self.katakana_SI.draw(screen)
+		self.katakana_SU.draw(screen)
+		self.katakana_SE.draw(screen)
+		self.katakana_SO.draw(screen)
+
+		# Vocal T
+		self.hiragana_TA.draw(screen)
+		self.hiragana_TI.draw(screen)
+		self.hiragana_TU.draw(screen)
+		self.hiragana_TE.draw(screen)
+		self.hiragana_TO.draw(screen)
+		
+		self.katakana_TA.draw(screen)
+		self.katakana_TI.draw(screen)
+		self.katakana_TU.draw(screen)
+		self.katakana_TE.draw(screen)
+		self.katakana_TO.draw(screen)
+
+		# Vocal N
+		self.hiragana_NA.draw(screen)
+		self.hiragana_NI.draw(screen)
+		self.hiragana_NU.draw(screen)
+		self.hiragana_NE.draw(screen)
+		self.hiragana_NO.draw(screen)
+
+		self.katakana_NA.draw(screen)
+		self.katakana_NI.draw(screen)
+		self.katakana_NU.draw(screen)
+		self.katakana_NE.draw(screen)
+		self.katakana_NO.draw(screen)
+
+		# Vocal H
+		self.hiragana_HA.draw(screen)
+		self.hiragana_HI.draw(screen)
+		self.hiragana_HU.draw(screen)
+		self.hiragana_HE.draw(screen)
+		self.hiragana_HO.draw(screen)
+
+		self.katakana_HA.draw(screen)
+		self.katakana_HI.draw(screen)
+		self.katakana_HU.draw(screen)
+		self.katakana_HE.draw(screen)
+		self.katakana_HO.draw(screen)
+
+		# Vocal M
+		self.hiragana_MA.draw(screen)
+		self.hiragana_MI.draw(screen)
+		self.hiragana_MU.draw(screen)
+		self.hiragana_ME.draw(screen)
+		self.hiragana_MO.draw(screen)
+
+		self.katakana_MA.draw(screen)
+		self.katakana_MI.draw(screen)
+		self.katakana_MU.draw(screen)
+		self.katakana_ME.draw(screen)
+		self.katakana_MO.draw(screen)
+
+		# Vocal Y
+		self.hiragana_YA.draw(screen)
+		self.hiragana_YU.draw(screen)
+		self.hiragana_YO.draw(screen)
+
+		self.katakana_YA.draw(screen)
+		self.katakana_YU.draw(screen)
+		self.katakana_YO.draw(screen)
+
+		# Vocal R
+		self.hiragana_RA.draw(screen)
+		self.hiragana_RI.draw(screen)
+		self.hiragana_RU.draw(screen)
+		self.hiragana_RE.draw(screen)
+		self.hiragana_RO.draw(screen)
+		
+		self.katakana_RA.draw(screen)
+		self.katakana_RI.draw(screen)
+		self.katakana_RU.draw(screen)
+		self.katakana_RE.draw(screen)
+		self.katakana_RO.draw(screen)
+
+		# Vocal W
+		self.hiragana_WA.draw(screen)
+		self.hiragana_WO.draw(screen)
+
+		self.katakana_WA.draw(screen)
+		self.katakana_WO.draw(screen)
+
+		# Vocal N
+		self.hiragana_N.draw(screen)
+		
+		self.katakana_N.draw(screen)
+
+		# for fix bug point
+		self.hiragana_U_lv2.draw(screen)
+		self.hiragana_KA_lv3.draw(screen)
+		self.hiragana_KI_lv3.draw(screen)
+
+
+
 
 	def shift_world(self, shift_x):
 		""" When the user moves left/right and we need to scroll everything: """
@@ -74,20 +875,495 @@ class Level():
 		
 		for platform in self.death_place_list:
 			platform.rect.x += shift_x
-
+		
+		for platform in self.love_restore_health:
+			platform.rect.x += shift_x
+		
+		# for hiragana and katakana sprites
+		# Basic Vocal
 		for platform in self.hiragana_A:
 			platform.rect.x += shift_x
 		
 		for platform in self.hiragana_I:
 			platform.rect.x += shift_x
 		
+		for platform in self.hiragana_U:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_E:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_O:
+			platform.rect.x += shift_x
+
+		#####################################
+
+		for platform in self.katakana_A:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_I:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_U:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_E:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_O:
+			platform.rect.x += shift_x
+
+
+		# Vocal K
+		for platform in self.hiragana_KA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_KI:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_KU:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_KE:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_KO:
+			platform.rect.x += shift_x
+
+		#####################################
+
+		for platform in self.katakana_KA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_KI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_KU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_KE:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_KO:
+			platform.rect.x += shift_x
+
+
+		# Vocal S
+		for platform in self.hiragana_SA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_SI:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_SU:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_SE:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_SO:
+			platform.rect.x += shift_x
+		
+		#####################################
+
+		for platform in self.katakana_SA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_SI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_SU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_SE:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_SO:
+			platform.rect.x += shift_x
+
+
+		# Vocal T
+		for platform in self.hiragana_TA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_TA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_TA:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_TA:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_TA:
+			platform.rect.x += shift_x
+		
+		#####################################
+
+		for platform in self.katakana_TA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_TI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_TU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_TE:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_TO:
+			platform.rect.x += shift_x
+
+
+		# Vocal N
+		for platform in self.hiragana_NA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_NI:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_NU:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_NE:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_NO:
+			platform.rect.x += shift_x
+
+		#####################################
+
+		for platform in self.katakana_NA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_NI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_NU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_NE:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_NO:
+			platform.rect.x += shift_x
+		
+
+		# Vocal H
+		for platform in self.hiragana_HA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_HI:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_HU:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_HE:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_HO:
+			platform.rect.x += shift_x
+
+		#####################################
+
+		for platform in self.katakana_HA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_HI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_HU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_HE:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_HO:
+			platform.rect.x += shift_x
+
+
+		# Vocal M
+		for platform in self.hiragana_MA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_MI:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_MU:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_ME:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_MO:
+			platform.rect.x += shift_x
+
+		#####################################
+
+		for platform in self.katakana_MA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_MI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_MU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_ME:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_MO:
+			platform.rect.x += shift_x
+		
+
+		# Vocal Y
+		for platform in self.hiragana_YA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_YU:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_YO:
+			platform.rect.x += shift_x
+
+		#####################################
+
+		for platform in self.katakana_YA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_YU:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_YO:
+			platform.rect.x += shift_x
+
+
+		# Vocal R
+		for platform in self.hiragana_RA:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_RI:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_RU:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_RE:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_RO:
+			platform.rect.x += shift_x
+		
+		#####################################
+
+		for platform in self.katakana_RA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_RI:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_RU:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_RE:
+			platform.rect.x += shift_x
+
+		for platform in self.katakana_RO:
+			platform.rect.x += shift_x
+		
+
+		# Vocal W
+		for platform in self.hiragana_WA:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_WO:
+			platform.rect.x += shift_x
+		
+		#####################################
+
+		for platform in self.katakana_WA:
+			platform.rect.x += shift_x
+		
+		for platform in self.katakana_WO:
+			platform.rect.x += shift_x
+		
+
+		# Vocal N
+		for platform in self.hiragana_N:
+			platform.rect.x += shift_x
+		
+		#####################################
+
+		for platform in self.katakana_N:
+			platform.rect.x += shift_x
+		
+
+		# for fix bug point
+		for platform in self.hiragana_U_lv2:
+			platform.rect.x += shift_x
+		
+		for platform in self.hiragana_KA_lv3:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_KI_lv3:
+			platform.rect.x += shift_x
+
+
+
 		for platform in self.enemy_list:
 			platform.rect.x += shift_x
 		
-		for platform in self.special_enemy_list:
+		# For special enemys
+		# Basic Vocal
+		for platform in self.special_enemy_list_A:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_I:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_U:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_E:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_O:
+			platform.rect.x += shift_x
+		
+		# Vocal K
+		for platform in self.special_enemy_list_KA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_KI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_KU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_KE:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_KO:
+			platform.rect.x += shift_x
+		
+		# Vocal S
+		for platform in self.special_enemy_list_SA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_SI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_SU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_SE:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_SO:
+			platform.rect.x += shift_x
+		
+		# Vocal T
+		for platform in self.special_enemy_list_TA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_TI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_TU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_TE:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_TO:
 			platform.rect.x += shift_x
 
+		# Vocal N
+		for platform in self.special_enemy_list_NA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_NI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_NU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_NE:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_NO:
+			platform.rect.x += shift_x
+		
+		# Vocal H
+		for platform in self.special_enemy_list_HA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_HI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_HU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_HE:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_HO:
+			platform.rect.x += shift_x
 
+		# Vocal M
+		for platform in self.special_enemy_list_MA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_MI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_MU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_ME:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_MO:
+			platform.rect.x += shift_x
+		
+		# Vocal Y
+		for platform in self.special_enemy_list_YA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_YU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_YO:
+			platform.rect.x += shift_x
+		
+		# Vocal R
+		for platform in self.special_enemy_list_RA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_RI:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_RU:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_RE:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_RO:
+			platform.rect.x += shift_x
+		
+		# Vocal W
+		for platform in self.special_enemy_list_WA:
+			platform.rect.x += shift_x
+		
+		for platform in self.special_enemy_list_WO:
+			platform.rect.x += shift_x
+		
+		# Vocal N
+		for platform in self.special_enemy_list_N:
+			platform.rect.x += shift_x
 
 
 # Create platforms for intro game
@@ -159,16 +1435,21 @@ class Level_01(Level):
 						[platforms.medium_long_water, 1470, 531]]
 		
 		portal = [[platforms.portal_snow, 2030, 380]]
+
+		love_health = [[platforms.restore_health, 1380, 400]]
 		
-		hiragana_a = [[platforms.hiragana_a, 200, 200]]
-		hiragana_i = [[platforms.hiragana_i, 400, 200]]
+		hiragana_a = [[platforms.hiragana_a, 400, 200]]
+		hiragana_i = [[platforms.hiragana_i, 600, 48]]
+		hiragana_u = [[platforms.hiragana_u, 200, 200]]
 
-		enemy_skull = [[platforms.skull_ghost, 300, 400]]
+		toxic_frog = [[platforms.fat_frog, 300, 405],
+					[platforms.fat_frog, 400, 405],
+					[platforms.fat_frog, 1680, 405]]
 
-		# for prototye special enemy
-		special_enemy = [[platforms.big_ogre_a, 700, 360]]
+		# for special enemy
+		special_enemy_a = [[platforms.big_ogre_a, 700, 360]]
+		special_enemy_i = [[platforms.big_ogre_i, 1250, 20]]
 
-		
 
 		for platform in level01:
 			block = platforms.Platform_dirt(platform[0])
@@ -185,7 +1466,15 @@ class Level_01(Level):
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
 		
+		
+		for platform in love_health:
+			love_restore = platforms.Platform_hiragana_katakana(platform[0])
+			love_restore.rect.x = platform[1]
+			love_restore.rect.y = platform[2]
+			love_restore.player = self.player
+			self.love_restore_health.add(love_restore)
 
+		
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
@@ -194,53 +1483,337 @@ class Level_01(Level):
 			self.portal_list.add(gate)
 
 		
-		
+		# True Point increease scores player
+		# Hiragana A Point
 		for platform in hiragana_a :
-			true_point = platforms.Platform_hiragana_katakana(platform[0])
-			true_point.rect.x = platform[1]
-			true_point.rect.y = platform[2]
-			true_point.player = self.player
-			self.hiragana_A.add(true_point)
+			true_point_lv1 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv1.rect.x = platform[1]
+			true_point_lv1.rect.y = platform[2]
+			true_point_lv1.player = self.player
+			self.hiragana_A.add(true_point_lv1)
 		
+		# Hiragana I Point
 		for platform in hiragana_i :
-			false_point = platforms.Platform_hiragana_katakana(platform[0])
-			false_point.rect.x = platform[1]
-			false_point.rect.y = platform[2]
-			false_point.player = self.player
-			self.hiragana_I.add(false_point)
+			true_point_lv1 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv1.rect.x = platform[1]
+			true_point_lv1.rect.y = platform[2]
+			true_point_lv1.player = self.player
+			self.hiragana_I.add(true_point_lv1)
 		
-		for platform in enemy_skull:
+		# False point decrease health player
+		# Hiragana U Point
+		for platform in hiragana_u :
+			false_point_lv1 = platforms.Platform_hiragana_katakana(platform[0])
+			false_point_lv1.rect.x = platform[1]
+			false_point_lv1.rect.y = platform[2]
+			false_point_lv1.player = self.player
+			self.hiragana_U.add(false_point_lv1)
+
+		for platform in toxic_frog:
 			eaten = platforms.Platform_enemy(platform[0])
 			eaten.rect.x = platform[1]
 			eaten.rect.y = platform[2]
 			eaten.player = self.player
 			self.enemy_list.add(eaten)
 		
-		# for prototype
-		for platform in special_enemy:
+		# for special enemy/immune enemys
+		for platform in special_enemy_a:
 			special_eaten_A = platforms.Platform_special_enemy(platform[0])
 			special_eaten_A.rect.x = platform[1]
 			special_eaten_A.rect.y = platform[2]
 			special_eaten_A.player = self.player
-			self.special_enemy_list.add(special_eaten_A)
+			self.special_enemy_list_A.add(special_eaten_A)
+		
+		for platform in special_enemy_i:
+			special_eaten_I = platforms.Platform_special_enemy(platform[0])
+			special_eaten_I.rect.x = platform[1]
+			special_eaten_I.rect.y = platform[2]
+			special_eaten_I.player = self.player
+			self.special_enemy_list_I.add(special_eaten_I)
+		
+		# Moving Enemy
+		eaten = platforms.MovingEnemy(platforms.fat_frog)
+		eaten.rect.x = 780
+		eaten.rect.y = 405
+		eaten.boundary_left = 700
+		eaten.boundary_right = 1100
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+		
+		eaten = platforms.MovingEnemy(platforms.fat_frog)
+		eaten.rect.x = 790
+		eaten.rect.y = 140
+		eaten.boundary_left = 790
+		eaten.boundary_right = 1000
+		eaten.change_x = 6
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
 
-		# add moving sprites using platform algorithmic
-		eaten = platforms.MovingEnemy(platforms.skull_ghost)
-		eaten.rect.x = 400
-		eaten.rect.y = 400
-		eaten.boundary_left = 100
-		eaten.boundary_right = 550
-		eaten.change_x = 5
+		eaten = platforms.MovingEnemy(platforms.fat_frog)
+		eaten.rect.x = 1300
+		eaten.rect.y = 70
+		eaten.boundary_left = 1300
+		eaten.boundary_right = 1450
+		eaten.change_x = 3
 		eaten.player = self.player
 		eaten.level = self
 		self.enemy_list.add(eaten)
 
 
-# Level 02
 class Level_02(Level):
+	""" Definition for level 1. """
+
+	def __init__(self, player):
+		""" Create Level 1 """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/day_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = -1096
+
+		# Array with type of platform, and x, y location of the platform.
+		# for level 02
+		level02 = [[platforms.dirt_wall, -140, 0],
+				[platforms.dirt_medium_long_land, 0, 460],
+				[platforms.dirt_medium_short_land, 0, 92],
+				[platforms.dirt_wall, 700, 100],
+				[platforms.dirt_medium_short_land, 1050, 460],
+				[platforms.dirt_medium_short_land, 1050, 180],
+				[platforms.dirt_short_land, 1540, 460],
+				[platforms.dirt_short_land, 1540, 180],
+				[platforms.dirt_medium_short_land, 1890, 460],
+				[platforms.dirt_big_wall, 2030, 0]]
+		
+		water_level02 = [[platforms.medium_long_water, 490, 531],
+						[platforms.medium_long_water, 840, 531],
+						[platforms.medium_long_water, 1330, 531],
+						[platforms.medium_long_water, 1680, 531]]
+		
+		portal = [[platforms.portal_snow, 1960, 380]]
+
+		love_health = [[platforms.restore_health, 1860, 380]]
+
+		# true point
+		hiragana_u = [[platforms.hiragana_u, 20, 10]]
+		hiragana_i = [[platforms.hiragana_i, 401, 258]]
+		hiragana_o = [[platforms.hiragana_o, 1280, 350]]
+		hiragana_a = [[platforms.hiragana_a, 1400, 280]]
+		hiragana_e = [[platforms.hiragana_e, 1400, 100]]
+
+		# false point
+		hiragana_ka = [[platforms.hiragana_ka, 560, 232]]
+		hiragana_ki = [[platforms.hiragana_ki, 910, 232]]
+
+		# for special enemy
+		special_enemy_u = [[platforms.big_ogre_u, 730, 2]]
+		special_enemy_o = [[platforms.big_ogre_o, 1050, 75]]
+		special_enemy_i = [[platforms.big_ogre_i, 1050, 350]]
+		special_enemy_a = [[platforms.big_ogre_a, 1565, 75]]
+		special_enemy_e = [[platforms.big_ogre_e, 1565, 350]]
+
+		for platform in level02:
+			block = platforms.Platform_dirt(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+		
+		for platform in water_level02:
+			water_suicide = platforms.Platform_dirt(platform[0])
+			water_suicide.rect.x = platform[1]
+			water_suicide.rect.y = platform[2]
+			water_suicide.player = self.player
+			self.death_place_list.add(water_suicide)
+		
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
+		
+		for platform in love_health:
+			love_restore = platforms.Platform_hiragana_katakana(platform[0])
+			love_restore.rect.x = platform[1]
+			love_restore.rect.y = platform[2]
+			love_restore.player = self.player
+			self.love_restore_health.add(love_restore)
+
+		# True Point increease scores player
+		# Hiragana U Point
+		for platform in hiragana_u :
+			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv2.rect.x = platform[1]
+			true_point_lv2.rect.y = platform[2]
+			true_point_lv2.player = self.player
+			self.hiragana_U_lv2.add(true_point_lv2)
+		
+		# Hiragana I
+		for platform in hiragana_i :
+			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv2.rect.x = platform[1]
+			true_point_lv2.rect.y = platform[2]
+			true_point_lv2.player = self.player
+			self.hiragana_I.add(true_point_lv2)
+		
+		# Hiragana O
+		for platform in hiragana_o :
+			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv2.rect.x = platform[1]
+			true_point_lv2.rect.y = platform[2]
+			true_point_lv2.player = self.player
+			self.hiragana_O.add(true_point_lv2)
+		
+		# Hiragana a
+		for platform in hiragana_a :
+			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv2.rect.x = platform[1]
+			true_point_lv2.rect.y = platform[2]
+			true_point_lv2.player = self.player
+			self.hiragana_A.add(true_point_lv2)
+		
+		# Hiragana e
+		for platform in hiragana_e :
+			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv2.rect.x = platform[1]
+			true_point_lv2.rect.y = platform[2]
+			true_point_lv2.player = self.player
+			self.hiragana_E.add(true_point_lv2)
+
+		# False Point
+		# Hiragana Ka
+		for platform in hiragana_ka :
+			false_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			false_point_lv2.rect.x = platform[1]
+			false_point_lv2.rect.y = platform[2]
+			false_point_lv2.player = self.player
+			self.hiragana_KA.add(false_point_lv2)
+		
+		# Hiragana Ki
+		for platform in hiragana_ki :
+			false_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
+			false_point_lv2.rect.x = platform[1]
+			false_point_lv2.rect.y = platform[2]
+			false_point_lv2.player = self.player
+			self.hiragana_KI.add(false_point_lv2)
+		
+
+		# for special enemy
+		# Hiragana U
+		for platform in special_enemy_u:
+			special_eaten_U = platforms.Platform_special_enemy(platform[0])
+			special_eaten_U.rect.x = platform[1]
+			special_eaten_U.rect.y = platform[2]
+			special_eaten_U.player = self.player
+			self.special_enemy_list_U.add(special_eaten_U)
+		
+		# Hiragana O
+		for platform in special_enemy_o:
+			special_eaten_O = platforms.Platform_special_enemy(platform[0])
+			special_eaten_O.rect.x = platform[1]
+			special_eaten_O.rect.y = platform[2]
+			special_eaten_O.player = self.player
+			self.special_enemy_list_O.add(special_eaten_O)
+		
+		# Hiragana I
+		for platform in special_enemy_i:
+			special_eaten_I = platforms.Platform_special_enemy(platform[0])
+			special_eaten_I.rect.x = platform[1]
+			special_eaten_I.rect.y = platform[2]
+			special_eaten_I.player = self.player
+			self.special_enemy_list_I.add(special_eaten_I)
+		
+		# Hiragana A
+		for platform in special_enemy_a:
+			special_eaten_A = platforms.Platform_special_enemy(platform[0])
+			special_eaten_A.rect.x = platform[1]
+			special_eaten_A.rect.y = platform[2]
+			special_eaten_A.player = self.player
+			self.special_enemy_list_A.add(special_eaten_A)
+		
+		# Hiragana E
+		for platform in special_enemy_e:
+			special_eaten_E = platforms.Platform_special_enemy(platform[0])
+			special_eaten_E.rect.x = platform[1]
+			special_eaten_E.rect.y = platform[2]
+			special_eaten_E.player = self.player
+			self.special_enemy_list_E.add(special_eaten_E)
+
+
+		
+		# add moving sprites
+		block = platforms.MovingPlatform_dirt(platforms.dirt_grass_rounded)
+		block.rect.x = 560
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 3
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		block = platforms.MovingPlatform_dirt(platforms.dirt_grass_rounded)
+		block.rect.x = 910
+		block.rect.y = 483
+		block.boundary_top = 100
+		block.boundary_bottom = 600
+		block.change_y = 4
+		block.player = self.player
+		block.level = self
+		self.platform_list.add(block)
+
+		# Moving Enemy
+		eaten = platforms.MovingEnemy(platforms.bad_ogre)
+		eaten.rect.x = 200
+		eaten.rect.y = 400
+		eaten.boundary_left = 200
+		eaten.boundary_right = 450
+		eaten.change_x = 5
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.bad_ogre)
+		eaten.rect.x = 70
+		eaten.rect.y = 30
+		eaten.boundary_left = 70
+		eaten.boundary_right = 230
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.bad_ogre)
+		eaten.rect.x = 1160
+		eaten.rect.y = 120
+		eaten.boundary_left = 1160
+		eaten.boundary_right = 1300
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.bad_ogre)
+		eaten.rect.x = 1160
+		eaten.rect.y = 400
+		eaten.boundary_left = 1160
+		eaten.boundary_right = 1300
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+
+# Level 03
+class Level_03(Level):
 	
 	def __init__(self, player):
-		""" Definition for Level 02 """
+		""" Definition for Level 03 """
 
 		# Call the parent constructor
 		Level.__init__(self, player)
@@ -277,6 +1850,29 @@ class Level_02(Level):
 		portal = [[platforms.portal_snow, 2030, 335]]
 
 
+		love_health = [[platforms.restore_health, 980, 80]]
+
+
+		# enemys
+		bad_bat = [[platforms.dark_bat, 280, 400],
+				[platforms.dark_bat, 350, 330],
+				[platforms.dark_bat, 420, 260],
+				[platforms.dark_bat, 280, 150],
+				[platforms.dark_bat, 1680, 400]]
+		
+		# special enemys
+		special_enemy_ka = [[platforms.dark_rabbit_ka, 700, 2]] 
+		special_enemy_ki = [[platforms.dark_rabbit_ki, 710, 275]] 
+		special_enemy_ku = [[platforms.dark_rabbit_ku, 130, 30]] 
+		special_enemy_ke = [[platforms.dark_rabbit_ke, 1050, 170]] 
+		special_enemy_ko = [[platforms.dark_rabbit_ko, 1750, 300]]
+
+		# hiragana point
+		hiragana_ka = [[platforms.hiragana_ka, 30, 30]]
+		hiragana_ki = [[platforms.hiragana_ki, 500, 180]]
+		hiragana_ku = [[platforms.hiragana_ku, 280, 50]]
+		hiragana_ke = [[platforms.hiragana_ke, 800, 150]]
+		hiragana_ko = [[platforms.hiragana_ko, 1200, 400]]
 
 		for platform in level02:
 			block = platforms.Platform_dark_brick(platform[0])
@@ -298,10 +1894,110 @@ class Level_02(Level):
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
+			
+		
+		for platform in love_health:
+			love_restore = platforms.Platform_hiragana_katakana(platform[0])
+			love_restore.rect.x = platform[1]
+			love_restore.rect.y = platform[2]
+			love_restore.player = self.player
+			self.love_restore_health.add(love_restore)
+
+		for platform in bad_bat:
+			eaten = platforms.Platform_enemy(platform[0])
+			eaten.rect.x = platform[1]
+			eaten.rect.y = platform[2]
+			eaten.player = self.player
+			self.enemy_list.add(eaten)
+
+
+		# Special enemys
+		# Hiragana Ka
+		for platform in special_enemy_ka:
+			special_eaten_KA = platforms.Platform_special_enemy(platform[0])
+			special_eaten_KA.rect.x = platform[1]
+			special_eaten_KA.rect.y = platform[2]
+			special_eaten_KA.player = self.player
+			self.special_enemy_list_KA.add(special_eaten_KA)
+		
+		# Hiragana Ki
+		for platform in special_enemy_ki:
+			special_eaten_KI = platforms.Platform_special_enemy(platform[0])
+			special_eaten_KI.rect.x = platform[1]
+			special_eaten_KI.rect.y = platform[2]
+			special_eaten_KI.player = self.player
+			self.special_enemy_list_KI.add(special_eaten_KI)
+
+		# Hiragana Ku
+		for platform in special_enemy_ku:
+			special_eaten_KU = platforms.Platform_special_enemy(platform[0])
+			special_eaten_KU.rect.x = platform[1]
+			special_eaten_KU.rect.y = platform[2]
+			special_eaten_KU.player = self.player
+			self.special_enemy_list_KU.add(special_eaten_KU)
+		
+		# Hiragana Ke
+		for platform in special_enemy_ke:
+			special_eaten_KE = platforms.Platform_special_enemy(platform[0])
+			special_eaten_KE.rect.x = platform[1]
+			special_eaten_KE.rect.y = platform[2]
+			special_eaten_KE.player = self.player
+			self.special_enemy_list_KE.add(special_eaten_KE)
+		
+		# Hiragana Ko
+		for platform in special_enemy_ko:
+			special_eaten_KO = platforms.Platform_special_enemy(platform[0])
+			special_eaten_KO.rect.x = platform[1]
+			special_eaten_KO.rect.y = platform[2]
+			special_eaten_KO.player = self.player
+			self.special_enemy_list_KO.add(special_eaten_KO)
 		
 
+		# Point
+		# Hiragana Ka
+		for platform in hiragana_ka :
+			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv3.rect.x = platform[1]
+			true_point_lv3.rect.y = platform[2]
+			true_point_lv3.player = self.player
+			self.hiragana_KA_lv3.add(true_point_lv3)
+		
+		# Hiragana Ki
+		for platform in hiragana_ki :
+			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv3.rect.x = platform[1]
+			true_point_lv3.rect.y = platform[2]
+			true_point_lv3.player = self.player
+			self.hiragana_KI_lv3.add(true_point_lv3)
+		
+		# Hiragana Ku
+		for platform in hiragana_ku :
+			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv3.rect.x = platform[1]
+			true_point_lv3.rect.y = platform[2]
+			true_point_lv3.player = self.player
+			self.hiragana_KU.add(true_point_lv3)
+
+		# Hiragana Ke
+		for platform in hiragana_ke :
+			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv3.rect.x = platform[1]
+			true_point_lv3.rect.y = platform[2]
+			true_point_lv3.player = self.player
+			self.hiragana_KE.add(true_point_lv3)
+
+		# Hiragana Ko
+		for platform in hiragana_ko :
+			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv3.rect.x = platform[1]
+			true_point_lv3.rect.y = platform[2]
+			true_point_lv3.player = self.player
+			self.hiragana_KO.add(true_point_lv3)
+
+
+
 		# add moving sprites
-		block = platforms.MovingPlatform(platforms.brick_half_small_land)
+		block = platforms.MovingPlatform_dark_brick(platforms.brick_half_small_land)
 		block.rect.x = 1302
 		block.rect.y = 483
 		block.boundary_left = 1302
@@ -311,10 +2007,34 @@ class Level_02(Level):
 		block.level = self
 		self.platform_list.add(block)
 
+		# Moving Enemys
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 900
+		eaten.rect.y = 200
+		eaten.boundary_left = 900
+		eaten.boundary_right = 1000
+		eaten.change_x = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
 
-class Level_03(Level):
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 800
+		eaten.rect.y = 450
+		eaten.boundary_left = 800
+		eaten.boundary_right = 1000
+		eaten.change_x = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+
+
+
+
+class Level_04(Level):
 	def __init__(self, player):
-		""" Definition for Level 03 """
+		""" Definition for Level 04 """
 
 		# Call the parent constructor
 		Level.__init__(self, player)
@@ -336,6 +2056,8 @@ class Level_03(Level):
 				[platforms.brick_red_medium_high_land, 979, 470],
 				[platforms.brick_red_medium_short_land, 1049, 529],
 				[platforms.brick_red_medium_high_land, 1189, 470],
+				[platforms.brick_red_grass_left_right_long, 1400, 250],
+				[platforms.brick_red_grass_left_right_long, 1400, -300],
 				[platforms.brick_red_medium_high_large_land, 1609, 470],
 				[platforms.brick_red_medium_short_land, 1819, 540],
 				[platforms.brick_red_medium_short_land, 1959, 540],
@@ -347,6 +2069,27 @@ class Level_03(Level):
 						[platforms.medium_short_water, 1470, 532]]
 		
 		portal = [[platforms.portal_snow, 1930, 440]]
+
+
+		love_health = [[platforms.restore_health, 80, 50],
+						[platforms.restore_health, 1100, 480],
+						[platforms.restore_health, 1300, 340]]
+
+		# special enemys
+		special_enemy_sa = [[platforms.orange_slime_sa, 695, 80]]
+		special_enemy_si = [[platforms.orange_slime_si, 295, 50]]
+		special_enemy_su = [[platforms.orange_slime_su, 1180, 183]]
+		special_enemy_se = [[platforms.orange_slime_se, 1395, 150]]
+		special_enemy_so = [[platforms.orange_slime_so, 1609, 370]]
+
+
+		# Hiragana Point
+		hiragana_sa = [[platforms.hiragana_sa, 150, 50]]
+		hiragana_si = [[platforms.hiragana_so, 560, 100]]
+		hiragana_su = [[platforms.hiragana_su, 1189, 370]]
+		hiragana_se = [[platforms.hiragana_se, 1189, 10]]
+		hiragana_so = [[platforms.hiragana_so, 1500, 340]]
+
 
 		for platform in level03:
 			block = platforms.Platform_grass_brick(platform[0])
@@ -368,6 +2111,99 @@ class Level_03(Level):
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
+		
+		for platform in love_health:
+			love_restore = platforms.Platform_hiragana_katakana(platform[0])
+			love_restore.rect.x = platform[1]
+			love_restore.rect.y = platform[2]
+			love_restore.player = self.player
+			self.love_restore_health.add(love_restore)
+		
+
+		# Special enemys
+		# Hiragana Sa
+		for platform in special_enemy_sa:
+			special_eaten_SA = platforms.Platform_special_enemy(platform[0])
+			special_eaten_SA.rect.x = platform[1]
+			special_eaten_SA.rect.y = platform[2]
+			special_eaten_SA.player = self.player
+			self.special_enemy_list_SA.add(special_eaten_SA)
+		
+		# Hiragana Si
+		for platform in special_enemy_si:
+			special_eaten_SI = platforms.Platform_special_enemy(platform[0])
+			special_eaten_SI.rect.x = platform[1]
+			special_eaten_SI.rect.y = platform[2]
+			special_eaten_SI.player = self.player
+			self.special_enemy_list_SI.add(special_eaten_SI)
+
+		# Hiragana Su
+		for platform in special_enemy_su:
+			special_eaten_SU = platforms.Platform_special_enemy(platform[0])
+			special_eaten_SU.rect.x = platform[1]
+			special_eaten_SU.rect.y = platform[2]
+			special_eaten_SU.player = self.player
+			self.special_enemy_list_SU.add(special_eaten_SU)
+		
+		# Hiragana Se
+		for platform in special_enemy_se:
+			special_eaten_SE = platforms.Platform_special_enemy(platform[0])
+			special_eaten_SE.rect.x = platform[1]
+			special_eaten_SE.rect.y = platform[2]
+			special_eaten_SE.player = self.player
+			self.special_enemy_list_SE.add(special_eaten_SE)
+		
+		# Hiragana So
+		for platform in special_enemy_so:
+			special_eaten_SO = platforms.Platform_special_enemy(platform[0])
+			special_eaten_SO.rect.x = platform[1]
+			special_eaten_SO.rect.y = platform[2]
+			special_eaten_SO.player = self.player
+			self.special_enemy_list_SO.add(special_eaten_SO)
+
+
+
+		# Point
+		# Hiragana Sa
+		for platform in hiragana_sa :
+			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv4.rect.x = platform[1]
+			true_point_lv4.rect.y = platform[2]
+			true_point_lv4.player = self.player
+			self.hiragana_SA.add(true_point_lv4)
+		
+		# Hiragana Si
+		for platform in hiragana_si :
+			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv4.rect.x = platform[1]
+			true_point_lv4.rect.y = platform[2]
+			true_point_lv4.player = self.player
+			self.hiragana_SI.add(true_point_lv4)
+		
+		# Hiragana Si
+		for platform in hiragana_su :
+			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv4.rect.x = platform[1]
+			true_point_lv4.rect.y = platform[2]
+			true_point_lv4.player = self.player
+			self.hiragana_SU.add(true_point_lv4)
+		
+		# Hiragana Se
+		for platform in hiragana_se :
+			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv4.rect.x = platform[1]
+			true_point_lv4.rect.y = platform[2]
+			true_point_lv4.player = self.player
+			self.hiragana_SE.add(true_point_lv4)
+		
+		# Hiragana So
+		for platform in hiragana_so :
+			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
+			true_point_lv4.rect.x = platform[1]
+			true_point_lv4.rect.y = platform[2]
+			true_point_lv4.player = self.player
+			self.hiragana_SO.add(true_point_lv4)
+
 
 		# add moving sprites
 		block = platforms.MovingPlatform_brick_red(platforms.brick_red_small_half)
@@ -392,7 +2228,144 @@ class Level_03(Level):
 		self.platform_list.add(block)
 
 
-class Level_04(Level):
+		# Enemys
+		eaten = platforms.MovingEnemy(platforms.old_skull)
+		eaten.rect.x = 0
+		eaten.rect.y = 100
+		eaten.boundary_left = 0
+		eaten.boundary_right = 100
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.old_skull)
+		eaten.rect.x = 300
+		eaten.rect.y = 480
+		eaten.boundary_left = 300
+		eaten.boundary_right = 400
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.old_skull)
+		eaten.rect.x = 350
+		eaten.rect.y = 480
+		eaten.boundary_left = 350
+		eaten.boundary_right = 450
+		eaten.change_x = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.old_skull)
+		eaten.rect.x = 1000
+		eaten.rect.y = 230
+		eaten.boundary_left = 1000
+		eaten.boundary_right = 1150
+		eaten.change_x = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 560
+		eaten.rect.y = 200
+		eaten.boundary_top = 100
+		eaten.boundary_bottom = 400
+		eaten.change_y = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 600
+		eaten.rect.y = 20
+		eaten.boundary_left = 600
+		eaten.boundary_right = 800
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 800
+		eaten.rect.y = 200
+		eaten.boundary_top = 100
+		eaten.boundary_bottom = 400
+		eaten.change_y = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 979
+		eaten.rect.y = 370
+		eaten.boundary_left = 979
+		eaten.boundary_right = 1200
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 1300
+		eaten.rect.y = 200
+		eaten.boundary_top = 100
+		eaten.boundary_bottom = 400
+		eaten.change_y = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 1500
+		eaten.rect.y = 200
+		eaten.boundary_top = 100
+		eaten.boundary_bottom = 400
+		eaten.change_y = 4
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.dark_bat)
+		eaten.rect.x = 1600
+		eaten.rect.y = 280
+		eaten.boundary_left = 1600
+		eaten.boundary_right = 1800
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.fat_frog)
+		eaten.rect.x = 979
+		eaten.rect.y = 30
+		eaten.boundary_left = 979
+		eaten.boundary_right = 1100
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+		eaten = platforms.MovingEnemy(platforms.fat_frog)
+		eaten.rect.x = 1045
+		eaten.rect.y = 480
+		eaten.boundary_left = 1045
+		eaten.boundary_right = 1150
+		eaten.change_x = 3
+		eaten.player = self.player
+		eaten.level = self
+		self.enemy_list.add(eaten)
+
+
+
+
+
+
+
+class Level_05(Level):
 	def __init__(self, player):
 		""" Definition for Level 04 """
 
@@ -511,7 +2484,7 @@ class Level_04(Level):
 		self.platform_list.add(block)
 
 
-class Level_05(Level):
+class Level_06(Level):
 	def __init__(self, player):
 		""" Definition for Level 05 """
 
@@ -591,7 +2564,10 @@ class Level_05(Level):
 		self.platform_list.add(block)
 
 
-class Level_06(Level):
+
+
+
+class Level_07(Level):
 	def __init__(self, player):
 		""" Definition for Level 06 """
 
@@ -650,7 +2626,7 @@ class Level_06(Level):
 			self.portal_list.add(gate)
 
 
-class Level_07(Level):
+class Level_08(Level):
 	def __init__(self, player):
 		""" Definition for Level 07 """
 
@@ -758,7 +2734,7 @@ class Level_07(Level):
 		self.platform_list.add(block)
 
 
-class Level_08(Level):
+class Level_09(Level):
 	def __init__(self, player):
 		""" Definition for Level 08 """
 
