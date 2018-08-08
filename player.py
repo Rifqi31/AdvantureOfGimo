@@ -978,8 +978,6 @@ class Player(pygame.sprite.Sprite):
 			self.special_remove_KO = True
 
 
-
-
 		# For level 4 Hiragana Mode
 		point1_hiragana_lv4 = pygame.sprite.spritecollide(self, self.level.hiragana_SA, True)
 		point2_hiragana_lv4 = pygame.sprite.spritecollide(self, self.level.hiragana_SI, True)
@@ -1024,50 +1022,49 @@ class Player(pygame.sprite.Sprite):
 			self.special_remove_SO = True
 
 
-		
 
 		# For level 5 Hiragana Mode
-		point1_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_MA, True)
-		point2_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_MI, True)
-		point3_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_MU, True)
-		point4_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_ME, True)
-		point5_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_MO, True)
+		point1_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_TA, True)
+		point2_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_TI, True)
+		point3_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_TU, True)
+		point4_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_TE, True)
+		point5_hiragana_lv5 = pygame.sprite.spritecollide(self, self.level.hiragana_TO, True)
+		
 
-
-		# If user get point hiragana MA
+		# If user get point hiragana TA
 		for true_point_lv5 in point1_hiragana_lv5:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_MA = True
+			self.special_remove_TA = True
 		
-		# If user get point hiragana MI
+		# If user get point hiragana TI
 		for true_point_lv5 in point2_hiragana_lv5:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_MI = True
+			self.special_remove_TI = True
 		
-		# If user get point hiragana MU
+		# If user get point hiragana TU
 		for true_point_lv5 in point3_hiragana_lv5:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_MU = True
+			self.special_remove_TU = True
 		
-		# If user get point hiragana Me
+		# If user get point hiragana Te
 		for true_point_lv5 in point4_hiragana_lv5:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_ME = True
+			self.special_remove_TE = True
 		
-		# If user get point hiragana MO
+		# If user get point hiragana TO
 		for true_point_lv5 in point5_hiragana_lv5:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_MO = True
+			self.special_remove_TO = True
 		
 
 
@@ -1118,47 +1115,47 @@ class Player(pygame.sprite.Sprite):
 
 
 		# For level 7 Hiragana Mode
-		point1_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_TA, True)
-		point2_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_TI, True)
-		point3_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_TU, True)
-		point4_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_TE, True)
-		point5_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_TO, True)
+		point1_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_MA, True)
+		point2_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_MI, True)
+		point3_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_MU, True)
+		point4_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_ME, True)
+		point5_hiragana_lv7 = pygame.sprite.spritecollide(self, self.level.hiragana_MO, True)
 
 
-		# If user get point hiragana TA
+		# If user get point hiragana MA
 		for true_point_lv7 in point1_hiragana_lv7:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_TA = True
+			self.special_remove_MA = True
 		
-		# If user get point hiragana TI
+		# If user get point hiragana MI
 		for true_point_lv7 in point2_hiragana_lv7:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_TI = True
+			self.special_remove_MI = True
 		
-		# If user get point hiragana TU
+		# If user get point hiragana MU
 		for true_point_lv7 in point3_hiragana_lv7:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_TU = True
+			self.special_remove_MU = True
 		
-		# If user get point hiragana Te
+		# If user get point hiragana Me
 		for true_point_lv7 in point4_hiragana_lv7:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_TE = True
+			self.special_remove_ME = True
 		
-		# If user get point hiragana TO
+		# If user get point hiragana MO
 		for true_point_lv7 in point5_hiragana_lv7:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_TO = True
+			self.special_remove_MO = True
 		
 
 
@@ -1257,12 +1254,7 @@ class Player(pygame.sprite.Sprite):
 		point2_hiragana_lv10 = pygame.sprite.spritecollide(self, self.level.hiragana_YU, True)
 		point3_hiragana_lv10 = pygame.sprite.spritecollide(self, self.level.hiragana_YO, True)
 		
-		point4_hiragana_lv10 = pygame.sprite.spritecollide(self, self.level.hiragana_WA, True)
-		point5_hiragana_lv10 = pygame.sprite.spritecollide(self, self.level.hiragana_WO, True)
-		
-		point6_hiragana_lv10 = pygame.sprite.spritecollide(self, self.level.hiragana_N, True)
-
-
+	
 		# If user get point hiragana YA
 		for true_point_lv10 in point1_hiragana_lv10:
 			configsounds.coin_sfx.play()
@@ -1285,29 +1277,34 @@ class Player(pygame.sprite.Sprite):
 			self.special_remove_YO = True
 		
 
+		
+		
+		# For level 11 Hiragana Mode
+		point1_hiragana_lv11 = pygame.sprite.spritecollide(self, self.level.hiragana_WA, True)
+		point2_hiragana_lv11 = pygame.sprite.spritecollide(self, self.level.hiragana_WO, True)
+		point3_hiragana_lv11 = pygame.sprite.spritecollide(self, self.level.hiragana_N, True)
+
+
 		# If user get point hiragana WA
-		for true_point_lv10 in point4_hiragana_lv10:
+		for true_point_lv11 in point1_hiragana_lv11:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
 			self.special_remove_WA = True
 		
-		# If user get point hiragana HO
-		for true_point_lv10 in point5_hiragana_lv10:
+		# If user get point hiragana WO
+		for true_point_lv11 in point2_hiragana_lv11:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
 			self.special_remove_WO = True
 
 		# If user get point hiragana N
-		for true_point_lv10 in point6_hiragana_lv10:
+		for true_point_lv11 in point3_hiragana_lv11:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
 			self.special_remove_N = True
-
-
-
 
 
 
@@ -1443,7 +1440,7 @@ class Bullet(Player):
 		self.special_remove_RO = player.special_remove_RO
 
 		# Vocal W
-		self.special_remove_WA = player.special_remove_WO
+		self.special_remove_WA = player.special_remove_WA
 		self.special_remove_WO = player.special_remove_WO
 
 		# Vocal N
