@@ -124,6 +124,12 @@ class Player(pygame.sprite.Sprite):
 
 		# Vocal N
 		self.special_remove_N = False
+
+
+		# for fix bug
+		self.special_remove_A_lv2 = False
+		self.special_remove_I_lv2 = False
+		self.special_remove_U_lv2 = False
  
 		# List of sprites we can bump against
 		self.level = None
@@ -792,6 +798,42 @@ class Player(pygame.sprite.Sprite):
 			#if self.special_remove_N == False:
 			if self.health_number == 0 or self.health_number < 0:
 				gameoverscreen.show_game_over()
+		
+
+
+		# for fix bug
+		# Symbol A
+		special_hit_enemy_list_A_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_A_lv2, True)
+		for special_eaten_A_lv2 in special_hit_enemy_list_A_lv2:
+
+			self.health_number -=  self.special_enemy_dmg
+			configsounds.ouch_sfx.play()
+
+			#if self.special_remove_A == False:
+			if self.health_number == 0 or self.health_number < 0:
+				gameoverscreen.show_game_over()
+
+		# Symbol I		
+		special_hit_enemy_list_I_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_I_lv2, True)
+		for special_eaten_I_lv2 in special_hit_enemy_list_I_lv2:
+
+			self.health_number -=  self.special_enemy_dmg
+			configsounds.ouch_sfx.play()
+
+			#if self.special_remove_I == False:
+			if self.health_number == 0 or self.health_number < 0:
+				gameoverscreen.show_game_over()
+		
+		# Symbol U
+		special_hit_enemy_list_U_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U_lv2, True)
+		for special_eaten_U_lv2 in special_hit_enemy_list_U_lv2:
+
+			self.health_number -=  self.special_enemy_dmg
+			configsounds.ouch_sfx.play()
+
+			#if self.special_remove_U == False:
+			if self.health_number == 0 or self.health_number < 0:
+				gameoverscreen.show_game_over()
 
 
 		# for portal list
@@ -871,8 +913,8 @@ class Player(pygame.sprite.Sprite):
 
 
 		# FOR LEVEL 2 Hiragana Mode
-		point1_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_A, True)
-		point2_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_I, True)
+		point1_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_A_lv2, True)
+		point2_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_I_lv2, True)
 		point3_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_U_lv2, True)
 		point4_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_E, True)
 		point5_hiragana_lv2 = pygame.sprite.spritecollide(self, self.level.hiragana_O, True)
@@ -885,14 +927,14 @@ class Player(pygame.sprite.Sprite):
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_U = True
+			self.special_remove_U_lv2 = True
 		
 		# If user get point hiragana I
 		for true_point_lv2 in point2_hiragana_lv2:
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_I = True
+			self.special_remove_I_lv2 = True
 		
 		# If user get point hiragana O
 		for true_point_lv2 in point5_hiragana_lv2:
@@ -906,7 +948,7 @@ class Player(pygame.sprite.Sprite):
 			configsounds.coin_sfx.play()
 			configsounds.coin_sfx.set_volume(0.5)
 			self.scores += 100
-			self.special_remove_A = True
+			self.special_remove_A_lv2 = True
 		
 		# If user get point hiragana E
 		for true_point_lv2 in point4_hiragana_lv2:
@@ -1385,6 +1427,11 @@ class Bullet(Player):
 		self.special_remove_E = player.special_remove_E
 		self.special_remove_O = player.special_remove_O
 
+		# for fix bugs
+		self.special_remove_A_lv2 = player.special_remove_A_lv2
+		self.special_remove_I_lv2 = player.special_remove_I_lv2
+		self.special_remove_U_lv2 = player.special_remove_U_lv2
+
 		# Vocal K
 		self.special_remove_KA = player.special_remove_KA
 		self.special_remove_KI = player.special_remove_KI
@@ -1488,6 +1535,28 @@ class Bullet(Player):
 			hitting_special_enemy_U = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U, False)
 		elif self.special_remove_U == True:
 			hitting_special_enemy_U = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U, True)
+		
+
+		# for fix bugs
+		if self.special_remove_A_lv2 == False:
+			hitting_special_enemy_A_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_A_lv2, False)
+		# if the player get point mission enemy are not immnune
+		elif self.special_remove_A_lv2 == True:
+			hitting_special_enemy_A_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_A_lv2, True)
+		
+		# for point mission symbol I
+		if self.special_remove_I_lv2 == False:
+			hitting_special_enemy_I_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_I_lv2, False)
+		elif self.special_remove_I_lv2 == True:
+			hitting_special_enemy_I_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_I_lv2, True)
+
+		# for point mission symbol U
+		if self.special_remove_U_lv2 == False:
+			hitting_special_enemy_U_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U_lv2, False)
+		elif self.special_remove_U_lv2 == True:
+			hitting_special_enemy_U_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U_lv2, True)
+
+
 
 		# for point mission symbol E
 		if self.special_remove_E == False:
@@ -1796,7 +1865,39 @@ class Bullet(Player):
 			elif self.direction == "L":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
 				configsounds.ouch_sfx.play()
+
+
+		# for fix bugs
+		for special_eaten_A_lv2 in hitting_special_enemy_A_lv2:
+			if self.direction == "R":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+
+			elif self.direction == "L":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
 		
+		for special_eaten_I_lv2 in hitting_special_enemy_I_lv2:
+			if self.direction == "R":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+			
+			elif self.direction == "L":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+		
+		for special_eaten_U_lv2 in hitting_special_enemy_U_lv2:
+			if self.direction == "R":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+			
+			elif self.direction == "L":
+				pygame.sprite.spritecollide(self, self.bullet_list, True)
+				configsounds.ouch_sfx.play()
+
+
+
+
 		for special_eaten_E in hitting_special_enemy_E:
 			if self.direction == "R":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
