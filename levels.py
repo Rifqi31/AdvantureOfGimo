@@ -18,6 +18,14 @@ class Level():
 		self.death_place_list = None
 		self.love_restore_health = None
 
+		# this list for static picture in level Tutorial
+		self.health_icon_list = None
+		self.special_enemy_icon_list = None
+		self.general_enemy_icon_list= None
+
+		self.grandpa_list = None
+		self.himesama_list = None
+
 		# for special_enemys
 		# basic vocal
 		self.special_enemy_list_A = None
@@ -60,7 +68,7 @@ class Level():
 		self.special_enemy_list_HU = None
 		self.special_enemy_list_HE = None
 		self.special_enemy_list_HO = None
-		
+
 		# Vocal M
 		self.special_enemy_list_MA = None
 		self.special_enemy_list_MI = None
@@ -101,7 +109,7 @@ class Level():
 		self.katakana_U = None
 		self.katakana_E = None
 		self.katakana_O = None
-		
+
 		# Vocal K
 		self.hiragana_KA = None
 		self.hiragana_KI = None
@@ -114,7 +122,7 @@ class Level():
 		self.katakana_KU = None
 		self.katakana_KE = None
 		self.katakana_KO = None
-		
+
 		# Vocal S
 		self.hiragana_SA = None
 		self.hiragana_SI = None
@@ -211,13 +219,20 @@ class Level():
 
 		# Vocal N
 		self.hiragana_N = None
-		
+
 		self.katakana_N = None
 
 
 		# for fix bug point
 		# prototype
+		self.special_enemy_list_A_lv2 = None
+		self.special_enemy_list_I_lv2 = None
+		self.special_enemy_list_U_lv2 = None
+
+		self.hiragana_A_lv2 = None
+		self.hiragana_I_lv2 = None
 		self.hiragana_U_lv2 = None
+
 		self.hiragana_KA_lv3 = None
 		self.hiragana_KI_lv3 = None
 
@@ -231,6 +246,13 @@ class Level():
 		self.portal_list = pygame.sprite.Group()
 		self.death_place_list = pygame.sprite.Group()
 		self.love_restore_health = pygame.sprite.Group()
+
+		# for tutorial purpose
+		self.health_icon_list = pygame.sprite.Group()
+		self.special_enemy_icon_list = pygame.sprite.Group()
+		self.general_enemy_icon_list = pygame.sprite.Group()
+		self.grandpa_list = pygame.sprite.Group()
+		self.himesama_list = pygame.sprite.Group()
 
 		# for special enemys
 		# Basic Vocal
@@ -300,7 +322,7 @@ class Level():
 
 		# Vocal N
 		self.special_enemy_list_N = pygame.sprite.Group()
-		
+
 		# group sprite for hiragana and katakana
 		# Basic Vokal
 		self.hiragana_A = pygame.sprite.Group()
@@ -427,13 +449,20 @@ class Level():
 
 		self.katakana_N = pygame.sprite.Group()
 
-		# for fix bug i point
+		# for fix bug
+		self.special_enemy_list_A_lv2 = pygame.sprite.Group()
+		self.special_enemy_list_I_lv2 = pygame.sprite.Group()
+		self.special_enemy_list_U_lv2 = pygame.sprite.Group()
+
+		self.hiragana_A_lv2 = pygame.sprite.Group()
+		self.hiragana_I_lv2 = pygame.sprite.Group()
 		self.hiragana_U_lv2 = pygame.sprite.Group()
+
 		self.hiragana_KA_lv3 = pygame.sprite.Group()
 		self.hiragana_KI_lv3 = pygame.sprite.Group()
-		
+
 		self.player = player
-		
+
 	# Update everythign on this level
 	def update(self):
 		""" Update everything in this level."""
@@ -442,7 +471,14 @@ class Level():
 		self.death_place_list.update()
 		self.enemy_list.update()
 		self.love_restore_health.update()
-		
+
+		# for tutorial level
+		self.health_icon_list.update()
+		self.special_enemy_icon_list.update()
+		self.general_enemy_icon_list.update()
+		self.grandpa_list.update()
+		self.himesama_list.update()
+
 		# for special enemys
 		# Basic Vocal
 		self.special_enemy_list_A.update()
@@ -512,7 +548,7 @@ class Level():
 		# Vocal N
 		self.special_enemy_list_N.update()
 
-		
+
 		# for update sprites hiragana and katakana
 		# Basic Vocal
 		self.hiragana_A.update()
@@ -640,7 +676,14 @@ class Level():
 		self.katakana_N.update()
 
 		# for fix bug point
+		self.special_enemy_list_A.update()
+		self.special_enemy_list_I.update()
+		self.special_enemy_list_U.update()
+
+		self.hiragana_A_lv2.update()
+		self.hiragana_I_lv2.update()
 		self.hiragana_U_lv2.update()
+
 		self.hiragana_KA_lv3.update()
 		self.hiragana_KI_lv3.update()
 
@@ -656,7 +699,14 @@ class Level():
 		self.death_place_list.draw(screen)
 		self.enemy_list.draw(screen)
 		self.love_restore_health.draw(screen)
-		
+
+		# for tutorial level
+		self.health_icon_list.draw(screen)
+		self.special_enemy_icon_list.draw(screen)
+		self.general_enemy_icon_list.draw(screen)
+		self.grandpa_list.draw(screen)
+		self.himesama_list.draw(screen)
+
 		# For special enemy
 		# Basic Vocal
 		self.special_enemy_list_A.draw(screen)
@@ -746,7 +796,7 @@ class Level():
 		self.hiragana_KU.draw(screen)
 		self.hiragana_KE.draw(screen)
 		self.hiragana_KO.draw(screen)
-		
+
 		self.katakana_KA.draw(screen)
 		self.katakana_KI.draw(screen)
 		self.katakana_KU.draw(screen)
@@ -772,7 +822,7 @@ class Level():
 		self.hiragana_TU.draw(screen)
 		self.hiragana_TE.draw(screen)
 		self.hiragana_TO.draw(screen)
-		
+
 		self.katakana_TA.draw(screen)
 		self.katakana_TI.draw(screen)
 		self.katakana_TU.draw(screen)
@@ -833,7 +883,7 @@ class Level():
 		self.hiragana_RU.draw(screen)
 		self.hiragana_RE.draw(screen)
 		self.hiragana_RO.draw(screen)
-		
+
 		self.katakana_RA.draw(screen)
 		self.katakana_RI.draw(screen)
 		self.katakana_RU.draw(screen)
@@ -849,11 +899,19 @@ class Level():
 
 		# Vocal N
 		self.hiragana_N.draw(screen)
-		
+
 		self.katakana_N.draw(screen)
 
+
 		# for fix bug point
+		self.special_enemy_list_A_lv2.draw(screen)
+		self.special_enemy_list_I_lv2.draw(screen)
+		self.special_enemy_list_U_lv2.draw(screen)
+
+		self.hiragana_A_lv2.draw(screen)
+		self.hiragana_I_lv2.draw(screen)
 		self.hiragana_U_lv2.draw(screen)
+
 		self.hiragana_KA_lv3.draw(screen)
 		self.hiragana_KI_lv3.draw(screen)
 
@@ -869,24 +927,38 @@ class Level():
 		# Go through all the sprite lists and shift
 		for platform in self.platform_list:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.portal_list:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.death_place_list:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.love_restore_health:
 			platform.rect.x += shift_x
-		
+
+
+		# for tutorial level
+		#for platform in self.health_icon_list:
+			#platform.rect.x += shift_x
+
+		#for platform in self.special_enemy_icon_list:
+			#platform.rect.x += shift_x
+
+		#for platform in self.general_enemy_icon_list:
+			#platform.rect.x += shift_x
+
+
+
+
 		# for hiragana and katakana sprites
 		# Basic Vocal
 		for platform in self.hiragana_A:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_I:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_U:
 			platform.rect.x += shift_x
 
@@ -900,10 +972,10 @@ class Level():
 
 		for platform in self.katakana_A:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_I:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_U:
 			platform.rect.x += shift_x
 
@@ -917,10 +989,10 @@ class Level():
 		# Vocal K
 		for platform in self.hiragana_KA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_KI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_KU:
 			platform.rect.x += shift_x
 
@@ -934,10 +1006,10 @@ class Level():
 
 		for platform in self.katakana_KA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_KI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_KU:
 			platform.rect.x += shift_x
 
@@ -951,10 +1023,10 @@ class Level():
 		# Vocal S
 		for platform in self.hiragana_SA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_SI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_SU:
 			platform.rect.x += shift_x
 
@@ -963,15 +1035,15 @@ class Level():
 
 		for platform in self.hiragana_SO:
 			platform.rect.x += shift_x
-		
+
 		#####################################
 
 		for platform in self.katakana_SA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_SI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_SU:
 			platform.rect.x += shift_x
 
@@ -985,10 +1057,10 @@ class Level():
 		# Vocal T
 		for platform in self.hiragana_TA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_TI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_TU:
 			platform.rect.x += shift_x
 
@@ -997,15 +1069,15 @@ class Level():
 
 		for platform in self.hiragana_TO:
 			platform.rect.x += shift_x
-		
+
 		#####################################
 
 		for platform in self.katakana_TA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_TI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_TU:
 			platform.rect.x += shift_x
 
@@ -1019,10 +1091,10 @@ class Level():
 		# Vocal N
 		for platform in self.hiragana_NA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_NI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_NU:
 			platform.rect.x += shift_x
 
@@ -1036,10 +1108,10 @@ class Level():
 
 		for platform in self.katakana_NA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_NI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_NU:
 			platform.rect.x += shift_x
 
@@ -1048,15 +1120,15 @@ class Level():
 
 		for platform in self.katakana_NO:
 			platform.rect.x += shift_x
-		
+
 
 		# Vocal H
 		for platform in self.hiragana_HA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_HI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_HU:
 			platform.rect.x += shift_x
 
@@ -1070,10 +1142,10 @@ class Level():
 
 		for platform in self.katakana_HA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_HI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_HU:
 			platform.rect.x += shift_x
 
@@ -1087,10 +1159,10 @@ class Level():
 		# Vocal M
 		for platform in self.hiragana_MA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_MI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_MU:
 			platform.rect.x += shift_x
 
@@ -1104,10 +1176,10 @@ class Level():
 
 		for platform in self.katakana_MA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_MI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_MU:
 			platform.rect.x += shift_x
 
@@ -1116,15 +1188,15 @@ class Level():
 
 		for platform in self.katakana_MO:
 			platform.rect.x += shift_x
-		
+
 
 		# Vocal Y
 		for platform in self.hiragana_YA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_YU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_YO:
 			platform.rect.x += shift_x
 
@@ -1132,10 +1204,10 @@ class Level():
 
 		for platform in self.katakana_YA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_YU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_YO:
 			platform.rect.x += shift_x
 
@@ -1143,10 +1215,10 @@ class Level():
 		# Vocal R
 		for platform in self.hiragana_RA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_RI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_RU:
 			platform.rect.x += shift_x
 
@@ -1155,15 +1227,15 @@ class Level():
 
 		for platform in self.hiragana_RO:
 			platform.rect.x += shift_x
-		
+
 		#####################################
 
 		for platform in self.katakana_RA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_RI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_RU:
 			platform.rect.x += shift_x
 
@@ -1172,7 +1244,7 @@ class Level():
 
 		for platform in self.katakana_RO:
 			platform.rect.x += shift_x
-		
+
 
 		# Vocal W
 		for platform in self.hiragana_WA:
@@ -1180,30 +1252,45 @@ class Level():
 
 		for platform in self.hiragana_WO:
 			platform.rect.x += shift_x
-		
+
 		#####################################
 
 		for platform in self.katakana_WA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.katakana_WO:
 			platform.rect.x += shift_x
-		
+
 
 		# Vocal N
 		for platform in self.hiragana_N:
 			platform.rect.x += shift_x
-		
+
 		#####################################
 
 		for platform in self.katakana_N:
 			platform.rect.x += shift_x
-		
+
 
 		# for fix bug point
+		for platform in self.special_enemy_list_A_lv2:
+			platform.rect.x += shift_x
+
+		for platform in self.special_enemy_list_I_lv2:
+			platform.rect.x += shift_x
+
+		for platform in self.special_enemy_list_U_lv2:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_A_lv2:
+			platform.rect.x += shift_x
+
+		for platform in self.hiragana_I_lv2:
+			platform.rect.x += shift_x
+
 		for platform in self.hiragana_U_lv2:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.hiragana_KA_lv3:
 			platform.rect.x += shift_x
 
@@ -1214,155 +1301,163 @@ class Level():
 
 		for platform in self.enemy_list:
 			platform.rect.x += shift_x
-		
+
 		# For special enemys
 		# Basic Vocal
 		for platform in self.special_enemy_list_A:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_I:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_U:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_E:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_O:
 			platform.rect.x += shift_x
-		
+
 		# Vocal K
 		for platform in self.special_enemy_list_KA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_KI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_KU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_KE:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_KO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal S
 		for platform in self.special_enemy_list_SA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_SI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_SU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_SE:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_SO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal T
 		for platform in self.special_enemy_list_TA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_TI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_TU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_TE:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_TO:
 			platform.rect.x += shift_x
 
 		# Vocal N
 		for platform in self.special_enemy_list_NA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_NI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_NU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_NE:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_NO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal H
 		for platform in self.special_enemy_list_HA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_HI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_HU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_HE:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_HO:
 			platform.rect.x += shift_x
 
 		# Vocal M
 		for platform in self.special_enemy_list_MA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_MI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_MU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_ME:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_MO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal Y
 		for platform in self.special_enemy_list_YA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_YU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_YO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal R
 		for platform in self.special_enemy_list_RA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_RI:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_RU:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_RE:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_RO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal W
 		for platform in self.special_enemy_list_WA:
 			platform.rect.x += shift_x
-		
+
 		for platform in self.special_enemy_list_WO:
 			platform.rect.x += shift_x
-		
+
 		# Vocal N
 		for platform in self.special_enemy_list_N:
+			platform.rect.x += shift_x
+
+
+		# for NPC
+		for platform in self.grandpa_list:
+			platform.rect.x += shift_x
+
+		for platform in self.himesama_list:
 			platform.rect.x += shift_x
 
 
@@ -1384,7 +1479,7 @@ class Level_Tutorial(Level):
 		intro = [[platforms.snow_dirt_wall, -140, 0],
 			[platforms.snow_dirt_intro, 0 , 460],
 			[platforms.snow_dirt_big_wall, 769, 0]]
-		
+
 		portal = [[platforms.portal_snow, 700, 380]]
 
 		for platform in intro:
@@ -1393,13 +1488,133 @@ class Level_Tutorial(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
+
+
+class Level_Tutorial_Gameplay(Level):
+	""" This class for introduce the player
+		for how to play the game"""
+
+	def __init__(self, player):
+		""" Create intro how to play """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/intro_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = 165
+
+		intro = [[platforms.snow_dirt_wall, -140, 0],
+			[platforms.snow_dirt_intro, 0 , 460],
+			[platforms.snow_dirt_big_wall, 769, 0]]
+
+
+		special_enemy_pic = [[platforms.big_ogre_a, 67, 50]]
+		enemy_pic = [[platforms.fat_frog, 70, 180]]
+		health_pic = [[platforms.restore_health, 70, 260]]
+
+		portal = [[platforms.portal_snow, 700, 380]]
+
+		for platform in intro:
+			block = platforms.Platform_snow(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
+
+		# for tutorial purpose
+		# for special enemy
+		for platform in special_enemy_pic:
+			special_eaten_A = platforms.Platform_special_enemy(platform[0])
+			special_eaten_A.rect.x = platform[1]
+			special_eaten_A.rect.y = platform[2]
+			special_eaten_A.player = self.player
+			self.special_enemy_icon_list.add(special_eaten_A)
+
+		# for enemy
+		for platform in enemy_pic:
+			eaten = platforms.Platform_enemy(platform[0])
+			eaten.rect.x = platform[1]
+			eaten.rect.y = platform[2]
+			eaten.player = self.player
+			self.general_enemy_icon_list.add(eaten)
+
+		# for health point
+		for platform in health_pic:
+			love_restore = platforms.Platform_hiragana_katakana(platform[0])
+			love_restore.rect.x = platform[1]
+			love_restore.rect.y = platform[2]
+			love_restore.player = self.player
+			self.health_icon_list.add(love_restore)
+
+
+
+# for NPC section
+class Level_Intro_NPC(Level):
+	""" This class for introduce the player to NPC """
+
+	def __init__(self, player):
+		""" Create intro """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/intro_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = 165
+
+		intro = [[platforms.snow_dirt_wall, -140, 0],
+			[platforms.snow_dirt_intro, 0 , 460],
+			[platforms.snow_dirt_big_wall, 769, 0]]
+
+		portal = [[platforms.portal_snow, 700, 380]]
+
+		grandpa = [[platforms.grandpa_magus, 450, 370]]
+
+		text_grandpa = [[platforms.text_grandpa, 450, 320]]
+
+		for platform in intro:
+			block = platforms.Platform_snow(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
+		for platform in portal:
+			gate = platforms.Platform_snow(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.portal_list.add(gate)
+
+		# for NPC purpose
+		for platform in grandpa:
+			gate = platforms.Platform_NPC(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.grandpa_list.add(gate)
+
+		for platform in text_grandpa:
+			gate = platforms.Platform_NPC(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.grandpa_list.add(gate)
 
 
 # Create platforms for the level
@@ -1417,7 +1632,7 @@ class Level_01(Level):
 		self.background.set_colorkey(constants.WHITE)
 		self.level_limit = -1166
 
-			
+
 		# Array with type of platform, and x, y location of the platform.
 		# for level 01
 		level01 = [[platforms.dirt_wall, -140, 0],
@@ -1429,15 +1644,15 @@ class Level_01(Level):
 				[platforms.dirt_medium_short_land, 1218, 125],
 				[platforms.dirt_medium_long_land, 1680, 460],
 				[platforms.dirt_big_wall, 2100, 0]]
-		
+
 		water_level01 = [[platforms.medium_long_water, 490, 531],
 						[platforms.medium_short_water, 1190, 531],
 						[platforms.medium_long_water, 1470, 531]]
-		
+
 		portal = [[platforms.portal_snow, 2030, 380]]
 
 		love_health = [[platforms.restore_health, 1380, 400]]
-		
+
 		hiragana_a = [[platforms.hiragana_a, 400, 200]]
 		hiragana_i = [[platforms.hiragana_i, 600, 48]]
 		hiragana_u = [[platforms.hiragana_u, 200, 200]]
@@ -1457,7 +1672,7 @@ class Level_01(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 
 		for platform in water_level01:
 			water_suicide = platforms.Platform_dirt(platform[0])
@@ -1465,8 +1680,8 @@ class Level_01(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
-		
+
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
@@ -1474,7 +1689,7 @@ class Level_01(Level):
 			love_restore.player = self.player
 			self.love_restore_health.add(love_restore)
 
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
@@ -1482,7 +1697,7 @@ class Level_01(Level):
 			gate.player = self.player
 			self.portal_list.add(gate)
 
-		
+
 		# True Point increease scores player
 		# Hiragana A Point
 		for platform in hiragana_a :
@@ -1491,7 +1706,7 @@ class Level_01(Level):
 			true_point_lv1.rect.y = platform[2]
 			true_point_lv1.player = self.player
 			self.hiragana_A.add(true_point_lv1)
-		
+
 		# Hiragana I Point
 		for platform in hiragana_i :
 			true_point_lv1 = platforms.Platform_hiragana_katakana(platform[0])
@@ -1499,7 +1714,7 @@ class Level_01(Level):
 			true_point_lv1.rect.y = platform[2]
 			true_point_lv1.player = self.player
 			self.hiragana_I.add(true_point_lv1)
-		
+
 		# False point decrease health player
 		# Hiragana U Point
 		for platform in hiragana_u :
@@ -1515,7 +1730,7 @@ class Level_01(Level):
 			eaten.rect.y = platform[2]
 			eaten.player = self.player
 			self.enemy_list.add(eaten)
-		
+
 		# for special enemy/immune enemys
 		for platform in special_enemy_a:
 			special_eaten_A = platforms.Platform_special_enemy(platform[0])
@@ -1523,14 +1738,14 @@ class Level_01(Level):
 			special_eaten_A.rect.y = platform[2]
 			special_eaten_A.player = self.player
 			self.special_enemy_list_A.add(special_eaten_A)
-		
+
 		for platform in special_enemy_i:
 			special_eaten_I = platforms.Platform_special_enemy(platform[0])
 			special_eaten_I.rect.x = platform[1]
 			special_eaten_I.rect.y = platform[2]
 			special_eaten_I.player = self.player
 			self.special_enemy_list_I.add(special_eaten_I)
-		
+
 		# Moving Enemy
 		eaten = platforms.MovingEnemy(platforms.fat_frog)
 		eaten.rect.x = 780
@@ -1541,7 +1756,7 @@ class Level_01(Level):
 		eaten.player = self.player
 		eaten.level = self
 		self.enemy_list.add(eaten)
-		
+
 		eaten = platforms.MovingEnemy(platforms.fat_frog)
 		eaten.rect.x = 790
 		eaten.rect.y = 140
@@ -1564,10 +1779,10 @@ class Level_01(Level):
 
 
 class Level_02(Level):
-	""" Definition for level 1. """
+	""" Definition for level 2. """
 
 	def __init__(self, player):
-		""" Create Level 1 """
+		""" Create Level 2 """
 
 		# Call the parent constructor
 		Level.__init__(self, player)
@@ -1588,12 +1803,12 @@ class Level_02(Level):
 				[platforms.dirt_short_land, 1540, 180],
 				[platforms.dirt_medium_short_land, 1890, 460],
 				[platforms.dirt_big_wall, 2030, 0]]
-		
+
 		water_level02 = [[platforms.medium_long_water, 490, 531],
 						[platforms.medium_long_water, 840, 531],
 						[platforms.medium_long_water, 1330, 531],
 						[platforms.medium_long_water, 1680, 531]]
-		
+
 		portal = [[platforms.portal_snow, 1960, 380]]
 
 		love_health = [[platforms.restore_health, 1860, 380]]
@@ -1622,21 +1837,21 @@ class Level_02(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 		for platform in water_level02:
 			water_suicide = platforms.Platform_dirt(platform[0])
 			water_suicide.rect.x = platform[1]
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
@@ -1652,15 +1867,15 @@ class Level_02(Level):
 			true_point_lv2.rect.y = platform[2]
 			true_point_lv2.player = self.player
 			self.hiragana_U_lv2.add(true_point_lv2)
-		
+
 		# Hiragana I
 		for platform in hiragana_i :
 			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
 			true_point_lv2.rect.x = platform[1]
 			true_point_lv2.rect.y = platform[2]
 			true_point_lv2.player = self.player
-			self.hiragana_I.add(true_point_lv2)
-		
+			self.hiragana_I_lv2.add(true_point_lv2)
+
 		# Hiragana O
 		for platform in hiragana_o :
 			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
@@ -1668,15 +1883,15 @@ class Level_02(Level):
 			true_point_lv2.rect.y = platform[2]
 			true_point_lv2.player = self.player
 			self.hiragana_O.add(true_point_lv2)
-		
+
 		# Hiragana a
 		for platform in hiragana_a :
 			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
 			true_point_lv2.rect.x = platform[1]
 			true_point_lv2.rect.y = platform[2]
 			true_point_lv2.player = self.player
-			self.hiragana_A.add(true_point_lv2)
-		
+			self.hiragana_A_lv2.add(true_point_lv2)
+
 		# Hiragana e
 		for platform in hiragana_e :
 			true_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
@@ -1693,7 +1908,7 @@ class Level_02(Level):
 			false_point_lv2.rect.y = platform[2]
 			false_point_lv2.player = self.player
 			self.hiragana_KA.add(false_point_lv2)
-		
+
 		# Hiragana Ki
 		for platform in hiragana_ki :
 			false_point_lv2 = platforms.Platform_hiragana_katakana(platform[0])
@@ -1701,17 +1916,17 @@ class Level_02(Level):
 			false_point_lv2.rect.y = platform[2]
 			false_point_lv2.player = self.player
 			self.hiragana_KI.add(false_point_lv2)
-		
+
 
 		# for special enemy
 		# Hiragana U
 		for platform in special_enemy_u:
-			special_eaten_U = platforms.Platform_special_enemy(platform[0])
-			special_eaten_U.rect.x = platform[1]
-			special_eaten_U.rect.y = platform[2]
-			special_eaten_U.player = self.player
-			self.special_enemy_list_U.add(special_eaten_U)
-		
+			special_eaten_U_lv2 = platforms.Platform_special_enemy(platform[0])
+			special_eaten_U_lv2.rect.x = platform[1]
+			special_eaten_U_lv2.rect.y = platform[2]
+			special_eaten_U_lv2.player = self.player
+			self.special_enemy_list_U_lv2.add(special_eaten_U_lv2)
+
 		# Hiragana O
 		for platform in special_enemy_o:
 			special_eaten_O = platforms.Platform_special_enemy(platform[0])
@@ -1719,23 +1934,23 @@ class Level_02(Level):
 			special_eaten_O.rect.y = platform[2]
 			special_eaten_O.player = self.player
 			self.special_enemy_list_O.add(special_eaten_O)
-		
+
 		# Hiragana I
 		for platform in special_enemy_i:
-			special_eaten_I = platforms.Platform_special_enemy(platform[0])
-			special_eaten_I.rect.x = platform[1]
-			special_eaten_I.rect.y = platform[2]
-			special_eaten_I.player = self.player
-			self.special_enemy_list_I.add(special_eaten_I)
-		
+			special_eaten_I_lv2 = platforms.Platform_special_enemy(platform[0])
+			special_eaten_I_lv2.rect.x = platform[1]
+			special_eaten_I_lv2.rect.y = platform[2]
+			special_eaten_I_lv2.player = self.player
+			self.special_enemy_list_I_lv2.add(special_eaten_I_lv2)
+
 		# Hiragana A
 		for platform in special_enemy_a:
-			special_eaten_A = platforms.Platform_special_enemy(platform[0])
-			special_eaten_A.rect.x = platform[1]
-			special_eaten_A.rect.y = platform[2]
-			special_eaten_A.player = self.player
-			self.special_enemy_list_A.add(special_eaten_A)
-		
+			special_eaten_A_lv2 = platforms.Platform_special_enemy(platform[0])
+			special_eaten_A_lv2.rect.x = platform[1]
+			special_eaten_A_lv2.rect.y = platform[2]
+			special_eaten_A_lv2.player = self.player
+			self.special_enemy_list_A_lv2.add(special_eaten_A_lv2)
+
 		# Hiragana E
 		for platform in special_enemy_e:
 			special_eaten_E = platforms.Platform_special_enemy(platform[0])
@@ -1745,7 +1960,7 @@ class Level_02(Level):
 			self.special_enemy_list_E.add(special_eaten_E)
 
 
-		
+
 		# add moving sprites
 		block = platforms.MovingPlatform_dirt(platforms.dirt_grass_rounded)
 		block.rect.x = 560
@@ -1811,7 +2026,7 @@ class Level_02(Level):
 
 # Level 03
 class Level_03(Level):
-	
+
 	def __init__(self, player):
 		""" Definition for Level 03 """
 
@@ -1841,12 +2056,12 @@ class Level_03(Level):
 				[platforms.brick_dark_small_stairs1, 1680, 480],
 				[platforms.brick_large_high_land, 1750, 410],
 				[platforms.brick_dark_big_wall, 2100, 0]]
-		
+
 		sharp_rock_level02 = [[platforms.medium_sharp_rock, 490, 540],
 							[platforms.small_sharp_rock, 700, 540],
 							[platforms.medium_sharp_rock, 1260, 540],
 							[platforms.medium_sharp_rock, 1470, 540]]
-		
+
 		portal = [[platforms.portal_snow, 2030, 335]]
 
 
@@ -1859,12 +2074,12 @@ class Level_03(Level):
 				[platforms.dark_bat, 420, 260],
 				[platforms.dark_bat, 280, 150],
 				[platforms.dark_bat, 1680, 400]]
-		
+
 		# special enemys
-		special_enemy_ka = [[platforms.dark_rabbit_ka, 700, 2]] 
-		special_enemy_ki = [[platforms.dark_rabbit_ki, 710, 275]] 
-		special_enemy_ku = [[platforms.dark_rabbit_ku, 130, 30]] 
-		special_enemy_ke = [[platforms.dark_rabbit_ke, 1050, 170]] 
+		special_enemy_ka = [[platforms.dark_rabbit_ka, 700, 2]]
+		special_enemy_ki = [[platforms.dark_rabbit_ki, 710, 275]]
+		special_enemy_ku = [[platforms.dark_rabbit_ku, 130, 30]]
+		special_enemy_ke = [[platforms.dark_rabbit_ke, 1050, 170]]
 		special_enemy_ko = [[platforms.dark_rabbit_ko, 1750, 300]]
 
 		# hiragana point
@@ -1880,22 +2095,22 @@ class Level_03(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 		for platform in sharp_rock_level02:
 			sharp_rock = platforms.Platform_dark_brick(platform[0])
 			sharp_rock.rect.x = platform[1]
 			sharp_rock.rect.y = platform[2]
 			sharp_rock.player = self.player
 			self.death_place_list.add(sharp_rock)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-			
-		
+
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
@@ -1919,7 +2134,7 @@ class Level_03(Level):
 			special_eaten_KA.rect.y = platform[2]
 			special_eaten_KA.player = self.player
 			self.special_enemy_list_KA.add(special_eaten_KA)
-		
+
 		# Hiragana Ki
 		for platform in special_enemy_ki:
 			special_eaten_KI = platforms.Platform_special_enemy(platform[0])
@@ -1935,7 +2150,7 @@ class Level_03(Level):
 			special_eaten_KU.rect.y = platform[2]
 			special_eaten_KU.player = self.player
 			self.special_enemy_list_KU.add(special_eaten_KU)
-		
+
 		# Hiragana Ke
 		for platform in special_enemy_ke:
 			special_eaten_KE = platforms.Platform_special_enemy(platform[0])
@@ -1943,7 +2158,7 @@ class Level_03(Level):
 			special_eaten_KE.rect.y = platform[2]
 			special_eaten_KE.player = self.player
 			self.special_enemy_list_KE.add(special_eaten_KE)
-		
+
 		# Hiragana Ko
 		for platform in special_enemy_ko:
 			special_eaten_KO = platforms.Platform_special_enemy(platform[0])
@@ -1951,7 +2166,7 @@ class Level_03(Level):
 			special_eaten_KO.rect.y = platform[2]
 			special_eaten_KO.player = self.player
 			self.special_enemy_list_KO.add(special_eaten_KO)
-		
+
 
 		# Point
 		# Hiragana Ka
@@ -1961,7 +2176,7 @@ class Level_03(Level):
 			true_point_lv3.rect.y = platform[2]
 			true_point_lv3.player = self.player
 			self.hiragana_KA_lv3.add(true_point_lv3)
-		
+
 		# Hiragana Ki
 		for platform in hiragana_ki :
 			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
@@ -1969,7 +2184,7 @@ class Level_03(Level):
 			true_point_lv3.rect.y = platform[2]
 			true_point_lv3.player = self.player
 			self.hiragana_KI_lv3.add(true_point_lv3)
-		
+
 		# Hiragana Ku
 		for platform in hiragana_ku :
 			true_point_lv3 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2060,12 +2275,12 @@ class Level_04(Level):
 				[platforms.brick_red_medium_short_land, 1819, 540],
 				[platforms.brick_red_medium_short_land, 1959, 540],
 				[platforms.brick_red_big_wall, 2029, 0]]
-		
+
 		water_level04 = [[platforms.medium_long_water, 490, 532],
 						[platforms.medium_long_water, 770, 532],
 						[platforms.medium_long_water, 1260, 532],
 						[platforms.medium_short_water, 1470, 532]]
-		
+
 		portal = [[platforms.portal_snow, 1930, 440]]
 
 
@@ -2095,28 +2310,28 @@ class Level_04(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 		for platform in water_level04:
 			water_suicide = platforms.Platform_dirt(platform[0])
 			water_suicide.rect.x = platform[1]
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
 			love_restore.rect.y = platform[2]
 			love_restore.player = self.player
 			self.love_restore_health.add(love_restore)
-		
+
 
 		# Special enemys
 		# Hiragana Sa
@@ -2126,7 +2341,7 @@ class Level_04(Level):
 			special_eaten_SA.rect.y = platform[2]
 			special_eaten_SA.player = self.player
 			self.special_enemy_list_SA.add(special_eaten_SA)
-		
+
 		# Hiragana Si
 		for platform in special_enemy_si:
 			special_eaten_SI = platforms.Platform_special_enemy(platform[0])
@@ -2142,7 +2357,7 @@ class Level_04(Level):
 			special_eaten_SU.rect.y = platform[2]
 			special_eaten_SU.player = self.player
 			self.special_enemy_list_SU.add(special_eaten_SU)
-		
+
 		# Hiragana Se
 		for platform in special_enemy_se:
 			special_eaten_SE = platforms.Platform_special_enemy(platform[0])
@@ -2150,7 +2365,7 @@ class Level_04(Level):
 			special_eaten_SE.rect.y = platform[2]
 			special_eaten_SE.player = self.player
 			self.special_enemy_list_SE.add(special_eaten_SE)
-		
+
 		# Hiragana So
 		for platform in special_enemy_so:
 			special_eaten_SO = platforms.Platform_special_enemy(platform[0])
@@ -2169,7 +2384,7 @@ class Level_04(Level):
 			true_point_lv4.rect.y = platform[2]
 			true_point_lv4.player = self.player
 			self.hiragana_SA.add(true_point_lv4)
-		
+
 		# Hiragana Si
 		for platform in hiragana_si :
 			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2177,7 +2392,7 @@ class Level_04(Level):
 			true_point_lv4.rect.y = platform[2]
 			true_point_lv4.player = self.player
 			self.hiragana_SI.add(true_point_lv4)
-		
+
 		# Hiragana Si
 		for platform in hiragana_su :
 			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2185,7 +2400,7 @@ class Level_04(Level):
 			true_point_lv4.rect.y = platform[2]
 			true_point_lv4.player = self.player
 			self.hiragana_SU.add(true_point_lv4)
-		
+
 		# Hiragana Se
 		for platform in hiragana_se :
 			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2193,7 +2408,7 @@ class Level_04(Level):
 			true_point_lv4.rect.y = platform[2]
 			true_point_lv4.player = self.player
 			self.hiragana_SE.add(true_point_lv4)
-		
+
 		# Hiragana So
 		for platform in hiragana_so :
 			true_point_lv4 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2394,7 +2609,7 @@ class Level_05(Level):
 				[platforms.brick_red_snow_medium_short_land, 2237, 530],
 				[platforms.brick_red_big_wall,  2517, 0],
 				[platforms.brick_red_wall, 2790, 0]]
-		
+
 
 		water_level05 = [[platforms.medium_short_water, 260, 531],
 						[platforms.medium_long_water, 280, 531],
@@ -2440,22 +2655,22 @@ class Level_05(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-			
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
 			love_restore.rect.y = platform[2]
 			love_restore.player = self.player
 			self.love_restore_health.add(love_restore)
-		
-		
+
+
 		# Special enemys
 		# Hiragana Ta
 		for platform in special_enemy_ta:
@@ -2464,7 +2679,7 @@ class Level_05(Level):
 			special_eaten_TA.rect.y = platform[2]
 			special_eaten_TA.player = self.player
 			self.special_enemy_list_TA.add(special_eaten_TA)
-		
+
 		# Hiragana Ti
 		"""for platform in special_enemy_ti:
 			special_eaten_TI = platforms.Platform_special_enemy(platform[0])
@@ -2480,7 +2695,7 @@ class Level_05(Level):
 			special_eaten_TU.rect.y = platform[2]
 			special_eaten_TU.player = self.player
 			self.special_enemy_list_TU.add(special_eaten_TU)
-		
+
 		# Hiragana Te
 		for platform in special_enemy_te:
 			special_eaten_TE = platforms.Platform_special_enemy(platform[0])
@@ -2488,7 +2703,7 @@ class Level_05(Level):
 			special_eaten_TE.rect.y = platform[2]
 			special_eaten_TE.player = self.player
 			self.special_enemy_list_TE.add(special_eaten_TE)
-		
+
 		# Hiragana To
 		for platform in special_enemy_to:
 			special_eaten_TO = platforms.Platform_special_enemy(platform[0])
@@ -2496,7 +2711,7 @@ class Level_05(Level):
 			special_eaten_TO.rect.y = platform[2]
 			special_eaten_TO.player = self.player
 			self.special_enemy_list_TO.add(special_eaten_TO)
-		
+
 
 		# Point
 		# Hiragana Ta
@@ -2506,7 +2721,7 @@ class Level_05(Level):
 			true_point_lv5.rect.y = platform[2]
 			true_point_lv5.player = self.player
 			self.hiragana_TA.add(true_point_lv5)
-		
+
 		# Hiragana Ti
 		for platform in hiragana_ti :
 			true_point_lv5 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2514,7 +2729,7 @@ class Level_05(Level):
 			true_point_lv5.rect.y = platform[2]
 			true_point_lv5.player = self.player
 			self.hiragana_TI.add(true_point_lv5)
-		
+
 		# Hiragana Ti
 		for platform in hiragana_tu :
 			true_point_lv5 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2522,7 +2737,7 @@ class Level_05(Level):
 			true_point_lv5.rect.y = platform[2]
 			true_point_lv5.player = self.player
 			self.hiragana_TU.add(true_point_lv5)
-		
+
 		# Hiragana Te
 		for platform in hiragana_te :
 			true_point_lv5 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2530,7 +2745,7 @@ class Level_05(Level):
 			true_point_lv5.rect.y = platform[2]
 			true_point_lv5.player = self.player
 			self.hiragana_TE.add(true_point_lv5)
-		
+
 		# Hiragana To
 		for platform in hiragana_to :
 			true_point_lv5 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2550,7 +2765,7 @@ class Level_05(Level):
 		block.player = self.player
 		block.level = self
 		self.platform_list.add(block)
-		
+
 		# add moving sprites
 		block = platforms.MovingPlatform_brick_red(platforms.brick_red_snow_small_half)
 		block.rect.x = 850
@@ -2742,14 +2957,14 @@ class Level_06(Level):
 				[platforms.snow_dirt_grass_medium_large, 1380, 460],
 				[platforms.snow_dirt_grass_medium_large, 1870, 460],
 				[platforms.snow_dirt_big_wall, 2080, 0]]
-		
+
 		water_level06 = [[platforms.medium_long_water, 280, 531],
 						[platforms.medium_long_water, 630, 531],
 						[platforms.medium_long_water, 840, 531],
 						[platforms.medium_long_water, 1030, 531],
 						[platforms.medium_short_water, 1310, 531],
 						[platforms.medium_long_water, 1660, 531]]
-		
+
 		portal = [[platforms.portal_snow, 2010, 390]]
 
 		love_health = [[platforms.restore_health, 0, 40],
@@ -2771,7 +2986,7 @@ class Level_06(Level):
 		special_enemy_ni = [[platforms.dark_rabbit_ni, 50, 15]]
 		special_enemy_no = [[platforms.dark_rabbit_no, 1870, 350]]
 
-		
+
 
 		for platform in level06:
 			block = platforms.Platform_snow(platform[0])
@@ -2786,14 +3001,14 @@ class Level_06(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
@@ -2809,7 +3024,7 @@ class Level_06(Level):
 			eaten.rect.y = platform[2]
 			eaten.player = self.player
 			self.enemy_list.add(eaten)
-		
+
 
 		# Special enemys
 		# Hiragana Na
@@ -2819,7 +3034,7 @@ class Level_06(Level):
 			special_eaten_NA.rect.y = platform[2]
 			special_eaten_NA.player = self.player
 			self.special_enemy_list_NA.add(special_eaten_NA)
-		
+
 		# Hiragana Ni
 		for platform in special_enemy_ni:
 			special_eaten_NI = platforms.Platform_special_enemy(platform[0])
@@ -2827,14 +3042,14 @@ class Level_06(Level):
 			special_eaten_NI.rect.y = platform[2]
 			special_eaten_NI.player = self.player
 			self.special_enemy_list_NI.add(special_eaten_NI)
-		
+
 		# Hiragana No
 		for platform in special_enemy_no:
 			special_eaten_NO = platforms.Platform_special_enemy(platform[0])
 			special_eaten_NO.rect.x = platform[1]
 			special_eaten_NO.rect.y = platform[2]
 			special_eaten_NO.player = self.player
-			self.special_enemy_list_NO.add(special_eaten_NO)		
+			self.special_enemy_list_NO.add(special_eaten_NO)
 
 
 		# Point
@@ -2853,7 +3068,7 @@ class Level_06(Level):
 			true_point_lv6.rect.y = platform[2]
 			true_point_lv6.player = self.player
 			self.hiragana_NI.add(true_point_lv6)
-		
+
 		# Hiragana Nu
 		for platform in hiragana_nu :
 			true_point_lv6 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2861,7 +3076,7 @@ class Level_06(Level):
 			true_point_lv6.rect.y = platform[2]
 			true_point_lv6.player = self.player
 			self.hiragana_NU.add(true_point_lv6)
-		
+
 		# Hiragana Ne
 		for platform in hiragana_ne :
 			true_point_lv6 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2869,7 +3084,7 @@ class Level_06(Level):
 			true_point_lv6.rect.y = platform[2]
 			true_point_lv6.player = self.player
 			self.hiragana_NE.add(true_point_lv6)
-		
+
 		# Hiragana No
 		for platform in hiragana_no :
 			true_point_lv6 = platforms.Platform_hiragana_katakana(platform[0])
@@ -2986,13 +3201,13 @@ class Level_07(Level):
 				[platforms.sand_dirt_medium_long_land, 2240, 460],
 				[platforms.sand_dirt_big_wall, 2660, 0],
 				[platforms.sand_dirt_wall, 2520, 0]]
-		
+
 		water_level07 = [[platforms.medium_long_water, 350, 531],
 						[platforms.medium_long_water, 770, 531],
 						[platforms.medium_long_water, 980, 531],
 						[platforms.medium_long_water, 1820, 531],
 						[platforms.medium_long_water, 2030, 531]]
-		
+
 		portal = [[platforms.portal_snow, 2450, 389]]
 
 		# hiragana point
@@ -3029,14 +3244,14 @@ class Level_07(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 
 		# Enemys
 		for platform in skull_zombie:
@@ -3045,7 +3260,7 @@ class Level_07(Level):
 			eaten.rect.y = platform[2]
 			eaten.player = self.player
 			self.enemy_list.add(eaten)
-		
+
 
 		# Special enemys
 		# Hiragana Ha
@@ -3055,7 +3270,7 @@ class Level_07(Level):
 			special_eaten_HA.rect.y = platform[2]
 			special_eaten_HA.player = self.player
 			self.special_enemy_list_HA.add(special_eaten_HA)
-		
+
 		# Hiragana Hi
 		for platform in special_enemy_hi:
 			special_eaten_HI = platforms.Platform_special_enemy(platform[0])
@@ -3063,7 +3278,7 @@ class Level_07(Level):
 			special_eaten_HI.rect.y = platform[2]
 			special_eaten_HI.player = self.player
 			self.special_enemy_list_HI.add(special_eaten_HI)
-		
+
 		# Hiragana Hu
 		for platform in special_enemy_hu:
 			special_eaten_HU = platforms.Platform_special_enemy(platform[0])
@@ -3071,7 +3286,7 @@ class Level_07(Level):
 			special_eaten_HU.rect.y = platform[2]
 			special_eaten_HU.player = self.player
 			self.special_enemy_list_HU.add(special_eaten_HU)
-		
+
 		# Hiragana He
 		for platform in special_enemy_he:
 			special_eaten_HE = platforms.Platform_special_enemy(platform[0])
@@ -3079,7 +3294,7 @@ class Level_07(Level):
 			special_eaten_HE.rect.y = platform[2]
 			special_eaten_HE.player = self.player
 			self.special_enemy_list_HE.add(special_eaten_HE)
-		
+
 		# Hiragana Ho
 		for platform in special_enemy_ho:
 			special_eaten_HO = platforms.Platform_special_enemy(platform[0])
@@ -3087,7 +3302,7 @@ class Level_07(Level):
 			special_eaten_HO.rect.y = platform[2]
 			special_eaten_HO.player = self.player
 			self.special_enemy_list_HO.add(special_eaten_HO)
-		
+
 
 		# Point
 		# Hiragana Ha
@@ -3105,7 +3320,7 @@ class Level_07(Level):
 			true_point_lv7.rect.y = platform[2]
 			true_point_lv7.player = self.player
 			self.hiragana_HI.add(true_point_lv7)
-		
+
 		# Hiragana Hu
 		for platform in hiragana_hu :
 			true_point_lv7 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3113,7 +3328,7 @@ class Level_07(Level):
 			true_point_lv7.rect.y = platform[2]
 			true_point_lv7.player = self.player
 			self.hiragana_HU.add(true_point_lv7)
-		
+
 		# Hiragana He
 		for platform in hiragana_he :
 			true_point_lv7 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3121,7 +3336,7 @@ class Level_07(Level):
 			true_point_lv7.rect.y = platform[2]
 			true_point_lv7.player = self.player
 			self.hiragana_HE.add(true_point_lv7)
-		
+
 		# Hiragana Ho
 		for platform in hiragana_ho :
 			true_point_lv7 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3224,13 +3439,13 @@ class Level_08(Level):
 				[platforms.sand_dirt_medium_long_land, 2240, 460],
 				[platforms.sand_dirt_big_wall, 2660, 0],
 				[platforms.sand_dirt_wall, 2520, 0]]
-		
+
 		water_level08 = [[platforms.medium_long_water, 350, 531],
 						[platforms.medium_long_water, 770, 531],
 						[platforms.medium_long_water, 980, 531],
 						[platforms.medium_long_water, 1820, 531],
 						[platforms.medium_long_water, 2030, 531]]
-		
+
 		portal = [[platforms.portal_snow, 2450, 389]]
 
 		# hiragana point
@@ -3267,14 +3482,14 @@ class Level_08(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 
 		# Enemys
 		for platform in skull_zombie:
@@ -3283,7 +3498,7 @@ class Level_08(Level):
 			eaten.rect.y = platform[2]
 			eaten.player = self.player
 			self.enemy_list.add(eaten)
-		
+
 
 		# Special enemys
 		# Hiragana Ma
@@ -3293,7 +3508,7 @@ class Level_08(Level):
 			special_eaten_MA.rect.y = platform[2]
 			special_eaten_MA.player = self.player
 			self.special_enemy_list_MA.add(special_eaten_MA)
-		
+
 		# Hiragana Mi
 		for platform in special_enemy_mi:
 			special_eaten_MI = platforms.Platform_special_enemy(platform[0])
@@ -3301,7 +3516,7 @@ class Level_08(Level):
 			special_eaten_MI.rect.y = platform[2]
 			special_eaten_MI.player = self.player
 			self.special_enemy_list_MI.add(special_eaten_MI)
-		
+
 		# Hiragana Mu
 		for platform in special_enemy_mu:
 			special_eaten_MU = platforms.Platform_special_enemy(platform[0])
@@ -3309,7 +3524,7 @@ class Level_08(Level):
 			special_eaten_MU.rect.y = platform[2]
 			special_eaten_MU.player = self.player
 			self.special_enemy_list_MU.add(special_eaten_MU)
-		
+
 		# Hiragana Me
 		for platform in special_enemy_me:
 			special_eaten_ME = platforms.Platform_special_enemy(platform[0])
@@ -3317,7 +3532,7 @@ class Level_08(Level):
 			special_eaten_ME.rect.y = platform[2]
 			special_eaten_ME.player = self.player
 			self.special_enemy_list_ME.add(special_eaten_ME)
-		
+
 		# Hiragana Mo
 		for platform in special_enemy_mo:
 			special_eaten_MO = platforms.Platform_special_enemy(platform[0])
@@ -3325,7 +3540,7 @@ class Level_08(Level):
 			special_eaten_MO.rect.y = platform[2]
 			special_eaten_MO.player = self.player
 			self.special_enemy_list_MO.add(special_eaten_MO)
-		
+
 
 		# Point
 		# Hiragana Ma
@@ -3343,7 +3558,7 @@ class Level_08(Level):
 			true_point_lv8.rect.y = platform[2]
 			true_point_lv8.player = self.player
 			self.hiragana_MI.add(true_point_lv8)
-		
+
 		# Hiragana Mu
 		for platform in hiragana_mu :
 			true_point_lv8 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3351,7 +3566,7 @@ class Level_08(Level):
 			true_point_lv8.rect.y = platform[2]
 			true_point_lv8.player = self.player
 			self.hiragana_MU.add(true_point_lv8)
-		
+
 		# Hiragana Me
 		for platform in hiragana_me :
 			true_point_lv8 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3359,7 +3574,7 @@ class Level_08(Level):
 			true_point_lv8.rect.y = platform[2]
 			true_point_lv8.player = self.player
 			self.hiragana_ME.add(true_point_lv8)
-		
+
 		# Hiragana Mo
 		for platform in hiragana_mo :
 			true_point_lv8 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3460,7 +3675,7 @@ class Level_09(Level):
 				[platforms.ancient_brick_tall_large_long, 2410, 530],
 				[platforms.ancient_brick_big_wall, 2620, 0],
 				[platforms.ancient_brick_wall, 2900, 0]]
-		
+
 		water_level09 = [[platforms.medium_long_water, 210, 531],
 						[platforms.medium_long_water, 490, 531],
 						[platforms.medium_long_water, 700, 531],
@@ -3499,7 +3714,7 @@ class Level_09(Level):
 			water_suicide.rect.y = platform[2]
 			water_suicide.player = self.player
 			self.death_place_list.add(water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
@@ -3514,7 +3729,7 @@ class Level_09(Level):
 			love_restore.player = self.player
 			self.love_restore_health.add(love_restore)
 
-		
+
 		# Special enemys
 		# Hiragana Ya
 		for platform in special_enemy_ya:
@@ -3533,7 +3748,7 @@ class Level_09(Level):
 			true_point_lv9.rect.y = platform[2]
 			true_point_lv9.player = self.player
 			self.hiragana_YA.add(true_point_lv9)
-		
+
 		# Hiragana Yu
 		for platform in hiragana_yu :
 			true_point_lv9 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3541,7 +3756,7 @@ class Level_09(Level):
 			true_point_lv9.rect.y = platform[2]
 			true_point_lv9.player = self.player
 			self.hiragana_YU.add(true_point_lv9)
-		
+
 		# Hiragana Yo
 		for platform in hiragana_yo :
 			true_point_lv9 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3549,7 +3764,7 @@ class Level_09(Level):
 			true_point_lv9.rect.y = platform[2]
 			true_point_lv9.player = self.player
 			self.hiragana_YO.add(true_point_lv9)
-		
+
 
 		# add moving sprites
 		block = platforms.MovingPlatform_ancient_brick(platforms.ancient_brick_half)
@@ -3680,7 +3895,7 @@ class Level_10(Level):
 				[platforms.lava_rock_medium_large_land, 2380, 410],
 				[platforms.lava_rock_big_wall, 2590, 0],
 				[platforms.lava_rock_wall, 2870, 0]]
-		
+
 		lava_water_level10 = [[platforms.lava_water_long, 560, 531],
 							[platforms.lava_water_long, 980, 531],
 							[platforms.lava_water_long, 1190, 531],
@@ -3689,11 +3904,11 @@ class Level_10(Level):
 							[platforms.lava_water_long, 1820, 531],
 							[platforms.lava_water, 2030, 531],
 							[platforms.lava_water_long, 2170, 531]]
-		
+
 		portal = [[platforms.portal_snow, 2520, 340]]
 
 		love_health = [[platforms.restore_health, 70, 20]]
-		
+
 		# Hiragana Point
 		hiragana_ra = [[platforms.hiragana_ra, 1050, 20]]
 		hiragana_ri = [[platforms.hiragana_ri, 350, 100]]
@@ -3708,7 +3923,7 @@ class Level_10(Level):
 					[platforms.orange_slime, 875, 286],
 					[platforms.orange_slime, 910, 216],
 					[platforms.orange_slime, 945, 216]]
-		
+
 		# special enemys
 		special_enemy_ro = [[platforms.slime_lava_ro, 2100, 10]]
 
@@ -3719,28 +3934,28 @@ class Level_10(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 		for platform in lava_water_level10:
 			lava_water_suicide = platforms.Platform_lava_rock(platform[0])
 			lava_water_suicide.rect.x = platform[1]
 			lava_water_suicide.rect.y = platform[2]
 			lava_water_suicide.player = self.player
 			self.death_place_list.add(lava_water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
 			love_restore.rect.y = platform[2]
 			love_restore.player = self.player
 			self.love_restore_health.add(love_restore)
-		
+
 		# Enemys
 		for platform in slime_lava:
 			eaten = platforms.Platform_enemy(platform[0])
@@ -3750,7 +3965,7 @@ class Level_10(Level):
 			self.enemy_list.add(eaten)
 
 
-		# Special enemys		
+		# Special enemys
 		# Hiragana Ro
 		for platform in special_enemy_ro:
 			special_eaten_RO = platforms.Platform_special_enemy(platform[0])
@@ -3768,7 +3983,7 @@ class Level_10(Level):
 			true_point_lv10.rect.y = platform[2]
 			true_point_lv10.player = self.player
 			self.hiragana_RA.add(true_point_lv10)
-		
+
 		# Hiragana RI
 		for platform in hiragana_ri :
 			true_point_lv10 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3776,7 +3991,7 @@ class Level_10(Level):
 			true_point_lv10.rect.y = platform[2]
 			true_point_lv10.player = self.player
 			self.hiragana_RI.add(true_point_lv10)
-		
+
 		# Hiragana Ru
 		for platform in hiragana_ru :
 			true_point_lv10 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3784,7 +3999,7 @@ class Level_10(Level):
 			true_point_lv10.rect.y = platform[2]
 			true_point_lv10.player = self.player
 			self.hiragana_RU.add(true_point_lv10)
-		
+
 		# Hiragana Re
 		for platform in hiragana_re :
 			true_point_lv10 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3792,7 +4007,7 @@ class Level_10(Level):
 			true_point_lv10.rect.y = platform[2]
 			true_point_lv10.player = self.player
 			self.hiragana_RE.add(true_point_lv10)
-		
+
 		# Hiragana Ro
 		for platform in hiragana_ro :
 			true_point_lv10 = platforms.Platform_hiragana_katakana(platform[0])
@@ -3801,7 +4016,7 @@ class Level_10(Level):
 			true_point_lv10.player = self.player
 			self.hiragana_RO.add(true_point_lv10)
 
-		
+
 		# add moving sprites
 		block = platforms.MovingPlatform_lava_rock(platforms.lava_rock_half)
 		block.rect.x = 1960
@@ -3928,9 +4143,9 @@ class Level_11(Level):
 				[platforms.lava_rock_medium_large_land, 1540, 410],
 				[platforms.lava_rock_long_tall, 2100, 110],
 				[platforms.lava_rock_medium_large_land, 2380, 410],
-				[platforms.lava_special_enemy_list_WArock_big_wall, 2590, 0],
+				[platforms.lava_rock_big_wall, 2590, 0],
 				[platforms.lava_rock_wall, 2870, 0]]
-		
+
 		lava_water_level11 = [[platforms.lava_water_long, 560, 531],
 							[platforms.lava_water_long, 980, 531],
 							[platforms.lava_water_long, 1190, 531],
@@ -3939,11 +4154,11 @@ class Level_11(Level):
 							[platforms.lava_water_long, 1820, 531],
 							[platforms.lava_water, 2030, 531],
 							[platforms.lava_water_long, 2170, 531]]
-		
+
 		portal = [[platforms.portal_snow, 2520, 340]]
 
 		love_health = [[platforms.restore_health, 70, 20]]
-		
+
 		# Hiragana Point
 		hiragana_wa = [[platforms.hiragana_wa, 1050, 20]]
 		hiragana_wo = [[platforms.hiragana_wo, 350, 100]]
@@ -3964,28 +4179,28 @@ class Level_11(Level):
 			block.rect.y = platform[2]
 			block.player = self.player
 			self.platform_list.add(block)
-		
+
 		for platform in lava_water_level11:
 			lava_water_suicide = platforms.Platform_lava_rock(platform[0])
 			lava_water_suicide.rect.x = platform[1]
 			lava_water_suicide.rect.y = platform[2]
 			lava_water_suicide.player = self.player
 			self.death_place_list.add(lava_water_suicide)
-		
+
 		for platform in portal:
 			gate = platforms.Platform_snow(platform[0])
 			gate.rect.x = platform[1]
 			gate.rect.y = platform[2]
 			gate.player = self.player
 			self.portal_list.add(gate)
-		
+
 		for platform in love_health:
 			love_restore = platforms.Platform_hiragana_katakana(platform[0])
 			love_restore.rect.x = platform[1]
 			love_restore.rect.y = platform[2]
 			love_restore.player = self.player
 			self.love_restore_health.add(love_restore)
-		
+
 		# Enemys
 		for platform in slime_lava:
 			eaten = platforms.Platform_enemy(platform[0])
@@ -4003,7 +4218,7 @@ class Level_11(Level):
 			true_point_lv11.rect.y = platform[2]
 			true_point_lv11.player = self.player
 			self.hiragana_WA.add(true_point_lv11)
-		
+
 		# Hiragana Wo
 		for platform in hiragana_wo :
 			true_point_lv11 = platforms.Platform_hiragana_katakana(platform[0])
@@ -4011,7 +4226,7 @@ class Level_11(Level):
 			true_point_lv11.rect.y = platform[2]
 			true_point_lv11.player = self.player
 			self.hiragana_WO.add(true_point_lv11)
-		
+
 		# Hiragana N
 		for platform in hiragana_n :
 			true_point_lv11 = platforms.Platform_hiragana_katakana(platform[0])
@@ -4019,8 +4234,8 @@ class Level_11(Level):
 			true_point_lv11.rect.y = platform[2]
 			true_point_lv11.player = self.player
 			self.hiragana_N.add(true_point_lv11)
-		
-		
+
+
 		# add moving sprites
 		block = platforms.MovingPlatform_lava_rock(platforms.lava_rock_half)
 		block.rect.x = 1960
@@ -4078,9 +4293,9 @@ class Level_11(Level):
 		# add moving special enemys
 		# Hiragana Wa
 		special_eaten_WA = platforms.MovingEnemySpecial(platforms.slime_lava_wa)
-		special_eaten_WA.rspecial_enemy_list_WAct.x = 560
-		special_eaten_WA.rspecial_enemy_list_WAct.y = 10
-		special_eaten_WA.bspecial_enemy_list_WAundary_left = 560
+		special_eaten_WA.rect.x = 560
+		special_eaten_WA.rect.y = 10
+		special_eaten_WA.boundary_left = 560
 		special_eaten_WA.boundary_right = 630
 		special_eaten_WA.change_x = 3
 		special_eaten_WA.player = self.player
@@ -4108,3 +4323,51 @@ class Level_11(Level):
 		special_eaten_N.player = self.player
 		special_eaten_N.level = self
 		self.special_enemy_list_N.add(special_eaten_N)
+
+
+
+class Level_Ending(Level):
+	""" This class for introduce the player """
+
+	def __init__(self, player):
+		""" Create intro """
+
+		# Call the parent constructor
+		Level.__init__(self, player)
+
+		self.background = pygame.image.load("spritesheet/snow_background.png").convert_alpha()
+		self.background.set_colorkey(constants.WHITE)
+		self.level_limit = 165
+
+		intro = [[platforms.dirt_wall, -140, 0],
+			[platforms.dirt_medium_long_land, 0 , 460],
+			[platforms.dirt_medium_long_land, 480, 460],
+			[platforms.dirt_big_wall, 769, 0]]
+
+		portal = [[platforms.portal_snow, 700, 380]]
+
+		himesama = [[platforms.himesama_blonde, 450, 385]]
+
+		text_himesama = [[platforms.text_himesama, 450, 340]]
+
+		for platform in intro:
+			block = platforms.Platform_dirt(platform[0])
+			block.rect.x = platform[1]
+			block.rect.y = platform[2]
+			block.player = self.player
+			self.platform_list.add(block)
+
+		# for NPC
+		for platform in himesama:
+			kiss_himesama = platforms.Platform_NPC(platform[0])
+			kiss_himesama.rect.x = platform[1]
+			kiss_himesama.rect.y = platform[2]
+			kiss_himesama.player = self.player
+			self.himesama_list.add(kiss_himesama)
+
+		for platform in text_himesama:
+			gate = platforms.Platform_NPC(platform[0])
+			gate.rect.x = platform[1]
+			gate.rect.y = platform[2]
+			gate.player = self.player
+			self.himesama_list.add(gate)
