@@ -32,7 +32,7 @@ import fontsettings
 
 import gameoverscreen
 
-# ----- Main Menu ----- 
+# ----- Main Menu -----
 def main_background():
 	"""
 	Function used by menus, draw on background while menu is active.
@@ -62,17 +62,21 @@ def gameplay():
 	# Create all the levels
 	level_list = []
 	level_list.append(levels.Level_Tutorial(player))
-	#level_list.append(levels.Level_01(player))
-	#level_list.append(levels.Level_02(player))
-	#level_list.append(levels.Level_03(player))
-	#level_list.append(levels.Level_04(player))
-	#level_list.append(levels.Level_05(player))
-	#level_list.append(levels.Level_06(player))
-	#level_list.append(levels.Level_07(player))
-	#level_list.append(levels.Level_08(player))
-	#level_list.append(levels.Level_09(player))
-	#level_list.append(levels.Level_10(player))
+	level_list.append(levels.Level_Tutorial_Gameplay(player))
+	level_list.append(levels.Level_Intro_NPC(player))
+	level_list.append(levels.Level_01(player))
+	level_list.append(levels.Level_02(player))
+	level_list.append(levels.Level_03(player))
+	level_list.append(levels.Level_04(player))
+	level_list.append(levels.Level_05(player))
+	level_list.append(levels.Level_06(player))
+	level_list.append(levels.Level_07(player))
+	level_list.append(levels.Level_08(player))
+	level_list.append(levels.Level_09(player))
+	level_list.append(levels.Level_10(player))
 	level_list.append(levels.Level_11(player))
+	level_list.append(levels.Level_Ending(player))
+
 
 	# Set the current level
 	current_level_no = 0
@@ -85,7 +89,7 @@ def gameplay():
 	player.rect.x = 70
 	player.rect.y = 360
 	active_sprite_list.add(player)
-	
+
 	#Loop until the user clicks the close button.
 	# variable for game exit of course
 	gameExit = False
@@ -126,7 +130,7 @@ def gameplay():
 					   menu_width=int(constants.SCREEN_WIDTH * 0.6),
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
-	
+
 	option_display_settings.add_option('Fullscreen', configscreen.fullscreen_settings)
 	option_display_settings.add_option('Windowed', configscreen.windowed_settings)
 	option_display_settings.add_option('Back', PYGAME_MENU_BACK)
@@ -150,7 +154,7 @@ def gameplay():
 	option_sounds_settings.add_option('On Music', configsounds.turn_on_sounds)
 	option_sounds_settings.add_option('Off Music', configsounds.turn_off_sounds)
 	option_sounds_settings.add_option('Back', PYGAME_MENU_BACK)
-	
+
 	# help in game setitings
 	help_menu = pygameMenu.TextMenu(configscreen.screen,
 									bgfun=pause_background,
@@ -188,7 +192,7 @@ def gameplay():
 					   menu_width=int(constants.SCREEN_WIDTH * 0.6),
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
-	
+
 	menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
 	menu.add_option(option_display_settings.get_title(), option_display_settings)
 	menu.add_option(help_menu.get_title(), help_menu)
@@ -197,7 +201,7 @@ def gameplay():
 	# -------- Main Program Loop -----------
 	while not gameExit:
 		if gameOver == True:
-			
+
 			gameoverscreen.show_game_over()
 
 		events = pygame.event.get()
@@ -212,7 +216,7 @@ def gameplay():
 					player.go_right()
 				elif event.key == pygame.K_UP:
 					player.jump()
-				
+
 				# for player skill
 				elif event.key == pygame.K_x:
 
@@ -228,14 +232,14 @@ def gameplay():
 					elif player.direction == "L":
 						bullet.rect.x = player.rect.x
 						bullet.rect.y = player.rect.y + 30
-					
+
 					# Add the bullet to the lists
 					active_sprite_list.add(bullet)
 					bullet.bullet_list.add(bullet)
 
 				elif event.key == pygame.K_ESCAPE:
 					menu.enable()
-					
+
 			elif event.type == pygame.KEYUP:
 				if event.key == pygame.K_LEFT and player.change_x < 0:
 					player.stop()
@@ -260,26 +264,26 @@ def gameplay():
 			current_level.shift_world(diff)
 
 		current_position = player.rect.x + current_level.world_shift
-		
+
 		# debugging purpose
-		print(current_position)
+		#print(current_position)
 		# check the position x and y
 		#mouse_pos = pygame.mouse.get_pos()
 		#print(mouse_pos)
-		
-		
+
+
 		if current_position == current_level.level_limit:
 			player.rect.x = 120
 			if current_level_no < len(level_list)-1:
 				current_level_no += 1
 				current_level = level_list[current_level_no]
 				player.level = current_level
-				
+
 		# if player fall is game over
 		#if player.rect.bottom >= constants.SCREEN_HEIGHT or player.rect.bottom < 0:
 		#	if current_level == level_list[1]:
 		#		gameOver = True
-		
+
 		# ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
 		current_level.draw(configscreen.screen)
 		active_sprite_list.draw(configscreen.screen)
@@ -290,10 +294,10 @@ def gameplay():
 		if current_level == level_list[0]:
 
 			settings.msg_to_screen("Tutorial", constants.WHITE, 0, 0, size="small")
-			settings.msg_to_screen("Cara Bermain :",
+			settings.msg_to_screen("Control :",
 									constants.WHITE,
 									100, 50, size= "small")
-			settings.msg_to_screen("Tombol tanda panah ----> : jalan ke kanan", 
+			settings.msg_to_screen("Tombol tanda panah ----> : jalan ke kanan",
 									constants.WHITE,
 									100, 100, size= "small")
 			settings.msg_to_screen("Tombol tanda panah <---- : jalan ke kiri",
@@ -305,7 +309,7 @@ def gameplay():
 			settings.msg_to_screen("|", constants.WHITE, 296, 210, size="small")
 			settings.msg_to_screen("Tombol huruf X : Menembak", constants.WHITE, 100, 250, size="small")
 			settings.msg_to_screen("Esc : Pause/Resume", constants.WHITE, 100, 300, size="small")
-			
+
 
 			# process each snow flake in the list
 			for i in range(len(snow_list)):
@@ -325,12 +329,64 @@ def gameplay():
 					x = random.randrange(0, 790)
 					snow_list[i][0] = x
 
-		# if the player in the level 02
+		# for how to play
 		if current_level == level_list[1]:
+
+			settings.msg_to_screen("Jenis Musuh dan Point :", constants.WHITE, 0, 0, size="small")
+			settings.msg_to_screen("Special Enemy : reduce health -40%", constants.WHITE, 150, 100, size="small")
+			settings.msg_to_screen("Generap Enemy : reduce health -30%", constants.WHITE, 150, 180, size="small")
+			settings.msg_to_screen("Restore Health : increase health +20%", constants.WHITE, 150, 270, size="small")
+
+			# process each snow flake in the list
+			for i in range(len(snow_list)):
+
+				# draw the snow flake
+				pygame.draw.circle(configscreen.screen, constants.WHITE, snow_list[i], 2)
+
+				# move the snow flake down one pixel
+				snow_list[i][1] += 1
+
+				# if the snow flake has moved off the bottom of the screen
+				if snow_list[i][1] > 450:
+					# reset it just above the top
+					y = random.randrange(-50, -10)
+					snow_list[i][1] = y
+					# give it new x position
+					x = random.randrange(0, 790)
+					snow_list[i][0] = x
+
+		# for how to play
+		if current_level == level_list[2]:
+
+			#settings.msg_to_screen("Selamatkan Tuan Putri!!!", constants.WHITE, 450, 320, size="small")
+
+			# process each snow flake in the list
+			for i in range(len(snow_list)):
+
+				# draw the snow flake
+				pygame.draw.circle(configscreen.screen, constants.WHITE, snow_list[i], 2)
+
+				# move the snow flake down one pixel
+				snow_list[i][1] += 1
+
+				# if the snow flake has moved off the bottom of the screen
+				if snow_list[i][1] > 450:
+					# reset it just above the top
+					y = random.randrange(-50, -10)
+					snow_list[i][1] = y
+					# give it new x position
+					x = random.randrange(0, 790)
+					snow_list[i][0] = x
+
+
+		# stage advanture for player
+
+		# if the player in the level 01
+		if current_level == level_list[3]:
 
 			# level number
 			settings.hud_msg_to_screen("Level 1", constants.WHITE, 0, 0, size = "small")
-			
+
 			# for player health
 			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
@@ -338,14 +394,13 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			settings.hud_msg_to_screen("Kills : " + str(player.kills), constants.WHITE, 400, 0, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
-		"""elif current_level == level_list[2]:
+
+		elif current_level == level_list[4]:
 			# level number
 			settings.hud_msg_to_screen("Level 2", constants.WHITE, 0, 0, size = "small")
 
@@ -356,13 +411,13 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
-		elif current_level == level_list[3]:
+
+		elif current_level == level_list[5]:
 			# level number
 			settings.hud_msg_to_screen("Level 3", constants.WHITE, 0, 0, size = "small")
 
@@ -373,13 +428,13 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
 
-		elif current_level == level_list[4]:
+		elif current_level == level_list[6]:
 			# level number
 			settings.hud_msg_to_screen("Level 4", constants.WHITE, 0, 0, size = "small")
 
@@ -390,13 +445,13 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
-		elif current_level == level_list[1]:
+
+		elif current_level == level_list[7]:
 			# level number
 			settings.hud_msg_to_screen("Level 5", constants.WHITE, 0, 0, size = "small")
 
@@ -407,7 +462,7 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
@@ -430,8 +485,8 @@ def gameplay():
 					# give it new x position
 					x = random.randrange(0, 790)
 					snow_list[i][0] = x
-		
-		elif current_level == level_list[6]:
+
+		elif current_level == level_list[8]:
 			# level number
 			settings.hud_msg_to_screen("Level 6", constants.WHITE, 0, 0, size = "small")
 
@@ -442,13 +497,13 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
-		elif current_level == level_list[7]:
+
+		elif current_level == level_list[9]:
 			# level number
 			settings.hud_msg_to_screen("Level 7", constants.WHITE, 0, 0, size = "small")
 
@@ -459,46 +514,12 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
-			# prototype player lifes point
-			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
-		elif current_level == level_list[8]:
-			# level number
-			settings.hud_msg_to_screen("Level 8", constants.WHITE, 0, 0, size = "small")
 
-			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
 			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
-		elif current_level == level_list[9]:
-			# level number
-			settings.hud_msg_to_screen("Level 8", constants.WHITE, 0, 0, size = "small")
 
-			# for player health
-			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
-			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
-			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
-				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
-			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
-			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
-			# prototype player lifes point
-			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
-		
 		elif current_level == level_list[10]:
 			# level number
 			settings.hud_msg_to_screen("Level 8", constants.WHITE, 0, 0, size = "small")
@@ -510,12 +531,63 @@ def gameplay():
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
 			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
 				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
-			
+
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
 			# prototype player lifes point
-			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")"""
-		
+			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
+
+		elif current_level == level_list[11]:
+			# level number
+			settings.hud_msg_to_screen("Level 9", constants.WHITE, 0, 0, size = "small")
+
+			# for player health
+			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
+			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
+			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
+
+			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			# prototype player lifes point
+			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
+
+		elif current_level == level_list[12]:
+			# level number
+			settings.hud_msg_to_screen("Level 10", constants.WHITE, 0, 0, size = "small")
+
+			# for player health
+			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
+			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
+			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
+
+			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			# prototype player lifes point
+			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
+
+		elif current_level == level_list[13]:
+			# level number
+			settings.hud_msg_to_screen("Level 11", constants.WHITE, 0, 0, size = "small")
+
+			# for player health
+			if player.health_number == 100 or player.health_number == 90 or player.health_number == 80:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.GREEN, 90, 0, size="small")
+			elif player.health_number == 70 or player.health_number == 60 or player.health_number == 50:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.YELLOW, 90, 0, size="small")
+			elif player.health_number == 40 or player.health_number == 30 or player.health_number == 20 or player.health_number == 10:
+				settings.hud_msg_to_screen("Health : " + str(player.health_number), constants.RED, 90, 0, size="small")
+
+			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
+			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
+			# prototype player lifes point
+			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
+
 		# Limit to 60 frames per second
 		clock.tick(60)
 
@@ -528,4 +600,3 @@ def gameplay():
 	# on exit.
 	pygame.quit()
 	quit()
-
