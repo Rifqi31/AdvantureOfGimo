@@ -103,7 +103,7 @@ sand_dirt_tall_long = (434, 147, 70, 350)
 sand_dirt_tall_medium = (512, 221, 70, 280)
 sand_dirt_basic_medium = (145, 584, 140, 70)
 sand_dirt_long_soft_up_down = (0, 676, 560, 70)
-sand_dirt_medium_small_land = (0 ,751, 280, 140) 
+sand_dirt_medium_small_land = (0 ,751, 280, 140)
 sand_dirt_big_wall = (626, 0, 280, 630)
 
 
@@ -134,7 +134,7 @@ lava_rock_half = (439, 586, 72, 38)
 lava_water = (511, 219, 72, 70)
 lava_water_long = (0, 676, 216, 70)
 lava_water_medium = (221, 676, 144, 70)
-lava_rock_big_wall = (626, 0, 280, 630) 
+lava_rock_big_wall = (626, 0, 280, 630)
 
 
 # for hiragana & katakana
@@ -290,6 +290,12 @@ bad_mushroom = (65, 60, 42, 42)
 bad_octo = (122, 60, 31, 33)
 bad_ogre = (167, 60, 39, 42)
 
+# for NPC
+grandpa_magus = (5, 4, 63, 90)
+himesama_blonde = (157, 20, 51, 74)
+text_grandpa = (28, 121, 169, 10)
+text_himesama = (31, 108, 77, 11)
+
 # special enemys
 # basic vokal
 big_ogre_a = (5, 5, 65, 109)
@@ -363,12 +369,12 @@ slime_lava_n = (603, 456, 80, 99)
 
 class Platform_enemy(pygame.sprite.Sprite):
 	""" Platform for enemy """
-	
+
 	def __init__(self, sprite_sheet_data):
 		""" Platform constructor. Assumes constructed with user passing in
 			 an array of 5 numbers like what's defined at the top of this
 			code. """
-		
+
 		super().__init__()
 
 		# enemy tileset
@@ -379,18 +385,18 @@ class Platform_enemy(pygame.sprite.Sprite):
 												sprite_sheet_data[1],
 												sprite_sheet_data[2],
 												sprite_sheet_data[3])
-		
+
 		self.rect = self.image.get_rect()
 
 
 class Platform_special_enemy(pygame.sprite.Sprite):
 	""" Platform for enemy """
-	
+
 	def __init__(self, sprite_sheet_data):
 		""" Platform constructor. Assumes constructed with user passing in
 			 an array of 5 numbers like what's defined at the top of this
 			code. """
-		
+
 		super().__init__()
 
 		# enemy tileset
@@ -401,13 +407,13 @@ class Platform_special_enemy(pygame.sprite.Sprite):
 												sprite_sheet_data[1],
 												sprite_sheet_data[2],
 												sprite_sheet_data[3])
-		
+
 		self.rect = self.image.get_rect()
 
 
 class Platform_hiragana_katakana(pygame.sprite.Sprite):
 	""" Platform the user can take the point """
-	
+
 	def __init__(self, sprite_sheet_data):
 		""" Platform constructor. Assumes constructed with user passing in
 			an array of 5 numbers like what's defined at the top of this
@@ -423,73 +429,73 @@ class Platform_hiragana_katakana(pygame.sprite.Sprite):
 												sprite_sheet_data[1],
 												sprite_sheet_data[2],
 												sprite_sheet_data[3])
-		
+
 		self.rect = self.image.get_rect()
 
 
 class Platform_snow(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
- 
+
 	def __init__(self, sprite_sheet_data):
 		""" Platform constructor. Assumes constructed with user passing in
 			an array of 5 numbers like what's defined at the top of this
 			code. """
 
 		super().__init__()
-		
+
 		# dirt tileset
 		sprite_sheet_dirt = SpriteSheet("spritesheet/snow_tile_assets.png")
-		
+
 		# Grab the image for this platform
 		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
 											sprite_sheet_data[1],
 											sprite_sheet_data[2],
 											sprite_sheet_data[3])
-			
+
 		self.rect = self.image.get_rect()
 
 
 class Platform_dirt(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
- 
+
 	def __init__(self, sprite_sheet_data):
 		""" Platform constructor. Assumes constructed with user passing in
 			an array of 5 numbers like what's defined at the top of this
 			code. """
 
 		super().__init__()
-		
+
 		# dirt tileset
 		sprite_sheet_dirt = SpriteSheet("spritesheet/dirt_tile_assets.png")
-		
+
 		# Grab the image for this platform
 		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
 											sprite_sheet_data[1],
 											sprite_sheet_data[2],
 											sprite_sheet_data[3])
-			
+
 		self.rect = self.image.get_rect()
 
 
 class Platform_dark_brick(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
- 
+
 	def __init__(self, sprite_sheet_data):
 		""" Platform constructor. Assumes constructed with user passing in
 			an array of 5 numbers like what's defined at the top of this
 			code. """
 
 		super().__init__()
-		
+
 		# dirt tileset
 		sprite_sheet_dirt = SpriteSheet("spritesheet/brick_castle_night.png")
-		
+
 		# Grab the image for this platform
 		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
 											sprite_sheet_data[1],
 											sprite_sheet_data[2],
 											sprite_sheet_data[3])
-			
+
 		self.rect = self.image.get_rect()
 
 
@@ -581,25 +587,48 @@ class Platform_lava_rock(pygame.sprite.Sprite):
 		self.rect = self.image.get_rect()
 
 
+class Platform_NPC(pygame.sprite.Sprite):
+	""" Platform for enemy """
+
+	def __init__(self, sprite_sheet_data):
+		""" Platform constructor. Assumes constructed with user passing in
+			 an array of 5 numbers like what's defined at the top of this
+			code. """
+
+		super().__init__()
+
+		# enemy tileset
+		sprite_sheet_enemys = SpriteSheet("spritesheet/npc_asset.png")
+
+		# Grab the image for this platform
+		self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
+												sprite_sheet_data[1],
+												sprite_sheet_data[2],
+												sprite_sheet_data[3])
+
+		self.rect = self.image.get_rect()
+
+
+
 # for moving platform
 class MovingPlatform_dirt(Platform_dirt):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -607,17 +636,17 @@ class MovingPlatform_dirt(Platform_dirt):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -625,27 +654,27 @@ class MovingPlatform_dirt(Platform_dirt):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -656,22 +685,22 @@ class MovingPlatform_dirt(Platform_dirt):
 
 class MovingPlatform_dark_brick(Platform_dark_brick):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -679,17 +708,17 @@ class MovingPlatform_dark_brick(Platform_dark_brick):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -697,27 +726,27 @@ class MovingPlatform_dark_brick(Platform_dark_brick):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -725,22 +754,22 @@ class MovingPlatform_dark_brick(Platform_dark_brick):
 
 class MovingPlatform_brick_red(Platform_grass_brick):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -748,17 +777,17 @@ class MovingPlatform_brick_red(Platform_grass_brick):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -766,27 +795,27 @@ class MovingPlatform_brick_red(Platform_grass_brick):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -795,22 +824,22 @@ class MovingPlatform_brick_red(Platform_grass_brick):
 
 class MovingPlatform_snow(Platform_snow):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -818,17 +847,17 @@ class MovingPlatform_snow(Platform_snow):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -836,27 +865,27 @@ class MovingPlatform_snow(Platform_snow):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -865,22 +894,22 @@ class MovingPlatform_snow(Platform_snow):
 
 class MovingPlatform_dirt_sand(Platform_dirt_sand):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -888,17 +917,17 @@ class MovingPlatform_dirt_sand(Platform_dirt_sand):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -906,27 +935,27 @@ class MovingPlatform_dirt_sand(Platform_dirt_sand):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -935,22 +964,22 @@ class MovingPlatform_dirt_sand(Platform_dirt_sand):
 
 class MovingPlatform_ancient_brick(Platform_ancient_brick):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -958,17 +987,17 @@ class MovingPlatform_ancient_brick(Platform_ancient_brick):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -976,27 +1005,27 @@ class MovingPlatform_ancient_brick(Platform_ancient_brick):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -1005,22 +1034,22 @@ class MovingPlatform_ancient_brick(Platform_ancient_brick):
 
 class MovingPlatform_lava_rock(Platform_lava_rock):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
 		""" Move the platform.
 			If the player is in the way, it will shove the player
@@ -1028,17 +1057,17 @@ class MovingPlatform_lava_rock(Platform_lava_rock):
 			platform shoves a player into another object. Make sure
 			moving platforms have clearance to push the player around
 			or add code to handle what happens if they don't. """
- 
- 
+
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# See if we hit the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# If we are moving right, set our right side
 			# to the left side of the item we hit
 			if self.change_x < 0:
@@ -1046,27 +1075,27 @@ class MovingPlatform_lava_rock(Platform_lava_rock):
 			else:
 				# Otherwise if we are moving left, do the opposite.
 				self.player.rect.left = self.rect.right
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check and see if we the player
 		hit = pygame.sprite.collide_rect(self, self.player)
 		if hit:
 			# We did hit the player. Shove the player around and
 			# assume he/she won't hit anything else.
- 
+
 			# Reset our position based on the top/bottom of the object.
 			if self.change_y < 0:
 				self.player.rect.bottom = self.rect.top
 			else:
 				self.player.rect.top = self.rect.bottom
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -1075,35 +1104,35 @@ class MovingPlatform_lava_rock(Platform_lava_rock):
 # for prototype
 class MovingEnemy(Platform_enemy):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
- 
+
 		# Move left/right
 		self.rect.x += self.change_x
- 
+
 		# Move up/down
 		self.rect.y += self.change_y
- 
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
@@ -1112,35 +1141,35 @@ class MovingEnemy(Platform_enemy):
 # for special enemy
 class MovingEnemySpecial(Platform_special_enemy):
 	""" This is a fancier platform that can actually move. """
- 
+
 	def __init__(self, sprite_sheet_data):
- 
+
 		super().__init__(sprite_sheet_data)
- 
+
 		self.change_x = 0
 		self.change_y = 0
- 
+
 		self.boundary_top = 0
 		self.boundary_bottom = 0
 		self.boundary_left = 0
 		self.boundary_right = 0
- 
+
 		self.level = None
 		self.player = None
- 
+
 	def update(self):
- 
+
 		# Move left/right
 		self.rect.x += self.change_x
 
 		# Move up/down
 		self.rect.y += self.change_y
-  
+
 		# Check the boundaries and see if we need to reverse
 		# direction.
 		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
 			self.change_y *= -1
- 
+
 		cur_pos = self.rect.x - self.level.world_shift
 		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
 			self.change_x *= -1
