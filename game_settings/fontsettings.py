@@ -1,7 +1,6 @@
 import pygame
 
-import configfont
-import configscreen
+from game_settings import configfont, configscreen
 
 class BasicSettings(object):
 	"""this is basic settings"""

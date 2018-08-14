@@ -15,35 +15,19 @@ from pygameMenu.locals import *
 # import constants variable
 import constants
 # import levels
-import levels
+from hiragana_mode import levels
 # import config font and screen
-import configfont
-import configscreen
-# import sounds file
-import configsounds
+from game_settings import configfont, configscreen, configsounds, fontsettings
 # import player module
-from player import Player, Bullet
+from hiragana_mode.player import Player, Bullet
 
 from spritesheet_functions import SpriteSheet
 
 import random
 
-import fontsettings
-
 import gameoverscreen
 
 # ----- Main Menu -----
-def main_background():
-	"""
-	Function used by menus, draw on background while menu is active.
-
-	:return: None
-	"""
-	background_position = [0, 0]
-	background_image = pygame.image.load("spritesheet/menu_background.png").convert_alpha()
-	configscreen.screen.blit(background_image, background_position)
-
-
 def pause_background():
 	""" Function for pause background color """
 

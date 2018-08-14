@@ -13,12 +13,12 @@ import pygame
 import constants
 
 # import sounds module
-import configsounds
+from game_settings import configsounds
 
 import gameoverscreen
 import endscreen
 
-from platforms import MovingPlatform_dirt, MovingPlatform_dark_brick, MovingPlatform_snow, MovingPlatform_dirt_sand, MovingPlatform_brick_red, MovingPlatform_ancient_brick
+from hiragana_mode.platforms import MovingPlatform_dirt, MovingPlatform_dark_brick, MovingPlatform_snow, MovingPlatform_dirt_sand, MovingPlatform_brick_red, MovingPlatform_ancient_brick
 from spritesheet_functions import SpriteSheet
 
 
@@ -272,7 +272,7 @@ class Player(pygame.sprite.Sprite):
 			configsounds.ouch_sfx.play()
 
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# for special enemy list
@@ -287,7 +287,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_A == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol I
 		special_hit_enemy_list_I = pygame.sprite.spritecollide(self, self.level.special_enemy_list_I, True)
@@ -298,7 +298,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_I == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol U
 		special_hit_enemy_list_U = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U, True)
@@ -309,7 +309,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_U == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol E
 		special_hit_enemy_list_E = pygame.sprite.spritecollide(self, self.level.special_enemy_list_E, True)
@@ -320,7 +320,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_E == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol O
 		special_hit_enemy_list_O = pygame.sprite.spritecollide(self, self.level.special_enemy_list_O, True)
@@ -331,7 +331,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_O == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Vocal K
 		# Symbol KA
@@ -343,7 +343,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_KA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol KI
 		special_hit_enemy_list_KI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_KI, True)
@@ -354,7 +354,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_KI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol KU
 		special_hit_enemy_list_KU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_KU, True)
@@ -365,7 +365,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_KU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol KE
 		special_hit_enemy_list_KE = pygame.sprite.spritecollide(self, self.level.special_enemy_list_KE, True)
@@ -376,7 +376,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_KE == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol KO
 		special_hit_enemy_list_KO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_KO, True)
@@ -387,7 +387,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_KO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal S
@@ -400,7 +400,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_SA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol SI
 		special_hit_enemy_list_SI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_SI, True)
@@ -411,7 +411,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_SI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol SU
 		special_hit_enemy_list_SU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_SU, True)
@@ -422,7 +422,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_SU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol SE
 		special_hit_enemy_list_SE = pygame.sprite.spritecollide(self, self.level.special_enemy_list_SE, True)
@@ -433,7 +433,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_SE == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol SO
 		special_hit_enemy_list_SO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_SO, True)
@@ -444,7 +444,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_SO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal T
@@ -457,7 +457,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_TA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol TI
 		special_hit_enemy_list_TI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_TI, True)
@@ -468,7 +468,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_TI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol TU
 		special_hit_enemy_list_TU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_TU, True)
@@ -479,7 +479,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_TU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol TE
 		special_hit_enemy_list_TE = pygame.sprite.spritecollide(self, self.level.special_enemy_list_TE, True)
@@ -490,7 +490,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_TE == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol TO
 		special_hit_enemy_list_TO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_TO, True)
@@ -501,7 +501,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_TO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal N
@@ -514,7 +514,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_NA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol NI
 		special_hit_enemy_list_NI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_NI, True)
@@ -525,7 +525,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_NI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol NU
 		special_hit_enemy_list_NU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_NU, True)
@@ -536,7 +536,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_NU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol NE
 		special_hit_enemy_list_NE = pygame.sprite.spritecollide(self, self.level.special_enemy_list_NE, True)
@@ -547,7 +547,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_NE == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol NO
 		special_hit_enemy_list_NO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_NO, True)
@@ -558,7 +558,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_NO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal H
@@ -571,7 +571,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_HA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol HI
 		special_hit_enemy_list_HI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_HI, True)
@@ -582,7 +582,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_HI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol HU
 		special_hit_enemy_list_HU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_HU, True)
@@ -593,7 +593,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_HU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol HE
 		special_hit_enemy_list_HE = pygame.sprite.spritecollide(self, self.level.special_enemy_list_HE, True)
@@ -604,7 +604,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_HE == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol HO
 		special_hit_enemy_list_HO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_HO, True)
@@ -615,7 +615,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_HO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal M
@@ -628,7 +628,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_MA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol MI
 		special_hit_enemy_list_MI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_MI, True)
@@ -639,7 +639,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_MI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol MU
 		special_hit_enemy_list_MU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_MU, True)
@@ -650,7 +650,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_MU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol ME
 		special_hit_enemy_list_ME = pygame.sprite.spritecollide(self, self.level.special_enemy_list_ME, True)
@@ -661,7 +661,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_ME == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol MO
 		special_hit_enemy_list_MO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_MO, True)
@@ -672,7 +672,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_MO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal Y
@@ -685,7 +685,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_YA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol YU
 		special_hit_enemy_list_YU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_YU, True)
@@ -696,7 +696,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_YU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol YO
 		special_hit_enemy_list_YO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_YO, True)
@@ -707,7 +707,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_YO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# Vocal R
@@ -720,7 +720,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_RA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol RI
 		special_hit_enemy_list_RI = pygame.sprite.spritecollide(self, self.level.special_enemy_list_RI, True)
@@ -731,7 +731,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_RI == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol RU
 		special_hit_enemy_list_RU = pygame.sprite.spritecollide(self, self.level.special_enemy_list_RU, True)
@@ -742,7 +742,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_RU == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol RE
 		special_hit_enemy_list_RE = pygame.sprite.spritecollide(self, self.level.special_enemy_list_RE, True)
@@ -753,7 +753,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_RE == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol RO
 		special_hit_enemy_list_RO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_RO, True)
@@ -764,7 +764,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_RO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Vocal W
 		# Symbol WA
@@ -776,7 +776,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_WA == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol WO
 		special_hit_enemy_list_WO = pygame.sprite.spritecollide(self, self.level.special_enemy_list_WO, True)
@@ -787,7 +787,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_WO == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Vocal Single N
 		special_hit_enemy_list_N = pygame.sprite.spritecollide(self, self.level.special_enemy_list_N, True)
@@ -798,7 +798,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_N == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 
@@ -812,7 +812,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_A == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol I
 		special_hit_enemy_list_I_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_I_lv2, True)
@@ -823,7 +823,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_I == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# Symbol U
 		special_hit_enemy_list_U_lv2 = pygame.sprite.spritecollide(self, self.level.special_enemy_list_U_lv2, True)
@@ -834,7 +834,7 @@ class Player(pygame.sprite.Sprite):
 
 			#if self.special_remove_U == False:
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# for portal list
@@ -865,28 +865,23 @@ class Player(pygame.sprite.Sprite):
 		for water_suicide in you_die_in_hell:
 			self.rect.y += 20
 			if self.rect.bottom >= constants.SCREEN_HEIGHT or self.rect.bottom < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		for sharp_rock in you_die_in_hell:
 			self.rect.y += 20
 			if self.rect.bottom >= constants.SCREEN_HEIGHT or self.rect.bottom < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		for lava_water_suicide in you_die_in_hell:
 			self.rect.y += 20
 			if self.rect.bottom >= constants.SCREEN_HEIGHT or self.rect.bottom < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 		# for NPC purpose
 		meet_himesama = pygame.sprite.spritecollide(self, self.level.himesama_list, False)
 		for kiss_himesama in meet_himesama:
-			endscreen.show_end_screen()
-
-
-
-
-
+			endscreen.show_end_screen_hiragana()
 
 
 		# FOR LEVEL 1 Hiragana Mode
@@ -915,7 +910,7 @@ class Player(pygame.sprite.Sprite):
 			self.health_number -= self.false_point_dmg
 
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 
@@ -972,7 +967,7 @@ class Player(pygame.sprite.Sprite):
 			self.health_number -= self.false_point_dmg
 
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 		# If user get point hiragana KI
 		for false_point_lv2 in point7_hiragana_lv2:
@@ -981,7 +976,7 @@ class Player(pygame.sprite.Sprite):
 			self.health_number -= self.false_point_dmg
 
 			if self.health_number == 0 or self.health_number < 0:
-				gameoverscreen.show_game_over()
+				gameoverscreen.show_game_over_hiragana()
 
 
 

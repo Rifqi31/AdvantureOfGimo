@@ -10,12 +10,24 @@ import pygame
 import pygameMenu
 from pygameMenu.locals import *
 
-import configscreen
+from game_settings import configscreen
 
 # import constants variable
 import constants
 
-import platform_scroller
+from hiragana_mode import platform_scroller_hiragana
+from katakana_mode import platform_scroller_katakana
+
+
+def main_background():
+	"""
+	Function used by menus, draw on background while menu is active.
+
+	:return: None
+	"""
+	background_position = [0, 0]
+	background_image = pygame.image.load("spritesheet/menu_background.png").convert_alpha()
+	configscreen.screen.blit(background_image, background_position)
 
 # Option Menu
 def option_menu():
@@ -24,7 +36,7 @@ def option_menu():
 	
 	# Display Menu
 	display_menu = pygameMenu.Menu(configscreen.screen,
-									bgfun=platform_scroller.main_background,
+									bgfun=main_background,
 									color_selected=constants.WHITE,
 									font=pygameMenu.fonts.FONT_8BIT,
 									font_size=25,
@@ -44,7 +56,7 @@ def option_menu():
 
 	# Option Menu
 	option_menu = pygameMenu.Menu(configscreen.screen,
-								bgfun=platform_scroller.main_background,
+								bgfun=main_background,
 								color_selected=constants.WHITE,
 								font=pygameMenu.fonts.FONT_8BIT,
 								font_size=25,
@@ -95,7 +107,7 @@ def main_menu():
 	
 	# Play Menu
 	play_menu = pygameMenu.Menu(configscreen.screen,
-								bgfun=platform_scroller.main_background,
+								bgfun=main_background,
 								color_selected=constants.WHITE,
 								font=pygameMenu.fonts.FONT_8BIT,
 								font_size=25,
@@ -109,14 +121,14 @@ def main_menu():
 								title='Select Mode',
 								window_height=constants.SCREEN_HEIGHT,
 								window_width=constants.SCREEN_WIDTH)
-	play_menu.add_option('Hiragana', platform_scroller.gameplay)
-	play_menu.add_option('Katakana', platform_scroller.gameplay)
+	play_menu.add_option('Hiragana', platform_scroller_hiragana.gameplay)
+	play_menu.add_option('Katakana', platform_scroller_katakana.gameplay)
 	play_menu.add_option('Back', PYGAME_MENU_BACK)
 
 
 	# About Menu
 	about_menu = pygameMenu.TextMenu(configscreen.screen,
-								bgfun=platform_scroller.main_background,
+								bgfun=main_background,
 								color_selected=constants.WHITE,
 								font=pygameMenu.fonts.FONT_NEVIS,
 								font_color=constants.DARK_GRASS_GREEN,
@@ -141,7 +153,7 @@ def main_menu():
 
 	# Core Menu
 	main_menu = pygameMenu.Menu(configscreen.screen,
-								bgfun=platform_scroller.main_background,
+								bgfun=main_background,
 								color_selected=constants.WHITE,
 								font=pygameMenu.fonts.FONT_8BIT,
 								font_size=30,

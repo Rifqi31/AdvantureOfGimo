@@ -28,7 +28,7 @@ import types
 
 # my own import module
 import pygame
-import configsounds
+from game_settings import configsounds
 
 
 # noinspection PyBroadException
