@@ -9,6 +9,7 @@ pygame.init()
 
 # for music
 background_music = pygame.mixer.Sound("sounds/01_Invitation.ogg")
+ending_music = pygame.mixer.Sound("sounds/05_Thought_Soup.ogg")
 
 # for SFX
 menu_sfx = pygame.mixer.Sound("sounds/menu_sfx.wav")
