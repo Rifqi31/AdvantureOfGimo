@@ -19,10 +19,10 @@ def show_end_screen_hiragana():
 	# stop the background music
 	pygame.mixer.stop()
 	# play game over music
-	"""configsounds.game_over_sfx.play()
-	configsounds.game_over_sfx.set_volume(0.5)"""
+	configsounds.ending_music.play()
+	configsounds.ending_music.set_volume(0.5)
 
-	game_over_screen = pygameMenu.Menu(configscreen.screen,
+	end_game_screen = pygameMenu.Menu(configscreen.screen,
 								 dopause=False,
 								 font=pygameMenu.fonts.FONT_8BIT,
 								 font_size_title=30,
@@ -35,9 +35,8 @@ def show_end_screen_hiragana():
 								 window_height=constants.SCREEN_HEIGHT,
 								 window_width=constants.SCREEN_WIDTH
 								 )
-	game_over_screen.add_option('Retry', platform_scroller_hiragana.gameplay)
-	game_over_screen.add_option('Back to Main Menu',)
-	game_over_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
+	end_game_screen.add_option('Retry', platform_scroller_hiragana.gameplay)
+	end_game_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
 	while True:
 
@@ -51,7 +50,7 @@ def show_end_screen_hiragana():
 				exit()
 
 		# Main menu
-		game_over_screen.mainloop(events)
+		end_game_screen.mainloop(events)
 
 		# Flip surface
 		pygame.display.flip()
@@ -63,10 +62,10 @@ def show_end_screen_katakana():
 	# stop the background music
 	pygame.mixer.stop()
 	# play game over music
-	"""configsounds.game_over_sfx.play()
-	configsounds.game_over_sfx.set_volume(0.5)"""
+	configsounds.ending_music.play()
+	configsounds.ending_music.set_volume(0.5)
 
-	game_over_screen = pygameMenu.Menu(configscreen.screen,
+	end_game_screen = pygameMenu.Menu(configscreen.screen,
 								 dopause=False,
 								 font=pygameMenu.fonts.FONT_8BIT,
 								 font_size_title=30,
@@ -79,9 +78,8 @@ def show_end_screen_katakana():
 								 window_height=constants.SCREEN_HEIGHT,
 								 window_width=constants.SCREEN_WIDTH
 								 )
-	game_over_screen.add_option('Retry', platform_scroller_katakana.gameplay)
-	game_over_screen.add_option('Back to Main Menu',)
-	game_over_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
+	end_game_screen.add_option('Retry', platform_scroller_katakana.gameplay)
+	end_game_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
 	while True:
 
@@ -95,7 +93,7 @@ def show_end_screen_katakana():
 				exit()
 
 		# Main menu
-		game_over_screen.mainloop(events)
+		end_game_screen.mainloop(events)
 
 		# Flip surface
 		pygame.display.flip()
