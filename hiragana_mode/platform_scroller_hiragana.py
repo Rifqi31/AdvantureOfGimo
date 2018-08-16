@@ -81,7 +81,7 @@ def gameplay():
 	gameOver = False
 
 	# play the sound
-	#configsounds.turn_on_sounds()
+	configsounds.turn_on_sounds()
 
 	# call BasicSettings class
 	settings = fontsettings.BasicSettings()
