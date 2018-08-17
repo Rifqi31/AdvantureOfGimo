@@ -42,7 +42,7 @@ class Player(pygame.sprite.Sprite):
 		# set restore health percentage
 		self.give_health = 20
 		# set damage for enemy
-		self.general_enemy_dmg = 30
+		self.general_enemy_dmg = 20
 		self.special_enemy_dmg = 40
 		self.false_point_dmg = 40
 		# Set speed vector of player
@@ -1421,6 +1421,7 @@ class Bullet(Player):
 		# access variable from player class
 		self.direction = player.direction
 		self.level = player.level
+		self.scores = player.scores
 
 		# for special enemy
 		# Basic Vocal
@@ -1514,6 +1515,7 @@ class Bullet(Player):
 			if self.direction == "R":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
 				configsounds.ouch_sfx.play()
+				self.scores += 10
 			elif self.direction == "L":
 				pygame.sprite.spritecollide(self, self.bullet_list, True)
 				configsounds.ouch_sfx.play()

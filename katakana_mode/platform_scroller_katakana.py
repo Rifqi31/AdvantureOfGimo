@@ -27,6 +27,8 @@ import random
 
 import gameoverscreen
 
+import mainmenu
+
 # ----- Main Menu -----
 def pause_background():
 	""" Function for pause background color """
@@ -39,6 +41,10 @@ def gameplay():
 
 	# set for title my game
 	pygame.display.set_caption("Advanture of Gimo")
+
+	# set icon game
+	icon = pygame.image.load("spritesheet/gimo.png")
+	pygame.display.set_icon(icon)
 
 	# Create the player
 	player = Player()
@@ -81,7 +87,7 @@ def gameplay():
 	gameOver = False
 
 	# play the sound
-	#configsounds.turn_on_sounds()
+	configsounds.turn_on_sounds()
 
 	# call BasicSettings class
 	settings = fontsettings.BasicSettings()
@@ -177,6 +183,7 @@ def gameplay():
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
 
+	menu.add_option('Back to Main Menu', mainmenu.main_menu)
 	menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
 	menu.add_option(option_display_settings.get_title(), option_display_settings)
 	menu.add_option(help_menu.get_title(), help_menu)

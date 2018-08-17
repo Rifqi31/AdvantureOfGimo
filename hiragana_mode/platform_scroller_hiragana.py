@@ -27,6 +27,8 @@ import random
 
 import gameoverscreen
 
+import mainmenu
+
 # ----- Main Menu -----
 def pause_background():
 	""" Function for pause background color """
@@ -40,11 +42,17 @@ def gameplay():
 	# set for title my game
 	pygame.display.set_caption("Advanture of Gimo")
 
+	# set icon game
+	icon = pygame.image.load("spritesheet/gimo.png")
+	pygame.display.set_icon(icon)
+
 	# Create the player
+	#player = Player()
 	player = Player()
 
 	# Create all the levels
 	level_list = []
+	#level_list.append(levels.Level_Tutorial(player))
 	level_list.append(levels.Level_Tutorial(player))
 	level_list.append(levels.Level_Tutorial_Gameplay(player))
 	level_list.append(levels.Level_Intro_NPC(player))
@@ -177,6 +185,7 @@ def gameplay():
 					   window_height=constants.SCREEN_HEIGHT,
 					   window_width=constants.SCREEN_WIDTH)
 
+	menu.add_option('Back to Main Menu', mainmenu.main_menu)
 	menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
 	menu.add_option(option_display_settings.get_title(), option_display_settings)
 	menu.add_option(help_menu.get_title(), help_menu)
@@ -381,8 +390,6 @@ def gameplay():
 
 			# settings.hud_msg_to_screen("Misi : Cari Huruf A", constants.WHITE, 0, 50, size="small")
 			settings.hud_msg_to_screen("Scores : " + str(player.scores), constants.WHITE, 600, 0, size="small")
-			# prototype player lifes point
-			# settings.hud_msg_to_screen("live : " + str(player.player_lifes), constants.WHITE, 400, 0, size="small")
 
 		elif current_level == level_list[4]:
 			# level number

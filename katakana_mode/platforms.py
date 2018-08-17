@@ -301,9 +301,6 @@ class Platform_enemy(pygame.sprite.Sprite):
 	""" Platform for enemy """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			 an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -323,9 +320,6 @@ class Platform_special_enemy(pygame.sprite.Sprite):
 	""" Platform for enemy """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			 an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -345,9 +339,6 @@ class Platform_hiragana_katakana(pygame.sprite.Sprite):
 	""" Platform the user can take the point """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -367,9 +358,6 @@ class Platform_snow(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -389,9 +377,6 @@ class Platform_dirt(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -411,9 +396,6 @@ class Platform_dark_brick(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -433,9 +415,6 @@ class Platform_grass_brick(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -455,9 +434,6 @@ class Platform_dirt_sand(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -477,9 +453,6 @@ class Platform_ancient_brick(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -499,9 +472,6 @@ class Platform_lava_rock(pygame.sprite.Sprite):
 	""" Platform the user can jump on """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -521,9 +491,6 @@ class Platform_NPC(pygame.sprite.Sprite):
 	""" Platform for enemy """
 
 	def __init__(self, sprite_sheet_data):
-		""" Platform constructor. Assumes constructed with user passing in
-			 an array of 5 numbers like what's defined at the top of this
-			code. """
 
 		super().__init__()
 
@@ -560,13 +527,6 @@ class MovingPlatform_dirt(Platform_dirt):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x
@@ -632,13 +592,6 @@ class MovingPlatform_dark_brick(Platform_dark_brick):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x
@@ -701,13 +654,6 @@ class MovingPlatform_brick_red(Platform_grass_brick):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x
@@ -771,13 +717,6 @@ class MovingPlatform_snow(Platform_snow):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x
@@ -841,13 +780,6 @@ class MovingPlatform_dirt_sand(Platform_dirt_sand):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x
@@ -911,13 +843,6 @@ class MovingPlatform_ancient_brick(Platform_ancient_brick):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x
@@ -981,13 +906,6 @@ class MovingPlatform_lava_rock(Platform_lava_rock):
 		self.player = None
 
 	def update(self):
-		""" Move the platform.
-			If the player is in the way, it will shove the player
-			out of the way. This does NOT handle what happens if a
-			platform shoves a player into another object. Make sure
-			moving platforms have clearance to push the player around
-			or add code to handle what happens if they don't. """
-
 
 		# Move left/right
 		self.rect.x += self.change_x

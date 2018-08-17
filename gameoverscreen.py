@@ -14,6 +14,8 @@ from game_settings import configscreen, configsounds
 from hiragana_mode import platform_scroller_hiragana
 from katakana_mode import platform_scroller_katakana
 
+import mainmenu
+
 def show_game_over_hiragana():
 	clock = pygame.time.Clock()
 	# stop the background music
@@ -36,6 +38,7 @@ def show_game_over_hiragana():
 								 window_width=constants.SCREEN_WIDTH
 								 )
 	game_over_screen.add_option('Retry', platform_scroller_hiragana.gameplay)
+	game_over_screen.add_option('Main Menu', mainmenu.main_menu)
 	game_over_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
 	while True:
@@ -79,6 +82,8 @@ def show_game_over_katakana():
 								 window_width=constants.SCREEN_WIDTH
 								 )
 	game_over_screen.add_option('Retry', platform_scroller_katakana.gameplay)
+	game_over_screen.add_option('Main Menu', mainmenu.main_menu)
+	
 	game_over_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
 	while True:
