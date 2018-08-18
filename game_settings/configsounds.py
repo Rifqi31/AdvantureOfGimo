@@ -1,4 +1,4 @@
-# filename : configsounds.py
+# file name : configsounds.py
 # python version 3
 
 # import pygame module
@@ -25,10 +25,11 @@ denied_sfx = pygame.mixer.Sound("sounds/suntemple_access-denied.wav")
 
 # ----- For Sounds Settings -----
 def turn_off_sounds():
-	""" This function for turn off all sounds """
-	pygame.mixer.stop()
+    """ This function for turn off all sounds """
+    pygame.mixer.stop()
+
 
 def turn_on_sounds():
-	""" This function for turn on all sounds """
-	background_music.play(-1)
-	background_music.set_volume(0.5)
+    """ This function for turn on all sounds """
+    background_music.play(-1)
+    background_music.set_volume(0.5)

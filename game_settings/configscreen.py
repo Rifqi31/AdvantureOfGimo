@@ -1,3 +1,6 @@
+# file name : configscreen.py
+# python version 3
+
 import pygame
 import constants
 
@@ -10,9 +13,11 @@ screen = pygame.display.set_mode(size)
 
 # ----- For Display Settings -----
 def fullscreen_settings():
-	""" This function for fullscreen settings """
-	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT), pygame.FULLSCREEN)
+    """ This function for fullscreen settings """
+    pygame.display.set_mode(
+        (constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT), pygame.FULLSCREEN)
+
 
 def windowed_settings():
-	""" This function for windowed screen settings """
-	pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
+    """ This function for windowed screen settings """
+    pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))

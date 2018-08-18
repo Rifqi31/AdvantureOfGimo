@@ -1,3 +1,6 @@
+# file name : configfont.py
+# python version 3
+
 import pygame
 
 pygame.init()
