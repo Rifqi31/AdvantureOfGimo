@@ -1,8 +1,5 @@
-# name file : constant.py
+# file name : constant.py
 # python version 3
-
-import pygameMenu 
-from pygameMenu.locals import *
 
 # Global constant
 
@@ -17,7 +14,7 @@ YELLOW = (238, 238, 57)
 # define color for main menu
 DARK_BROWN_DIRT = (46, 23, 6)
 LIGHT_BROWN_DIRT = (135, 69, 21)
-LIGHT_GRASS_GREEN = (35, 188, 39)
+LIGHT_GREEN = (35, 188, 39)
 DARK_GRASS_GREEN = (2, 99, 5)
 TRANSPARENT = (40, 0, 40)
 

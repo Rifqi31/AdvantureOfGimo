@@ -1,4 +1,4 @@
-# namefile : main.py
+# file name : main.py
 # python version 3
 
 import mainmenu
