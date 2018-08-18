@@ -9,7 +9,7 @@ Module for managing platforms.
 import pygame
 # import spritesheet_functions file
 from spritesheet_functions import SpriteSheet
-
+# import gameover screen module
 import gameoverscreen
 
 # These constants define our platform types:
@@ -103,7 +103,7 @@ sand_dirt_tall_long = (434, 147, 70, 350)
 sand_dirt_tall_medium = (512, 221, 70, 280)
 sand_dirt_basic_medium = (145, 584, 140, 70)
 sand_dirt_long_soft_up_down = (0, 676, 560, 70)
-sand_dirt_medium_small_land = (0 ,751, 280, 140)
+sand_dirt_medium_small_land = (0, 751, 280, 140)
 sand_dirt_big_wall = (626, 0, 280, 630)
 
 
@@ -297,725 +297,725 @@ slime_lava_wo = (517, 456, 80, 99)
 slime_lava_n = (603, 456, 80, 99)
 
 
-
 class Platform_enemy(pygame.sprite.Sprite):
-	""" Platform for enemy """
+    """ Platform for enemy """
 
-	def __init__(self, sprite_sheet_data):
-	
-		super().__init__()
+    def __init__(self, sprite_sheet_data):
 
-		# enemy tileset
-		sprite_sheet_enemys = SpriteSheet("spritesheet/enemy.png")
+        super().__init__()
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
-												sprite_sheet_data[1],
-												sprite_sheet_data[2],
-												sprite_sheet_data[3])
+        # enemy tileset
+        sprite_sheet_enemys = SpriteSheet("spritesheet/enemy.png")
 
-		self.rect = self.image.get_rect()
+        # Grab the image for this platform
+        self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
+                                                   sprite_sheet_data[1],
+                                                   sprite_sheet_data[2],
+                                                   sprite_sheet_data[3])
+
+        self.rect = self.image.get_rect()
 
 
 class Platform_special_enemy(pygame.sprite.Sprite):
-	""" Platform for enemy """
+    """ Platform for enemy """
 
-	def __init__(self, sprite_sheet_data):
-		
-		super().__init__()
+    def __init__(self, sprite_sheet_data):
 
-		# enemy tileset
-		sprite_sheet_enemys = SpriteSheet("spritesheet/special_enemy_characters.png")
+        super().__init__()
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
-												sprite_sheet_data[1],
-												sprite_sheet_data[2],
-												sprite_sheet_data[3])
+        # enemy tileset
+        sprite_sheet_enemys = SpriteSheet(
+            "spritesheet/special_enemy_characters.png")
 
-		self.rect = self.image.get_rect()
+        # Grab the image for this platform
+        self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
+                                                   sprite_sheet_data[1],
+                                                   sprite_sheet_data[2],
+                                                   sprite_sheet_data[3])
+
+        self.rect = self.image.get_rect()
 
 
 class Platform_hiragana_katakana(pygame.sprite.Sprite):
-	""" Platform the user can take the point """
+    """ Platform the user can take the point """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# hiragana&katakana tileset
-		sprite_sheet_wibu = SpriteSheet("spritesheet/hiragana_katakana_tileset.png")
+        # hiragana&katakana tileset
+        sprite_sheet_wibu = SpriteSheet(
+            "spritesheet/hiragana_katakana_tileset.png")
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_wibu.get_image(sprite_sheet_data[0],
-												sprite_sheet_data[1],
-												sprite_sheet_data[2],
-												sprite_sheet_data[3])
+        # Grab the image for this platform
+        self.image = sprite_sheet_wibu.get_image(sprite_sheet_data[0],
+                                                 sprite_sheet_data[1],
+                                                 sprite_sheet_data[2],
+                                                 sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_snow(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# dirt tileset
-		sprite_sheet_dirt = SpriteSheet("spritesheet/snow_tile_assets.png")
+        # dirt tileset
+        sprite_sheet_dirt = SpriteSheet("spritesheet/snow_tile_assets.png")
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
-											sprite_sheet_data[1],
-											sprite_sheet_data[2],
-											sprite_sheet_data[3])
+        # Grab the image for this platform
+        self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
+                                                 sprite_sheet_data[1],
+                                                 sprite_sheet_data[2],
+                                                 sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_dirt(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# dirt tileset
-		sprite_sheet_dirt = SpriteSheet("spritesheet/dirt_tile_assets.png")
+        # dirt tileset
+        sprite_sheet_dirt = SpriteSheet("spritesheet/dirt_tile_assets.png")
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
-											sprite_sheet_data[1],
-											sprite_sheet_data[2],
-											sprite_sheet_data[3])
+        # Grab the image for this platform
+        self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
+                                                 sprite_sheet_data[1],
+                                                 sprite_sheet_data[2],
+                                                 sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_dark_brick(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
-	
-		super().__init__()
+    def __init__(self, sprite_sheet_data):
 
-		# dirt tileset
-		sprite_sheet_dirt = SpriteSheet("spritesheet/brick_castle_night.png")
+        super().__init__()
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
-											sprite_sheet_data[1],
-											sprite_sheet_data[2],
-											sprite_sheet_data[3])
+        # dirt tileset
+        sprite_sheet_dirt = SpriteSheet("spritesheet/brick_castle_night.png")
 
-		self.rect = self.image.get_rect()
+        # Grab the image for this platform
+        self.image = sprite_sheet_dirt.get_image(sprite_sheet_data[0],
+                                                 sprite_sheet_data[1],
+                                                 sprite_sheet_data[2],
+                                                 sprite_sheet_data[3])
+
+        self.rect = self.image.get_rect()
 
 
 class Platform_grass_brick(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# brick grass tileset
-		sprite_sheet_red_brick = SpriteSheet("spritesheet/brick_red_castle.png")
+        # brick grass tileset
+        sprite_sheet_red_brick = SpriteSheet(
+            "spritesheet/brick_red_castle.png")
 
-		# Grab the omage for this platform
-		self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
-													sprite_sheet_data[1],
-													sprite_sheet_data[2],
-													sprite_sheet_data[3])
+        # Grab the omage for this platform
+        self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
+                                                      sprite_sheet_data[1],
+                                                      sprite_sheet_data[2],
+                                                      sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_dirt_sand(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# brick grass tileset
-		sprite_sheet_red_brick = SpriteSheet("spritesheet/sand_tiles_assets.png")
+        # brick grass tileset
+        sprite_sheet_red_brick = SpriteSheet(
+            "spritesheet/sand_tiles_assets.png")
 
-		# Grab the omage for this platform
-		self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
-													sprite_sheet_data[1],
-													sprite_sheet_data[2],
-													sprite_sheet_data[3])
+        # Grab the omage for this platform
+        self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
+                                                      sprite_sheet_data[1],
+                                                      sprite_sheet_data[2],
+                                                      sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_ancient_brick(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# brick grass tileset
-		sprite_sheet_red_brick = SpriteSheet("spritesheet/ancient_brick_tile_assets.png")
+        # brick grass tileset
+        sprite_sheet_red_brick = SpriteSheet(
+            "spritesheet/ancient_brick_tile_assets.png")
 
-		# Grab the omage for this platform
-		self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
-													sprite_sheet_data[1],
-													sprite_sheet_data[2],
-													sprite_sheet_data[3])
+        # Grab the omage for this platform
+        self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
+                                                      sprite_sheet_data[1],
+                                                      sprite_sheet_data[2],
+                                                      sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_lava_rock(pygame.sprite.Sprite):
-	""" Platform the user can jump on """
+    """ Platform the user can jump on """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# brick grass tileset
-		sprite_sheet_red_brick = SpriteSheet("spritesheet/lava_tile_assets.png")
+        # brick grass tileset
+        sprite_sheet_red_brick = SpriteSheet(
+            "spritesheet/lava_tile_assets.png")
 
-		# Grab the omage for this platform
-		self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
-													sprite_sheet_data[1],
-													sprite_sheet_data[2],
-													sprite_sheet_data[3])
+        # Grab the omage for this platform
+        self.image = sprite_sheet_red_brick.get_image(sprite_sheet_data[0],
+                                                      sprite_sheet_data[1],
+                                                      sprite_sheet_data[2],
+                                                      sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
 
 
 class Platform_NPC(pygame.sprite.Sprite):
-	""" Platform for enemy """
+    """ Platform for enemy """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__()
+        super().__init__()
 
-		# enemy tileset
-		sprite_sheet_enemys = SpriteSheet("spritesheet/npc_asset.png")
+        # enemy tileset
+        sprite_sheet_enemys = SpriteSheet("spritesheet/npc_asset.png")
 
-		# Grab the image for this platform
-		self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
-												sprite_sheet_data[1],
-												sprite_sheet_data[2],
-												sprite_sheet_data[3])
+        # Grab the image for this platform
+        self.image = sprite_sheet_enemys.get_image(sprite_sheet_data[0],
+                                                   sprite_sheet_data[1],
+                                                   sprite_sheet_data[2],
+                                                   sprite_sheet_data[3])
 
-		self.rect = self.image.get_rect()
-
+        self.rect = self.image.get_rect()
 
 
 # for moving platform
 class MovingPlatform_dirt(Platform_dirt):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 class MovingPlatform_dark_brick(Platform_dark_brick):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 class MovingPlatform_brick_red(Platform_grass_brick):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
-
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 class MovingPlatform_snow(Platform_snow):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
-
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 class MovingPlatform_dirt_sand(Platform_dirt_sand):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
-
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 class MovingPlatform_ancient_brick(Platform_ancient_brick):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
-
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 class MovingPlatform_lava_rock(Platform_lava_rock):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# See if we hit the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # See if we hit the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# If we are moving right, set our right side
-			# to the left side of the item we hit
-			if self.change_x < 0:
-				self.player.rect.right = self.rect.left
-			else:
-				# Otherwise if we are moving left, do the opposite.
-				self.player.rect.left = self.rect.right
+            # If we are moving right, set our right side
+            # to the left side of the item we hit
+            if self.change_x < 0:
+                self.player.rect.right = self.rect.left
+            else:
+                # Otherwise if we are moving left, do the opposite.
+                self.player.rect.left = self.rect.right
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check and see if we the player
-		hit = pygame.sprite.collide_rect(self, self.player)
-		if hit:
-			# We did hit the player. Shove the player around and
-			# assume he/she won't hit anything else.
+        # Check and see if we the player
+        hit = pygame.sprite.collide_rect(self, self.player)
+        if hit:
+            # We did hit the player. Shove the player around and
+            # assume he/she won't hit anything else.
 
-			# Reset our position based on the top/bottom of the object.
-			if self.change_y < 0:
-				self.player.rect.bottom = self.rect.top
-			else:
-				self.player.rect.top = self.rect.bottom
+            # Reset our position based on the top/bottom of the object.
+            if self.change_y < 0:
+                self.player.rect.bottom = self.rect.top
+            else:
+                self.player.rect.top = self.rect.bottom
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 # for prototype
 class MovingEnemy(Platform_enemy):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
 
 
 # for special enemy
 class MovingEnemySpecial(Platform_special_enemy):
-	""" This is a fancier platform that can actually move. """
+    """ This is a fancier platform that can actually move. """
 
-	def __init__(self, sprite_sheet_data):
+    def __init__(self, sprite_sheet_data):
 
-		super().__init__(sprite_sheet_data)
+        super().__init__(sprite_sheet_data)
 
-		self.change_x = 0
-		self.change_y = 0
+        self.change_x = 0
+        self.change_y = 0
 
-		self.boundary_top = 0
-		self.boundary_bottom = 0
-		self.boundary_left = 0
-		self.boundary_right = 0
+        self.boundary_top = 0
+        self.boundary_bottom = 0
+        self.boundary_left = 0
+        self.boundary_right = 0
 
-		self.level = None
-		self.player = None
+        self.level = None
+        self.player = None
 
-	def update(self):
+    def update(self):
 
-		# Move left/right
-		self.rect.x += self.change_x
+        # Move left/right
+        self.rect.x += self.change_x
 
-		# Move up/down
-		self.rect.y += self.change_y
+        # Move up/down
+        self.rect.y += self.change_y
 
-		# Check the boundaries and see if we need to reverse
-		# direction.
-		if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
-			self.change_y *= -1
+        # Check the boundaries and see if we need to reverse
+        # direction.
+        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+            self.change_y *= -1
 
-		cur_pos = self.rect.x - self.level.world_shift
-		if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
-			self.change_x *= -1
+        cur_pos = self.rect.x - self.level.world_shift
+        if cur_pos < self.boundary_left or cur_pos > self.boundary_right:
+            self.change_x *= -1
