@@ -113,7 +113,7 @@ ancient_brick_short_land = (366, 147, 140, 70)
 ancient_brick_tall_large_long = (146, 0, 210, 70)
 ancient_brick_tall_large_medium = (366, 0, 140, 140)
 ancient_brick_half = (514, 0, 72, 40)
-ancient_brick_long_tall_sand_left_right = (146, 146, 70, 420)
+ancient_brick_tall_sand_left_right = (146, 146, 70, 420)
 ancient_brick_medium_sand_top_down = (219, 146, 140, 70)
 ancient_brick_short_tall_sand_left_right = (219, 220, 70, 210)
 ancient_brick_basic = (292, 220, 70, 70)
@@ -567,7 +567,8 @@ class MovingPlatform_dirt(Platform_dirt):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -629,7 +630,8 @@ class MovingPlatform_dark_brick(Platform_dark_brick):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -691,7 +693,8 @@ class MovingPlatform_brick_red(Platform_grass_brick):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -753,7 +756,8 @@ class MovingPlatform_snow(Platform_snow):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -815,7 +819,8 @@ class MovingPlatform_dirt_sand(Platform_dirt_sand):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -877,7 +882,8 @@ class MovingPlatform_ancient_brick(Platform_ancient_brick):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -939,7 +945,8 @@ class MovingPlatform_lava_rock(Platform_lava_rock):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -976,7 +983,8 @@ class MovingEnemy(Platform_enemy):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift
@@ -1013,7 +1021,8 @@ class MovingEnemySpecial(Platform_special_enemy):
 
         # Check the boundaries and see if we need to reverse
         # direction.
-        if self.rect.bottom > self.boundary_bottom or self.rect.top < self.boundary_top:
+        if self.rect.bottom > self.boundary_bottom or \
+                self.rect.top < self.boundary_top:
             self.change_y *= -1
 
         cur_pos = self.rect.x - self.level.world_shift

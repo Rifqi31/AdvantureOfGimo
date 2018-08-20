@@ -1,9 +1,11 @@
 # name file: levels.py
 # python version 3
 
+# import pygame module
 import pygame
-
+# import constants variable
 import constants
+# import hiragana mode platforms
 from hiragana_mode import platforms
 
 
@@ -688,7 +690,10 @@ class Level():
         self.hiragana_KI_lv3.draw(screen)
 
     def shift_world(self, shift_x):
-        """ When the user moves left/right and we need to scroll everything: """
+        """
+        When the user moves left/right
+        and we need to scroll everything:
+        """
 
         # Keep track of the shift amount
         self.world_shift += shift_x
@@ -3202,7 +3207,7 @@ class Level_09(Level):
         level09 = [[platforms.ancient_brick_wall, -140, 0],
                    [platforms.ancient_brick_tall_large_long, 0, 530],
                    [platforms.ancient_brick_tall_large_long, 0, 74],
-                   [platforms.ancient_brick_long_tall_sand_left_right, 420, 180],
+                   [platforms.ancient_brick_tall_sand_left_right, 420, 180],
                    [platforms.ancient_brick_basic, 420, 130],
                    [platforms.ancient_brick_medium_sand_top_down, 490, 130],
                    [platforms.ancient_brick_medium_sand_top_down, 490, 340],
