@@ -46,6 +46,9 @@ def gameplay():
     icon = pygame.image.load("spritesheet/gimo.png")
     pygame.display.set_icon(icon)
 
+    # hide mouse cursor
+    # pygame.mouse.set_visible(False)
+
     # Create the player
     player = Player()
 
