@@ -2,4 +2,5 @@ __pycache__
 hiragana_mode/__pycache__
 katakana_mode/__pycache__
 pygameMenu/__pycache__
+build/
 .vscode
