@@ -1,6 +1,11 @@
 __pycache__
 hiragana_mode/__pycache__
 katakana_mode/__pycache__
+hiragana_mode/levelplay/__pycache__
+katakana_mode/levelplay/__pycache__
+game_screens/__pycache__
+game_settings/__pycache__
+platforms/__pycache__
 pygameMenu/__pycache__
-build/
+build
 .vscode
