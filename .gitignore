@@ -7,5 +7,5 @@ game_screens/__pycache__
 game_settings/__pycache__
 platforms/__pycache__
 pygameMenu/__pycache__
-build
+build/
 .vscode
