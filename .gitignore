@@ -9,3 +9,4 @@ platforms/__pycache__
 pygameMenu/__pycache__
 build/
 .vscode
+.idea
