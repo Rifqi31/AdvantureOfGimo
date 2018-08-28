@@ -14,12 +14,16 @@ from pygameMenu.locals import *
 import constants
 # import random module
 import random
-# import gameover screen module
-import gameoverscreen
-# import mainmenu module
-import mainmenu
+# import game screen module
+from game_screens import mainmenu, gameoverscreen
 # import levels
-from hiragana_mode import levels
+from hiragana_mode.levelplay import (
+    level_tutorial, level_tutorial_gameplay,
+    level_intro_npc, level_01, level_02,
+    level_03, level_04, level_05, level_06,
+    level_07, level_08, level_09, level_10,
+    level_11, level_ending
+    )
 # import config font and screen
 from game_settings import configfont, configscreen, configsounds, fontsettings
 # import player module
@@ -47,29 +51,28 @@ def gameplay():
     pygame.display.set_icon(icon)
 
     # hide mouse cursor
-    # pygame.mouse.set_visible(False)
+    pygame.mouse.set_visible(False)
 
     # Create the player
     player = Player()
 
     # Create all the levels
     level_list = []
-    # level_list.append(levels.Level_Tutorial(player))
-    level_list.append(levels.Level_Tutorial(player))
-    level_list.append(levels.Level_Tutorial_Gameplay(player))
-    level_list.append(levels.Level_Intro_NPC(player))
-    level_list.append(levels.Level_01(player))
-    level_list.append(levels.Level_02(player))
-    level_list.append(levels.Level_03(player))
-    level_list.append(levels.Level_04(player))
-    level_list.append(levels.Level_05(player))
-    level_list.append(levels.Level_06(player))
-    level_list.append(levels.Level_07(player))
-    level_list.append(levels.Level_08(player))
-    level_list.append(levels.Level_09(player))
-    level_list.append(levels.Level_10(player))
-    level_list.append(levels.Level_11(player))
-    level_list.append(levels.Level_Ending(player))
+    level_list.append(level_tutorial.Level_Tutorial(player))
+    level_list.append(level_tutorial_gameplay.Level_Tutorial_Gameplay(player))
+    level_list.append(level_intro_npc.Level_Intro_NPC(player))
+    level_list.append(level_01.Level_01(player))
+    level_list.append(level_02.Level_02(player))
+    level_list.append(level_03.Level_03(player))
+    level_list.append(level_04.Level_04(player))
+    level_list.append(level_05.Level_05(player))
+    level_list.append(level_06.Level_06(player))
+    level_list.append(level_07.Level_07(player))
+    level_list.append(level_08.Level_08(player))
+    level_list.append(level_09.Level_09(player))
+    level_list.append(level_10.Level_10(player))
+    level_list.append(level_11.Level_11(player))
+    level_list.append(level_ending.Level_Ending(player))
 
     # Set the current level
     current_level_no = 0
@@ -406,13 +409,13 @@ def gameplay():
         if current_level == level_list[3]:
 
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 1", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -420,7 +423,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -429,14 +432,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -445,13 +448,13 @@ def gameplay():
 
         elif current_level == level_list[4]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 2", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -459,7 +462,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -468,14 +471,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -484,13 +487,13 @@ def gameplay():
 
         elif current_level == level_list[5]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 3", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -498,7 +501,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -507,14 +510,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -523,13 +526,13 @@ def gameplay():
 
         elif current_level == level_list[6]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 4", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -537,7 +540,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -546,14 +549,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -562,13 +565,13 @@ def gameplay():
 
         elif current_level == level_list[7]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 5", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -576,7 +579,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -585,14 +588,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -620,13 +623,13 @@ def gameplay():
 
         elif current_level == level_list[8]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 6", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -634,7 +637,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -643,14 +646,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -659,13 +662,13 @@ def gameplay():
 
         elif current_level == level_list[9]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 7", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -673,7 +676,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -682,14 +685,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -698,13 +701,13 @@ def gameplay():
 
         elif current_level == level_list[10]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 8", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -712,7 +715,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -721,14 +724,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -737,13 +740,13 @@ def gameplay():
 
         elif current_level == level_list[11]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 9", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -751,7 +754,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -760,14 +763,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -776,13 +779,13 @@ def gameplay():
 
         elif current_level == level_list[12]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 10", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -790,7 +793,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -799,14 +802,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
@@ -815,13 +818,13 @@ def gameplay():
 
         elif current_level == level_list[13]:
             # level number
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Level 11", constants.WHITE, 0, 0, size="small")
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
                     or player.health_number == 80:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.GREEN,
                     90, 0,
@@ -829,7 +832,7 @@ def gameplay():
                 )
             elif player.health_number == 70 or player.health_number == 60 \
                     or player.health_number == 50:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.YELLOW,
                     90, 0,
@@ -838,14 +841,14 @@ def gameplay():
             elif player.health_number == 40 or player.health_number == 30 \
                     or player.health_number == 20 \
                     or player.health_number == 10:
-                settings.hud_msg_to_screen(
+                settings.msg_to_screen(
                     "Health : " + str(player.health_number),
                     constants.RED,
                     90, 0,
                     size="small"
                 )
 
-            settings.hud_msg_to_screen(
+            settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,

@@ -7,25 +7,22 @@ controlled sprite on the screen.
 
 # import pygame module
 import os
-
 import pygame
 from pygame.locals import *
-
 # import constans variable
 import constants
-# import endscreen module
-import endscreen
-# import gameover screen module
-import gameoverscreen
+# import game screen modules
+from game_screens import gameoverscreen, endscreen
 # import sounds module
 from game_settings import configsounds
 # import moving platform modules
-from hiragana_mode.platforms import (
-    MovingPlatform_ancient_brick,
-    MovingPlatform_brick_red, MovingPlatform_dark_brick,
-    MovingPlatform_dirt, MovingPlatform_dirt_sand,
-    MovingPlatform_snow
-    )
+from platforms.platforms_ancient_brick import MovingPlatform_ancient_brick
+from platforms.platforms_dark_brick import MovingPlatform_dark_brick
+from platforms.platforms_dirt import MovingPlatform_dirt
+from platforms.platforms_lava_rock import MovingPlatform_lava_rock
+from platforms.platforms_red_brick import MovingPlatform_brick_red
+from platforms.platforms_sand_dirt import MovingPlatform_dirt_sand
+from platforms.platforms_snow import MovingPlatform_snow
 # import spritesheet module
 from spritesheet_functions import SpriteSheet
 
@@ -269,6 +266,9 @@ class Player(pygame.sprite.Sprite):
                 self.rect.x += block.change_x
 
             if isinstance(block, MovingPlatform_snow):
+                self.rect.x += block.change_x
+            
+            if isinstance(block, MovingPlatform_lava_rock):
                 self.rect.x += block.change_x
 
         # For general enemy list

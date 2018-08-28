@@ -1,4 +1,4 @@
-# file name : constant.py
+# file name : constants.py
 # python version 3
 
 # Global constant
