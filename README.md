@@ -26,6 +26,7 @@ but be sure your `pip` and `setuptools` to the latest version installed in your 
 
 [pausemenu]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/pause_menu.png "Pause Menu"
 
+here the screenshoot from the game:
 ![alt text][mainmenu]
 ![alt text][selectmode]
 ![alt text][playgame]
