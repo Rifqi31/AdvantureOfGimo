@@ -17,7 +17,7 @@ import random
 # import game screen module
 from game_screens import mainmenu, gameoverscreen
 # import levels
-from hiragana_mode.levelplay import (
+from hiragana_mode.levelplay.levels import (
     level_tutorial, level_tutorial_gameplay,
     level_intro_npc, level_01, level_02,
     level_03, level_04, level_05, level_06,
