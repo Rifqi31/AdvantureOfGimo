@@ -30,7 +30,7 @@ Be sure what python version has installed in your system, this code need python 
 
 [pausemenu]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/pause_menu.png "Pause Menu"
 
-here the screenshoot from the game:
+here the screenshots from the game:
 ![alt text][mainmenu]
 ![alt text][selectmode]
 ![alt text][playgame]
