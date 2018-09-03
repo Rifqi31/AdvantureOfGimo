@@ -18,6 +18,15 @@ be sure what python version has installed in your system, this code need python 
 
 but be sure your `pip` and `setuptools` to the latest version installed in your system.
 
-[logo]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/sc_mainmenu.PNG "Main Menu"
+[mainmenu]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/sc_mainmenu.PNG "Main Menu"
 
-![alt text][logo]
+[selectmode]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/select_main_menu.png "Select Mode"
+
+[playgame]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/first_play.png "Gameplay"
+
+[pausemenu]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/pause_menu.png "Pause Menu"
+
+![alt text][mainmenu]
+![alt text][selectmode]
+![alt text][playgame]
+![alt text][pausemenu]
