@@ -16,6 +16,7 @@ because in Linux the default program for python is `python v.2.7`, so you must s
 Just click menu release on menu github or using this link [Release](https://github.com/Rifqi31/AdvantureOfGimo/releases) and download.
 
 for windows version : [Download Windows Version](https://github.com/Rifqi31/AdvantureOfGimo/releases/download/v0.1-win-beta/Advanture.Of.Gimo.Win.Beta.Version.zip)
+
 for linux version : [Download Linux Version](https://github.com/Rifqi31/AdvantureOfGimo/releases/download/v0.1-beta/Advanture.Of.Gimo.Beta.linux.version.tar.gz)
 
 be sure what python version has installed in your system, this code need python version 3, and pygame module version 1.9.3 or better, if the pygame module is not installed, just using this command
