@@ -15,6 +15,7 @@ from game_screens import mainmenu
 # import hiragana & katakana main modul
 from game_settings import configscreen, configsounds
 from hiragana_mode import platform_scroller_hiragana
+from katakana_mode import platform_scroller_katakana
 
 
 def show_end_screen_hiragana():
