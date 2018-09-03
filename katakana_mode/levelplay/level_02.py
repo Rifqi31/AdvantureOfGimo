@@ -35,21 +35,25 @@ class Level_02(Level):
 
         # Array with type of platform, and x, y location of the platform.
         # for level 02
-        level02 = [[platforms_dirt.dirt_wall, -140, 0],
-                   [platforms_dirt.dirt_medium_long_land, 0, 460],
-                   [platforms_dirt.dirt_medium_short_land, 0, 92],
-                   [platforms_dirt.dirt_wall, 700, 100],
-                   [platforms_dirt.dirt_medium_short_land, 1050, 460],
-                   [platforms_dirt.dirt_medium_short_land, 1050, 180],
-                   [platforms_dirt.dirt_short_land, 1540, 460],
-                   [platforms_dirt.dirt_short_land, 1540, 180],
-                   [platforms_dirt.dirt_medium_short_land, 1890, 460],
-                   [platforms_dirt.dirt_big_wall, 2030, 0]]
+        level02 = [
+            [platforms_dirt.dirt_wall, -140, 0],
+            [platforms_dirt.dirt_medium_long_land, 0, 460],
+            [platforms_dirt.dirt_medium_short_land, 0, 92],
+            [platforms_dirt.dirt_wall, 700, 100],
+            [platforms_dirt.dirt_medium_short_land, 1050, 460],
+            [platforms_dirt.dirt_medium_short_land, 1050, 180],
+            [platforms_dirt.dirt_short_land, 1540, 460],
+            [platforms_dirt.dirt_short_land, 1540, 180],
+            [platforms_dirt.dirt_medium_short_land, 1890, 460],
+            [platforms_dirt.dirt_big_wall, 2030, 0]
+        ]
 
-        water_level02 = [[platforms_bad_sprite.medium_long_water, 490, 531],
-                         [platforms_bad_sprite.medium_long_water, 840, 531],
-                         [platforms_bad_sprite.medium_long_water, 1330, 531],
-                         [platforms_bad_sprite.medium_long_water, 1680, 531]]
+        water_level02 = [
+            [platforms_bad_sprite.medium_long_water, 490, 531],
+            [platforms_bad_sprite.medium_long_water, 840, 531],
+            [platforms_bad_sprite.medium_long_water, 1330, 531],
+            [platforms_bad_sprite.medium_long_water, 1680, 531]
+        ]
 
         portal = [[platforms_item.portal_snow, 1960, 380]]
 
@@ -57,14 +61,10 @@ class Level_02(Level):
 
         # true point
         katakana_u = [[platforms_katakana.katakana_u, 20, 10]]
-        katakana_i = [[platforms_katakana.katakana_i, 401, 258]]
+        katakana_i = [[platforms_katakana.katakana_i, 850, 258]]
         katakana_o = [[platforms_katakana.katakana_o, 1280, 350]]
         katakana_a = [[platforms_katakana.katakana_a, 1400, 280]]
         katakana_e = [[platforms_katakana.katakana_e, 1400, 100]]
-
-        # false point
-        katakana_ka = [[platforms_katakana.katakana_ka, 560, 232]]
-        katakana_ki = [[platforms_katakana.katakana_ki, 910, 232]]
 
         # for special enemy
         special_enemy_u = [[platforms_special_enemy.big_ogre_u, 730, 2]]
@@ -147,25 +147,6 @@ class Level_02(Level):
             true_point_lv2.rect.y = platform[2]
             true_point_lv2.player = self.player
             self.katakana_E.add(true_point_lv2)
-
-        # False Point
-        # katakana Ka
-        for platform in katakana_ka:
-            false_point_lv2 = platforms_katakana.Platform_hiragana_katakana(
-                platform[0])
-            false_point_lv2.rect.x = platform[1]
-            false_point_lv2.rect.y = platform[2]
-            false_point_lv2.player = self.player
-            self.katakana_KA.add(false_point_lv2)
-
-        # katakana Ki
-        for platform in katakana_ki:
-            false_point_lv2 = platforms_katakana.Platform_hiragana_katakana(
-                platform[0])
-            false_point_lv2.rect.x = platform[1]
-            false_point_lv2.rect.y = platform[2]
-            false_point_lv2.player = self.player
-            self.katakana_KI.add(false_point_lv2)
 
         # for special enemy
         # katakana U
