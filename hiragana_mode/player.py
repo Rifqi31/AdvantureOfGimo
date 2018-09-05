@@ -12,17 +12,25 @@ from pygame.locals import *
 # import constans variable
 import constants
 # import game screen modules
-from game_screens import gameoverscreen, endscreen
+# from game_screens import gameoverscreen, endscreen
+from game_screens.overscreen_levels.hiragana_mode import (
+    dead_hiragana_level_1, dead_hiragana_level_2,
+    dead_hiragana_level_3, dead_hiragana_level_4,
+    dead_hiragana_level_5, dead_hiragana_level_6,
+    dead_hiragana_level_7, dead_hiragana_level_8,
+    dead_hiragana_level_9, dead_hiragana_level_10,
+    dead_hiragana_level_11
+)
 # import sounds module
 from game_settings import configsounds
 # import moving platform modules
-from platforms.platforms_ancient_brick import MovingPlatform_ancient_brick
-from platforms.platforms_dark_brick import MovingPlatform_dark_brick
 from platforms.platforms_dirt import MovingPlatform_dirt
-from platforms.platforms_lava_rock import MovingPlatform_lava_rock
+from platforms.platforms_dark_brick import MovingPlatform_dark_brick
 from platforms.platforms_red_brick import MovingPlatform_brick_red
-from platforms.platforms_sand_dirt import MovingPlatform_dirt_sand
 from platforms.platforms_snow import MovingPlatform_snow
+from platforms.platforms_sand_dirt import MovingPlatform_dirt_sand
+from platforms.platforms_ancient_brick import MovingPlatform_ancient_brick
+from platforms.platforms_lava_rock import MovingPlatform_lava_rock
 # import spritesheet module
 from spritesheet_functions import SpriteSheet
 
@@ -62,13 +70,20 @@ class Player(pygame.sprite.Sprite):
         self.direction = "R"
 
         # removing special enemy
+        # Level 1
         # Basic Vocal
         self.special_remove_A = False
         self.special_remove_I = False
-        self.special_remove_U = False
+
+        # Level 2
+        # Basic Vocal
+        self.special_remove_A_lv2 = False
+        self.special_remove_I_lv2 = False
+        self.special_remove_U_lv2 = False
         self.special_remove_E = False
         self.special_remove_O = False
 
+        # Level 3
         # Vocal K
         self.special_remove_KA = False
         self.special_remove_KI = False
@@ -76,6 +91,7 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_KE = False
         self.special_remove_KO = False
 
+        # Level 4
         # Vocal S
         self.special_remove_SA = False
         self.special_remove_SI = False
@@ -83,6 +99,7 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_SE = False
         self.special_remove_SO = False
 
+        # Level 5
         # Vocal T
         self.special_remove_TA = False
         self.special_remove_TI = False
@@ -90,6 +107,7 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_TE = False
         self.special_remove_TO = False
 
+        # Level 6
         # Vocal N
         self.special_remove_NA = False
         self.special_remove_NI = False
@@ -97,6 +115,7 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_NE = False
         self.special_remove_NO = False
 
+        # Level 7
         # Vocal H
         self.special_remove_HA = False
         self.special_remove_HI = False
@@ -104,6 +123,7 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_HE = False
         self.special_remove_HO = False
 
+        # Level 8
         # Vocal M
         self.special_remove_MA = False
         self.special_remove_MI = False
@@ -111,11 +131,13 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_ME = False
         self.special_remove_MO = False
 
+        # Level 9
         # Vocal Y
         self.special_remove_YA = False
         self.special_remove_YU = False
         self.special_remove_YO = False
 
+        # Level 10
         # Vocal R
         self.special_remove_RA = False
         self.special_remove_RI = False
@@ -123,17 +145,13 @@ class Player(pygame.sprite.Sprite):
         self.special_remove_RE = False
         self.special_remove_RO = False
 
+        # FOR LEVEL 11
         # Vocal W
         self.special_remove_WA = False
         self.special_remove_WO = False
 
         # Vocal N
         self.special_remove_N = False
-
-        # for fix bug
-        self.special_remove_A_lv2 = False
-        self.special_remove_I_lv2 = False
-        self.special_remove_U_lv2 = False
 
         # List of sprites we can bump against
         self.level = None
@@ -252,38 +270,142 @@ class Player(pygame.sprite.Sprite):
 
             if isinstance(block, MovingPlatform_dirt):
                 self.rect.x += block.change_x
-
+            
             if isinstance(block, MovingPlatform_dark_brick):
                 self.rect.x += block.change_x
-
-            if isinstance(block, MovingPlatform_ancient_brick):
-                self.rect.x += block.change_x
-
-            if isinstance(block, MovingPlatform_brick_red):
-                self.rect.x += block.change_x
-
-            if isinstance(block, MovingPlatform_dirt_sand):
-                self.rect.x += block.change_x
-
-            if isinstance(block, MovingPlatform_snow):
+            
+            elif isinstance(block, MovingPlatform_brick_red):
                 self.rect.x += block.change_x
             
-            if isinstance(block, MovingPlatform_lava_rock):
+            elif isinstance(block, MovingPlatform_snow):
+                self.rect.x += block.change_x
+            
+            elif isinstance(block, MovingPlatform_dirt_sand):
+                self.rect.x += block.change_x
+            
+            elif isinstance(block, MovingPlatform_ancient_brick):
+                self.rect.x += block.change_x
+            
+            elif isinstance(block, MovingPlatform_lava_rock):
                 self.rect.x += block.change_x
 
         # For general enemy list
         # If player touched by enemys
-        hit_by_enemy_list = pygame.sprite.spritecollide(
-            self, self.level.enemy_list, True)
-        for eaten in hit_by_enemy_list:
+        hit_by_enemy_list_lv1 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv1, True)
+        
+        hit_by_enemy_list_lv2 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv2, True)
+        
+        hit_by_enemy_list_lv3 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv3, True)
+        
+        hit_by_enemy_list_lv4 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv4, True)
+        
+        hit_by_enemy_list_lv5 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv5, True)
+        
+        hit_by_enemy_list_lv6 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv6, True)
+        
+        hit_by_enemy_list_lv7 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv7, True)
+        
+        hit_by_enemy_list_lv8 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv8, True)
+        
+        hit_by_enemy_list_lv9 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv9, True)
+        
+        hit_by_enemy_list_lv10 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv10, True)
+        
+        hit_by_enemy_list_lv11 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv11, True)
+        
+        for eaten_lv1 in hit_by_enemy_list_lv1:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_1.show_game_over_hiragana()
+        
+        for eaten_lv2 in hit_by_enemy_list_lv2:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_2.show_game_over_hiragana()
+        
+        for eaten_lv3 in hit_by_enemy_list_lv3:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+        
+        for eaten_lv4 in hit_by_enemy_list_lv4:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+        
+        for eaten_lv5 in hit_by_enemy_list_lv5:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+        
+        for eaten_lv6 in hit_by_enemy_list_lv6:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+        
+        for eaten_lv7 in hit_by_enemy_list_lv7:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+        
+        for eaten_lv8 in hit_by_enemy_list_lv8:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+        
+        for eaten_lv9 in hit_by_enemy_list_lv9:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_9.show_game_over_hiragana()
+        
+        for eaten_lv10 in hit_by_enemy_list_lv10:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+        
+        for eaten_lv11 in hit_by_enemy_list_lv11:
+            self.health_number -= self.general_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_11.show_game_over_hiragana()
+
 
         # for special enemy list
         # If player touched by special enemys
+        
+        # FOR LEVEL 1
         # Basic Vocal
         # Symbol A
         special_hit_enemy_list_A = pygame.sprite.spritecollide(
@@ -295,7 +417,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_A == False:
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_1.show_game_over_hiragana()
 
         # Symbol I
         special_hit_enemy_list_I = pygame.sprite.spritecollide(
@@ -307,546 +429,10 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_I == False:
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_1.show_game_over_hiragana()
+        
 
-        # Symbol U
-        special_hit_enemy_list_U = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_U, True)
-        for special_eaten_U in special_hit_enemy_list_U:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_U == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol E
-        special_hit_enemy_list_E = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_E, True)
-        for special_eaten_E in special_hit_enemy_list_E:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_E == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol O
-        special_hit_enemy_list_O = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_O, True)
-        for special_eaten_O in special_hit_enemy_list_O:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_O == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal K
-        # Symbol KA
-        special_hit_enemy_list_KA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_KA, True)
-        for special_eaten_KA in special_hit_enemy_list_KA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_KA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol KI
-        special_hit_enemy_list_KI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_KI, True)
-        for special_eaten_KI in special_hit_enemy_list_KI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_KI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol KU
-        special_hit_enemy_list_KU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_KU, True)
-        for special_eaten_KU in special_hit_enemy_list_KU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_KU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol KE
-        special_hit_enemy_list_KE = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_KE, True)
-        for special_eaten_KE in special_hit_enemy_list_KE:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_KE == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol KO
-        special_hit_enemy_list_KO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_KO, True)
-        for special_eaten_KO in special_hit_enemy_list_KO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_KO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal S
-        # Symbol SA
-        special_hit_enemy_list_SA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_SA, True)
-        for special_eaten_SA in special_hit_enemy_list_SA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_SA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol SI
-        special_hit_enemy_list_SI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_SI, True)
-        for special_eaten_SI in special_hit_enemy_list_SI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_SI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol SU
-        special_hit_enemy_list_SU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_SU, True)
-        for special_eaten_SU in special_hit_enemy_list_SU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_SU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol SE
-        special_hit_enemy_list_SE = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_SE, True)
-        for special_eaten_SE in special_hit_enemy_list_SE:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_SE == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol SO
-        special_hit_enemy_list_SO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_SO, True)
-        for special_eatenSKO in special_hit_enemy_list_SO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_SO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal T
-        # Symbol TA
-        special_hit_enemy_list_TA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_TA, True)
-        for special_eaten_TA in special_hit_enemy_list_TA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_TA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol TI
-        special_hit_enemy_list_TI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_TI, True)
-        for special_eaten_TI in special_hit_enemy_list_TI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_TI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol TU
-        special_hit_enemy_list_TU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_TU, True)
-        for special_eaten_TU in special_hit_enemy_list_TU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_TU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol TE
-        special_hit_enemy_list_TE = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_TE, True)
-        for special_eaten_TE in special_hit_enemy_list_TE:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_TE == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol TO
-        special_hit_enemy_list_TO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_TO, True)
-        for special_eaten_TO in special_hit_enemy_list_TO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_TO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal N
-        # Symbol NA
-        special_hit_enemy_list_NA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_NA, True)
-        for special_eaten_NA in special_hit_enemy_list_NA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_NA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol NI
-        special_hit_enemy_list_NI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_NI, True)
-        for special_eaten_NI in special_hit_enemy_list_NI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_NI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol NU
-        special_hit_enemy_list_NU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_NU, True)
-        for special_eaten_NU in special_hit_enemy_list_NU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_NU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol NE
-        special_hit_enemy_list_NE = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_NE, True)
-        for special_eaten_NE in special_hit_enemy_list_NE:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_NE == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol NO
-        special_hit_enemy_list_NO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_NO, True)
-        for special_eaten_NO in special_hit_enemy_list_NO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_NO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal H
-        # Symbol HA
-        special_hit_enemy_list_HA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_HA, True)
-        for special_eaten_HA in special_hit_enemy_list_HA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_HA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol HI
-        special_hit_enemy_list_HI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_HI, True)
-        for special_eaten_HI in special_hit_enemy_list_HI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_HI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol HU
-        special_hit_enemy_list_HU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_HU, True)
-        for special_eaten_HU in special_hit_enemy_list_HU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_HU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol HE
-        special_hit_enemy_list_HE = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_HE, True)
-        for special_eaten_HE in special_hit_enemy_list_HE:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_HE == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol HO
-        special_hit_enemy_list_HO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_HO, True)
-        for special_eaten_HO in special_hit_enemy_list_HO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_HO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal M
-        # Symbol MA
-        special_hit_enemy_list_MA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_MA, True)
-        for special_eaten_MA in special_hit_enemy_list_MA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_MA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol MI
-        special_hit_enemy_list_MI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_MI, True)
-        for special_eaten_MI in special_hit_enemy_list_MI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_MI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol MU
-        special_hit_enemy_list_MU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_MU, True)
-        for special_eaten_MU in special_hit_enemy_list_MU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_MU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol ME
-        special_hit_enemy_list_ME = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_ME, True)
-        for special_eaten_ME in special_hit_enemy_list_ME:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_ME == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol MO
-        special_hit_enemy_list_MO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_MO, True)
-        for special_eaten_MO in special_hit_enemy_list_MO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_MO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal Y
-        # Symbol YA
-        special_hit_enemy_list_YA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_YA, True)
-        for special_eaten_YA in special_hit_enemy_list_YA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_YA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol YU
-        special_hit_enemy_list_YU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_YU, True)
-        for special_eaten_YU in special_hit_enemy_list_YU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_YU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol YO
-        special_hit_enemy_list_YO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_YO, True)
-        for special_eaten_YO in special_hit_enemy_list_YO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_YO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal R
-        # Symbol RA
-        special_hit_enemy_list_RA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_RA, True)
-        for special_eaten_RA in special_hit_enemy_list_RA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_RA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol RI
-        special_hit_enemy_list_RI = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_RI, True)
-        for special_eaten_RI in special_hit_enemy_list_RI:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_RI == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol RU
-        special_hit_enemy_list_RU = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_RU, True)
-        for special_eaten_RU in special_hit_enemy_list_RU:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_RU == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol RE
-        special_hit_enemy_list_RE = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_RE, True)
-        for special_eaten_RE in special_hit_enemy_list_RE:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_RE == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol RO
-        special_hit_enemy_list_RO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_RO, True)
-        for special_eaten_RO in special_hit_enemy_list_RO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_RO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal W
-        # Symbol WA
-        special_hit_enemy_list_WA = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_WA, True)
-        for special_eaten_WA in special_hit_enemy_list_WA:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_WA == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Symbol WO
-        special_hit_enemy_list_WO = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_WO, True)
-        for special_eaten_WO in special_hit_enemy_list_WO:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_WO == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # Vocal Single N
-        special_hit_enemy_list_N = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_N, True)
-        for special_eaten_N in special_hit_enemy_list_N:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_N == False:
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # for fix bug
+        # FOR LEVEL 2
         # Symbol A
         special_hit_enemy_list_A_lv2 = pygame.sprite.spritecollide(
             self, self.level.special_enemy_list_A_lv2, True)
@@ -857,7 +443,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_A == False:
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_2.show_game_over_hiragana()
 
         # Symbol I
         special_hit_enemy_list_I_lv2 = pygame.sprite.spritecollide(
@@ -869,7 +455,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_I == False:
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_2.show_game_over_hiragana()
 
         # Symbol U
         special_hit_enemy_list_U_lv2 = pygame.sprite.spritecollide(
@@ -881,7 +467,551 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_U == False:
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_2.show_game_over_hiragana()
+
+        # Symbol E
+        special_hit_enemy_list_E = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_E, True)
+        for special_eaten_E in special_hit_enemy_list_E:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_E == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_2.show_game_over_hiragana()
+
+        # Symbol O
+        special_hit_enemy_list_O = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_O, True)
+        for special_eaten_O in special_hit_enemy_list_O:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_O == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_2.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 3
+        # Vocal K
+        # Symbol KA
+        special_hit_enemy_list_KA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_KA, True)
+        for special_eaten_KA in special_hit_enemy_list_KA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_KA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+
+        # Symbol KI
+        special_hit_enemy_list_KI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_KI, True)
+        for special_eaten_KI in special_hit_enemy_list_KI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_KI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+
+        # Symbol KU
+        special_hit_enemy_list_KU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_KU, True)
+        for special_eaten_KU in special_hit_enemy_list_KU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_KU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+
+        # Symbol KE
+        special_hit_enemy_list_KE = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_KE, True)
+        for special_eaten_KE in special_hit_enemy_list_KE:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_KE == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+
+        # Symbol KO
+        special_hit_enemy_list_KO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_KO, True)
+        for special_eaten_KO in special_hit_enemy_list_KO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_KO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 4
+        # Vocal S
+        # Symbol SA
+        special_hit_enemy_list_SA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_SA, True)
+        for special_eaten_SA in special_hit_enemy_list_SA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_SA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+
+        # Symbol SI
+        special_hit_enemy_list_SI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_SI, True)
+        for special_eaten_SI in special_hit_enemy_list_SI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_SI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+
+        # Symbol SU
+        special_hit_enemy_list_SU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_SU, True)
+        for special_eaten_SU in special_hit_enemy_list_SU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_SU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+
+        # Symbol SE
+        special_hit_enemy_list_SE = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_SE, True)
+        for special_eaten_SE in special_hit_enemy_list_SE:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_SE == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+
+        # Symbol SO
+        special_hit_enemy_list_SO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_SO, True)
+        for special_eatenSKO in special_hit_enemy_list_SO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_SO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 5
+        # Vocal T
+        # Symbol TA
+        special_hit_enemy_list_TA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_TA, True)
+        for special_eaten_TA in special_hit_enemy_list_TA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_TA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+
+        # Symbol TI
+        special_hit_enemy_list_TI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_TI, True)
+        for special_eaten_TI in special_hit_enemy_list_TI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_TI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+
+        # Symbol TU
+        special_hit_enemy_list_TU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_TU, True)
+        for special_eaten_TU in special_hit_enemy_list_TU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_TU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+
+        # Symbol TE
+        special_hit_enemy_list_TE = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_TE, True)
+        for special_eaten_TE in special_hit_enemy_list_TE:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_TE == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+
+        # Symbol TO
+        special_hit_enemy_list_TO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_TO, True)
+        for special_eaten_TO in special_hit_enemy_list_TO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_TO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+
+
+        # FOR LEVEL 6
+        # Vocal N
+        # Symbol NA
+        special_hit_enemy_list_NA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_NA, True)
+        for special_eaten_NA in special_hit_enemy_list_NA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_NA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+
+        # Symbol NI
+        special_hit_enemy_list_NI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_NI, True)
+        for special_eaten_NI in special_hit_enemy_list_NI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_NI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+
+        # Symbol NU
+        special_hit_enemy_list_NU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_NU, True)
+        for special_eaten_NU in special_hit_enemy_list_NU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_NU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+
+        # Symbol NE
+        special_hit_enemy_list_NE = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_NE, True)
+        for special_eaten_NE in special_hit_enemy_list_NE:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_NE == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+
+        # Symbol NO
+        special_hit_enemy_list_NO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_NO, True)
+        for special_eaten_NO in special_hit_enemy_list_NO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_NO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+
+
+        # FOR LEVEL 7
+        # Vocal H
+        # Symbol HA
+        special_hit_enemy_list_HA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_HA, True)
+        for special_eaten_HA in special_hit_enemy_list_HA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_HA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+
+        # Symbol HI
+        special_hit_enemy_list_HI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_HI, True)
+        for special_eaten_HI in special_hit_enemy_list_HI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_HI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+
+        # Symbol HU
+        special_hit_enemy_list_HU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_HU, True)
+        for special_eaten_HU in special_hit_enemy_list_HU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_HU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+
+        # Symbol HE
+        special_hit_enemy_list_HE = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_HE, True)
+        for special_eaten_HE in special_hit_enemy_list_HE:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_HE == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+
+        # Symbol HO
+        special_hit_enemy_list_HO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_HO, True)
+        for special_eaten_HO in special_hit_enemy_list_HO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_HO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 8
+        # Vocal M
+        # Symbol MA
+        special_hit_enemy_list_MA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_MA, True)
+        for special_eaten_MA in special_hit_enemy_list_MA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_MA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+
+        # Symbol MI
+        special_hit_enemy_list_MI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_MI, True)
+        for special_eaten_MI in special_hit_enemy_list_MI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_MI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+
+        # Symbol MU
+        special_hit_enemy_list_MU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_MU, True)
+        for special_eaten_MU in special_hit_enemy_list_MU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_MU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+
+        # Symbol ME
+        special_hit_enemy_list_ME = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_ME, True)
+        for special_eaten_ME in special_hit_enemy_list_ME:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_ME == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+
+        # Symbol MO
+        special_hit_enemy_list_MO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_MO, True)
+        for special_eaten_MO in special_hit_enemy_list_MO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_MO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 9
+        # Vocal Y
+        # Symbol YA
+        special_hit_enemy_list_YA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_YA, True)
+        for special_eaten_YA in special_hit_enemy_list_YA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_YA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_9.show_game_over_hiragana()
+
+        # Symbol YU
+        special_hit_enemy_list_YU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_YU, True)
+        for special_eaten_YU in special_hit_enemy_list_YU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_YU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_9.show_game_over_hiragana()
+
+        # Symbol YO
+        special_hit_enemy_list_YO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_YO, True)
+        for special_eaten_YO in special_hit_enemy_list_YO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_YO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_9.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 10
+        # Vocal R
+        # Symbol RA
+        special_hit_enemy_list_RA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_RA, True)
+        for special_eaten_RA in special_hit_enemy_list_RA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_RA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+
+        # Symbol RI
+        special_hit_enemy_list_RI = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_RI, True)
+        for special_eaten_RI in special_hit_enemy_list_RI:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_RI == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+
+        # Symbol RU
+        special_hit_enemy_list_RU = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_RU, True)
+        for special_eaten_RU in special_hit_enemy_list_RU:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_RU == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+
+        # Symbol RE
+        special_hit_enemy_list_RE = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_RE, True)
+        for special_eaten_RE in special_hit_enemy_list_RE:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_RE == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+
+        # Symbol RO
+        special_hit_enemy_list_RO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_RO, True)
+        for special_eaten_RO in special_hit_enemy_list_RO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_RO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+        
+
+        # FOR LEVEL 11
+        # Vocal W
+        # Symbol WA
+        special_hit_enemy_list_WA = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_WA, True)
+        for special_eaten_WA in special_hit_enemy_list_WA:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_WA == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_11.show_game_over_hiragana()
+
+        # Symbol WO
+        special_hit_enemy_list_WO = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_WO, True)
+        for special_eaten_WO in special_hit_enemy_list_WO:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_WO == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_11.show_game_over_hiragana()
+
+        # Vocal Single N
+        special_hit_enemy_list_N = pygame.sprite.spritecollide(
+            self, self.level.special_enemy_list_N, True)
+        for special_eaten_N in special_hit_enemy_list_N:
+
+            self.health_number -= self.special_enemy_dmg
+            configsounds.ouch_sfx.play()
+
+            # if self.special_remove_N == False:
+            if self.health_number == 0 or self.health_number < 0:
+                dead_hiragana_level_11.show_game_over_hiragana()
+
 
         # for portal list
         go_to_portal_list = pygame.sprite.spritecollide(
@@ -907,31 +1037,114 @@ class Player(pygame.sprite.Sprite):
         # print(self.health_number)
 
         # for death sprite
-        you_die_in_hell = pygame.sprite.spritecollide(
-            self, self.level.death_place_list, False)
-        for water_suicide in you_die_in_hell:
-            self.rect.y += 20
-            if self.rect.bottom >= constants.SCREEN_HEIGHT \
-                    or self.rect.bottom < 0:
-                gameoverscreen.show_game_over_hiragana()
+        you_die_in_hell_lv1 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv1, False)
 
-        for sharp_rock in you_die_in_hell:
-            self.rect.y += 20
-            if self.rect.bottom >= constants.SCREEN_HEIGHT \
-                    or self.rect.bottom < 0:
-                gameoverscreen.show_game_over_hiragana()
+        you_die_in_hell_lv2 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv2, False)
+        
+        you_die_in_hell_lv3 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv3, False)
+        
+        you_die_in_hell_lv4 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv4, False)
+        
+        you_die_in_hell_lv5 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv5, False)
+        
+        you_die_in_hell_lv6 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv6, False)
+        
+        you_die_in_hell_lv7 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv7, False)
+        
+        you_die_in_hell_lv8 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv8, False)
+        
+        you_die_in_hell_lv9 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv9, False)
+        
+        you_die_in_hell_lv10 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv10, False)
+        
+        you_die_in_hell_lv11 = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_lv11, False)
 
-        for lava_water_suicide in you_die_in_hell:
+        # effect from death sprite list
+        for water_suicide_lv1 in you_die_in_hell_lv1:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_1.show_game_over_hiragana()
+        
+        for water_suicide_lv2 in you_die_in_hell_lv2:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_2.show_game_over_hiragana()
+        
+        for sharp_rock_lv3 in you_die_in_hell_lv3:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_3.show_game_over_hiragana()
+        
+        for water_suicide_lv4 in you_die_in_hell_lv4:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_4.show_game_over_hiragana()
+        
+        for water_suicide_lv5 in you_die_in_hell_lv5:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_5.show_game_over_hiragana()
+        
+        for water_suicide_lv6 in you_die_in_hell_lv6:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_6.show_game_over_hiragana()
+        
+        for water_suicide_lv7 in you_die_in_hell_lv7:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_7.show_game_over_hiragana()
+        
+        for water_suicide_lv8 in you_die_in_hell_lv8:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_8.show_game_over_hiragana()
+        
+        for water_suicide_lv9 in you_die_in_hell_lv9:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_9.show_game_over_hiragana()
+        
+        for lava_water_suicide_10 in you_die_in_hell_lv10:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_10.show_game_over_hiragana()
+        
+        for lava_water_suicide_11 in you_die_in_hell_lv11:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_hiragana_level_11.show_game_over_hiragana()
+        
 
         # for NPC purpose
         meet_himesama = pygame.sprite.spritecollide(
             self, self.level.himesama_list, False)
         for kiss_himesama in meet_himesama:
             endscreen.show_end_screen_hiragana()
+
+
 
         # FOR LEVEL 1 Hiragana Mode
         point1_hiragana_lv1 = pygame.sprite.spritecollide(
@@ -962,7 +1175,8 @@ class Player(pygame.sprite.Sprite):
             self.health_number -= self.false_point_dmg
 
             if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
+                dead_hiragana_level_1.show_game_over_hiragana()
+        
 
         # FOR LEVEL 2 Hiragana Mode
         point1_hiragana_lv2 = pygame.sprite.spritecollide(
@@ -976,10 +1190,19 @@ class Player(pygame.sprite.Sprite):
         point5_hiragana_lv2 = pygame.sprite.spritecollide(
             self, self.level.hiragana_O, True)
 
-        point6_hiragana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_KA, True)
-        point7_hiragana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_KI, True)
+        # If user get point hiragana A
+        for true_point_lv2 in point1_hiragana_lv2:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_A_lv2 = True
+        
+        # If user get point hiragana I
+        for true_point_lv2 in point2_hiragana_lv2:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_I_lv2 = True
 
         # If user get point hiragana U
         for true_point_lv2 in point3_hiragana_lv2:
@@ -988,27 +1211,6 @@ class Player(pygame.sprite.Sprite):
             self.scores += 100
             self.special_remove_U_lv2 = True
 
-        # If user get point hiragana I
-        for true_point_lv2 in point2_hiragana_lv2:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_I_lv2 = True
-
-        # If user get point hiragana O
-        for true_point_lv2 in point5_hiragana_lv2:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_O = True
-
-        # If user get point hiragana A
-        for true_point_lv2 in point1_hiragana_lv2:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_A_lv2 = True
-
         # If user get point hiragana E
         for true_point_lv2 in point4_hiragana_lv2:
             configsounds.coin_sfx.play()
@@ -1016,24 +1218,14 @@ class Player(pygame.sprite.Sprite):
             self.scores += 100
             self.special_remove_E = True
 
-        # If user get point hiragana KA
-        for false_point_lv2 in point6_hiragana_lv2:
-            configsounds.denied_sfx.play()
-            self.scores -= 100
-            self.health_number -= self.false_point_dmg
-
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
-        # If user get point hiragana KI
-        for false_point_lv2 in point7_hiragana_lv2:
-            configsounds.denied_sfx.play()
-            self.scores -= 100
-            self.health_number -= self.false_point_dmg
-
-            if self.health_number == 0 or self.health_number < 0:
-                gameoverscreen.show_game_over_hiragana()
-
+        # If user get point hiragana O
+        for true_point_lv2 in point5_hiragana_lv2:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_O = True
+        
+        
         # FOR LEVEL 3 Hiragana Mode
         point1_hiragana_lv3 = pygame.sprite.spritecollide(
             self, self.level.hiragana_KA_lv3, True)
@@ -1080,6 +1272,7 @@ class Player(pygame.sprite.Sprite):
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_KO = True
+        
 
         # For level 4 Hiragana Mode
         point1_hiragana_lv4 = pygame.sprite.spritecollide(
@@ -1127,6 +1320,7 @@ class Player(pygame.sprite.Sprite):
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_SO = True
+        
 
         # For level 5 Hiragana Mode
         point1_hiragana_lv5 = pygame.sprite.spritecollide(
@@ -1174,223 +1368,229 @@ class Player(pygame.sprite.Sprite):
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_TO = True
+        
 
         # For level 6 Hiragana Mode
         point1_hiragana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_RA, True)
-        point2_hiragana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_RI, True)
-        point3_hiragana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_RU, True)
-        point4_hiragana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_RE, True)
-        point5_hiragana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_RO, True)
-
-        # If user get point hiragana RA
-        for true_point_lv6 in point1_hiragana_lv6:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_RA = True
-
-        # If user get point hiragana RI
-        for true_point_lv6 in point2_hiragana_lv6:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_RI = True
-
-        # If user get point hiragana RU
-        for true_point_lv6 in point3_hiragana_lv6:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_RU = True
-
-        # If user get point hiragana Re
-        for true_point_lv6 in point4_hiragana_lv6:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_RE = True
-
-        # If user get point hiragana RO
-        for true_point_lv6 in point5_hiragana_lv6:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_RO = True
-
-        # For level 7 Hiragana Mode
-        point1_hiragana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_MA, True)
-        point2_hiragana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_MI, True)
-        point3_hiragana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_MU, True)
-        point4_hiragana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_ME, True)
-        point5_hiragana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.hiragana_MO, True)
-
-        # If user get point hiragana MA
-        for true_point_lv7 in point1_hiragana_lv7:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_MA = True
-
-        # If user get point hiragana MI
-        for true_point_lv7 in point2_hiragana_lv7:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_MI = True
-
-        # If user get point hiragana MU
-        for true_point_lv7 in point3_hiragana_lv7:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_MU = True
-
-        # If user get point hiragana Me
-        for true_point_lv7 in point4_hiragana_lv7:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_ME = True
-
-        # If user get point hiragana MO
-        for true_point_lv7 in point5_hiragana_lv7:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_MO = True
-
-        # For level 8 Hiragana Mode
-        point1_hiragana_lv8 = pygame.sprite.spritecollide(
             self, self.level.hiragana_NA, True)
-        point2_hiragana_lv8 = pygame.sprite.spritecollide(
+        point2_hiragana_lv6 = pygame.sprite.spritecollide(
             self, self.level.hiragana_NI, True)
-        point3_hiragana_lv8 = pygame.sprite.spritecollide(
+        point3_hiragana_lv6 = pygame.sprite.spritecollide(
             self, self.level.hiragana_NU, True)
-        point4_hiragana_lv8 = pygame.sprite.spritecollide(
+        point4_hiragana_lv6 = pygame.sprite.spritecollide(
             self, self.level.hiragana_NE, True)
-        point5_hiragana_lv8 = pygame.sprite.spritecollide(
+        point5_hiragana_lv6 = pygame.sprite.spritecollide(
             self, self.level.hiragana_NO, True)
 
         # If user get point hiragana NA
-        for true_point_lv8 in point1_hiragana_lv8:
+        for true_point_lv6 in point1_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NA = True
 
         # If user get point hiragana NI
-        for true_point_lv8 in point2_hiragana_lv8:
+        for true_point_lv6 in point2_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NI = True
 
         # If user get point hiragana NU
-        for true_point_lv8 in point3_hiragana_lv8:
+        for true_point_lv6 in point3_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NU = True
 
         # If user get point hiragana NE
-        for true_point_lv8 in point4_hiragana_lv8:
+        for true_point_lv6 in point4_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NE = True
 
         # If user get point hiragana NO
-        for true_point_lv8 in point5_hiragana_lv8:
+        for true_point_lv6 in point5_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NO = True
+        
 
-        # For level 9 Hiragana Mode
-        point1_hiragana_lv9 = pygame.sprite.spritecollide(
+        # For level 7 Hiragana Mode
+        point1_hiragana_lv7 = pygame.sprite.spritecollide(
             self, self.level.hiragana_HA, True)
-        point2_hiragana_lv9 = pygame.sprite.spritecollide(
+        point2_hiragana_lv7 = pygame.sprite.spritecollide(
             self, self.level.hiragana_HI, True)
-        point3_hiragana_lv9 = pygame.sprite.spritecollide(
+        point3_hiragana_lv7 = pygame.sprite.spritecollide(
             self, self.level.hiragana_HU, True)
-        point4_hiragana_lv9 = pygame.sprite.spritecollide(
+        point4_hiragana_lv7 = pygame.sprite.spritecollide(
             self, self.level.hiragana_HE, True)
-        point5_hiragana_lv9 = pygame.sprite.spritecollide(
+        point5_hiragana_lv7 = pygame.sprite.spritecollide(
             self, self.level.hiragana_HO, True)
 
         # If user get point hiragana HA
-        for true_point_lv9 in point1_hiragana_lv9:
+        for true_point_lv7 in point1_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HA = True
 
         # If user get point hiragana HI
-        for true_point_lv9 in point2_hiragana_lv9:
+        for true_point_lv7 in point2_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HI = True
 
         # If user get point hiragana HU
-        for true_point_lv9 in point3_hiragana_lv9:
+        for true_point_lv7 in point3_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HU = True
 
         # If user get point hiragana HE
-        for true_point_lv9 in point4_hiragana_lv9:
+        for true_point_lv7 in point4_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HE = True
 
         # If user get point hiragana HO
-        for true_point_lv9 in point5_hiragana_lv9:
+        for true_point_lv7 in point5_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HO = True
+        
 
-        # For level 10 Hiragana Mode
-        point1_hiragana_lv10 = pygame.sprite.spritecollide(
+        # For level 8 Hiragana Mode
+        point1_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MA, True)
+        point2_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MI, True)
+        point3_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MU, True)
+        point4_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_ME, True)
+        point5_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MO, True)
+
+        # If user get point hiragana MA
+        for true_point_lv8 in point1_hiragana_lv8:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_MA = True
+
+        # If user get point hiragana MI
+        for true_point_lv8 in point2_hiragana_lv8:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_MI = True
+
+        # If user get point hiragana MU
+        for true_point_lv8 in point3_hiragana_lv8:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_MU = True
+
+        # If user get point hiragana Me
+        for true_point_lv8 in point4_hiragana_lv8:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_ME = True
+
+        # If user get point hiragana MO
+        for true_point_lv8 in point5_hiragana_lv8:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_MO = True
+        
+
+        # FOR LEVEL 9 Hiragana Mode
+        point1_hiragana_lv9 = pygame.sprite.spritecollide(
             self, self.level.hiragana_YA, True)
-        point2_hiragana_lv10 = pygame.sprite.spritecollide(
+        point2_hiragana_lv9 = pygame.sprite.spritecollide(
             self, self.level.hiragana_YU, True)
-        point3_hiragana_lv10 = pygame.sprite.spritecollide(
+        point3_hiragana_lv9 = pygame.sprite.spritecollide(
             self, self.level.hiragana_YO, True)
 
         # If user get point hiragana YA
-        for true_point_lv10 in point1_hiragana_lv10:
+        for true_point_lv9 in point1_hiragana_lv9:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YA = True
 
         # If user get point hiragana YU
-        for true_point_lv10 in point2_hiragana_lv10:
+        for true_point_lv9 in point2_hiragana_lv9:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YU = True
 
         # If user get point hiragana YO
-        for true_point_lv10 in point3_hiragana_lv10:
+        for true_point_lv9 in point3_hiragana_lv9:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YO = True
+        
+
+        # For level 10 Hiragana Mode
+        point1_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RA, True)
+        point2_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RI, True)
+        point3_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RU, True)
+        point4_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RE, True)
+        point5_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RO, True)
+
+        # If user get point hiragana RA
+        for true_point_lv10 in point1_hiragana_lv10:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_RA = True
+
+        # If user get point hiragana RI
+        for true_point_lv10 in point2_hiragana_lv10:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_RI = True
+
+        # If user get point hiragana RU
+        for true_point_lv10 in point3_hiragana_lv10:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_RU = True
+
+        # If user get point hiragana Re
+        for true_point_lv10 in point4_hiragana_lv10:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_RE = True
+
+        # If user get point hiragana RO
+        for true_point_lv10 in point5_hiragana_lv10:
+            configsounds.coin_sfx.play()
+            configsounds.coin_sfx.set_volume(0.5)
+            self.scores += 100
+            self.special_remove_RO = True
+
 
         # For level 11 Hiragana Mode
         point1_hiragana_lv11 = pygame.sprite.spritecollide(
@@ -1421,8 +1621,6 @@ class Player(pygame.sprite.Sprite):
             self.scores += 100
             self.special_remove_N = True
 
-        # debuing purpose
-        # print(self.special_remove_U)
 
     def calc_grav(self):
         """ Calculate effect of gravity. """
@@ -1495,17 +1693,18 @@ class Bullet(Player):
 
         # for special enemy
         # Basic Vocal
+        # FOR LEVEL 1
         self.special_remove_A = player.special_remove_A
         self.special_remove_I = player.special_remove_I
-        self.special_remove_U = player.special_remove_U
-        self.special_remove_E = player.special_remove_E
-        self.special_remove_O = player.special_remove_O
 
-        # for fix bugs
+        # FOR LEVEL 2
         self.special_remove_A_lv2 = player.special_remove_A_lv2
         self.special_remove_I_lv2 = player.special_remove_I_lv2
         self.special_remove_U_lv2 = player.special_remove_U_lv2
+        self.special_remove_E = player.special_remove_E
+        self.special_remove_O = player.special_remove_O
 
+        # FOR LEVEL 3
         # Vocal K
         self.special_remove_KA = player.special_remove_KA
         self.special_remove_KI = player.special_remove_KI
@@ -1513,6 +1712,7 @@ class Bullet(Player):
         self.special_remove_KE = player.special_remove_KE
         self.special_remove_KO = player.special_remove_KO
 
+        # FOR LEVEL 4
         # Vocal S
         self.special_remove_SA = player.special_remove_SA
         self.special_remove_SI = player.special_remove_SI
@@ -1520,6 +1720,7 @@ class Bullet(Player):
         self.special_remove_SE = player.special_remove_SE
         self.special_remove_SO = player.special_remove_SO
 
+        # FOR LEVEL 5
         # Vocal T
         self.special_remove_TA = player.special_remove_TA
         self.special_remove_TI = player.special_remove_TI
@@ -1527,6 +1728,7 @@ class Bullet(Player):
         self.special_remove_TE = player.special_remove_TE
         self.special_remove_TO = player.special_remove_TO
 
+        # FOR LEVEL 6
         # Vocal N
         self.special_remove_NA = player.special_remove_NA
         self.special_remove_NI = player.special_remove_NI
@@ -1534,6 +1736,7 @@ class Bullet(Player):
         self.special_remove_NE = player.special_remove_NE
         self.special_remove_NO = player.special_remove_NO
 
+        # FOR LEVEL 7
         # Vocal H
         self.special_remove_HA = player.special_remove_HA
         self.special_remove_HI = player.special_remove_HI
@@ -1541,6 +1744,7 @@ class Bullet(Player):
         self.special_remove_HE = player.special_remove_HE
         self.special_remove_HO = player.special_remove_HO
 
+        # FOR LEVEL 8
         # Vocal M
         self.special_remove_MA = player.special_remove_MA
         self.special_remove_MI = player.special_remove_MI
@@ -1548,11 +1752,13 @@ class Bullet(Player):
         self.special_remove_ME = player.special_remove_ME
         self.special_remove_MO = player.special_remove_MO
 
+        # FOR LEVEL 9
         # Vocal Y
         self.special_remove_YA = player.special_remove_YA
         self.special_remove_YU = player.special_remove_YU
         self.special_remove_YO = player.special_remove_YO
 
+        # FOR LEVEL 10
         # Vocal R
         self.special_remove_RA = player.special_remove_RA
         self.special_remove_RI = player.special_remove_RI
@@ -1560,12 +1766,14 @@ class Bullet(Player):
         self.special_remove_RE = player.special_remove_RE
         self.special_remove_RO = player.special_remove_RO
 
+        # FOR LEVEL 11
         # Vocal W
         self.special_remove_WA = player.special_remove_WA
         self.special_remove_WO = player.special_remove_WO
 
         # Vocal N
         self.special_remove_N = player.special_remove_N
+
 
         self.kills = player.kills
 
@@ -1579,10 +1787,120 @@ class Bullet(Player):
             self.rect.x -= 5
 
         # when hit enemy the bullet is gone
-        hitting_enemy = pygame.sprite.spritecollide(
-            self, self.level.enemy_list, True)
+        hitting_enemy_lv1 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv1, True)
+        hitting_enemy_lv2 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv2, True)
+        hitting_enemy_lv3 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv3, True)
+        hitting_enemy_lv4 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv4, True)
+        hitting_enemy_lv5 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv5, True)
+        hitting_enemy_lv6 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv6, True)
+        hitting_enemy_lv7 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv7, True)
+        hitting_enemy_lv8 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv8, True)
+        hitting_enemy_lv9 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv9, True)
+        hitting_enemy_lv10 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv10, True)
+        hitting_enemy_lv11 = pygame.sprite.spritecollide(
+            self, self.level.enemy_list_lv11, True)
 
-        for eaten in hitting_enemy:
+        for eaten_lv1 in hitting_enemy_lv1:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv2 in hitting_enemy_lv2:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv3 in hitting_enemy_lv3:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv4 in hitting_enemy_lv4:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv5 in hitting_enemy_lv5:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv6 in hitting_enemy_lv6:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv7 in hitting_enemy_lv7:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv8 in hitting_enemy_lv8:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv9 in hitting_enemy_lv9:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv10 in hitting_enemy_lv10:
+            if self.direction == "R":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+                self.scores += 10
+            elif self.direction == "L":
+                pygame.sprite.spritecollide(self, self.bullet_list, True)
+                configsounds.ouch_sfx.play()
+        
+        for eaten_lv11 in hitting_enemy_lv11:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -1594,6 +1912,8 @@ class Bullet(Player):
         # just for special enemy list they are immune
         # if the player not get point mission enemy are immnune
         # if the player get point mission enemy are not immnune
+
+        # FOR LEVEL 1
         # for point mission symbol A
         if self.special_remove_A:
             hitting_special_enemy_A = pygame.sprite.spritecollide(
@@ -1609,16 +1929,10 @@ class Bullet(Player):
         elif not self.special_remove_I:
             hitting_special_enemy_I = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_I, False)
+        
 
-        # for point mission symbol U
-        if self.special_remove_U:
-            hitting_special_enemy_U = pygame.sprite.spritecollide(
-                self, self.level.special_enemy_list_U, True)
-        elif not self.special_remove_U:
-            hitting_special_enemy_U = pygame.sprite.spritecollide(
-                self, self.level.special_enemy_list_U, False)
-
-        # for fix bugs
+        # FOR LEVEL 2
+        # for point mission symbol A
         if self.special_remove_A_lv2:
             hitting_special_enemy_A_lv2 = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_A_lv2, True)
@@ -1658,7 +1972,9 @@ class Bullet(Player):
         elif not self.special_remove_O:
             hitting_special_enemy_O = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_O, False)
+        
 
+        # FOR LEVEL 3
         # for point mission symbol KA
         if self.special_remove_KA:
             hitting_special_enemy_KA = pygame.sprite.spritecollide(
@@ -1698,7 +2014,9 @@ class Bullet(Player):
         elif not self.special_remove_KO:
             hitting_special_enemy_KO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_KO, False)
+        
 
+        # FOR LEVEL 4
         # for point mission symbol SA
         if self.special_remove_SA:
             hitting_special_enemy_SA = pygame.sprite.spritecollide(
@@ -1739,6 +2057,8 @@ class Bullet(Player):
             hitting_special_enemy_SO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_SO, False)
 
+        
+        # FOR LEVEL 5
         # for point mission symbol TA
         if self.special_remove_TA:
             hitting_special_enemy_TA = pygame.sprite.spritecollide(
@@ -1778,7 +2098,9 @@ class Bullet(Player):
         elif not self.special_remove_TO:
             hitting_special_enemy_TO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_TO, False)
+        
 
+        # FOR LEVEL 6
         # for point mission symbol NA
         if self.special_remove_NA:
             hitting_special_enemy_NA = pygame.sprite.spritecollide(
@@ -1818,7 +2140,9 @@ class Bullet(Player):
         elif not self.special_remove_NO:
             hitting_special_enemy_NO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_NO, False)
+        
 
+        # FOR LEVEL 7
         # for point mission symbol HA
         if self.special_remove_HA:
             hitting_special_enemy_HA = pygame.sprite.spritecollide(
@@ -1858,7 +2182,9 @@ class Bullet(Player):
         elif not self.special_remove_HO:
             hitting_special_enemy_HO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_HO, False)
+        
 
+        # FOR LEVEL 8
         # for point mission symbol MA
         if self.special_remove_MA:
             hitting_special_enemy_MA = pygame.sprite.spritecollide(
@@ -1898,7 +2224,9 @@ class Bullet(Player):
         elif not self.special_remove_MO:
             hitting_special_enemy_MO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_MO, False)
+        
 
+        # FOR LEVEL 9
         # for point mission symbol YA
         if self.special_remove_YA:
             hitting_special_enemy_YA = pygame.sprite.spritecollide(
@@ -1923,6 +2251,8 @@ class Bullet(Player):
             hitting_special_enemy_YO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_YO, False)
 
+
+        # FOR LEVEL 10
         # for point mission symbol RA
         if self.special_remove_RA:
             hitting_special_enemy_RA = pygame.sprite.spritecollide(
@@ -1962,7 +2292,9 @@ class Bullet(Player):
         elif not self.special_remove_RO:
             hitting_special_enemy_RO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_RO, False)
+        
 
+        # FOR LEVEL 11
         # for point mision symbol WA
         if self.special_remove_WA:
             hitting_special_enemy_WA = pygame.sprite.spritecollide(
@@ -1987,8 +2319,11 @@ class Bullet(Player):
             hitting_special_enemy_N = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_N, False)
 
+
         # attack a special enemy
         # Basic Vocal
+
+        # FOR LEVEL 1
         for special_eaten_A in hitting_special_enemy_A:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2006,17 +2341,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
-        for special_eaten_U in hitting_special_enemy_U:
-            if self.direction == "R":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-
-            elif self.direction == "L":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-
-        # for fix bugs
+        # FOR LEVEL 2
         for special_eaten_A_lv2 in hitting_special_enemy_A_lv2:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2061,7 +2388,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 3
         # Vocal K
         for special_eaten_KA in hitting_special_enemy_KA:
             if self.direction == "R":
@@ -2108,6 +2437,8 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
 
+
+        # FOR LEVEL 4
         # Vocal S
         for special_eaten_SA in hitting_special_enemy_SA:
             if self.direction == "R":
@@ -2153,7 +2484,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 5
         # Vocal T
         for special_eaten_TA in hitting_special_enemy_TA:
             if self.direction == "R":
@@ -2199,7 +2532,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 6
         # Vocal N
         for special_eaten_NA in hitting_special_enemy_NA:
             if self.direction == "R":
@@ -2245,7 +2580,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 7
         # Vocal H
         for special_eaten_HO in hitting_special_enemy_HA:
             if self.direction == "R":
@@ -2291,7 +2628,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 8
         # Vocal M
         for special_eaten_MA in hitting_special_enemy_MA:
             if self.direction == "R":
@@ -2337,7 +2676,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 9
         # Vocal Y
         for special_eaten_YA in hitting_special_enemy_YA:
             if self.direction == "R":
@@ -2365,7 +2706,9 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+        
 
+        # FOR LEVEL 10
         # Vocal R
         for special_eaten_RA in hitting_special_enemy_RA:
             if self.direction == "R":
@@ -2412,6 +2755,8 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
 
+
+        # FOR LEVEL 11
         # Vocal W
         for special_eaten_WA in hitting_special_enemy_WA:
             if self.direction == "R":
@@ -2440,6 +2785,7 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
+
 
         # when hit platform the bullet is gone
         hitting_platform = pygame.sprite.spritecollide(
