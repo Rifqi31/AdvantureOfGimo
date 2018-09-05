@@ -35,19 +35,23 @@ class Level_01(Level):
 
         # Array with type of platform, and x, y location of the platform.
         # for level 01
-        level01 = [[platforms_dirt.dirt_wall, -140, 0],
-                   [platforms_dirt.dirt_medium_long_land, 0, 460],
-                   [platforms_dirt.dirt_medium_long_land, 700, 460],
-                   [platforms_dirt.dirt_medium_short_land, 770, 196],
-                   [platforms_dirt.dirt_short_land, 1330, 460],
-                   [platforms_dirt.dirt_grass_rounded, 1146, 319],
-                   [platforms_dirt.dirt_medium_short_land, 1218, 125],
-                   [platforms_dirt.dirt_medium_long_land, 1680, 460],
-                   [platforms_dirt.dirt_big_wall, 2100, 0]]
+        level01 = [
+            [platforms_dirt.dirt_wall, -140, 0],
+            [platforms_dirt.dirt_medium_long_land, 0, 460],
+            [platforms_dirt.dirt_medium_long_land, 700, 460],
+            [platforms_dirt.dirt_medium_short_land, 770, 196],
+            [platforms_dirt.dirt_short_land, 1330, 460],
+            [platforms_dirt.dirt_grass_rounded, 1146, 319],
+            [platforms_dirt.dirt_medium_short_land, 1218, 125],
+            [platforms_dirt.dirt_medium_long_land, 1680, 460],
+            [platforms_dirt.dirt_big_wall, 2100, 0]
+        ]
 
-        water_level01 = [[platforms_bad_sprite.medium_long_water, 490, 531],
-                         [platforms_bad_sprite.medium_short_water, 1190, 531],
-                         [platforms_bad_sprite.medium_long_water, 1470, 531]]
+        water_level01 = [
+            [platforms_bad_sprite.medium_long_water, 490, 531],
+            [platforms_bad_sprite.medium_short_water, 1190, 531],
+            [platforms_bad_sprite.medium_long_water, 1470, 531]
+        ]
 
         portal = [[platforms_item.portal_snow, 2030, 380]]
 
@@ -57,9 +61,11 @@ class Level_01(Level):
         hiragana_i = [[platforms_hiragana.hiragana_i, 600, 48]]
         hiragana_u = [[platforms_hiragana.hiragana_u, 200, 200]]
 
-        toxic_frog = [[platforms_enemy.fat_frog, 300, 405],
-                      [platforms_enemy.fat_frog, 400, 405],
-                      [platforms_enemy.fat_frog, 1680, 405]]
+        toxic_frog = [
+            [platforms_enemy.fat_frog, 300, 405],
+            [platforms_enemy.fat_frog, 400, 405],
+            [platforms_enemy.fat_frog, 1680, 405]
+        ]
 
         # for special enemy
         special_enemy_a = [[platforms_special_enemy.big_ogre_a, 700, 360]]
@@ -73,11 +79,11 @@ class Level_01(Level):
             self.platform_list.add(block)
 
         for platform in water_level01:
-            water_suicide = platforms_bad_sprite.Platform_dirt(platform[0])
-            water_suicide.rect.x = platform[1]
-            water_suicide.rect.y = platform[2]
-            water_suicide.player = self.player
-            self.death_place_list.add(water_suicide)
+            water_suicide_lv1 = platforms_bad_sprite.Platform_dirt(platform[0])
+            water_suicide_lv1.rect.x = platform[1]
+            water_suicide_lv1.rect.y = platform[2]
+            water_suicide_lv1.player = self.player
+            self.death_place_list_lv1.add(water_suicide_lv1)
 
         for platform in love_health:
             love_restore = platforms_item.Platform_hiragana_katakana(
@@ -124,11 +130,11 @@ class Level_01(Level):
             self.hiragana_U.add(false_point_lv1)
 
         for platform in toxic_frog:
-            eaten = platforms_enemy.Platform_enemy(platform[0])
-            eaten.rect.x = platform[1]
-            eaten.rect.y = platform[2]
-            eaten.player = self.player
-            self.enemy_list.add(eaten)
+            eaten_lv1 = platforms_enemy.Platform_enemy(platform[0])
+            eaten_lv1.rect.x = platform[1]
+            eaten_lv1.rect.y = platform[2]
+            eaten_lv1.player = self.player
+            self.enemy_list_lv1.add(eaten_lv1)
 
         # for special enemy/immune enemys
         for platform in special_enemy_a:
@@ -148,32 +154,32 @@ class Level_01(Level):
             self.special_enemy_list_I.add(special_eaten_I)
 
         # Moving Enemy
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.fat_frog)
-        eaten.rect.x = 780
-        eaten.rect.y = 405
-        eaten.boundary_left = 700
-        eaten.boundary_right = 1100
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv1 = platforms_enemy.MovingEnemy(platforms_enemy.fat_frog)
+        eaten_lv1.rect.x = 780
+        eaten_lv1.rect.y = 405
+        eaten_lv1.boundary_left = 700
+        eaten_lv1.boundary_right = 1100
+        eaten_lv1.change_x = 3
+        eaten_lv1.player = self.player
+        eaten_lv1.level = self
+        self.enemy_list_lv1.add(eaten_lv1)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.fat_frog)
-        eaten.rect.x = 790
-        eaten.rect.y = 140
-        eaten.boundary_left = 790
-        eaten.boundary_right = 1000
-        eaten.change_x = 6
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv1 = platforms_enemy.MovingEnemy(platforms_enemy.fat_frog)
+        eaten_lv1.rect.x = 790
+        eaten_lv1.rect.y = 140
+        eaten_lv1.boundary_left = 790
+        eaten_lv1.boundary_right = 1000
+        eaten_lv1.change_x = 6
+        eaten_lv1.player = self.player
+        eaten_lv1.level = self
+        self.enemy_list_lv1.add(eaten_lv1)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.fat_frog)
-        eaten.rect.x = 1300
-        eaten.rect.y = 70
-        eaten.boundary_left = 1300
-        eaten.boundary_right = 1450
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv1 = platforms_enemy.MovingEnemy(platforms_enemy.fat_frog)
+        eaten_lv1.rect.x = 1300
+        eaten_lv1.rect.y = 70
+        eaten_lv1.boundary_left = 1300
+        eaten_lv1.boundary_right = 1450
+        eaten_lv1.change_x = 3
+        eaten_lv1.player = self.player
+        eaten_lv1.level = self
+        self.enemy_list_lv1.add(eaten_lv1)

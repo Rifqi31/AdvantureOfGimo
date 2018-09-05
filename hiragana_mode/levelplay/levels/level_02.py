@@ -81,11 +81,11 @@ class Level_02(Level):
             self.platform_list.add(block)
 
         for platform in water_level02:
-            water_suicide = platforms_bad_sprite.Platform_dirt(platform[0])
-            water_suicide.rect.x = platform[1]
-            water_suicide.rect.y = platform[2]
-            water_suicide.player = self.player
-            self.death_place_list.add(water_suicide)
+            water_suicide_lv2 = platforms_bad_sprite.Platform_dirt(platform[0])
+            water_suicide_lv2.rect.x = platform[1]
+            water_suicide_lv2.rect.y = platform[2]
+            water_suicide_lv2.player = self.player
+            self.death_place_list_lv2.add(water_suicide_lv2)
 
         for platform in portal:
             gate = platforms_item.Platform_snow(platform[0])
@@ -218,42 +218,42 @@ class Level_02(Level):
         self.platform_list.add(block)
 
         # Moving Enemy
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
-        eaten.rect.x = 200
-        eaten.rect.y = 400
-        eaten.boundary_left = 200
-        eaten.boundary_right = 450
-        eaten.change_x = 5
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv2 = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
+        eaten_lv2.rect.x = 200
+        eaten_lv2.rect.y = 400
+        eaten_lv2.boundary_left = 200
+        eaten_lv2.boundary_right = 450
+        eaten_lv2.change_x = 5
+        eaten_lv2.player = self.player
+        eaten_lv2.level = self
+        self.enemy_list_lv2.add(eaten_lv2)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
-        eaten.rect.x = 70
-        eaten.rect.y = 30
-        eaten.boundary_left = 70
-        eaten.boundary_right = 230
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv2 = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
+        eaten_lv2.rect.x = 70
+        eaten_lv2.rect.y = 30
+        eaten_lv2.boundary_left = 70
+        eaten_lv2.boundary_right = 230
+        eaten_lv2.change_x = 3
+        eaten_lv2.player = self.player
+        eaten_lv2.level = self
+        self.enemy_list_lv2.add(eaten_lv2)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
-        eaten.rect.x = 1160
-        eaten.rect.y = 120
-        eaten.boundary_left = 1160
-        eaten.boundary_right = 1300
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv2 = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
+        eaten_lv2.rect.x = 1160
+        eaten_lv2.rect.y = 120
+        eaten_lv2.boundary_left = 1160
+        eaten_lv2.boundary_right = 1300
+        eaten_lv2.change_x = 3
+        eaten_lv2.player = self.player
+        eaten_lv2.level = self
+        self.enemy_list_lv2.add(eaten_lv2)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
-        eaten.rect.x = 1160
-        eaten.rect.y = 400
-        eaten.boundary_left = 1160
-        eaten.boundary_right = 1300
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv2 = platforms_enemy.MovingEnemy(platforms_enemy.bad_ogre)
+        eaten_lv2.rect.x = 1160
+        eaten_lv2.rect.y = 400
+        eaten_lv2.boundary_left = 1160
+        eaten_lv2.boundary_right = 1300
+        eaten_lv2.change_x = 3
+        eaten_lv2.player = self.player
+        eaten_lv2.level = self
+        self.enemy_list_lv2.add(eaten_lv2)

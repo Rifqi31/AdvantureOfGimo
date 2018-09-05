@@ -73,12 +73,14 @@ class Level_10(Level):
         hiragana_ro = [[platforms_hiragana.hiragana_ro, 1800, 100]]
 
         # enemys
-        slime_lava = [[platforms_enemy.orange_slime, 770, 357],
-                      [platforms_enemy.orange_slime, 805, 357],
-                      [platforms_enemy.orange_slime, 840, 286],
-                      [platforms_enemy.orange_slime, 875, 286],
-                      [platforms_enemy.orange_slime, 910, 216],
-                      [platforms_enemy.orange_slime, 945, 216]]
+        slime_lava = [
+            [platforms_enemy.orange_slime, 770, 357],
+            [platforms_enemy.orange_slime, 805, 357],
+            [platforms_enemy.orange_slime, 840, 286],
+            [platforms_enemy.orange_slime, 875, 286],
+            [platforms_enemy.orange_slime, 910, 216],
+            [platforms_enemy.orange_slime, 945, 216]
+        ]
 
         # special enemys
         special_enemy_ro = [[platforms_special_enemy.slime_lava_ro, 2100, 10]]
@@ -91,12 +93,12 @@ class Level_10(Level):
             self.platform_list.add(block)
 
         for platform in lava_water_level10:
-            lava_water_suicide = platforms_bad_sprite.Platform_lava_rock(
+            lava_water_suicide_lv10 = platforms_bad_sprite.Platform_lava_rock(
                 platform[0])
-            lava_water_suicide.rect.x = platform[1]
-            lava_water_suicide.rect.y = platform[2]
-            lava_water_suicide.player = self.player
-            self.death_place_list.add(lava_water_suicide)
+            lava_water_suicide_lv10.rect.x = platform[1]
+            lava_water_suicide_lv10.rect.y = platform[2]
+            lava_water_suicide_lv10.player = self.player
+            self.death_place_list_lv10.add(lava_water_suicide_lv10)
 
         for platform in portal:
             gate = platforms_item.Platform_snow(platform[0])
@@ -115,11 +117,11 @@ class Level_10(Level):
 
         # Enemys
         for platform in slime_lava:
-            eaten = platforms_enemy.Platform_enemy(platform[0])
-            eaten.rect.x = platform[1]
-            eaten.rect.y = platform[2]
-            eaten.player = self.player
-            self.enemy_list.add(eaten)
+            eaten_lv10 = platforms_enemy.Platform_enemy(platform[0])
+            eaten_lv10.rect.x = platform[1]
+            eaten_lv10.rect.y = platform[2]
+            eaten_lv10.player = self.player
+            self.enemy_list_lv10.add(eaten_lv10)
 
         # Special enemys
         # Hiragana Ro
@@ -190,45 +192,45 @@ class Level_10(Level):
         self.platform_list.add(block)
 
         # add moving enemys
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
-        eaten.rect.x = 1540
-        eaten.rect.y = 350
-        eaten.boundary_left = 1540
-        eaten.boundary_right = 1780
-        eaten.change_x = 5
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv10 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
+        eaten_lv10.rect.x = 1540
+        eaten_lv10.rect.y = 350
+        eaten_lv10.boundary_left = 1540
+        eaten_lv10.boundary_right = 1780
+        eaten_lv10.change_x = 5
+        eaten_lv10.player = self.player
+        eaten_lv10.level = self
+        self.enemy_list_lv10.add(eaten_lv10)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
-        eaten.rect.x = 1540
-        eaten.rect.y = 350
-        eaten.boundary_left = 1540
-        eaten.boundary_right = 1780
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv10 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
+        eaten_lv10.rect.x = 1540
+        eaten_lv10.rect.y = 350
+        eaten_lv10.boundary_left = 1540
+        eaten_lv10.boundary_right = 1780
+        eaten_lv10.change_x = 3
+        eaten_lv10.player = self.player
+        eaten_lv10.level = self
+        self.enemy_list_lv10.add(eaten_lv10)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
-        eaten.rect.x = 1540
-        eaten.rect.y = 350
-        eaten.boundary_left = 1540
-        eaten.boundary_right = 1780
-        eaten.change_x = 2
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv10 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
+        eaten_lv10.rect.x = 1540
+        eaten_lv10.rect.y = 350
+        eaten_lv10.boundary_left = 1540
+        eaten_lv10.boundary_right = 1780
+        eaten_lv10.change_x = 2
+        eaten_lv10.player = self.player
+        eaten_lv10.level = self
+        self.enemy_list_lv10.add(eaten_lv10)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 1960
-        eaten.rect.y = 110
-        eaten.boundary_top = 100
-        eaten.boundary_bottom = 450
-        eaten.change_y = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv10 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv10.rect.x = 1960
+        eaten_lv10.rect.y = 110
+        eaten_lv10.boundary_top = 100
+        eaten_lv10.boundary_bottom = 450
+        eaten_lv10.change_y = 3
+        eaten_lv10.player = self.player
+        eaten_lv10.level = self
+        self.enemy_list_lv10.add(eaten_lv10)
 
         # add moving special enemys
         # Hiragana Ra
