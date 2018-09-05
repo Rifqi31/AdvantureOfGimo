@@ -17,19 +17,42 @@ from hiragana_mode import platform_scroller_hiragana
 from katakana_mode import platform_scroller_katakana
 
 # import level hiragana
-from hiragana_mode.levelplay.mainlevel import (
-    play_hiragana_level_1,
-    play_hiragana_level_2,
-    play_hiragana_level_3,
-    play_hiragana_level_4,
-    play_hiragana_level_5,
-    play_hiragana_level_6,
-    play_hiragana_level_7,
-    play_hiragana_level_8,
-    play_hiragana_level_9,
-    play_hiragana_level_10,
+from hiragana_mode.levelplay.mainlevel.hiragana_level_1 import (
+    play_hiragana_level_1
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_2 import (
+    play_hiragana_level_2
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_3 import (
+    play_hiragana_level_3
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_4 import (
+    play_hiragana_level_4
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_5 import (
+    play_hiragana_level_5
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_6 import (
+    play_hiragana_level_6
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_7 import (
+    play_hiragana_level_7
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_8 import (
+    play_hiragana_level_8
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_9 import (
+    play_hiragana_level_9
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_10 import (
+    play_hiragana_level_10
+)
+from hiragana_mode.levelplay.mainlevel.hiragana_level_11 import (
     play_hiragana_level_11
 )
+
+
+
 
 # import level katakana
 from katakana_mode.levelplay.mainlevel import (
@@ -462,6 +485,9 @@ def main_menu():
 
     # set clock
     clock = pygame.time.Clock()
+
+    # stop the background music
+    pygame.mixer.stop()
 
     # Play Menu
     play_menu = pygameMenu.Menu(
