@@ -15,7 +15,9 @@ from game_screens import mainmenu
 # import game settings module
 from game_settings import configscreen, configsounds
 # import hiragana mode level module
-from hiragana_mode.levelplay.mainlevel import play_hiragana_level_1
+from hiragana_mode.levelplay.mainlevel.hiragana_level_1 import (
+    play_hiragana_level_1
+)
 
 
 def show_game_over_hiragana():
