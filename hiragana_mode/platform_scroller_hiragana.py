@@ -15,7 +15,7 @@ import constants
 # import random module
 import random
 # import game screen module
-from game_screens import mainmenu, gameoverscreen
+from game_screens import mainmenu
 # import levels
 from hiragana_mode.levelplay.levels import (
     level_tutorial, level_tutorial_gameplay,
@@ -90,7 +90,7 @@ def gameplay():
     # variable for game exit of course
     gameExit = False
     # variabel for game over of course
-    gameOver = False
+    # gameOver = False
 
     # play the sound
     configsounds.turn_on_sounds()
@@ -207,9 +207,9 @@ def gameplay():
 
     # -------- Main Program Loop -----------
     while not gameExit:
-        if gameOver:
+        # if gameOver:
 
-            gameoverscreen.show_game_over_hiragana()
+        #    gameoverscreen.show_game_over_hiragana()
 
         events = pygame.event.get()
         for event in events:  # User did something
