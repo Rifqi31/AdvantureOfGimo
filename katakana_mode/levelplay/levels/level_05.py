@@ -58,17 +58,19 @@ class Level_05(Level):
             [platforms_red_brick.brick_red_wall, 2790, 0]
         ]
 
-        water_level05 = [[platforms_bad_sprite.medium_short_water, 260, 531],
-                         [platforms_bad_sprite.medium_long_water, 280, 531],
-                         [platforms_bad_sprite.medium_long_water, 490, 531],
-                         [platforms_bad_sprite.medium_long_water, 700, 531],
-                         [platforms_bad_sprite.medium_short_water, 770, 531],
-                         [platforms_bad_sprite.medium_short_water, 840, 531],
-                         [platforms_bad_sprite.medium_long_water, 1330, 531],
-                         [platforms_bad_sprite.medium_long_water, 1540, 531],
-                         [platforms_bad_sprite.medium_long_water, 1750, 531],
-                         [platforms_bad_sprite.medium_long_water, 1960, 531],
-                         [platforms_bad_sprite.medium_short_water, 2100, 531]]
+        water_level05 = [
+            [platforms_bad_sprite.medium_short_water, 260, 531],
+            [platforms_bad_sprite.medium_long_water, 280, 531],
+            [platforms_bad_sprite.medium_long_water, 490, 531],
+            [platforms_bad_sprite.medium_long_water, 700, 531],
+            [platforms_bad_sprite.medium_short_water, 770, 531],
+            [platforms_bad_sprite.medium_short_water, 840, 531],
+            [platforms_bad_sprite.medium_long_water, 1330, 531],
+            [platforms_bad_sprite.medium_long_water, 1540, 531],
+            [platforms_bad_sprite.medium_long_water, 1750, 531],
+            [platforms_bad_sprite.medium_long_water, 1960, 531],
+            [platforms_bad_sprite.medium_short_water, 2100, 531]
+        ]
 
         portal = [[platforms_item.portal_snow, 2447, 440]]
 
@@ -95,11 +97,11 @@ class Level_05(Level):
             self.platform_list.add(block)
 
         for platform in water_level05:
-            water_suicide = platforms_bad_sprite.Platform_dirt(platform[0])
-            water_suicide.rect.x = platform[1]
-            water_suicide.rect.y = platform[2]
-            water_suicide.player = self.player
-            self.death_place_list.add(water_suicide)
+            water_suicide_lv5 = platforms_bad_sprite.Platform_dirt(platform[0])
+            water_suicide_lv5.rect.x = platform[1]
+            water_suicide_lv5.rect.y = platform[2]
+            water_suicide_lv5.player = self.player
+            self.death_place_list_lv5.add(water_suicide_lv5)
 
         for platform in portal:
             gate = platforms_item.Platform_snow(platform[0])
@@ -247,106 +249,106 @@ class Level_05(Level):
         block.level = self
         self.platform_list.add(block)
 
-        # moving enemys
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 500
-        eaten.rect.y = 30
-        eaten.boundary_left = 500
-        eaten.boundary_right = 700
-        eaten.change_x = 5
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        # mov_lv5ing enemys
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv5.rect.x = 500
+        eaten_lv5.rect.y = 30
+        eaten_lv5.boundary_left = 500
+        eaten_lv5.boundary_right = 700
+        eaten_lv5.change_x = 5
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 600
-        eaten.rect.y = 30
-        eaten.boundary_left = 600
-        eaten.boundary_right = 900
-        eaten.change_x = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv5.rect.x = 600
+        eaten_lv5.rect.y = 30
+        eaten_lv5.boundary_left = 600
+        eaten_lv5.boundary_right = 900
+        eaten_lv5.change_x = 4
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 750
-        eaten.rect.y = 190
-        eaten.boundary_top = 120
-        eaten.boundary_bottom = 300
-        eaten.change_y = 6
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv5.rect.x = 750
+        eaten_lv5.rect.y = 190
+        eaten_lv5.boundary_top = 120
+        eaten_lv5.boundary_bottom = 300
+        eaten_lv5.change_y = 6
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 950
-        eaten.rect.y = 190
-        eaten.boundary_top = 30
-        eaten.boundary_bottom = 300
-        eaten.change_y = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv5.rect.x = 950
+        eaten_lv5.rect.y = 190
+        eaten_lv5.boundary_top = 30
+        eaten_lv5.boundary_bottom = 300
+        eaten_lv5.change_y = 4
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 1185
-        eaten.rect.y = 100
-        eaten.boundary_left = 1185
-        eaten.boundary_right = 1400
-        eaten.change_x = 6
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv5.rect.x = 1185
+        eaten_lv5.rect.y = 100
+        eaten_lv5.boundary_left = 1185
+        eaten_lv5.boundary_right = 1400
+        eaten_lv5.change_x = 6
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 1250
-        eaten.rect.y = 300
-        eaten.boundary_top = 300
-        eaten.boundary_bottom = 500
-        eaten.change_y = 5
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv5.rect.x = 1250
+        eaten_lv5.rect.y = 300
+        eaten_lv5.boundary_top = 300
+        eaten_lv5.boundary_bottom = 500
+        eaten_lv5.change_y = 5
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 1538
-        eaten.rect.y = 190
-        eaten.boundary_top = 30
-        eaten.boundary_bottom = 300
-        eaten.change_y = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv5.rect.x = 1538
+        eaten_lv5.rect.y = 190
+        eaten_lv5.boundary_top = 30
+        eaten_lv5.boundary_bottom = 300
+        eaten_lv5.change_y = 4
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 1800
-        eaten.rect.y = 190
-        eaten.boundary_top = 30
-        eaten.boundary_bottom = 300
-        eaten.change_y = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv5.rect.x = 1800
+        eaten_lv5.rect.y = 190
+        eaten_lv5.boundary_top = 30
+        eaten_lv5.boundary_bottom = 300
+        eaten_lv5.change_y = 4
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 1830
-        eaten.rect.y = 250
-        eaten.boundary_left = 1830
-        eaten.boundary_right = 1900
-        eaten.change_x = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv5.rect.x = 1830
+        eaten_lv5.rect.y = 250
+        eaten_lv5.boundary_left = 1830
+        eaten_lv5.boundary_right = 1900
+        eaten_lv5.change_x = 4
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 1850
-        eaten.rect.y = 250
-        eaten.boundary_left = 1850
-        eaten.boundary_right = 1930
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv5 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv5.rect.x = 1850
+        eaten_lv5.rect.y = 250
+        eaten_lv5.boundary_left = 1850
+        eaten_lv5.boundary_right = 1930
+        eaten_lv5.change_x = 3
+        eaten_lv5.player = self.player
+        eaten_lv5.level = self
+        self.enemy_list_lv5.add(eaten_lv5)
 
         special_eaten_TI = platforms_special_enemy.MovingEnemySpecial(
             platforms_special_enemy.big_ogre_ti)

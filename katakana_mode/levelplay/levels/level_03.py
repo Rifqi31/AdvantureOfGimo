@@ -64,11 +64,13 @@ class Level_03(Level):
         love_health = [[platforms_item.restore_health, 980, 80]]
 
         # enemys
-        bad_bat = [[platforms_enemy.dark_bat, 280, 400],
-                   [platforms_enemy.dark_bat, 350, 330],
-                   [platforms_enemy.dark_bat, 420, 260],
-                   [platforms_enemy.dark_bat, 280, 150],
-                   [platforms_enemy.dark_bat, 1680, 400]]
+        bad_bat = [
+            [platforms_enemy.dark_bat, 280, 400],
+            [platforms_enemy.dark_bat, 350, 330],
+            [platforms_enemy.dark_bat, 420, 260],
+            [platforms_enemy.dark_bat, 280, 150],
+            [platforms_enemy.dark_bat, 1680, 400]
+        ]
 
         # special enemys
         special_enemy_ka = [[platforms_special_enemy.dark_rabbit_ka, 700, 2]]
@@ -94,11 +96,11 @@ class Level_03(Level):
             self.platform_list.add(block)
 
         for platform in sharp_rock_level02:
-            sharp_rock = platforms_dark_brick.Platform_dark_brick(platform[0])
-            sharp_rock.rect.x = platform[1]
-            sharp_rock.rect.y = platform[2]
-            sharp_rock.player = self.player
-            self.death_place_list.add(sharp_rock)
+            sharp_rock_lv3 = platforms_dark_brick.Platform_dark_brick(platform[0])
+            sharp_rock_lv3.rect.x = platform[1]
+            sharp_rock_lv3.rect.y = platform[2]
+            sharp_rock_lv3.player = self.player
+            self.death_place_list_lv3.add(sharp_rock_lv3)
 
         for platform in portal:
             gate = platforms_item.Platform_snow(platform[0])
@@ -116,11 +118,11 @@ class Level_03(Level):
             self.love_restore_health.add(love_restore)
 
         for platform in bad_bat:
-            eaten = platforms_enemy.Platform_enemy(platform[0])
-            eaten.rect.x = platform[1]
-            eaten.rect.y = platform[2]
-            eaten.player = self.player
-            self.enemy_list.add(eaten)
+            eaten_lv3 = platforms_enemy.Platform_enemy(platform[0])
+            eaten_lv3.rect.x = platform[1]
+            eaten_lv3.rect.y = platform[2]
+            eaten_lv3.player = self.player
+            self.enemy_list_lv3.add(eaten_lv3)
 
         # Special enemys
         # katakana Ka
@@ -227,22 +229,22 @@ class Level_03(Level):
         self.platform_list.add(block)
 
         # Moving Enemys
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 900
-        eaten.rect.y = 200
-        eaten.boundary_left = 900
-        eaten.boundary_right = 1000
-        eaten.change_x = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv3 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv3.rect.x = 900
+        eaten_lv3.rect.y = 200
+        eaten_lv3.boundary_left = 900
+        eaten_lv3.boundary_right = 1000
+        eaten_lv3.change_x = 4
+        eaten_lv3.player = self.player
+        eaten_lv3.level = self
+        self.enemy_list_lv3.add(eaten_lv3)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 800
-        eaten.rect.y = 450
-        eaten.boundary_left = 800
-        eaten.boundary_right = 1000
-        eaten.change_x = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv3 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv3.rect.x = 800
+        eaten_lv3.rect.y = 450
+        eaten_lv3.boundary_left = 800
+        eaten_lv3.boundary_right = 1000
+        eaten_lv3.change_x = 4
+        eaten_lv3.player = self.player
+        eaten_lv3.level = self
+        self.enemy_list_lv3.add(eaten_lv3)

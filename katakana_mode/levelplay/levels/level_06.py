@@ -33,30 +33,36 @@ class Level_06(Level):
 
         # Array with type of platform, and x, y location of the platform.
         # for level 06
-        level06 = [[platforms_snow.snow_dirt_wall, -140, 0],
-                   [platforms_snow.snow_dirt_grass_medium_large, 0, 530],
-                   [platforms_snow.snow_dirt_grass_short_tall, 490, 390],
-                   [platforms_snow.snow_dirt_grass_medium_tall, 560, 320],
-                   [platforms_snow.snow_dirt_grass_rounded, 320, 190],
-                   [platforms_snow.snow_dirt_tall_grass_left_right, 740, 0],
-                   [platforms_snow.snow_dirt_grass_small_large, 0, 120],
-                   [platforms_snow.snow_dirt_tall_grass_left_right, 1240, 260],
-                   [platforms_snow.snow_dirt_grass_up_down, 1310, 260],
-                   [platforms_snow.snow_dirt_grass_medium_large, 1380, 460],
-                   [platforms_snow.snow_dirt_grass_medium_large, 1870, 460],
-                   [platforms_snow.snow_dirt_big_wall, 2080, 0]]
+        level06 = [
+            [platforms_snow.snow_dirt_wall, -140, 0],
+            [platforms_snow.snow_dirt_grass_medium_large, 0, 530],
+            [platforms_snow.snow_dirt_grass_short_tall, 490, 390],
+            [platforms_snow.snow_dirt_grass_medium_tall, 560, 320],
+            [platforms_snow.snow_dirt_grass_rounded, 320, 190],
+            [platforms_snow.snow_dirt_tall_grass_left_right, 740, 0],
+            [platforms_snow.snow_dirt_grass_small_large, 0, 120],
+            [platforms_snow.snow_dirt_tall_grass_left_right, 1240, 260],
+            [platforms_snow.snow_dirt_grass_up_down, 1310, 260],
+            [platforms_snow.snow_dirt_grass_medium_large, 1380, 460],
+            [platforms_snow.snow_dirt_grass_medium_large, 1870, 460],
+            [platforms_snow.snow_dirt_big_wall, 2080, 0]
+        ]
 
-        water_level06 = [[platforms_bad_sprite.medium_long_water, 280, 531],
-                         [platforms_bad_sprite.medium_long_water, 630, 531],
-                         [platforms_bad_sprite.medium_long_water, 840, 531],
-                         [platforms_bad_sprite.medium_long_water, 1030, 531],
-                         [platforms_bad_sprite.medium_short_water, 1310, 531],
-                         [platforms_bad_sprite.medium_long_water, 1660, 531]]
+        water_level06 = [
+            [platforms_bad_sprite.medium_long_water, 280, 531],
+            [platforms_bad_sprite.medium_long_water, 630, 531],
+            [platforms_bad_sprite.medium_long_water, 840, 531],
+            [platforms_bad_sprite.medium_long_water, 1030, 531],
+            [platforms_bad_sprite.medium_short_water, 1310, 531],
+            [platforms_bad_sprite.medium_long_water, 1660, 531]
+        ]
 
         portal = [[platforms_item.portal_snow, 2010, 390]]
 
-        love_health = [[platforms_item.restore_health, 0, 40],
-                       [platforms_item.restore_health, 1450, 350]]
+        love_health = [
+            [platforms_item.restore_health, 0, 40],
+            [platforms_item.restore_health, 1450, 350]
+        ]
 
         # katakana point
         katakana_na = [[platforms_katakana.katakana_na, 560, 100]]
@@ -66,8 +72,10 @@ class Level_06(Level):
         katakana_no = [[platforms_katakana.katakana_no, 1380, 350]]
 
         # enemys
-        ghost = [[platforms_enemy.skull_ghost, 490, 330],
-                 [platforms_enemy.skull_ghost, 580, 260]]
+        ghost = [
+            [platforms_enemy.skull_ghost, 490, 330],
+            [platforms_enemy.skull_ghost, 580, 260]
+        ]
 
         # special enemys
         special_enemy_na = [[platforms_special_enemy.dark_rabbit_na, 320, 80]]
@@ -83,11 +91,11 @@ class Level_06(Level):
             self.platform_list.add(block)
 
         for platform in water_level06:
-            water_suicide = platforms_bad_sprite.Platform_dirt(platform[0])
-            water_suicide.rect.x = platform[1]
-            water_suicide.rect.y = platform[2]
-            water_suicide.player = self.player
-            self.death_place_list.add(water_suicide)
+            water_suicide_lv6 = platforms_bad_sprite.Platform_dirt(platform[0])
+            water_suicide_lv6.rect.x = platform[1]
+            water_suicide_lv6.rect.y = platform[2]
+            water_suicide_lv6.player = self.player
+            self.death_place_list_lv6.add(water_suicide_lv6)
 
         for platform in portal:
             gate = platforms_item.Platform_snow(platform[0])
@@ -106,11 +114,11 @@ class Level_06(Level):
 
         # Enemys
         for platform in ghost:
-            eaten = platforms_enemy.Platform_enemy(platform[0])
-            eaten.rect.x = platform[1]
-            eaten.rect.y = platform[2]
-            eaten.player = self.player
-            self.enemy_list.add(eaten)
+            eaten_lv6 = platforms_enemy.Platform_enemy(platform[0])
+            eaten_lv6.rect.x = platform[1]
+            eaten_lv6.rect.y = platform[2]
+            eaten_lv6.player = self.player
+            self.enemy_list_lv6.add(eaten_lv6)
 
         # Special enemys
         # katakana Na
@@ -210,35 +218,35 @@ class Level_06(Level):
         self.platform_list.add(block)
 
         # add moving enemys
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 690
-        eaten.rect.y = 430
-        eaten.boundary_left = 690
-        eaten.boundary_right = 1100
-        eaten.change_x = 2
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv6 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv6.rect.x = 690
+        eaten_lv6.rect.y = 430
+        eaten_lv6.boundary_left = 690
+        eaten_lv6.boundary_right = 1100
+        eaten_lv6.change_x = 2
+        eaten_lv6.player = self.player
+        eaten_lv6.level = self
+        self.enemy_list_lv6.add(eaten_lv6)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 690
-        eaten.rect.y = 380
-        eaten.boundary_left = 690
-        eaten.boundary_right = 1100
-        eaten.change_x = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv6 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv6.rect.x = 690
+        eaten_lv6.rect.y = 380
+        eaten_lv6.boundary_left = 690
+        eaten_lv6.boundary_right = 1100
+        eaten_lv6.change_x = 4
+        eaten_lv6.player = self.player
+        eaten_lv6.level = self
+        self.enemy_list_lv6.add(eaten_lv6)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
-        eaten.rect.x = 1350
-        eaten.rect.y = 200
-        eaten.boundary_left = 1350
-        eaten.boundary_right = 1450
-        eaten.change_x = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv6 = platforms_enemy.MovingEnemy(platforms_enemy.skull_ghost)
+        eaten_lv6.rect.x = 1350
+        eaten_lv6.rect.y = 200
+        eaten_lv6.boundary_left = 1350
+        eaten_lv6.boundary_right = 1450
+        eaten_lv6.change_x = 4
+        eaten_lv6.player = self.player
+        eaten_lv6.level = self
+        self.enemy_list_lv6.add(eaten_lv6)
 
         # add moving special enemys
         special_eaten_NU = platforms_special_enemy.MovingEnemySpecial(

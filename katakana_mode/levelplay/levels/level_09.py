@@ -50,16 +50,18 @@ class Level_09(Level):
             [platforms_ancient_brick.ancient_brick_wall, 2900, 0]
         ]
 
-        water_level09 = [[platforms_bad_sprite.medium_long_water, 210, 531],
-                         [platforms_bad_sprite.medium_long_water, 490, 531],
-                         [platforms_bad_sprite.medium_long_water, 700, 531],
-                         [platforms_bad_sprite.medium_long_water, 1120, 531],
-                         [platforms_bad_sprite.medium_long_water, 1330, 531],
-                         [platforms_bad_sprite.medium_long_water, 1540, 531],
-                         [platforms_bad_sprite.medium_short_water, 1660, 531],
-                         [platforms_bad_sprite.medium_long_water, 1730, 531],
-                         [platforms_bad_sprite.medium_long_water, 1940, 531],
-                         [platforms_bad_sprite.medium_short_water, 2060, 531]]
+        water_level09 = [
+            [platforms_bad_sprite.medium_long_water, 210, 531],
+            [platforms_bad_sprite.medium_long_water, 490, 531],
+            [platforms_bad_sprite.medium_long_water, 700, 531],
+            [platforms_bad_sprite.medium_long_water, 1120, 531],
+            [platforms_bad_sprite.medium_long_water, 1330, 531],
+            [platforms_bad_sprite.medium_long_water, 1540, 531],
+            [platforms_bad_sprite.medium_short_water, 1660, 531],
+            [platforms_bad_sprite.medium_long_water, 1730, 531],
+            [platforms_bad_sprite.medium_long_water, 1940, 531],
+            [platforms_bad_sprite.medium_short_water, 2060, 531]
+        ]
 
         portal = [[platforms_item.portal_snow, 2550, 459]]
 
@@ -81,11 +83,11 @@ class Level_09(Level):
             self.platform_list.add(block)
 
         for platform in water_level09:
-            water_suicide = platforms_bad_sprite.Platform_dirt(platform[0])
-            water_suicide.rect.x = platform[1]
-            water_suicide.rect.y = platform[2]
-            water_suicide.player = self.player
-            self.death_place_list.add(water_suicide)
+            water_suicide_lv9 = platforms_bad_sprite.Platform_dirt(platform[0])
+            water_suicide_lv9.rect.x = platform[1]
+            water_suicide_lv9.rect.y = platform[2]
+            water_suicide_lv9.player = self.player
+            self.death_place_list_lv9.add(water_suicide_lv9)
 
         for platform in portal:
             gate = platforms_item.Platform_snow(platform[0])
@@ -189,35 +191,35 @@ class Level_09(Level):
         self.platform_list.add(block)
 
         # add moving enemys
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
-        eaten.rect.x = 70
-        eaten.rect.y = 25
-        eaten.boundary_left = 70
-        eaten.boundary_right = 180
-        eaten.change_x = 3
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv9 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
+        eaten_lv9.rect.x = 70
+        eaten_lv9.rect.y = 25
+        eaten_lv9.boundary_left = 70
+        eaten_lv9.boundary_right = 180
+        eaten_lv9.change_x = 3
+        eaten_lv9.player = self.player
+        eaten_lv9.level = self
+        self.enemy_list_lv9.add(eaten_lv9)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 280
-        eaten.rect.y = 100
-        eaten.boundary_top = 100
-        eaten.boundary_bottom = 450
-        eaten.change_y = 4
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv9 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv9.rect.x = 280
+        eaten_lv9.rect.y = 100
+        eaten_lv9.boundary_top = 100
+        eaten_lv9.boundary_bottom = 450
+        eaten_lv9.change_y = 4
+        eaten_lv9.player = self.player
+        eaten_lv9.level = self
+        self.enemy_list_lv9.add(eaten_lv9)
 
-        eaten = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
-        eaten.rect.x = 700
-        eaten.rect.y = 100
-        eaten.boundary_top = 100
-        eaten.boundary_bottom = 450
-        eaten.change_y = 2
-        eaten.player = self.player
-        eaten.level = self
-        self.enemy_list.add(eaten)
+        eaten_lv9 = platforms_enemy.MovingEnemy(platforms_enemy.dark_bat)
+        eaten_lv9.rect.x = 700
+        eaten_lv9.rect.y = 100
+        eaten_lv9.boundary_top = 100
+        eaten_lv9.boundary_bottom = 450
+        eaten_lv9.change_y = 2
+        eaten_lv9.player = self.player
+        eaten_lv9.level = self
+        self.enemy_list_lv9.add(eaten_lv9)
 
         # add moving special enemy
         # katakana Yu
