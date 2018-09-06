@@ -52,20 +52,38 @@ from hiragana_mode.levelplay.mainlevel.hiragana_level_11 import (
 )
 
 
-
-
 # import level katakana
-from katakana_mode.levelplay.mainlevel import (
-    play_katakana_level_1,
-    play_katakana_level_2,
-    play_katakana_level_3,
-    play_katakana_level_4,
-    play_katakana_level_5,
-    play_katakana_level_6,
-    play_katakana_level_7,
-    play_katakana_level_8,
-    play_katakana_level_9,
-    play_katakana_level_10,
+from katakana_mode.levelplay.mainlevel.katakana_level_1 import (
+    play_katakana_level_1
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_2 import (
+    play_katakana_level_2
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_3 import (
+    play_katakana_level_3
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_4 import (
+    play_katakana_level_4
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_5 import (
+    play_katakana_level_5
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_6 import (
+    play_katakana_level_6
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_7 import (
+    play_katakana_level_7
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_8 import (
+    play_katakana_level_8
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_9 import (
+    play_katakana_level_9
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_10 import (
+    play_katakana_level_10
+)
+from katakana_mode.levelplay.mainlevel.katakana_level_11 import (
     play_katakana_level_11
 )
 
