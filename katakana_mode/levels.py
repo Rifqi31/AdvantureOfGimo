@@ -13,9 +13,32 @@ class Level():
         # Lists of sprites used in all levels. Add or remove
         # lists as needed for your game.
         self.platform_list = None
-        self.enemy_list = None
         self.portal_list = None
-        self.death_place_list = None
+        
+        self.enemy_list_lv1 = None
+        self.enemy_list_lv2 = None
+        self.enemy_list_lv3 = None
+        self.enemy_list_lv4 = None
+        self.enemy_list_lv5 = None
+        self.enemy_list_lv6 = None
+        self.enemy_list_lv7 = None
+        self.enemy_list_lv8 = None
+        self.enemy_list_lv9 = None
+        self.enemy_list_lv10 = None
+        self.enemy_list_lv11 = None
+        
+        # you will die with it
+        self.death_place_list_lv1 = None
+        self.death_place_list_lv2 = None
+        self.death_place_list_lv3 = None
+        self.death_place_list_lv4 = None
+        self.death_place_list_lv5 = None
+        self.death_place_list_lv6 = None
+        self.death_place_list_lv7 = None
+        self.death_place_list_lv8 = None
+        self.death_place_list_lv9 = None
+        self.death_place_list_lv10 = None
+        self.death_place_list_lv11 = None
         self.love_restore_health = None
 
         # this list for static picture in level Tutorial
@@ -183,8 +206,35 @@ class Level():
         # How far this world has been scrolled left/right
         self.world_shift = 0
         self.platform_list = pygame.sprite.Group()
-        self.enemy_list = pygame.sprite.Group()
         self.portal_list = pygame.sprite.Group()
+
+        self.enemy_list_lv1 = pygame.sprite.Group()
+        self.enemy_list_lv2 = pygame.sprite.Group()
+        self.enemy_list_lv3 = pygame.sprite.Group()
+        self.enemy_list_lv4 = pygame.sprite.Group()
+        self.enemy_list_lv5 = pygame.sprite.Group()
+        self.enemy_list_lv6 = pygame.sprite.Group()
+        self.enemy_list_lv7 = pygame.sprite.Group()
+        self.enemy_list_lv8 = pygame.sprite.Group()
+        self.enemy_list_lv9 = pygame.sprite.Group()
+        self.enemy_list_lv10 = pygame.sprite.Group()
+        self.enemy_list_lv11 = pygame.sprite.Group()
+
+        # you will die with it
+        self.death_place_list_lv1 = pygame.sprite.Group()
+        self.death_place_list_lv2 = pygame.sprite.Group()
+        self.death_place_list_lv3 = pygame.sprite.Group()
+        self.death_place_list_lv4 = pygame.sprite.Group()
+        self.death_place_list_lv5 = pygame.sprite.Group()
+        self.death_place_list_lv6 = pygame.sprite.Group()
+        self.death_place_list_lv7 = pygame.sprite.Group()
+        self.death_place_list_lv8 = pygame.sprite.Group()
+        self.death_place_list_lv9 = pygame.sprite.Group()
+        self.death_place_list_lv10 = pygame.sprite.Group()
+        self.death_place_list_lv11 = pygame.sprite.Group()
+
+
+
         self.death_place_list = pygame.sprite.Group()
         self.love_restore_health = pygame.sprite.Group()
 
@@ -352,8 +402,33 @@ class Level():
         """ Update everything in this level."""
         self.platform_list.update()
         self.portal_list.update()
-        self.death_place_list.update()
-        self.enemy_list.update()
+        
+        # you will die with it
+        self.death_place_list_lv1.update()
+        self.death_place_list_lv2.update()
+        self.death_place_list_lv3.update()
+        self.death_place_list_lv4.update()
+        self.death_place_list_lv5.update()
+        self.death_place_list_lv6.update()
+        self.death_place_list_lv7.update()
+        self.death_place_list_lv8.update()
+        self.death_place_list_lv9.update()
+        self.death_place_list_lv10.update()
+        self.death_place_list_lv11.update()
+
+        self.enemy_list_lv1.update()
+        self.enemy_list_lv2.update()
+        self.enemy_list_lv3.update()
+        self.enemy_list_lv4.update()
+        self.enemy_list_lv5.update()
+        self.enemy_list_lv6.update()
+        self.enemy_list_lv7.update()
+        self.enemy_list_lv8.update()
+        self.enemy_list_lv9.update()
+        self.enemy_list_lv10.update()
+        self.enemy_list_lv11.update()
+
+
         self.love_restore_health.update()
 
         # for tutorial level
@@ -521,8 +596,32 @@ class Level():
         # Draw all the sprite lists that we have
         self.platform_list.draw(screen)
         self.portal_list.draw(screen)
-        self.death_place_list.draw(screen)
-        self.enemy_list.draw(screen)
+
+        # you will die with it
+        self.death_place_list_lv1.draw(screen)
+        self.death_place_list_lv2.draw(screen)
+        self.death_place_list_lv3.draw(screen)
+        self.death_place_list_lv4.draw(screen)
+        self.death_place_list_lv5.draw(screen)
+        self.death_place_list_lv6.draw(screen)
+        self.death_place_list_lv7.draw(screen)
+        self.death_place_list_lv8.draw(screen)
+        self.death_place_list_lv9.draw(screen)
+        self.death_place_list_lv10.draw(screen)
+        self.death_place_list_lv11.draw(screen)
+
+        self.enemy_list_lv1.draw(screen)
+        self.enemy_list_lv2.draw(screen)
+        self.enemy_list_lv3.draw(screen)
+        self.enemy_list_lv4.draw(screen)
+        self.enemy_list_lv5.draw(screen)
+        self.enemy_list_lv6.draw(screen)
+        self.enemy_list_lv7.draw(screen)
+        self.enemy_list_lv8.draw(screen)
+        self.enemy_list_lv9.draw(screen)
+        self.enemy_list_lv10.draw(screen)
+        self.enemy_list_lv11.draw(screen)
+        
         self.love_restore_health.draw(screen)
 
         # for tutorial level
@@ -698,7 +797,38 @@ class Level():
         for platform in self.portal_list:
             platform.rect.x += shift_x
 
-        for platform in self.death_place_list:
+        # you will die with it
+        for platform in self.death_place_list_lv1:
+            platform.rect.x += shift_x
+        
+        for platform in self.death_place_list_lv2:
+            platform.rect.x += shift_x
+        
+        for platform in self.death_place_list_lv3:
+            platform.rect.x += shift_x
+
+        for platform in self.death_place_list_lv4:
+            platform.rect.x += shift_x
+
+        for platform in self.death_place_list_lv5:
+            platform.rect.x += shift_x
+
+        for platform in self.death_place_list_lv6:
+            platform.rect.x += shift_x
+
+        for platform in self.death_place_list_lv7:
+            platform.rect.x += shift_x
+
+        for platform in self.death_place_list_lv8:
+            platform.rect.x += shift_x
+        
+        for platform in self.death_place_list_lv9:
+            platform.rect.x += shift_x
+        
+        for platform in self.death_place_list_lv10:
+            platform.rect.x += shift_x
+
+        for platform in self.death_place_list_lv11:
             platform.rect.x += shift_x
 
         for platform in self.love_restore_health:
@@ -880,9 +1010,41 @@ class Level():
         for platform in self.katakana_KI_lv3:
             platform.rect.x += shift_x
 
-        for platform in self.enemy_list:
+        # enemy
+        for platform in self.enemy_list_lv1:
             platform.rect.x += shift_x
-
+        
+        for platform in self.enemy_list_lv2:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv3:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv4:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv5:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv6:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv7:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv8:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv9:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv10:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_lv11:
+            platform.rect.x += shift_x
+        
+        
         # For special enemys
         # Basic Vocal
         for platform in self.special_enemy_list_A:
