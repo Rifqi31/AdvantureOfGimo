@@ -192,7 +192,7 @@ def select_level_hiragana_display1():
     )
     # LEVEL PAGE 1
     select_level_hiragana_page1.add_option(
-        'Play All Leves', platform_scroller_hiragana.gameplay)
+        'Play All Levels', platform_scroller_hiragana.gameplay)
     select_level_hiragana_page1.add_option(
         'Level 01 ', play_hiragana_level_1.gameplay)
     select_level_hiragana_page1.add_option(
@@ -353,7 +353,7 @@ def select_level_katakana_display1():
     )
     # LEVEL PAGE 1
     select_level_katakana_page1.add_option(
-        'Play All Leves', platform_scroller_katakana.gameplay)
+        'Play All Levels', platform_scroller_katakana.gameplay)
     select_level_katakana_page1.add_option(
         'Level 01 ', play_katakana_level_1.gameplay)
     select_level_katakana_page1.add_option(
