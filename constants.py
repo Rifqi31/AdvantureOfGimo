@@ -26,8 +26,13 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
 # for about
-ABOUT = ['Author: Rifqi Muttaqin',
-         'Email: muttaqinrifqi31@gmail.com']
+CONTACT = ['Telegram : @gedion101',
+        'Email: muttaqinrifqi31@gmail.com']
+
+CREDITS = ['\t\t\tCreated by',
+        '\t\tRifqi Muttaqin',
+        '\t\t\tSpecial Thanks for',
+        '\t\tstellasabrina123 & gunflower']
 
 HELP = ['--> : Move Right',
         '<-- : Move Left',
