@@ -1,4 +1,4 @@
-# name file : player.py
+# name file : player_level_1.py
 # python version 3
 """
 This module is used to hold the Player class. The Player represents the user-
@@ -13,7 +13,7 @@ from pygame.locals import *
 import constants
 # import game screen modules
 from game_screens import endscreen
-from .overscreen_katakana import (
+from katakana_mode.overscreen_katakana import (
     dead_katakana_level_1, dead_katakana_level_2,
     dead_katakana_level_3, dead_katakana_level_4,
     dead_katakana_level_5, dead_katakana_level_6,

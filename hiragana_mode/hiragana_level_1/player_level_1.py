@@ -1,4 +1,4 @@
-# name file : player.py
+# name file : player_level_1.py
 # python version 3
 """
 This module is used to hold the Player class. The Player represents the user-
@@ -13,13 +13,13 @@ from pygame.locals import *
 import constants
 # import game screen modules
 from game_screens import endscreen
-from .overscreen_katakana import (
-    dead_katakana_level_1, dead_katakana_level_2,
-    dead_katakana_level_3, dead_katakana_level_4,
-    dead_katakana_level_5, dead_katakana_level_6,
-    dead_katakana_level_7, dead_katakana_level_8,
-    dead_katakana_level_9, dead_katakana_level_10,
-    dead_katakana_level_11
+from hiragana_mode.overscreen_hiragana import (
+    dead_hiragana_level_1, dead_hiragana_level_2,
+    dead_hiragana_level_3, dead_hiragana_level_4,
+    dead_hiragana_level_5, dead_hiragana_level_6,
+    dead_hiragana_level_7, dead_hiragana_level_8,
+    dead_hiragana_level_9, dead_hiragana_level_10,
+    dead_hiragana_level_11
 )
 # import sounds module
 from game_settings import configsounds
@@ -332,77 +332,77 @@ class Player(pygame.sprite.Sprite):
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
+                dead_hiragana_level_1.show_game_over_hiragana()
         
         for eaten_lv2 in hit_by_enemy_list_lv2:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
         
         for eaten_lv3 in hit_by_enemy_list_lv3:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
         
         for eaten_lv4 in hit_by_enemy_list_lv4:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
         
         for eaten_lv5 in hit_by_enemy_list_lv5:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
         
         for eaten_lv6 in hit_by_enemy_list_lv6:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
         
         for eaten_lv7 in hit_by_enemy_list_lv7:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
         
         for eaten_lv8 in hit_by_enemy_list_lv8:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
         
         for eaten_lv9 in hit_by_enemy_list_lv9:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_9.show_game_over_katakana()
+                dead_hiragana_level_9.show_game_over_hiragana()
         
         for eaten_lv10 in hit_by_enemy_list_lv10:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
         
         for eaten_lv11 in hit_by_enemy_list_lv11:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_11.show_game_over_katakana()
+                dead_hiragana_level_11.show_game_over_hiragana()
 
 
         # for special enemy list
@@ -420,7 +420,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_A == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
+                dead_hiragana_level_1.show_game_over_hiragana()
 
         # Symbol I
         special_hit_enemy_list_I = pygame.sprite.spritecollide(
@@ -432,7 +432,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_I == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
+                dead_hiragana_level_1.show_game_over_hiragana()
         
 
         # FOR LEVEL 2
@@ -446,7 +446,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_A == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
 
         # Symbol I
         special_hit_enemy_list_I_lv2 = pygame.sprite.spritecollide(
@@ -458,7 +458,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_I == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
 
         # Symbol U
         special_hit_enemy_list_U_lv2 = pygame.sprite.spritecollide(
@@ -470,7 +470,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_U == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
 
         # Symbol E
         special_hit_enemy_list_E = pygame.sprite.spritecollide(
@@ -482,7 +482,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_E == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
 
         # Symbol O
         special_hit_enemy_list_O = pygame.sprite.spritecollide(
@@ -494,7 +494,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_O == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
         
 
         # FOR LEVEL 3
@@ -509,7 +509,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_KA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
 
         # Symbol KI
         special_hit_enemy_list_KI = pygame.sprite.spritecollide(
@@ -521,7 +521,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_KI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
 
         # Symbol KU
         special_hit_enemy_list_KU = pygame.sprite.spritecollide(
@@ -533,7 +533,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_KU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
 
         # Symbol KE
         special_hit_enemy_list_KE = pygame.sprite.spritecollide(
@@ -545,7 +545,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_KE == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
 
         # Symbol KO
         special_hit_enemy_list_KO = pygame.sprite.spritecollide(
@@ -557,7 +557,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_KO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
         
 
         # FOR LEVEL 4
@@ -572,7 +572,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_SA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
 
         # Symbol SI
         special_hit_enemy_list_SI = pygame.sprite.spritecollide(
@@ -584,7 +584,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_SI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
 
         # Symbol SU
         special_hit_enemy_list_SU = pygame.sprite.spritecollide(
@@ -596,7 +596,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_SU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
 
         # Symbol SE
         special_hit_enemy_list_SE = pygame.sprite.spritecollide(
@@ -608,7 +608,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_SE == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
 
         # Symbol SO
         special_hit_enemy_list_SO = pygame.sprite.spritecollide(
@@ -620,7 +620,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_SO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
         
 
         # FOR LEVEL 5
@@ -635,7 +635,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_TA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
 
         # Symbol TI
         special_hit_enemy_list_TI = pygame.sprite.spritecollide(
@@ -647,7 +647,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_TI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
 
         # Symbol TU
         special_hit_enemy_list_TU = pygame.sprite.spritecollide(
@@ -659,7 +659,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_TU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
 
         # Symbol TE
         special_hit_enemy_list_TE = pygame.sprite.spritecollide(
@@ -671,7 +671,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_TE == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
 
         # Symbol TO
         special_hit_enemy_list_TO = pygame.sprite.spritecollide(
@@ -683,7 +683,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_TO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
 
 
         # FOR LEVEL 6
@@ -698,7 +698,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_NA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
 
         # Symbol NI
         special_hit_enemy_list_NI = pygame.sprite.spritecollide(
@@ -710,7 +710,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_NI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
 
         # Symbol NU
         special_hit_enemy_list_NU = pygame.sprite.spritecollide(
@@ -722,7 +722,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_NU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
 
         # Symbol NE
         special_hit_enemy_list_NE = pygame.sprite.spritecollide(
@@ -734,7 +734,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_NE == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
 
         # Symbol NO
         special_hit_enemy_list_NO = pygame.sprite.spritecollide(
@@ -746,7 +746,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_NO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
 
 
         # FOR LEVEL 7
@@ -761,7 +761,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_HA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
 
         # Symbol HI
         special_hit_enemy_list_HI = pygame.sprite.spritecollide(
@@ -773,7 +773,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_HI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
 
         # Symbol HU
         special_hit_enemy_list_HU = pygame.sprite.spritecollide(
@@ -785,7 +785,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_HU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
 
         # Symbol HE
         special_hit_enemy_list_HE = pygame.sprite.spritecollide(
@@ -797,7 +797,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_HE == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
 
         # Symbol HO
         special_hit_enemy_list_HO = pygame.sprite.spritecollide(
@@ -809,7 +809,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_HO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
         
 
         # FOR LEVEL 8
@@ -824,7 +824,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_MA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
 
         # Symbol MI
         special_hit_enemy_list_MI = pygame.sprite.spritecollide(
@@ -836,7 +836,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_MI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
 
         # Symbol MU
         special_hit_enemy_list_MU = pygame.sprite.spritecollide(
@@ -848,7 +848,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_MU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
 
         # Symbol ME
         special_hit_enemy_list_ME = pygame.sprite.spritecollide(
@@ -860,7 +860,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_ME == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
 
         # Symbol MO
         special_hit_enemy_list_MO = pygame.sprite.spritecollide(
@@ -872,7 +872,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_MO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
         
 
         # FOR LEVEL 9
@@ -887,7 +887,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_YA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_9.show_game_over_katakana()
+                dead_hiragana_level_9.show_game_over_hiragana()
 
         # Symbol YU
         special_hit_enemy_list_YU = pygame.sprite.spritecollide(
@@ -899,7 +899,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_YU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_9.show_game_over_katakana()
+                dead_hiragana_level_9.show_game_over_hiragana()
 
         # Symbol YO
         special_hit_enemy_list_YO = pygame.sprite.spritecollide(
@@ -911,7 +911,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_YO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_9.show_game_over_katakana()
+                dead_hiragana_level_9.show_game_over_hiragana()
         
 
         # FOR LEVEL 10
@@ -926,7 +926,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_RA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
 
         # Symbol RI
         special_hit_enemy_list_RI = pygame.sprite.spritecollide(
@@ -938,7 +938,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_RI == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
 
         # Symbol RU
         special_hit_enemy_list_RU = pygame.sprite.spritecollide(
@@ -950,7 +950,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_RU == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
 
         # Symbol RE
         special_hit_enemy_list_RE = pygame.sprite.spritecollide(
@@ -962,7 +962,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_RE == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
 
         # Symbol RO
         special_hit_enemy_list_RO = pygame.sprite.spritecollide(
@@ -974,7 +974,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_RO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
         
 
         # FOR LEVEL 11
@@ -989,7 +989,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_WA == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_11.show_game_over_katakana()
+                dead_hiragana_level_11.show_game_over_hiragana()
 
         # Symbol WO
         special_hit_enemy_list_WO = pygame.sprite.spritecollide(
@@ -1001,7 +1001,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_WO == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_11.show_game_over_katakana()
+                dead_hiragana_level_11.show_game_over_hiragana()
 
         # Vocal Single N
         special_hit_enemy_list_N = pygame.sprite.spritecollide(
@@ -1013,7 +1013,7 @@ class Player(pygame.sprite.Sprite):
 
             # if self.special_remove_N == False:
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_11.show_game_over_katakana()
+                dead_hiragana_level_11.show_game_over_hiragana()
 
 
         # for portal list
@@ -1078,67 +1078,67 @@ class Player(pygame.sprite.Sprite):
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_1.show_game_over_katakana()
+                dead_hiragana_level_1.show_game_over_hiragana()
         
         for water_suicide_lv2 in you_die_in_hell_lv2:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_2.show_game_over_katakana()
+                dead_hiragana_level_2.show_game_over_hiragana()
         
         for sharp_rock_lv3 in you_die_in_hell_lv3:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_3.show_game_over_katakana()
+                dead_hiragana_level_3.show_game_over_hiragana()
         
         for water_suicide_lv4 in you_die_in_hell_lv4:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_4.show_game_over_katakana()
+                dead_hiragana_level_4.show_game_over_hiragana()
         
         for water_suicide_lv5 in you_die_in_hell_lv5:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_5.show_game_over_katakana()
+                dead_hiragana_level_5.show_game_over_hiragana()
         
         for water_suicide_lv6 in you_die_in_hell_lv6:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_6.show_game_over_katakana()
+                dead_hiragana_level_6.show_game_over_hiragana()
         
         for water_suicide_lv7 in you_die_in_hell_lv7:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_7.show_game_over_katakana()
+                dead_hiragana_level_7.show_game_over_hiragana()
         
         for water_suicide_lv8 in you_die_in_hell_lv8:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_8.show_game_over_katakana()
+                dead_hiragana_level_8.show_game_over_hiragana()
         
         for water_suicide_lv9 in you_die_in_hell_lv9:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_9.show_game_over_katakana()
+                dead_hiragana_level_9.show_game_over_hiragana()
         
         for lava_water_suicide_10 in you_die_in_hell_lv10:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_10.show_game_over_katakana()
+                dead_hiragana_level_10.show_game_over_hiragana()
         
         for lava_water_suicide_11 in you_die_in_hell_lv11:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
-                dead_katakana_level_11.show_game_over_katakana()
+                dead_hiragana_level_11.show_game_over_hiragana()
         
 
         # for NPC purpose
@@ -1149,320 +1149,320 @@ class Player(pygame.sprite.Sprite):
 
 
 
-        # FOR LEVEL 1 katakana Mode
-        point1_katakana_lv1 = pygame.sprite.spritecollide(
-            self, self.level.katakana_A, True)
-        point2_katakana_lv1 = pygame.sprite.spritecollide(
-            self, self.level.katakana_I, True)
-        point3_katakana_lv1 = pygame.sprite.spritecollide(
-            self, self.level.katakana_U, True)
+        # FOR LEVEL 1 Hiragana Mode
+        point1_hiragana_lv1 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_A, True)
+        point2_hiragana_lv1 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_I, True)
+        point3_hiragana_lv1 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_U, True)
 
-        # If user get point katakana A
-        for true_point_lv1 in point1_katakana_lv1:
+        # If user get point hiragana A
+        for true_point_lv1 in point1_hiragana_lv1:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_A = True
 
-        # If user get point katakana I
-        for true_point_lv1 in point2_katakana_lv1:
+        # If user get point hiragana I
+        for true_point_lv1 in point2_hiragana_lv1:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_I = True
 
-        # If user get point katakana U
-        for false_point_lv1 in point3_katakana_lv1:
+        # If user get point hiragana U
+        for false_point_lv1 in point3_hiragana_lv1:
             configsounds.denied_sfx.play()
             self.scores -= 100
             self.health_number -= self.false_point_dmg
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
+                dead_hiragana_level_1.show_game_over_hiragana()
         
 
-        # FOR LEVEL 2 Katakana Mode
-        point1_katakana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.katakana_A_lv2, True)
-        point2_katakana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.katakana_I_lv2, True)
-        point3_katakana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.katakana_U_lv2, True)
-        point4_katakana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.katakana_E, True)
-        point5_katakana_lv2 = pygame.sprite.spritecollide(
-            self, self.level.katakana_O, True)
+        # FOR LEVEL 2 Hiragana Mode
+        point1_hiragana_lv2 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_A_lv2, True)
+        point2_hiragana_lv2 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_I_lv2, True)
+        point3_hiragana_lv2 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_U_lv2, True)
+        point4_hiragana_lv2 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_E, True)
+        point5_hiragana_lv2 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_O, True)
 
-        # If user get point katakana A
-        for true_point_lv2 in point1_katakana_lv2:
+        # If user get point hiragana A
+        for true_point_lv2 in point1_hiragana_lv2:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_A_lv2 = True
         
-        # If user get point katakana I
-        for true_point_lv2 in point2_katakana_lv2:
+        # If user get point hiragana I
+        for true_point_lv2 in point2_hiragana_lv2:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_I_lv2 = True
 
-        # If user get point katakana U
-        for true_point_lv2 in point3_katakana_lv2:
+        # If user get point hiragana U
+        for true_point_lv2 in point3_hiragana_lv2:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_U_lv2 = True
 
-        # If user get point katakana E
-        for true_point_lv2 in point4_katakana_lv2:
+        # If user get point hiragana E
+        for true_point_lv2 in point4_hiragana_lv2:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_E = True
 
-        # If user get point katakana O
-        for true_point_lv2 in point5_katakana_lv2:
+        # If user get point hiragana O
+        for true_point_lv2 in point5_hiragana_lv2:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_O = True
         
         
-        # FOR LEVEL 3 katakana Mode
-        point1_katakana_lv3 = pygame.sprite.spritecollide(
-            self, self.level.katakana_KA_lv3, True)
-        point2_katakana_lv3 = pygame.sprite.spritecollide(
-            self, self.level.katakana_KI_lv3, True)
-        point3_katakana_lv3 = pygame.sprite.spritecollide(
-            self, self.level.katakana_KU, True)
-        point4_katakana_lv3 = pygame.sprite.spritecollide(
-            self, self.level.katakana_KE, True)
-        point5_katakana_lv3 = pygame.sprite.spritecollide(
-            self, self.level.katakana_KO, True)
+        # FOR LEVEL 3 Hiragana Mode
+        point1_hiragana_lv3 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_KA_lv3, True)
+        point2_hiragana_lv3 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_KI_lv3, True)
+        point3_hiragana_lv3 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_KU, True)
+        point4_hiragana_lv3 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_KE, True)
+        point5_hiragana_lv3 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_KO, True)
 
-        # If user get point katakana KA
-        for true_point_lv3 in point1_katakana_lv3:
+        # If user get point hiragana KA
+        for true_point_lv3 in point1_hiragana_lv3:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_KA = True
 
-        # If user get point katakana KI
-        for true_point_lv3 in point2_katakana_lv3:
+        # If user get point hiragana KI
+        for true_point_lv3 in point2_hiragana_lv3:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_KI = True
 
-        # If user get point katakana KU
-        for true_point_lv3 in point3_katakana_lv3:
+        # If user get point hiragana KU
+        for true_point_lv3 in point3_hiragana_lv3:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_KU = True
 
-        # If user get point katakana KE
-        for true_point_lv3 in point4_katakana_lv3:
+        # If user get point hiragana KE
+        for true_point_lv3 in point4_hiragana_lv3:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_KE = True
 
-        # If user get point katakana KO
-        for true_point_lv3 in point5_katakana_lv3:
+        # If user get point hiragana KO
+        for true_point_lv3 in point5_hiragana_lv3:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_KO = True
         
 
-        # For level 4 katakana Mode
-        point1_katakana_lv4 = pygame.sprite.spritecollide(
-            self, self.level.katakana_SA, True)
-        point2_katakana_lv4 = pygame.sprite.spritecollide(
-            self, self.level.katakana_SI, True)
-        point3_katakana_lv4 = pygame.sprite.spritecollide(
-            self, self.level.katakana_SU, True)
-        point4_katakana_lv4 = pygame.sprite.spritecollide(
-            self, self.level.katakana_SE, True)
-        point5_katakana_lv4 = pygame.sprite.spritecollide(
-            self, self.level.katakana_SO, True)
+        # For level 4 Hiragana Mode
+        point1_hiragana_lv4 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_SA, True)
+        point2_hiragana_lv4 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_SI, True)
+        point3_hiragana_lv4 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_SU, True)
+        point4_hiragana_lv4 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_SE, True)
+        point5_hiragana_lv4 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_SO, True)
 
-        # If user get point katakana SA
-        for true_point_lv4 in point1_katakana_lv4:
+        # If user get point hiragana SA
+        for true_point_lv4 in point1_hiragana_lv4:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_SA = True
 
         # If user get point hiragana SI
-        for true_point_lv4 in point2_katakana_lv4:
+        for true_point_lv4 in point2_hiragana_lv4:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_SI = True
 
-        # If user get point katakana SU
-        for true_point_lv4 in point3_katakana_lv4:
+        # If user get point hiragana SU
+        for true_point_lv4 in point3_hiragana_lv4:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_SU = True
 
-        # If user get point katakana SE
-        for true_point_lv4 in point4_katakana_lv4:
+        # If user get point hiragana SE
+        for true_point_lv4 in point4_hiragana_lv4:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_SE = True
 
-        # If user get point katakana SO
-        for true_point_lv4 in point5_katakana_lv4:
+        # If user get point hiragana SO
+        for true_point_lv4 in point5_hiragana_lv4:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_SO = True
         
 
-        # For level 5 katakana Mode
-        point1_katakana_lv5 = pygame.sprite.spritecollide(
-            self, self.level.katakana_TA, True)
-        point2_katakana_lv5 = pygame.sprite.spritecollide(
-            self, self.level.katakana_TI, True)
-        point3_katakana_lv5 = pygame.sprite.spritecollide(
-            self, self.level.katakana_TU, True)
-        point4_katakana_lv5 = pygame.sprite.spritecollide(
-            self, self.level.katakana_TE, True)
-        point5_katakana_lv5 = pygame.sprite.spritecollide(
-            self, self.level.katakana_TO, True)
+        # For level 5 Hiragana Mode
+        point1_hiragana_lv5 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_TA, True)
+        point2_hiragana_lv5 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_TI, True)
+        point3_hiragana_lv5 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_TU, True)
+        point4_hiragana_lv5 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_TE, True)
+        point5_hiragana_lv5 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_TO, True)
 
-        # If user get point katakana TA
-        for true_point_lv5 in point1_katakana_lv5:
+        # If user get point hiragana TA
+        for true_point_lv5 in point1_hiragana_lv5:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_TA = True
 
-        # If user get point katakana TI
-        for true_point_lv5 in point2_katakana_lv5:
+        # If user get point hiragana TI
+        for true_point_lv5 in point2_hiragana_lv5:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_TI = True
 
-        # If user get point katakana TU
-        for true_point_lv5 in point3_katakana_lv5:
+        # If user get point hiragana TU
+        for true_point_lv5 in point3_hiragana_lv5:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_TU = True
 
-        # If user get point katakana Te
-        for true_point_lv5 in point4_katakana_lv5:
+        # If user get point hiragana Te
+        for true_point_lv5 in point4_hiragana_lv5:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_TE = True
 
-        # If user get point katakana TO
-        for true_point_lv5 in point5_katakana_lv5:
+        # If user get point hiragana TO
+        for true_point_lv5 in point5_hiragana_lv5:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_TO = True
         
 
-        # For level 6 Katakana Mode
-        point1_katakana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.katakana_NA, True)
-        point2_katakana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.katakana_NI, True)
-        point3_katakana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.katakana_NU, True)
-        point4_katakana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.katakana_NE, True)
-        point5_katakana_lv6 = pygame.sprite.spritecollide(
-            self, self.level.katakana_NO, True)
+        # For level 6 Hiragana Mode
+        point1_hiragana_lv6 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_NA, True)
+        point2_hiragana_lv6 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_NI, True)
+        point3_hiragana_lv6 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_NU, True)
+        point4_hiragana_lv6 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_NE, True)
+        point5_hiragana_lv6 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_NO, True)
 
-        # If user get point katakana NA
-        for true_point_lv6 in point1_katakana_lv6:
+        # If user get point hiragana NA
+        for true_point_lv6 in point1_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NA = True
 
-        # If user get point katakana NI
-        for true_point_lv6 in point2_katakana_lv6:
+        # If user get point hiragana NI
+        for true_point_lv6 in point2_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NI = True
 
-        # If user get point katakana NU
-        for true_point_lv6 in point3_katakana_lv6:
+        # If user get point hiragana NU
+        for true_point_lv6 in point3_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NU = True
 
-        # If user get point katakana NE
-        for true_point_lv6 in point4_katakana_lv6:
+        # If user get point hiragana NE
+        for true_point_lv6 in point4_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NE = True
 
-        # If user get point katakana NO
-        for true_point_lv6 in point5_katakana_lv6:
+        # If user get point hiragana NO
+        for true_point_lv6 in point5_hiragana_lv6:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_NO = True
         
 
-        # For level 7 katakana Mode
-        point1_katakana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.katakana_HA, True)
-        point2_katakana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.katakana_HI, True)
-        point3_katakana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.katakana_HU, True)
-        point4_katakana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.katakana_HE, True)
-        point5_katakana_lv7 = pygame.sprite.spritecollide(
-            self, self.level.katakana_HO, True)
+        # For level 7 Hiragana Mode
+        point1_hiragana_lv7 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_HA, True)
+        point2_hiragana_lv7 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_HI, True)
+        point3_hiragana_lv7 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_HU, True)
+        point4_hiragana_lv7 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_HE, True)
+        point5_hiragana_lv7 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_HO, True)
 
-        # If user get point katakana HA
-        for true_point_lv7 in point1_katakana_lv7:
+        # If user get point hiragana HA
+        for true_point_lv7 in point1_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HA = True
 
-        # If user get point katakana HI
-        for true_point_lv7 in point2_katakana_lv7:
+        # If user get point hiragana HI
+        for true_point_lv7 in point2_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HI = True
 
-        # If user get point katakana HU
-        for true_point_lv7 in point3_katakana_lv7:
+        # If user get point hiragana HU
+        for true_point_lv7 in point3_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HU = True
 
-        # If user get point katakana HE
-        for true_point_lv7 in point4_katakana_lv7:
+        # If user get point hiragana HE
+        for true_point_lv7 in point4_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_HE = True
 
-        # If user get point katakana HO
-        for true_point_lv7 in point5_katakana_lv7:
+        # If user get point hiragana HO
+        for true_point_lv7 in point5_hiragana_lv7:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
@@ -1470,155 +1470,155 @@ class Player(pygame.sprite.Sprite):
         
 
         # For level 8 Hiragana Mode
-        point1_katakana_lv8 = pygame.sprite.spritecollide(
-            self, self.level.katakana_MA, True)
-        point2_katakana_lv8 = pygame.sprite.spritecollide(
-            self, self.level.katakana_MI, True)
-        point3_katakana_lv8 = pygame.sprite.spritecollide(
-            self, self.level.katakana_MU, True)
-        point4_katakana_lv8 = pygame.sprite.spritecollide(
-            self, self.level.katakana_ME, True)
-        point5_katakana_lv8 = pygame.sprite.spritecollide(
-            self, self.level.katakana_MO, True)
+        point1_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MA, True)
+        point2_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MI, True)
+        point3_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MU, True)
+        point4_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_ME, True)
+        point5_hiragana_lv8 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_MO, True)
 
-        # If user get point katakana MA
-        for true_point_lv8 in point1_katakana_lv8:
+        # If user get point hiragana MA
+        for true_point_lv8 in point1_hiragana_lv8:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_MA = True
 
-        # If user get point katakana MI
-        for true_point_lv8 in point2_katakana_lv8:
+        # If user get point hiragana MI
+        for true_point_lv8 in point2_hiragana_lv8:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_MI = True
 
-        # If user get point katakana MU
-        for true_point_lv8 in point3_katakana_lv8:
+        # If user get point hiragana MU
+        for true_point_lv8 in point3_hiragana_lv8:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_MU = True
 
-        # If user get point katakana Me
-        for true_point_lv8 in point4_katakana_lv8:
+        # If user get point hiragana Me
+        for true_point_lv8 in point4_hiragana_lv8:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_ME = True
 
-        # If user get point katakana MO
-        for true_point_lv8 in point5_katakana_lv8:
+        # If user get point hiragana MO
+        for true_point_lv8 in point5_hiragana_lv8:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_MO = True
         
 
-        # FOR LEVEL 9 katakana Mode
-        point1_katakana_lv9 = pygame.sprite.spritecollide(
-            self, self.level.katakana_YA, True)
-        point2_katakana_lv9 = pygame.sprite.spritecollide(
-            self, self.level.katakana_YU, True)
-        point3_katakana_lv9 = pygame.sprite.spritecollide(
-            self, self.level.katakana_YO, True)
+        # FOR LEVEL 9 Hiragana Mode
+        point1_hiragana_lv9 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_YA, True)
+        point2_hiragana_lv9 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_YU, True)
+        point3_hiragana_lv9 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_YO, True)
 
-        # If user get point katakana YA
-        for true_point_lv9 in point1_katakana_lv9:
+        # If user get point hiragana YA
+        for true_point_lv9 in point1_hiragana_lv9:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YA = True
 
-        # If user get point katakana YU
-        for true_point_lv9 in point2_katakana_lv9:
+        # If user get point hiragana YU
+        for true_point_lv9 in point2_hiragana_lv9:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YU = True
 
-        # If user get point katakana YO
-        for true_point_lv9 in point3_katakana_lv9:
+        # If user get point hiragana YO
+        for true_point_lv9 in point3_hiragana_lv9:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YO = True
         
 
-        # For level 10 katakana Mode
-        point1_katakana_lv10 = pygame.sprite.spritecollide(
-            self, self.level.katakana_RA, True)
-        point2_katakana_lv10 = pygame.sprite.spritecollide(
-            self, self.level.katakana_RI, True)
-        point3_katakana_lv10 = pygame.sprite.spritecollide(
-            self, self.level.katakana_RU, True)
-        point4_katakana_lv10 = pygame.sprite.spritecollide(
-            self, self.level.katakana_RE, True)
-        point5_katakana_lv10 = pygame.sprite.spritecollide(
-            self, self.level.katakana_RO, True)
+        # For level 10 Hiragana Mode
+        point1_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RA, True)
+        point2_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RI, True)
+        point3_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RU, True)
+        point4_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RE, True)
+        point5_hiragana_lv10 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_RO, True)
 
-        # If user get point katakana RA
-        for true_point_lv10 in point1_katakana_lv10:
+        # If user get point hiragana RA
+        for true_point_lv10 in point1_hiragana_lv10:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_RA = True
 
-        # If user get point katakana RI
-        for true_point_lv10 in point2_katakana_lv10:
+        # If user get point hiragana RI
+        for true_point_lv10 in point2_hiragana_lv10:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_RI = True
 
-        # If user get point katakana RU
-        for true_point_lv10 in point3_katakana_lv10:
+        # If user get point hiragana RU
+        for true_point_lv10 in point3_hiragana_lv10:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_RU = True
 
-        # If user get point katakana Re
-        for true_point_lv10 in point4_katakana_lv10:
+        # If user get point hiragana Re
+        for true_point_lv10 in point4_hiragana_lv10:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_RE = True
 
-        # If user get point katakana RO
-        for true_point_lv10 in point5_katakana_lv10:
+        # If user get point hiragana RO
+        for true_point_lv10 in point5_hiragana_lv10:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_RO = True
 
 
-        # For level 11 katakana Mode
-        point1_katakana_lv11 = pygame.sprite.spritecollide(
-            self, self.level.katakana_WA, True)
-        point2_katakana_lv11 = pygame.sprite.spritecollide(
-            self, self.level.katakana_WO, True)
-        point3_katakana_lv11 = pygame.sprite.spritecollide(
-            self, self.level.katakana_N, True)
+        # For level 11 Hiragana Mode
+        point1_hiragana_lv11 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_WA, True)
+        point2_hiragana_lv11 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_WO, True)
+        point3_hiragana_lv11 = pygame.sprite.spritecollide(
+            self, self.level.hiragana_N, True)
 
-        # If user get point katakana WA
-        for true_point_lv11 in point1_katakana_lv11:
+        # If user get point hiragana WA
+        for true_point_lv11 in point1_hiragana_lv11:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_WA = True
 
-        # If user get point katakana WO
-        for true_point_lv11 in point2_katakana_lv11:
+        # If user get point hiragana WO
+        for true_point_lv11 in point2_hiragana_lv11:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_WO = True
 
-        # If user get point katakana N
-        for true_point_lv11 in point3_katakana_lv11:
+        # If user get point hiragana N
+        for true_point_lv11 in point3_hiragana_lv11:
             configsounds.coin_sfx.play()
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100

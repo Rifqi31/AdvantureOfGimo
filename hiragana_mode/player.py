@@ -12,8 +12,8 @@ from pygame.locals import *
 # import constans variable
 import constants
 # import game screen modules
-# from game_screens import gameoverscreen, endscreen
-from game_screens.overscreen_levels.hiragana_mode import (
+from game_screens import endscreen
+from .overscreen_hiragana import (
     dead_hiragana_level_1, dead_hiragana_level_2,
     dead_hiragana_level_3, dead_hiragana_level_4,
     dead_hiragana_level_5, dead_hiragana_level_6,

@@ -15,7 +15,7 @@ import random
 # import game screen module
 from game_screens import mainmenu
 # import levels
-from katakana_mode.levelplay.levels import (
+from .level_stage_katakana import (
     level_tutorial, level_tutorial_gameplay,
     level_intro_npc, level_01, level_02,
     level_03, level_04, level_05, level_06,
@@ -89,6 +89,9 @@ def gameplay():
     gameExit = False
     # variabel for game over of course
     # gameOver = False
+
+    # stop ending sound
+    pygame.mixer.stop()
 
     # play the sound
     configsounds.turn_on_sounds()

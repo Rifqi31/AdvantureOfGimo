@@ -1,4 +1,4 @@
-# name file : player.py
+# name file : player_level_2.py
 # python version 3
 """
 This module is used to hold the Player class. The Player represents the user-
@@ -13,13 +13,12 @@ from pygame.locals import *
 import constants
 # import game screen modules
 from game_screens import endscreen
-from .overscreen_katakana import (
-    dead_katakana_level_1, dead_katakana_level_2,
-    dead_katakana_level_3, dead_katakana_level_4,
-    dead_katakana_level_5, dead_katakana_level_6,
-    dead_katakana_level_7, dead_katakana_level_8,
-    dead_katakana_level_9, dead_katakana_level_10,
-    dead_katakana_level_11
+from katakana_mode.overscreen_katakana import (
+    dead_katakana_level_2, dead_katakana_level_3, 
+    dead_katakana_level_4, dead_katakana_level_5, 
+    dead_katakana_level_6, dead_katakana_level_7, 
+    dead_katakana_level_8, dead_katakana_level_9, 
+    dead_katakana_level_10, dead_katakana_level_11
 )
 # import sounds module
 from game_settings import configsounds
@@ -70,11 +69,6 @@ class Player(pygame.sprite.Sprite):
         self.direction = "R"
 
         # removing special enemy
-        # Level 1
-        # Basic Vocal
-        self.special_remove_A = False
-        self.special_remove_I = False
-
         # Level 2
         # Basic Vocal
         self.special_remove_A_lv2 = False
@@ -294,9 +288,6 @@ class Player(pygame.sprite.Sprite):
 
         # For general enemy list
         # If player touched by enemys
-        hit_by_enemy_list_lv1 = pygame.sprite.spritecollide(
-            self, self.level.enemy_list_lv1, True)
-        
         hit_by_enemy_list_lv2 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv2, True)
         
@@ -326,13 +317,6 @@ class Player(pygame.sprite.Sprite):
         
         hit_by_enemy_list_lv11 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv11, True)
-        
-        for eaten_lv1 in hit_by_enemy_list_lv1:
-            self.health_number -= self.general_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
         
         for eaten_lv2 in hit_by_enemy_list_lv2:
             self.health_number -= self.general_enemy_dmg
@@ -407,33 +391,6 @@ class Player(pygame.sprite.Sprite):
 
         # for special enemy list
         # If player touched by special enemys
-        
-        # FOR LEVEL 1
-        # Basic Vocal
-        # Symbol A
-        special_hit_enemy_list_A = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_A, True)
-        for special_eaten_A in special_hit_enemy_list_A:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_A == False:
-            if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
-
-        # Symbol I
-        special_hit_enemy_list_I = pygame.sprite.spritecollide(
-            self, self.level.special_enemy_list_I, True)
-        for special_eaten_I in special_hit_enemy_list_I:
-
-            self.health_number -= self.special_enemy_dmg
-            configsounds.ouch_sfx.play()
-
-            # if self.special_remove_I == False:
-            if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
-        
 
         # FOR LEVEL 2
         # Symbol A
@@ -1040,9 +997,6 @@ class Player(pygame.sprite.Sprite):
         # print(self.health_number)
 
         # for death sprite
-        you_die_in_hell_lv1 = pygame.sprite.spritecollide(
-            self, self.level.death_place_list_lv1, False)
-
         you_die_in_hell_lv2 = pygame.sprite.spritecollide(
             self, self.level.death_place_list_lv2, False)
         
@@ -1074,12 +1028,6 @@ class Player(pygame.sprite.Sprite):
             self, self.level.death_place_list_lv11, False)
 
         # effect from death sprite list
-        for water_suicide_lv1 in you_die_in_hell_lv1:
-            self.rect.y += 20
-            if self.rect.bottom >= constants.SCREEN_HEIGHT \
-                    or self.rect.bottom < 0:
-                dead_katakana_level_1.show_game_over_katakana()
-        
         for water_suicide_lv2 in you_die_in_hell_lv2:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
@@ -1146,40 +1094,6 @@ class Player(pygame.sprite.Sprite):
             self, self.level.himesama_list, False)
         for kiss_himesama in meet_himesama:
             endscreen.show_end_screen_hiragana()
-
-
-
-        # FOR LEVEL 1 katakana Mode
-        point1_katakana_lv1 = pygame.sprite.spritecollide(
-            self, self.level.katakana_A, True)
-        point2_katakana_lv1 = pygame.sprite.spritecollide(
-            self, self.level.katakana_I, True)
-        point3_katakana_lv1 = pygame.sprite.spritecollide(
-            self, self.level.katakana_U, True)
-
-        # If user get point katakana A
-        for true_point_lv1 in point1_katakana_lv1:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_A = True
-
-        # If user get point katakana I
-        for true_point_lv1 in point2_katakana_lv1:
-            configsounds.coin_sfx.play()
-            configsounds.coin_sfx.set_volume(0.5)
-            self.scores += 100
-            self.special_remove_I = True
-
-        # If user get point katakana U
-        for false_point_lv1 in point3_katakana_lv1:
-            configsounds.denied_sfx.play()
-            self.scores -= 100
-            self.health_number -= self.false_point_dmg
-
-            if self.health_number == 0 or self.health_number < 0:
-                dead_katakana_level_1.show_game_over_katakana()
-        
 
         # FOR LEVEL 2 Katakana Mode
         point1_katakana_lv2 = pygame.sprite.spritecollide(
@@ -1696,10 +1610,6 @@ class Bullet(Player):
 
         # for special enemy
         # Basic Vocal
-        # FOR LEVEL 1
-        self.special_remove_A = player.special_remove_A
-        self.special_remove_I = player.special_remove_I
-
         # FOR LEVEL 2
         self.special_remove_A_lv2 = player.special_remove_A_lv2
         self.special_remove_I_lv2 = player.special_remove_I_lv2
@@ -1790,8 +1700,6 @@ class Bullet(Player):
             self.rect.x -= 5
 
         # when hit enemy the bullet is gone
-        hitting_enemy_lv1 = pygame.sprite.spritecollide(
-            self, self.level.enemy_list_lv1, True)
         hitting_enemy_lv2 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv2, True)
         hitting_enemy_lv3 = pygame.sprite.spritecollide(
@@ -1813,15 +1721,6 @@ class Bullet(Player):
         hitting_enemy_lv11 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv11, True)
 
-        for eaten_lv1 in hitting_enemy_lv1:
-            if self.direction == "R":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-                self.scores += 10
-            elif self.direction == "L":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-        
         for eaten_lv2 in hitting_enemy_lv2:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1915,24 +1814,6 @@ class Bullet(Player):
         # just for special enemy list they are immune
         # if the player not get point mission enemy are immnune
         # if the player get point mission enemy are not immnune
-
-        # FOR LEVEL 1
-        # for point mission symbol A
-        if self.special_remove_A:
-            hitting_special_enemy_A = pygame.sprite.spritecollide(
-                self, self.level.special_enemy_list_A, True)
-        elif not self.special_remove_A:
-            hitting_special_enemy_A = pygame.sprite.spritecollide(
-                self, self.level.special_enemy_list_A, False)
-
-        # for point mission symbol I
-        if self.special_remove_I:
-            hitting_special_enemy_I = pygame.sprite.spritecollide(
-                self, self.level.special_enemy_list_I, True)
-        elif not self.special_remove_I:
-            hitting_special_enemy_I = pygame.sprite.spritecollide(
-                self, self.level.special_enemy_list_I, False)
-        
 
         # FOR LEVEL 2
         # for point mission symbol A
@@ -2324,28 +2205,6 @@ class Bullet(Player):
 
 
         # attack a special enemy
-        # Basic Vocal
-
-        # FOR LEVEL 1
-        for special_eaten_A in hitting_special_enemy_A:
-            if self.direction == "R":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-
-            elif self.direction == "L":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-
-        for special_eaten_I in hitting_special_enemy_I:
-            if self.direction == "R":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-
-            elif self.direction == "L":
-                pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
-        
-
         # FOR LEVEL 2
         for special_eaten_A_lv2 in hitting_special_enemy_A_lv2:
             if self.direction == "R":

@@ -1,4 +1,4 @@
-# name file : platform_scroller_hiragana.py
+# name file : play_hiragana_level_4.py
 # python version 3
 
 # Import pygame and libraries
@@ -16,18 +16,19 @@ import constants
 import random
 # import game screen module
 from game_screens import mainmenu
+from hiragana_mode.overscreen_hiragana import dead_hiragana_level_4
 # import levels
-from .level_stage_hiragana import (
-    level_tutorial, level_tutorial_gameplay,
-    level_intro_npc, level_01, level_02,
-    level_03, level_04, level_05, level_06,
-    level_07, level_08, level_09, level_10,
-    level_11, level_ending
-    )
+from hiragana_mode.level_stage_hiragana import (
+    level_04, level_05, 
+    level_06, level_07, 
+    level_08, level_09, 
+    level_10, level_11, level_ending
+)
 # import config font and screen
 from game_settings import configfont, configscreen, configsounds, fontsettings
 # import player module
-from hiragana_mode.player import Player, Bullet
+from hiragana_mode.hiragana_level_4.player_level_4 \
+    import Player, Bullet
 # import spritesheet functions
 from spritesheet_functions import SpriteSheet
 
@@ -58,12 +59,6 @@ def gameplay():
 
     # Create all the levels
     level_list = []
-    level_list.append(level_tutorial.Level_Tutorial(player))
-    level_list.append(level_tutorial_gameplay.Level_Tutorial_Gameplay(player))
-    level_list.append(level_intro_npc.Level_Intro_NPC(player))
-    level_list.append(level_01.Level_01(player))
-    level_list.append(level_02.Level_02(player))
-    level_list.append(level_03.Level_03(player))
     level_list.append(level_04.Level_04(player))
     level_list.append(level_05.Level_05(player))
     level_list.append(level_06.Level_06(player))
@@ -90,10 +85,7 @@ def gameplay():
     # variable for game exit of course
     gameExit = False
     # variabel for game over of course
-    # gameOver = False
-
-    # stop ending sound
-    pygame.mixer.stop()
+    gameOver = False
 
     # play the sound
     configsounds.turn_on_sounds()
@@ -210,9 +202,9 @@ def gameplay():
 
     # -------- Main Program Loop -----------
     while not gameExit:
-        # if gameOver:
+        if gameOver:
 
-        #    gameoverscreen.show_game_over_hiragana()
+            dead_hiragana_level_1.show_game_over_hiragana()
 
         events = pygame.event.get()
         for event in events:  # User did something
@@ -294,240 +286,10 @@ def gameplay():
 
         # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
 
-        # if player in the intro
-        if current_level == level_list[0]:
-
-            settings.msg_to_screen(
-                "Tutorial", constants.WHITE, 0, 0, size="small")
-            settings.msg_to_screen("Control :",
-                                   constants.WHITE,
-                                   100, 50, size="small")
-            settings.msg_to_screen("Tombol tanda panah ----> : jalan ke kanan",
-                                   constants.WHITE,
-                                   100, 100, size="small")
-            settings.msg_to_screen("Tombol tanda panah <---- : jalan ke kiri",
-                                   constants.WHITE,
-                                   100, 150, size="small")
-            settings.msg_to_screen("Tombol tanda panah ^ : melompat",
-                                   constants.WHITE,
-                                   100, 200, size="small")
-            settings.msg_to_screen("|", constants.WHITE,
-                                   296, 210, size="small")
-            settings.msg_to_screen(
-                "Tombol Spasi : Menembak",
-                constants.WHITE,
-                100, 250,
-                size="small"
-            )
-            settings.msg_to_screen("Esc : Pause/Resume",
-                                   constants.WHITE, 100, 300, size="small")
-
-            # process each snow flake in the list
-            for i in range(len(snow_list)):
-
-                # draw the snow flake
-                pygame.draw.circle(configscreen.screen,
-                                   constants.WHITE, snow_list[i], 2)
-
-                # move the snow flake down one pixel
-                snow_list[i][1] += 1
-
-                # if the snow flake has moved off the bottom of the screen
-                if snow_list[i][1] > 450:
-                    # reset it just above the top
-                    y = random.randrange(-50, -10)
-                    snow_list[i][1] = y
-                    # give it new x position
-                    x = random.randrange(0, 790)
-                    snow_list[i][0] = x
-
-        # for how to play
-        if current_level == level_list[1]:
-
-            settings.msg_to_screen(
-                "Jenis Musuh dan Point :", constants.WHITE, 0, 0, size="small")
-            settings.msg_to_screen(
-                "Special Enemy : reduce health -40%",
-                constants.WHITE,
-                150, 100,
-                size="small"
-            )
-            settings.msg_to_screen(
-                "Generap Enemy : reduce health -30%",
-                constants.WHITE,
-                150, 180,
-                size="small"
-            )
-            settings.msg_to_screen(
-                "Restore Health : increase health +20%",
-                constants.WHITE,
-                150, 270,
-                size="small"
-            )
-
-            # process each snow flake in the list
-            for i in range(len(snow_list)):
-
-                # draw the snow flake
-                pygame.draw.circle(configscreen.screen,
-                                   constants.WHITE, snow_list[i], 2)
-
-                # move the snow flake down one pixel
-                snow_list[i][1] += 1
-
-                # if the snow flake has moved off the bottom of the screen
-                if snow_list[i][1] > 450:
-                    # reset it just above the top
-                    y = random.randrange(-50, -10)
-                    snow_list[i][1] = y
-                    # give it new x position
-                    x = random.randrange(0, 790)
-                    snow_list[i][0] = x
-
-        # for how to play
-        if current_level == level_list[2]:
-
-            # process each snow flake in the list
-            for i in range(len(snow_list)):
-
-                # draw the snow flake
-                pygame.draw.circle(configscreen.screen,
-                                   constants.WHITE, snow_list[i], 2)
-
-                # move the snow flake down one pixel
-                snow_list[i][1] += 1
-
-                # if the snow flake has moved off the bottom of the screen
-                if snow_list[i][1] > 450:
-                    # reset it just above the top
-                    y = random.randrange(-50, -10)
-                    snow_list[i][1] = y
-                    # give it new x position
-                    x = random.randrange(0, 790)
-                    snow_list[i][0] = x
-
         # stage advanture for player
 
-        # if the player in the level 01
-        if current_level == level_list[3]:
-
-            # level number
-            settings.msg_to_screen(
-                "Level 1", constants.WHITE, 0, 0, size="small")
-
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
-        elif current_level == level_list[4]:
-            # level number
-            settings.msg_to_screen(
-                "Level 2", constants.WHITE, 0, 0, size="small")
-
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
-        elif current_level == level_list[5]:
-            # level number
-            settings.msg_to_screen(
-                "Level 3", constants.WHITE, 0, 0, size="small")
-
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
-        elif current_level == level_list[6]:
+        # if the player in the level 04
+        if current_level == level_list[0]:
             # level number
             settings.msg_to_screen(
                 "Level 4", constants.WHITE, 0, 0, size="small")
@@ -566,7 +328,7 @@ def gameplay():
                 size="small"
             )
 
-        elif current_level == level_list[7]:
+        elif current_level == level_list[1]:
             # level number
             settings.msg_to_screen(
                 "Level 5", constants.WHITE, 0, 0, size="small")
@@ -624,7 +386,7 @@ def gameplay():
                     x = random.randrange(0, 790)
                     snow_list[i][0] = x
 
-        elif current_level == level_list[8]:
+        elif current_level == level_list[2]:
             # level number
             settings.msg_to_screen(
                 "Level 6", constants.WHITE, 0, 0, size="small")
@@ -663,7 +425,7 @@ def gameplay():
                 size="small"
             )
 
-        elif current_level == level_list[9]:
+        elif current_level == level_list[3]:
             # level number
             settings.msg_to_screen(
                 "Level 7", constants.WHITE, 0, 0, size="small")
@@ -702,26 +464,7 @@ def gameplay():
                 size="small"
             )
 
-            # process each snow flake in the list
-            for i in range(len(snow_list)):
-
-                # draw the snow flake
-                pygame.draw.circle(configscreen.screen,
-                                   constants.WHITE, snow_list[i], 2)
-
-                # move the snow flake down one pixel
-                snow_list[i][1] += 1
-
-                # if the snow flake has moved off the bottom of the screen
-                if snow_list[i][1] > 450:
-                    # reset it just above the top
-                    y = random.randrange(-50, -10)
-                    snow_list[i][1] = y
-                    # give it new x position
-                    x = random.randrange(0, 790)
-                    snow_list[i][0] = x
-
-        elif current_level == level_list[10]:
+        elif current_level == level_list[4]:
             # level number
             settings.msg_to_screen(
                 "Level 8", constants.WHITE, 0, 0, size="small")
@@ -760,7 +503,7 @@ def gameplay():
                 size="small"
             )
 
-        elif current_level == level_list[11]:
+        elif current_level == level_list[5]:
             # level number
             settings.msg_to_screen(
                 "Level 9", constants.WHITE, 0, 0, size="small")
@@ -799,7 +542,7 @@ def gameplay():
                 size="small"
             )
 
-        elif current_level == level_list[12]:
+        elif current_level == level_list[6]:
             # level number
             settings.msg_to_screen(
                 "Level 10", constants.WHITE, 0, 0, size="small")
@@ -838,7 +581,7 @@ def gameplay():
                 size="small"
             )
 
-        elif current_level == level_list[13]:
+        elif current_level == level_list[7]:
             # level number
             settings.msg_to_screen(
                 "Level 11", constants.WHITE, 0, 0, size="small")
