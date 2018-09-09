@@ -31,5 +31,6 @@ ABOUT = ['Author: Rifqi Muttaqin',
 
 HELP = ['--> : Move Right',
         '<-- : Move Left',
-        'Arror up : Jump',
+        'Arrow Up : Jump',
+        'Space Bar : Attack',
         'ESC : Pause/Resume']
