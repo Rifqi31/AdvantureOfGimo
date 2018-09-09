@@ -128,6 +128,27 @@ def option_menu():
     display_menu.add_option('Fullscreen', configscreen.fullscreen_settings)
     display_menu.add_option('Return to Option', PYGAME_MENU_BACK)
 
+    control_menu = pygameMenu.TextMenu(
+        configscreen.screen,
+        bgfun=main_background,
+        font=pygameMenu.fonts.FONT_NEVIS,
+        font_size_title=30,
+        font_title=pygameMenu.fonts.FONT_8BIT,
+        menu_color_title=constants.BLUE,
+        onclose=PYGAME_MENU_CLOSE,
+        text_fontsize=20,
+        font_size=30,
+        title='Control',
+        menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+        menu_width=int(constants.SCREEN_WIDTH * 0.6),
+        window_height=constants.SCREEN_HEIGHT,
+        window_width=constants.SCREEN_WIDTH
+    )
+    control_menu.add_option('Back', PYGAME_MENU_BACK)
+    for m in constants.HELP:
+        control_menu.add_line(m)
+    control_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)
+
     # Option Menu
     option_menu = pygameMenu.Menu(
         configscreen.screen,
@@ -147,6 +168,7 @@ def option_menu():
         window_width=constants.SCREEN_WIDTH
     )
     option_menu.add_option('Display', display_menu)
+    option_menu.add_option('Control', control_menu)
     option_menu.add_option('Back', main_menu)
 
     while True:
@@ -204,7 +226,7 @@ def select_level_hiragana_display1():
     select_level_hiragana_page1.add_option(
         'Next', select_level_hiragana_display2)
     select_level_hiragana_page1.add_option(
-        'Back', main_menu)
+        'Back', play_menu)
 
     while True:
 
@@ -365,7 +387,7 @@ def select_level_katakana_display1():
     select_level_katakana_page1.add_option(
         'Next', select_level_katakana_display2)
     select_level_katakana_page1.add_option(
-        'Back', main_menu)
+        'Back', play_menu)
 
     while True:
 
@@ -487,6 +509,54 @@ def select_level_katakana_display3():
 
         # Flip surface
         pygame.display.flip()
+
+
+# play menu
+def play_menu():
+    """ Function for Play Menu """
+    # set clock
+    clock = pygame.time.Clock()
+
+    # Play Menu
+    play_menu = pygameMenu.Menu(
+        configscreen.screen,
+        bgfun=main_background,
+        color_selected=constants.WHITE,
+        font=pygameMenu.fonts.FONT_8BIT,
+        font_size=25,
+        font_size_title=30,
+        menu_alpha=100,
+        menu_color=constants.DARK_BROWN_DIRT,
+        menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+        menu_width=int(constants.SCREEN_WIDTH * 0.6),
+        onclose=PYGAME_MENU_DISABLE_CLOSE,
+        option_shadow=False,
+        title='Select Mode',
+        window_height=constants.SCREEN_HEIGHT,
+        window_width=constants.SCREEN_WIDTH
+    )
+    # play_menu.add_option('Hiragana', platform_scroller_hiragana.gameplay)
+    play_menu.add_option('Hiragana', select_level_hiragana_display1)
+    play_menu.add_option('Katakana', select_level_katakana_display1)
+    play_menu.add_option('Back', main_menu)
+
+    while True:
+
+        # Tick
+        clock.tick(60)
+
+        # Application events
+        events = pygame.event.get()
+        for event in events:
+            if event.type == QUIT:
+                exit()
+
+        # Main menu
+        play_menu.mainloop(events)
+
+        # Flip surface
+        pygame.display.flip()
+
 
 
 # Main Menu
