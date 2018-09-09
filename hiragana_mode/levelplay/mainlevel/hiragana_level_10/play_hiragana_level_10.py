@@ -211,7 +211,7 @@ def gameplay():
                     player.jump()
 
                 # for player skill
-                elif event.key == pygame.K_x:
+                elif event.key == pygame.K_SPACE:
 
                     bullet = Bullet(player)
                     # play the sounds skill

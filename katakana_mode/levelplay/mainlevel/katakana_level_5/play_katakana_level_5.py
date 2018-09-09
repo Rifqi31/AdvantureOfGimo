@@ -219,7 +219,7 @@ def gameplay():
                     player.jump()
 
                 # for player skill
-                elif event.key == pygame.K_x:
+                elif event.key == pygame.K_SPACE:
 
                     bullet = Bullet(player)
                     # play the sounds skill
@@ -384,6 +384,25 @@ def gameplay():
                 600, 0,
                 size="small"
             )
+
+            # process each snow flake in the list
+            for i in range(len(snow_list)):
+
+                # draw the snow flake
+                pygame.draw.circle(configscreen.screen,
+                                   constants.WHITE, snow_list[i], 2)
+
+                # move the snow flake down one pixel
+                snow_list[i][1] += 1
+
+                # if the snow flake has moved off the bottom of the screen
+                if snow_list[i][1] > 450:
+                    # reset it just above the top
+                    y = random.randrange(-50, -10)
+                    snow_list[i][1] = y
+                    # give it new x position
+                    x = random.randrange(0, 790)
+                    snow_list[i][0] = x
 
         elif current_level == level_list[2]:
             # level number

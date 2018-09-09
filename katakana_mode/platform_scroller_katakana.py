@@ -223,7 +223,7 @@ def gameplay():
                     player.jump()
 
                 # for player skill
-                elif event.key == pygame.K_x:
+                elif event.key == pygame.K_SPACE:
 
                     bullet = Bullet(player)
                     # play the sounds skill
@@ -309,7 +309,7 @@ def gameplay():
             settings.msg_to_screen("|", constants.WHITE,
                                    296, 210, size="small")
             settings.msg_to_screen(
-                "Tombol huruf X : Menembak",
+                "Tombol Spasi : Menembak",
                 constants.WHITE,
                 100, 250,
                 size="small"
