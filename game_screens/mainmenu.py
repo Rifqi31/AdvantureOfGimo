@@ -577,29 +577,6 @@ def main_menu():
     # stop the background music
     pygame.mixer.stop()
 
-    # Play Menu
-    play_menu = pygameMenu.Menu(
-        configscreen.screen,
-        bgfun=main_background,
-        color_selected=constants.WHITE,
-        font=pygameMenu.fonts.FONT_8BIT,
-        font_size=25,
-        font_size_title=30,
-        menu_alpha=100,
-        menu_color=constants.DARK_BROWN_DIRT,
-        menu_height=int(constants.SCREEN_HEIGHT * 0.6),
-        menu_width=int(constants.SCREEN_WIDTH * 0.6),
-        onclose=PYGAME_MENU_DISABLE_CLOSE,
-        option_shadow=False,
-        title='Select Mode',
-        window_height=constants.SCREEN_HEIGHT,
-        window_width=constants.SCREEN_WIDTH
-    )
-    # play_menu.add_option('Hiragana', platform_scroller_hiragana.gameplay)
-    play_menu.add_option('Hiragana', select_level_hiragana_display1)
-    play_menu.add_option('Katakana', select_level_katakana_display1)
-    play_menu.add_option('Back', PYGAME_MENU_BACK)
-
     # About Menu
     about_menu = pygameMenu.TextMenu(
         configscreen.screen,
