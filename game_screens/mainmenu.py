@@ -16,6 +16,9 @@ from game_settings import configscreen
 from hiragana_mode import platform_scroller_hiragana
 from katakana_mode import platform_scroller_katakana
 
+# for tutorial
+from tutorial_mode import platform_scroller_tutorial
+
 # import level hiragana
 from hiragana_mode.hiragana_level_1 import (
     play_hiragana_level_1
@@ -689,6 +692,7 @@ def main_menu():
     )
 
     main_menu.add_option('Play', play_menu)
+    main_menu.add_option('How To Play', platform_scroller_tutorial.gameplay)
     main_menu.add_option('Option', option_menu)
     main_menu.add_option('About', about_menu)
     main_menu.add_option('Exit', PYGAME_MENU_EXIT)
