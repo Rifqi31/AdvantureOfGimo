@@ -19,7 +19,7 @@ from .overscreen_hiragana import (
     dead_hiragana_level_5, dead_hiragana_level_6,
     dead_hiragana_level_7, dead_hiragana_level_8,
     dead_hiragana_level_9, dead_hiragana_level_10,
-    dead_hiragana_level_11
+    dead_hiragana_level_11, dead_tutorial
 )
 # import sounds module
 from game_settings import configsounds
@@ -1069,6 +1069,10 @@ class Player(pygame.sprite.Sprite):
         
         you_die_in_hell_lv11 = pygame.sprite.spritecollide(
             self, self.level.death_place_list_lv11, False)
+        
+        # for tutorial
+        you_die_in_hell_tutorial = pygame.sprite.spritecollide(
+            self, self.level.death_place_list_tutorial, False)
 
         # effect from death sprite list
         for water_suicide_lv1 in you_die_in_hell_lv1:
@@ -1137,7 +1141,12 @@ class Player(pygame.sprite.Sprite):
                     or self.rect.bottom < 0:
                 dead_hiragana_level_11.show_game_over_hiragana()
         
-
+        for water_suicide_intro in you_die_in_hell_tutorial:
+            self.rect.y += 20
+            if self.rect.bottom >= constants.SCREEN_HEIGHT \
+                    or self.rect.bottom < 0:
+                dead_tutorial.show_game_over_tutorial()
+        
         # for NPC purpose
         meet_himesama = pygame.sprite.spritecollide(
             self, self.level.himesama_list, False)
