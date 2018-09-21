@@ -385,11 +385,11 @@ class Bullet(Player):
         for special_eaten_A in hitting_special_enemy_A:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_a.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_a.play()
 
 
         # when hit platform the bullet is gone

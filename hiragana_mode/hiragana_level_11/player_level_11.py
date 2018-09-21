@@ -455,30 +455,30 @@ class Bullet(Player):
         for special_eaten_WA in hitting_special_enemy_WA:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wa.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wa.play()
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wo.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wo.play()
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_n.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_n.play()
 
 
         # when hit platform the bullet is gone

@@ -544,12 +544,12 @@ def gameplay():
                     "Tutorial", constants.WHITE, 0, 0, size="small")
                 
                 settings.msg_to_screen(
-                    "Selamat anda telah menyelesaikan level tutorial",
+                    "Selamat anda telah menyelesaikan semua level",
                     constants.WHITE,
                     100, 100, size="small"
                 )
                 settings.msg_to_screen(
-                    "Sentuh npc untuk mengulang atau keluar dari tutorial",
+                    "Sentuh npc untuk mengulang atau keluar dari level tutorial",
                     constants.WHITE,
                     100, 150, size="small"
                 )

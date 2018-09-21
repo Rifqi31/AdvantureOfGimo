@@ -650,47 +650,47 @@ class Bullet(Player):
         for special_eaten_RA in hitting_special_enemy_RA:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ra.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ra.play()
 
         for special_eaten_RI in hitting_special_enemy_RI:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ri.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ri.play()
 
         for special_eaten_RU in hitting_special_enemy_RU:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ru.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ru.play()
 
         for special_eaten_RE in hitting_special_enemy_RE:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_re.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_re.play()
 
         for special_eaten_RO in hitting_special_enemy_RO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ro.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_ro.play()
 
 
         # FOR LEVEL 11
@@ -698,30 +698,30 @@ class Bullet(Player):
         for special_eaten_WA in hitting_special_enemy_WA:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wa.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wa.play()
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wo.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_wo.play()
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_n.play()
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
-                configsounds.ouch_sfx.play()
+                configsounds.effect_n.play()
 
 
         # when hit platform the bullet is gone
