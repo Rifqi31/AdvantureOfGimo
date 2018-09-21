@@ -27,6 +27,7 @@ class Level():
         self.enemy_list_lv9 = None
         self.enemy_list_lv10 = None
         self.enemy_list_lv11 = None
+        self.enemy_list_tutorial = None
         
         # you will die with it
         self.death_place_list_lv1 = None
@@ -40,6 +41,7 @@ class Level():
         self.death_place_list_lv9 = None
         self.death_place_list_lv10 = None
         self.death_place_list_lv11 = None
+        self.death_place_list_tutorial = None
 
         # for health point
         self.love_restore_health = None
@@ -224,6 +226,7 @@ class Level():
         self.enemy_list_lv9 = pygame.sprite.Group()
         self.enemy_list_lv10 = pygame.sprite.Group()
         self.enemy_list_lv11 = pygame.sprite.Group()
+        self.enemy_list_tutorial = pygame.sprite.Group()
         
         # you will die with it
         self.death_place_list_lv1 = pygame.sprite.Group()
@@ -237,6 +240,7 @@ class Level():
         self.death_place_list_lv9 = pygame.sprite.Group()
         self.death_place_list_lv10 = pygame.sprite.Group()
         self.death_place_list_lv11 = pygame.sprite.Group()
+        self.death_place_list_tutorial = pygame.sprite.Group()
 
         # for health point
         self.love_restore_health = pygame.sprite.Group()
@@ -418,6 +422,7 @@ class Level():
         self.death_place_list_lv9.update()
         self.death_place_list_lv10.update()
         self.death_place_list_lv11.update()
+        self.death_place_list_tutorial.update()
 
         self.enemy_list_lv1.update()
         self.enemy_list_lv2.update()
@@ -430,6 +435,7 @@ class Level():
         self.enemy_list_lv9.update()
         self.enemy_list_lv10.update()
         self.enemy_list_lv11.update()
+        self.enemy_list_tutorial.update()
 
         
         self.love_restore_health.update()
@@ -612,6 +618,7 @@ class Level():
         self.death_place_list_lv9.draw(screen)
         self.death_place_list_lv10.draw(screen)
         self.death_place_list_lv11.draw(screen)
+        self.death_place_list_tutorial.draw(screen)
 
         self.enemy_list_lv1.draw(screen)
         self.enemy_list_lv2.draw(screen)
@@ -624,6 +631,7 @@ class Level():
         self.enemy_list_lv9.draw(screen)
         self.enemy_list_lv10.draw(screen)
         self.enemy_list_lv11.draw(screen)
+        self.enemy_list_tutorial.draw(screen)
 
         # for health restore
         self.love_restore_health.draw(screen)
@@ -833,6 +841,9 @@ class Level():
             platform.rect.x += shift_x
 
         for platform in self.death_place_list_lv11:
+            platform.rect.x += shift_x
+        
+        for platform in self.death_place_list_tutorial:
             platform.rect.x += shift_x
 
         # for health restore
@@ -1069,6 +1080,9 @@ class Level():
             platform.rect.x += shift_x
         
         for platform in self.enemy_list_lv11:
+            platform.rect.x += shift_x
+        
+        for platform in self.enemy_list_tutorial:
             platform.rect.x += shift_x
 
         # For special enemys
