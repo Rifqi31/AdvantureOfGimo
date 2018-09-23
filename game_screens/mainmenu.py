@@ -532,7 +532,7 @@ def select_level_katakana_display2():
     select_level_katakana_page2.add_option(
         'Level 07', play_katakana_level_7.gameplay)
     select_level_katakana_page2.add_option(
-        'Level 08', play_hiragana_level_8.gameplay)
+        'Level 08', play_katakana_level_8.gameplay)
     select_level_katakana_page2.add_option(
         'Level 09', play_katakana_level_9.gameplay)
     select_level_katakana_page2.add_option(
