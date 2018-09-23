@@ -50,14 +50,14 @@ katakana_no = (292, 730, 70, 70)
 # vocal H
 katakana_ha = (365, 438, 70, 70)
 katakana_hi = (365, 511, 70, 70)
-katakana_hu = (365, 484, 70, 70)
+katakana_hu = (365, 584, 70, 70)
 katakana_he = (365, 657, 70, 70)
 katakana_ho = (365, 730, 70, 70)
 
 # vocal M
 katakana_ma = (438, 438, 70, 70)
 katakana_mi = (438, 511, 70, 70)
-katakana_mu = (438, 484, 70, 70)
+katakana_mu = (438, 584, 70, 70)
 katakana_me = (438, 657, 70, 70)
 katakana_mo = (438, 730, 70, 70)
 
