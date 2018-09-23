@@ -80,7 +80,7 @@ class Level_04(Level):
 
         # Hiragana Point
         hiragana_sa = [[platforms_hiragana.hiragana_sa, 150, 50]]
-        hiragana_si = [[platforms_hiragana.hiragana_so, 560, 100]]
+        hiragana_si = [[platforms_hiragana.hiragana_si, 560, 100]]
         hiragana_su = [[platforms_hiragana.hiragana_su, 1189, 370]]
         hiragana_se = [[platforms_hiragana.hiragana_se, 1189, 10]]
         hiragana_so = [[platforms_hiragana.hiragana_so, 1500, 340]]
@@ -233,7 +233,7 @@ class Level_04(Level):
         # Enemys
         eaten_lv4 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
         eaten_lv4.rect.x = 0
-        eaten_lv4.rect.y = 100
+        eaten_lv4.rect.y = 80
         eaten_lv4.boundary_left = 0
         eaten_lv4.boundary_right = 100
         eaten_lv4.change_x = 3
@@ -243,7 +243,7 @@ class Level_04(Level):
 
         eaten_lv4 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
         eaten_lv4.rect.x = 300
-        eaten_lv4.rect.y = 480
+        eaten_lv4.rect.y = 470
         eaten_lv4.boundary_left = 300
         eaten_lv4.boundary_right = 400
         eaten_lv4.change_x = 3
@@ -253,7 +253,7 @@ class Level_04(Level):
 
         eaten_lv4 = platforms_enemy.MovingEnemy(platforms_enemy.old_skull)
         eaten_lv4.rect.x = 350
-        eaten_lv4.rect.y = 480
+        eaten_lv4.rect.y = 470
         eaten_lv4.boundary_left = 350
         eaten_lv4.boundary_right = 450
         eaten_lv4.change_x = 4
