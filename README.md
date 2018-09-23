@@ -22,7 +22,7 @@ for linux version : [Download Linux Version](https://github.com/Rifqi31/Advantur
 Be sure what python version has installed in your system, this code need python version 3, and pygame module version 1.9.3 or better, if the pygame module is not installed, just using this command
 `pip install pygame` or `sudo pip install pygame` for wide installation but I recommended you using `virualenv`, but your `pip` and `setuptools` to the latest version installed in your system.
 
-[mainmenu]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/sc_mainmenu.PNG "Main Menu"
+[mainmenu]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/sc_mainmenu.png "Main Menu"
 
 [selectmode]: https://github.com/Rifqi31/AdvantureOfGimo/blob/master/spritesheet/select_main_menu.png "Select Mode"
 
