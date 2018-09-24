@@ -86,8 +86,8 @@ class Level_05(Level):
         katakana_ta = [[platforms_katakana.katakana_ta, 1000, 190]]
         katakana_ti = [[platforms_katakana.katakana_ti, 600, 190]]
         katakana_tu = [[platforms_katakana.katakana_tu, 1538, 200]]
-        katakana_te = [[platforms_katakana.katakana_te, 1950, 190]]
-        katakana_to = [[platforms_katakana.katakana_to, 1050, 421]]
+        katakana_te = [[platforms_katakana.katakana_te, 1050, 421]]
+        katakana_to = [[platforms_katakana.katakana_to, 1950, 190]]
 
         for platform in level05:
             block = platforms_red_brick.Platform_grass_brick(platform[0])
