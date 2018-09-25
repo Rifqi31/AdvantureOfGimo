@@ -653,6 +653,50 @@ def play_menu():
         pygame.display.flip()
 
 
+# confirm exit
+def confirm_exit():
+    """ Function for Exit Confirmation """
+    # set clock
+    clock = pygame.time.Clock()
+
+    confirm_exit = pygameMenu.Menu(
+        configscreen.screen,
+        bgfun=main_background,
+        color_selected=constants.WHITE,
+        font=pygameMenu.fonts.FONT_8BIT,
+        font_size=25,
+        font_size_title=30,
+        menu_alpha=100,
+        menu_color=constants.DARK_BROWN_DIRT,
+        menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+        menu_width=int(constants.SCREEN_WIDTH * 0.6),
+        onclose=PYGAME_MENU_DISABLE_CLOSE,
+        option_shadow=False,
+        title='Are You Sure',
+        window_height=constants.SCREEN_HEIGHT,
+        window_width=constants.SCREEN_WIDTH
+    )
+
+    confirm_exit.add_option('Yes', PYGAME_MENU_EXIT)
+    confirm_exit.add_option('No', main_menu)
+
+    while True:
+
+        # Tick
+        clock.tick(60)
+
+        # Application events
+        events = pygame.event.get()
+        for event in events:
+            if event.type == QUIT:
+                exit()
+
+        # Main menu
+        confirm_exit.mainloop(events)
+
+        # Flip surface
+        pygame.display.flip()
+
 
 # Main Menu
 def main_menu():
@@ -695,7 +739,7 @@ def main_menu():
     main_menu.add_option('How To Play', platform_scroller_tutorial.gameplay)
     main_menu.add_option('Option', option_menu)
     main_menu.add_option('About', about_menu)
-    main_menu.add_option('Exit', PYGAME_MENU_EXIT)
+    main_menu.add_option('Exit', confirm_exit)
 
     while True:
 

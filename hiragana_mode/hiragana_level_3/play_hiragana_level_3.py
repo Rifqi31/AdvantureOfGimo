@@ -176,6 +176,47 @@ def gameplay():
         help_menu.add_line(m)
     help_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)
 
+    # confirm exit pause and main menu
+    confirm_exit_pause = pygameMenu.Menu(
+        configscreen.screen,
+        bgfun=pause_background,
+        enabled=False,
+        font=pygameMenu.fonts.FONT_8BIT,
+        font_size=25,
+        font_size_title=30,
+        menu_alpha=90,
+        onclose=PYGAME_MENU_CLOSE,
+        title='Are You Sure',
+        title_offsety=5,
+        menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+        menu_width=int(constants.SCREEN_WIDTH * 0.6),
+        window_height=constants.SCREEN_HEIGHT,
+        window_width=constants.SCREEN_WIDTH
+    )
+
+    confirm_exit_pause.add_option('Yes', PYGAME_MENU_EXIT)
+    confirm_exit_pause.add_option('No', PYGAME_MENU_BACK)
+
+    confirm_back_tomenu = pygameMenu.Menu(
+        configscreen.screen,
+        bgfun=pause_background,
+        enabled=False,
+        font=pygameMenu.fonts.FONT_8BIT,
+        font_size=25,
+        font_size_title=30,
+        menu_alpha=90,
+        onclose=PYGAME_MENU_CLOSE,
+        title='Are You Sure',
+        title_offsety=5,
+        menu_height=int(constants.SCREEN_HEIGHT * 0.6),
+        menu_width=int(constants.SCREEN_WIDTH * 0.6),
+        window_height=constants.SCREEN_HEIGHT,
+        window_width=constants.SCREEN_WIDTH
+    )
+
+    confirm_back_tomenu.add_option('Yes', mainmenu.main_menu)
+    confirm_back_tomenu.add_option('No', PYGAME_MENU_BACK)
+
     # pause menu
     menu = pygameMenu.Menu(
         configscreen.screen,
@@ -194,12 +235,12 @@ def gameplay():
         window_width=constants.SCREEN_WIDTH
     )
 
-    menu.add_option('Back to Main Menu', mainmenu.main_menu)
+    menu.add_option('Back to Main Menu', confirm_back_tomenu)
     menu.add_option(option_sounds_settings.get_title(), option_sounds_settings)
     menu.add_option(option_display_settings.get_title(),
                     option_display_settings)
     menu.add_option(help_menu.get_title(), help_menu)
-    menu.add_option('Exit', PYGAME_MENU_EXIT)  # Add exit function
+    menu.add_option('Exit', confirm_exit_pause)  # Add exit function
 
     # -------- Main Program Loop -----------
     while not gameExit:
