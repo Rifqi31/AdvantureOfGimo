@@ -324,6 +324,21 @@ def gameplay():
             # level number
             settings.msg_to_screen(
                 "Level 11", constants.WHITE, 0, 0, size="small")
+            
+            settings.msg_to_screen(
+                "Misi Level 11 :", 
+                constants.WHITE, 0, 25,
+                size="small"
+            )
+
+            settings.msg_to_screen(
+                "Tebak, temukan huruf katakana",
+                constants.WHITE, 0, 50, size="small")
+            
+            settings.msg_to_screen(
+                "WA, WO, dan N",
+                constants.WHITE, 0, 75, size="small"
+            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \

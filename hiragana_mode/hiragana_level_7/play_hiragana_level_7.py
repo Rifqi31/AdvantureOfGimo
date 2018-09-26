@@ -330,6 +330,21 @@ def gameplay():
             # level number
             settings.msg_to_screen(
                 "Level 7", constants.WHITE, 0, 0, size="small")
+            
+            settings.msg_to_screen(
+                "Misi Level 7 :", 
+                constants.WHITE, 0, 25,
+                size="small"
+            )
+
+            settings.msg_to_screen(
+                "Tebak, temukan huruf hiragana",
+                constants.WHITE, 0, 50, size="small")
+            
+            settings.msg_to_screen(
+                "HA, HI, FU, HE, dan HO",
+                constants.WHITE, 0, 75, size="small"
+            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
@@ -369,6 +384,21 @@ def gameplay():
             # level number
             settings.msg_to_screen(
                 "Level 8", constants.WHITE, 0, 0, size="small")
+            
+            settings.msg_to_screen(
+                "Misi Level 8 :", 
+                constants.WHITE, 0, 25,
+                size="small"
+            )
+
+            settings.msg_to_screen(
+                "Tebak, temukan huruf hiragana",
+                constants.WHITE, 0, 50, size="small")
+            
+            settings.msg_to_screen(
+                "MA, MI, MU, ME, dan MO",
+                constants.WHITE, 0, 75, size="small"
+            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
@@ -408,6 +438,21 @@ def gameplay():
             # level number
             settings.msg_to_screen(
                 "Level 9", constants.WHITE, 0, 0, size="small")
+            
+            settings.msg_to_screen(
+                "Misi Level 9 :", 
+                constants.WHITE, 0, 25,
+                size="small"
+            )
+
+            settings.msg_to_screen(
+                "Tebak, temukan huruf hiragana",
+                constants.WHITE, 0, 50, size="small")
+            
+            settings.msg_to_screen(
+                "YA, YU, dan YO",
+                constants.WHITE, 0, 75, size="small"
+            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
@@ -447,6 +492,21 @@ def gameplay():
             # level number
             settings.msg_to_screen(
                 "Level 10", constants.WHITE, 0, 0, size="small")
+            
+            settings.msg_to_screen(
+                "Misi Level 10 :", 
+                constants.WHITE, 0, 25,
+                size="small"
+            )
+
+            settings.msg_to_screen(
+                "Tebak, temukan huruf hiragana",
+                constants.WHITE, 0, 50, size="small")
+            
+            settings.msg_to_screen(
+                "RA, RI, RU, RE, dan RO",
+                constants.WHITE, 0, 75, size="small"
+            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
@@ -486,6 +546,21 @@ def gameplay():
             # level number
             settings.msg_to_screen(
                 "Level 11", constants.WHITE, 0, 0, size="small")
+            
+            settings.msg_to_screen(
+                "Misi Level 11 :", 
+                constants.WHITE, 0, 25,
+                size="small"
+            )
+
+            settings.msg_to_screen(
+                "Tebak, temukan huruf hiragana",
+                constants.WHITE, 0, 50, size="small")
+            
+            settings.msg_to_screen(
+                "WA, WO, dan N",
+                constants.WHITE, 0, 75, size="small"
+            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
