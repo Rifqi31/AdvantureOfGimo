@@ -265,7 +265,7 @@ class Player(pygame.sprite.Sprite):
             self.health_number -= self.false_point_dmg
 
             if self.health_number == 0 or self.health_number < 0:
-                dead_hiragana_level_1.show_game_over_hiragana()
+                dead_tutorial.show_game_over_tutorial()
 
     def calc_grav(self):
         """ Calculate effect of gravity. """

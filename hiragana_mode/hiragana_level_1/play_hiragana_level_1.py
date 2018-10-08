@@ -422,8 +422,11 @@ def gameplay():
             for i in range(len(snow_list)):
 
                 # draw the snow flake
-                pygame.draw.circle(configscreen.screen,
-                                   constants.WHITE, snow_list[i], 2)
+                pygame.draw.circle(
+                    configscreen.screen,
+                    constants.WHITE, 
+                    snow_list[i], 2
+                )
 
                 # move the snow flake down one pixel
                 snow_list[i][1] += 1

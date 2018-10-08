@@ -324,15 +324,13 @@ def gameplay():
         # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
 
         # stage advanture for player
-
-        # if the player in the level 07
-        if current_level == level_list[0]:
+        def print_level_info(level_number):
+            settings.msg_to_screen(
             # level number
+                "Level {}".format(level_number), constants.WHITE, 0, 0, size="small")
+
             settings.msg_to_screen(
-                "Level 7", constants.WHITE, 0, 0, size="small")
-            
-            settings.msg_to_screen(
-                "Misi Level 7 :", 
+                "Misi Level {} :".format(level_number),
                 constants.WHITE, 0, 25,
                 size="small"
             )
@@ -340,260 +338,80 @@ def gameplay():
             settings.msg_to_screen(
                 "Tebak, temukan huruf hiragana",
                 constants.WHITE, 0, 50, size="small")
-            
+
+            # for player health
+            if player.health_number == 100 or player.health_number == 90 \
+                    or player.health_number == 80:
+                settings.msg_to_screen(
+                    "Health : " + str(player.health_number),
+                    constants.GREEN,
+                    90, 0,
+                    size="small"
+                )
+            elif player.health_number == 70 or player.health_number == 60 \
+                    or player.health_number == 50:
+                settings.msg_to_screen(
+                    "Health : " + str(player.health_number),
+                    constants.YELLOW,
+                    90, 0,
+                    size="small"
+                )
+            elif player.health_number == 40 or player.health_number == 30 \
+                    or player.health_number == 20 \
+                    or player.health_number == 10:
+                settings.msg_to_screen(
+                    "Health : " + str(player.health_number),
+                    constants.RED,
+                    90, 0,
+                    size="small"
+                )
+
+            settings.msg_to_screen(
+                "Scores : " + str(player.scores),
+                constants.WHITE,
+                600, 0,
+                size="small"
+            )
+
+        # if the player in the level 07
+        if current_level == level_list[0]:
+            # level number
+            print_level_info(7)
             settings.msg_to_screen(
                 "HA, HI, FU, HE, dan HO",
                 constants.WHITE, 0, 75, size="small"
             )
 
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
         elif current_level == level_list[1]:
             # level number
-            settings.msg_to_screen(
-                "Level 8", constants.WHITE, 0, 0, size="small")
-            
-            settings.msg_to_screen(
-                "Misi Level 8 :", 
-                constants.WHITE, 0, 25,
-                size="small"
-            )
-
-            settings.msg_to_screen(
-                "Tebak, temukan huruf hiragana",
-                constants.WHITE, 0, 50, size="small")
-            
+            print_level_info(8)
             settings.msg_to_screen(
                 "MA, MI, MU, ME, dan MO",
                 constants.WHITE, 0, 75, size="small"
             )
 
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
         elif current_level == level_list[2]:
             # level number
-            settings.msg_to_screen(
-                "Level 9", constants.WHITE, 0, 0, size="small")
-            
-            settings.msg_to_screen(
-                "Misi Level 9 :", 
-                constants.WHITE, 0, 25,
-                size="small"
-            )
-
-            settings.msg_to_screen(
-                "Tebak, temukan huruf hiragana",
-                constants.WHITE, 0, 50, size="small")
-            
+            print_level_info(9)
             settings.msg_to_screen(
                 "YA, YU, dan YO",
                 constants.WHITE, 0, 75, size="small"
             )
 
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
         elif current_level == level_list[3]:
             # level number
-            settings.msg_to_screen(
-                "Level 10", constants.WHITE, 0, 0, size="small")
-            
-            settings.msg_to_screen(
-                "Misi Level 10 :", 
-                constants.WHITE, 0, 25,
-                size="small"
-            )
-
-            settings.msg_to_screen(
-                "Tebak, temukan huruf hiragana",
-                constants.WHITE, 0, 50, size="small")
-            
+            print_level_info(10)
             settings.msg_to_screen(
                 "RA, RI, RU, RE, dan RO",
                 constants.WHITE, 0, 75, size="small"
             )
 
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
-            )
-
         elif current_level == level_list[4]:
             # level number
-            settings.msg_to_screen(
-                "Level 11", constants.WHITE, 0, 0, size="small")
-            
-            settings.msg_to_screen(
-                "Misi Level 11 :", 
-                constants.WHITE, 0, 25,
-                size="small"
-            )
-
-            settings.msg_to_screen(
-                "Tebak, temukan huruf hiragana",
-                constants.WHITE, 0, 50, size="small")
-            
+            print_level_info(11)
             settings.msg_to_screen(
                 "WA, WO, dan N",
                 constants.WHITE, 0, 75, size="small"
-            )
-
-            # for player health
-            if player.health_number == 100 or player.health_number == 90 \
-                    or player.health_number == 80:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.GREEN,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 70 or player.health_number == 60 \
-                    or player.health_number == 50:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.YELLOW,
-                    90, 0,
-                    size="small"
-                )
-            elif player.health_number == 40 or player.health_number == 30 \
-                    or player.health_number == 20 \
-                    or player.health_number == 10:
-                settings.msg_to_screen(
-                    "Health : " + str(player.health_number),
-                    constants.RED,
-                    90, 0,
-                    size="small"
-                )
-
-            settings.msg_to_screen(
-                "Scores : " + str(player.scores),
-                constants.WHITE,
-                600, 0,
-                size="small"
             )
 
         # Limit to 60 frames per second

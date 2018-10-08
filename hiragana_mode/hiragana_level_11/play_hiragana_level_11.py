@@ -318,15 +318,13 @@ def gameplay():
         # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
 
         # stage advanture for player
-
-        # if the player in the level 11
-        if current_level == level_list[0]:
+        def print_level_info(level_number):
+            settings.msg_to_screen(
             # level number
+                "Level {}".format(level_number), constants.WHITE, 0, 0, size="small")
+
             settings.msg_to_screen(
-                "Level 11", constants.WHITE, 0, 0, size="small")
-            
-            settings.msg_to_screen(
-                "Misi Level 11 :", 
+                "Misi Level {} :".format(level_number),
                 constants.WHITE, 0, 25,
                 size="small"
             )
@@ -334,11 +332,6 @@ def gameplay():
             settings.msg_to_screen(
                 "Tebak, temukan huruf hiragana",
                 constants.WHITE, 0, 50, size="small")
-            
-            settings.msg_to_screen(
-                "WA, WO, dan N",
-                constants.WHITE, 0, 75, size="small"
-            )
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
@@ -372,6 +365,15 @@ def gameplay():
                 constants.WHITE,
                 600, 0,
                 size="small"
+            )
+
+        # if the player in the level 11
+        if current_level == level_list[0]:
+            # level number
+            print_level_info(11)
+            settings.msg_to_screen(
+                "WA, WO, dan N",
+                constants.WHITE, 0, 75, size="small"
             )
 
         # Limit to 60 frames per second
