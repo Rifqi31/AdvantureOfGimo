@@ -46,6 +46,12 @@ class Player(pygame.sprite.Sprite):
         self.change_x = 0
         self.change_y = 0
 
+        # set text confirm hiragana/katakana
+        self.confirm_hiragana = False
+        self.confirm_katakana = False
+
+        self.confirm_special_enemy = False      
+
         # This holds all the images for the animated walk left/right
         # of our player
         self.walking_frames_l = []
@@ -335,6 +341,8 @@ class Bullet(Player):
         self.direction = player.direction
         self.level = player.level
         self.scores = player.scores
+        self.confirm_hiragana = player.confirm_hiragana
+        self.confirm_special_enemy = player.confirm_special_enemy
 
         # for special enemy
         # Basic Vocal
@@ -374,9 +382,11 @@ class Bullet(Player):
         if self.special_remove_A:
             hitting_special_enemy_A = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_A, True)
+            self.confirm_special_enemy = True
         elif not self.special_remove_A:
             hitting_special_enemy_A = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_A, False)
+            self.confirm_special_enemy = False
 
         # attack a special enemy
         # Basic Vocal
@@ -387,10 +397,19 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_a.play()
 
+                if self.confirm_special_enemy == False:
+                    self.confirm_hiragana = False
+                elif self.confirm_special_enemy == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_a.play()
 
+                if self.confirm_special_enemy == False:
+                    self.confirm_hiragana = False
+                elif self.confirm_special_enemy == True:
+                    self.confirm_hiragana = True
 
         # when hit platform the bullet is gone
         hitting_platform = pygame.sprite.spritecollide(
