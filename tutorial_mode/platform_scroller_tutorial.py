@@ -197,8 +197,7 @@ def gameplay():
     menu.add_option('Exit', PYGAME_MENU_EXIT)  # Add exit function
 
     # Prototype for floating text
-    font = pygame.font.Font("fonts/munro.ttf", 25)
-    orig_surf = font.render('hiragana benar', True, constants.WHITE)
+    orig_surf = configfont.smallfont.render('hiragana benar', True, constants.WHITE)
     text_surf = orig_surf.copy()
     # This surface is used to adjust the alpha of the txt_surf.
     alpha_surf = pygame.Surface(text_surf.get_size(), pygame.SRCALPHA)
