@@ -196,6 +196,15 @@ def gameplay():
     menu.add_option(help_menu.get_title(), help_menu)
     menu.add_option('Exit', PYGAME_MENU_EXIT)  # Add exit function
 
+    # Prototype for floating text
+    font = pygame.font.Font("fonts/munro.ttf", 25)
+    orig_surf = font.render('hiragana benar', True, constants.WHITE)
+    text_surf = orig_surf.copy()
+    # This surface is used to adjust the alpha of the txt_surf.
+    alpha_surf = pygame.Surface(text_surf.get_size(), pygame.SRCALPHA)
+    alpha = 255  # The current alpha value of the surface.
+    timer = 20  # To get a 20 frame delay.
+
     # -------- Main Program Loop -----------
     while not gameExit:
         # if gameOver:
@@ -448,19 +457,37 @@ def gameplay():
                     # give it new x position
                     x = random.randrange(0, 790)
                     snow_list[i][0] = x
-        
+
 
         if current_level == level_list[3]:
 
             settings.msg_to_screen(
                 "Tutorial", constants.WHITE, 0, 0, size="small")
-            
+
             settings.msg_to_screen(
                 "Scores : " + str(player.scores),
                 constants.WHITE,
                 600, 0,
                 size="small"
             )
+            
+            # for confirm text hiragana
+            if bullet.confirm_hiragana == True:
+                # process floating font
+                if timer > 0:
+                    timer -= 1
+                else:
+                    if alpha > 4:
+                        # Reduce alpha each frame, but make sure it doesn't get below 0.
+                        alpha -= 4
+                        text_surf = orig_surf.copy()
+                        # Fill alpha_surf with this color to set its alpha value.
+                        alpha_surf.fill((255, 255, 255, alpha))
+                        # To make the text surface transparent, blit the transparent
+                        # alpha_surf onto it with the BLEND_RGBA_MULT flag.
+                        text_surf.blit(alpha_surf, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
+                
+                        configscreen.screen.blit(text_surf, (490, 350))
 
             # for player health
             if player.health_number == 100 or player.health_number == 90 \
@@ -534,7 +561,7 @@ def gameplay():
                     # give it new x position
                     x = random.randrange(0, 790)
                     snow_list[i][0] = x
-        
+
         if current_level == level_list[4]:
 
             # process each snow flake in the list
@@ -542,7 +569,7 @@ def gameplay():
 
                 settings.msg_to_screen(
                     "Tutorial", constants.WHITE, 0, 0, size="small")
-                
+
                 settings.msg_to_screen(
                     "Selamat anda telah menyelesaikan semua level",
                     constants.WHITE,
