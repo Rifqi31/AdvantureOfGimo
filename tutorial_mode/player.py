@@ -46,12 +46,6 @@ class Player(pygame.sprite.Sprite):
         self.change_x = 0
         self.change_y = 0
 
-        # set text confirm hiragana/katakana
-        self.confirm_hiragana = False
-        self.confirm_katakana = False
-
-        self.confirm_special_enemy = False      
-
         # This holds all the images for the animated walk left/right
         # of our player
         self.walking_frames_l = []
@@ -61,7 +55,8 @@ class Player(pygame.sprite.Sprite):
         self.direction = "R"
 
         # removing special enemy
-        self.special_remove_A = False
+        self.special_remove_A = None
+        self.special_remove_U = None
 
         # List of sprites we can bump against
         self.level = None
@@ -147,7 +142,7 @@ class Player(pygame.sprite.Sprite):
         else:
             frame = (pos // 30) % len(self.walking_frames_l)
             self.image = self.walking_frames_l[frame]
-
+        
         # for platform_list
         # See if we hit anything
         block_hit_list = pygame.sprite.spritecollide(
@@ -269,6 +264,7 @@ class Player(pygame.sprite.Sprite):
             configsounds.denied_sfx.play()
             self.scores -= 100
             self.health_number -= self.false_point_dmg
+            self.special_remove_U = False
 
             if self.health_number == 0 or self.health_number < 0:
                 dead_tutorial.show_game_over_tutorial()
@@ -340,14 +336,14 @@ class Bullet(Player):
         # access variable from player class
         self.direction = player.direction
         self.level = player.level
-        self.scores = player.scores
-        self.confirm_hiragana = player.confirm_hiragana
-        self.confirm_special_enemy = player.confirm_special_enemy
+        
+        self.confirm_hiragana = None
 
         # for special enemy
         # Basic Vocal
         # FOR LEVEL 1
         self.special_remove_A = player.special_remove_A
+        self.special_remove_U = player.special_remove_U
 
         self.kills = player.kills
 
@@ -368,7 +364,6 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -382,11 +377,9 @@ class Bullet(Player):
         if self.special_remove_A:
             hitting_special_enemy_A = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_A, True)
-            self.confirm_special_enemy = True
         elif not self.special_remove_A:
             hitting_special_enemy_A = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_A, False)
-            self.confirm_special_enemy = False
 
         # attack a special enemy
         # Basic Vocal
@@ -397,19 +390,19 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_a.play()
 
-                if self.confirm_special_enemy == False:
-                    self.confirm_hiragana = False
-                elif self.confirm_special_enemy == True:
+                if self.special_remove_A == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_U == False:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_a.play()
 
-                if self.confirm_special_enemy == False:
-                    self.confirm_hiragana = False
-                elif self.confirm_special_enemy == True:
+                if self.special_remove_A == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_U == False:
+                    self.confirm_hiragana = False
 
         # when hit platform the bullet is gone
         hitting_platform = pygame.sprite.spritecollide(
