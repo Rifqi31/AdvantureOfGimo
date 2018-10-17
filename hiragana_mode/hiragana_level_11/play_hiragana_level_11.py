@@ -16,7 +16,7 @@ import constants
 import random
 # import game screen module
 from game_screens import mainmenu
-from hiragana_mode.overscreen_hiragana import dead_hiragana_level_11
+# from hiragana_mode.overscreen_hiragana import dead_hiragana_level_11
 # import levels
 from hiragana_mode.level_stage_hiragana import (
     level_11, level_ending
@@ -75,7 +75,7 @@ def gameplay():
     # variable for game exit of course
     gameExit = False
     # variabel for game over of course
-    gameOver = False
+    # gameOver = False
 
     # play the sound
     configsounds.turn_on_sounds()
@@ -231,19 +231,11 @@ def gameplay():
     menu.add_option(help_menu.get_title(), help_menu)
     menu.add_option('Exit', confirm_exit_pause)  # Add exit function
 
-    # Prototype for floating text
-    orig_surf = configfont.smallfont.render('hiragana benar', True, constants.WHITE)
-    text_surf = orig_surf.copy()
-    # This surface is used to adjust the alpha of the txt_surf.
-    alpha_surf = pygame.Surface(text_surf.get_size(), pygame.SRCALPHA)
-    alpha = 255  # The current alpha value of the surface.
-    timer = 20  # To get a 20 frame delay.
-
     # -------- Main Program Loop -----------
     while not gameExit:
-        if gameOver:
+        # if gameOver:
 
-            dead_hiragana_level_1.show_game_over_hiragana()
+            # dead_hiragana_level_1.show_game_over_hiragana()
 
         events = pygame.event.get()
         for event in events:  # User did something
@@ -375,6 +367,13 @@ def gameplay():
                 size="small"
             )
 
+            settings.msg_to_screen(
+                "hiragana :",
+                constants.WHITE,
+                300, 0,
+                size="small"
+            )    
+
         # if the player in the level 11
         if current_level == level_list[0]:
             # level number
@@ -382,13 +381,7 @@ def gameplay():
             settings.msg_to_screen(
                 "WA, WO, dan N",
                 constants.WHITE, 0, 75, size="small"
-            )
-            settings.msg_to_screen(
-                "hiragana :",
-                constants.WHITE,
-                300, 0,
-                size="small"
-            )            
+            )        
             # for confirm text hiragana
             if player.special_remove_WA == True:
                 if bullet.confirm_hiragana == True:
@@ -398,22 +391,7 @@ def gameplay():
                         400, 0,
                         size="small"
                     )
-                    # process floating font
-                    if timer > 0:
-                        timer -= 1
-                    else:
-                        if alpha > 4:
-                            # Reduce alpha each frame, but make sure it doesn't get below 0.
-                            alpha -= 4
-                            text_surf = orig_surf.copy()
-                            # Fill alpha_surf with this color to set its alpha value.
-                            alpha_surf.fill((255, 255, 255, alpha))
-                            # To make the text surface transparent, blit the transparent
-                            # alpha_surf onto it with the BLEND_RGBA_MULT flag.
-                            text_surf.blit(alpha_surf, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
-                    
-                            configscreen.screen.blit(text_surf, (60, 50))
-            
+
             if player.special_remove_WO == True:
                 if bullet.confirm_hiragana == True:
                     settings.msg_to_screen(
@@ -422,22 +400,7 @@ def gameplay():
                         400, 0,
                         size="small"
                     )
-                    # process floating font
-                    if timer > 0:
-                        timer -= 1
-                    else:
-                        if alpha > 4:
-                            # Reduce alpha each frame, but make sure it doesn't get below 0.
-                            alpha -= 4
-                            text_surf = orig_surf.copy()
-                            # Fill alpha_surf with this color to set its alpha value.
-                            alpha_surf.fill((255, 255, 255, alpha))
-                            # To make the text surface transparent, blit the transparent
-                            # alpha_surf onto it with the BLEND_RGBA_MULT flag.
-                            text_surf.blit(alpha_surf, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
-                    
-                            configscreen.screen.blit(text_surf, (50, 50))
-            
+
             if player.special_remove_N == True:
                 if bullet.confirm_hiragana == True:
                     settings.msg_to_screen(
@@ -446,31 +409,6 @@ def gameplay():
                         400, 0,
                         size="small"
                     )
-                    # process floating font
-                    if timer > 0:
-                        timer -= 1
-                    else:
-                        if alpha > 4:
-                            # Reduce alpha each frame, but make sure it doesn't get below 0.
-                            alpha -= 4
-                            text_surf = orig_surf.copy()
-                            # Fill alpha_surf with this color to set its alpha value.
-                            alpha_surf.fill((255, 255, 255, alpha))
-                            # To make the text surface transparent, blit the transparent
-                            # alpha_surf onto it with the BLEND_RGBA_MULT flag.
-                            text_surf.blit(alpha_surf, (0, 0), special_flags=pygame.BLEND_RGBA_MULT)
-                    
-                            configscreen.screen.blit(text_surf, (1540, 320))
-
-
-                """elif bullet.confirm_hiragana == False:
-                    settings.msg_to_screen(
-                        "salah",
-                        constants.RED,
-                        400, 0,
-                        size="small"
-                    )"""
-
 
         # Limit to 60 frames per second
         clock.tick(60)

@@ -381,8 +381,8 @@ class Bullet(Player):
         # access variable from player class
         self.direction = player.direction
         self.level = player.level
-        self.scores = player.scores
 
+        # confirmation value
         self.confirm_hiragana = None
 
         # for special enemy
@@ -414,7 +414,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()

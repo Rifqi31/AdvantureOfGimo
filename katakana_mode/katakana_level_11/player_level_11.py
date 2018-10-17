@@ -61,11 +61,11 @@ class Player(pygame.sprite.Sprite):
         # removing special enemy
         # FOR LEVEL 11
         # Vocal W
-        self.special_remove_WA = False
-        self.special_remove_WO = False
+        self.special_remove_WA = None
+        self.special_remove_WO = None
 
         # Vocal N
-        self.special_remove_N = False
+        self.special_remove_N = None
 
 
         # List of sprites we can bump against
@@ -280,7 +280,7 @@ class Player(pygame.sprite.Sprite):
         meet_himesama = pygame.sprite.spritecollide(
             self, self.level.himesama_list, False)
         for kiss_himesama in meet_himesama:
-            endscreen.show_end_screen_hiragana()
+            endscreen.show_end_screen_katakana()
 
         # For level 11 katakana Mode
         point1_katakana_lv11 = pygame.sprite.spritecollide(
@@ -379,7 +379,9 @@ class Bullet(Player):
         # access variable from player class
         self.direction = player.direction
         self.level = player.level
-        self.scores = player.scores
+
+        # confirmation value
+        self.confirm_katakana = None
 
         # for special enemy
         # FOR LEVEL 11
@@ -410,7 +412,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -453,18 +455,30 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wa.play()
 
+                if self.special_remove_WA == True:
+                    self.confirm_katakana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wa.play()
+
+                if self.special_remove_WA == True:
+                    self.confirm_katakana = True
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wo.play()
 
+                if self.special_remove_WO == True:
+                    self.confirm_katakana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wo.play()
+
+                if self.special_remove_WO == True:
+                    self.confirm_katakana = True
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
@@ -472,9 +486,16 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_n.play()
 
+                if self.special_remove_N == True:
+                    self.confirm_katakana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_n.play()
+
+                if self.special_remove_N == True:
+                    self.confirm_katakana = True
+
 
 
         # when hit platform the bullet is gone

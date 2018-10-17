@@ -16,7 +16,7 @@ import constants
 import random
 # import game screen module
 from game_screens import mainmenu
-from katakana_mode.overscreen_katakana import dead_katakana_level_10
+# from katakana_mode.overscreen_katakana import dead_katakana_level_10
 # import levels
 from katakana_mode.level_stage_katakana import (
     level_10, level_11, level_ending
@@ -76,7 +76,7 @@ def gameplay():
     # variable for game exit of course
     gameExit = False
     # variabel for game over of course
-    gameOver = False
+    # gameOver = False
 
     # play the sound
     configsounds.turn_on_sounds()
@@ -234,9 +234,9 @@ def gameplay():
 
     # -------- Main Program Loop -----------
     while not gameExit:
-        if gameOver:
+        # if gameOver:
 
-            dead_hiragana_level_1.show_game_over_hiragana()
+            # dead_hiragana_level_1.show_game_over_hiragana()
 
         events = pygame.event.get()
         for event in events:  # User did something
@@ -367,6 +367,14 @@ def gameplay():
                 600, 0,
                 size="small"
             )
+
+            settings.msg_to_screen(
+                "katakana :",
+                constants.WHITE,
+                300, 0,
+                size="small"
+            )
+
         # if the player in the level 10
         if current_level == level_list[0]:
             # level number
@@ -375,6 +383,50 @@ def gameplay():
                 "RA, RI, RU, RE, dan RO",
                 constants.WHITE, 0, 75, size="small"
             )
+            if player.special_remove_RA == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_RI == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_RU == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_RE == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_RO == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         elif current_level == level_list[1]:
             # level number
@@ -383,6 +435,33 @@ def gameplay():
                 "WA, WO, dan N",
                 constants.WHITE, 0, 75, size="small"
             )
+            # for confirm text hiragana
+            if player.special_remove_WA == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_WO == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_N == True:
+                if bullet.confirm_katakana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         # Limit to 60 frames per second
         clock.tick(60)

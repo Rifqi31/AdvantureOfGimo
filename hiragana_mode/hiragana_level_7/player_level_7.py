@@ -65,41 +65,41 @@ class Player(pygame.sprite.Sprite):
         # removing special enemy
         # Level 7
         # Vocal H
-        self.special_remove_HA = False
-        self.special_remove_HI = False
-        self.special_remove_HU = False
-        self.special_remove_HE = False
-        self.special_remove_HO = False
+        self.special_remove_HA = None
+        self.special_remove_HI = None
+        self.special_remove_HU = None
+        self.special_remove_HE = None
+        self.special_remove_HO = None
 
         # Level 8
         # Vocal M
-        self.special_remove_MA = False
-        self.special_remove_MI = False
-        self.special_remove_MU = False
-        self.special_remove_ME = False
-        self.special_remove_MO = False
+        self.special_remove_MA = None
+        self.special_remove_MI = None
+        self.special_remove_MU = None
+        self.special_remove_ME = None
+        self.special_remove_MO = None
 
         # Level 9
         # Vocal Y
-        self.special_remove_YA = False
-        self.special_remove_YU = False
-        self.special_remove_YO = False
+        self.special_remove_YA = None
+        self.special_remove_YU = None
+        self.special_remove_YO = None
 
         # Level 10
         # Vocal R
-        self.special_remove_RA = False
-        self.special_remove_RI = False
-        self.special_remove_RU = False
-        self.special_remove_RE = False
-        self.special_remove_RO = False
+        self.special_remove_RA = None
+        self.special_remove_RI = None
+        self.special_remove_RU = None
+        self.special_remove_RE = None
+        self.special_remove_RO = None
 
         # FOR LEVEL 11
         # Vocal W
-        self.special_remove_WA = False
-        self.special_remove_WO = False
+        self.special_remove_WA = None
+        self.special_remove_WO = None
 
         # Vocal N
-        self.special_remove_N = False
+        self.special_remove_N = None
 
 
 
@@ -899,7 +899,9 @@ class Bullet(Player):
         # access variable from player class
         self.direction = player.direction
         self.level = player.level
-        self.scores = player.scores
+
+        # confirmation value
+        self.confirm_hiragana = None
 
         # for special enemy
         # FOR LEVEL 7
@@ -968,7 +970,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -977,7 +979,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -986,7 +988,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -995,7 +997,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+ 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -1004,7 +1006,7 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-                self.scores += 10
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
@@ -1201,45 +1203,75 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ha.play()
 
+                if self.special_remove_HA == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ha.play()
+
+                if self.special_remove_HA == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_HI in hitting_special_enemy_HI:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_hi.play()
 
+                if self.special_remove_HI == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_hi.play()
+
+                if self.special_remove_HI == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_HU in hitting_special_enemy_HU:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_fu.play()
 
+                if self.special_remove_HU == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_fu.play()
+
+                if self.special_remove_HU == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_HE in hitting_special_enemy_HE:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_he.play()
 
+                if self.special_remove_HE == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_he.play()
+
+                if self.special_remove_HE == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_HO in hitting_special_enemy_HO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ho.play()
 
+                if self.special_remove_HO == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ho.play()
+
+                if self.special_remove_HO == True:
+                    self.confirm_hiragana = True
         
 
         # FOR LEVEL 8
@@ -1249,45 +1281,75 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ma.play()
 
+                if self.special_remove_MA == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ma.play()
+
+                if self.special_remove_MA == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_MI in hitting_special_enemy_MI:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_mi.play()
 
+                if self.special_remove_MI == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_mi.play()
+
+                if self.special_remove_MI == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_MU in hitting_special_enemy_MU:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_mu.play()
 
+                if self.special_remove_MU == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_mu.play()
+
+                if self.special_remove_MU == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_ME in hitting_special_enemy_ME:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_me.play()
 
+                if self.special_remove_ME == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_me.play()
+
+                if self.special_remove_ME == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_MO in hitting_special_enemy_MO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_mo.play()
 
+                if self.special_remove_MO == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_mo.play()
+
+                if self.special_remove_MO == True:
+                    self.confirm_hiragana = True
         
 
         # FOR LEVEL 9
@@ -1297,27 +1359,45 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ya.play()
 
+                if self.special_remove_YA == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ya.play()
+
+                if self.special_remove_YA == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_YU in hitting_special_enemy_YU:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_yu.play()
 
+                if self.special_remove_YU == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_yu.play()
+
+                if self.special_remove_YU == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_YO in hitting_special_enemy_YO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_yo.play()
 
+                if self.special_remove_YO == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_yo.play()
+
+                if self.special_remove_YO == True:
+                    self.confirm_hiragana = True
         
 
         # FOR LEVEL 10
@@ -1327,45 +1407,75 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ra.play()
 
+                if self.special_remove_RA == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ra.play()
+
+                if self.special_remove_RA == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_RI in hitting_special_enemy_RI:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ri.play()
 
+                if self.special_remove_RI == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ri.play()
+
+                if self.special_remove_RI == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_RU in hitting_special_enemy_RU:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ru.play()
 
+                if self.special_remove_RU == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ru.play()
+
+                if self.special_remove_RU == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_RE in hitting_special_enemy_RE:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_re.play()
 
+                if self.special_remove_RE == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_re.play()
+
+                if self.special_remove_RE == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_RO in hitting_special_enemy_RO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ro.play()
 
+                if self.special_remove_RO == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ro.play()
+
+                if self.special_remove_RO == True:
+                    self.confirm_hiragana = True
 
 
         # FOR LEVEL 11
@@ -1375,18 +1485,30 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wa.play()
 
+                if self.special_remove_WA == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wa.play()
+
+                if self.special_remove_WA == True:
+                    self.confirm_hiragana = True
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wo.play()
 
+                if self.special_remove_WO == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_wo.play()
+
+                if self.special_remove_WO == True:
+                    self.confirm_hiragana = True
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
@@ -1394,9 +1516,15 @@ class Bullet(Player):
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_n.play()
 
+                if self.special_remove_N == True:
+                    self.confirm_hiragana = True
+
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_n.play()
+
+                if self.special_remove_N == True:
+                    self.confirm_hiragana = True
 
 
         # when hit platform the bullet is gone

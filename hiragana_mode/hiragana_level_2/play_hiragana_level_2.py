@@ -16,9 +16,9 @@ import constants
 import random
 # import game screen module
 from game_screens import mainmenu
-from hiragana_mode.overscreen_hiragana import (
-    dead_hiragana_level_2
-)
+# from hiragana_mode.overscreen_hiragana import (
+#    dead_hiragana_level_2
+# )
 # import levels
 from hiragana_mode.level_stage_hiragana import (
     level_02, level_03, level_04,
@@ -88,7 +88,7 @@ def gameplay():
     # variable for game exit of course
     gameExit = False
     # variabel for game over of course
-    gameOver = False
+    # gameOver = False
 
     # play the sound
     configsounds.turn_on_sounds()
@@ -246,9 +246,9 @@ def gameplay():
 
     # -------- Main Program Loop -----------
     while not gameExit:
-        if gameOver:
+        # if gameOver:
 
-            dead_hiragana_level_2.show_game_over_hiragana()
+            # dead_hiragana_level_2.show_game_over_hiragana()
 
         events = pygame.event.get()
         for event in events:  # User did something
@@ -380,6 +380,13 @@ def gameplay():
                 size="small"
             )
 
+            settings.msg_to_screen(
+                "hiragana :",
+                constants.WHITE,
+                300, 0,
+                size="small"
+            )
+
         # if the player in the level 02
         if current_level == level_list[0]:
             # level number
@@ -389,6 +396,51 @@ def gameplay():
                 constants.WHITE, 0, 75, size="small"
             )
 
+            if player.special_remove_A_lv2 == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_I_lv2 == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_U_lv2 == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_E == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_O == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
         elif current_level == level_list[1]:
             # level number
             print_level_info(3)
@@ -397,6 +449,52 @@ def gameplay():
                 constants.WHITE, 0, 75, size="small"
             )
 
+            if player.special_remove_KA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_KI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_KU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_KE == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_KO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+
         elif current_level == level_list[2]:
             print_level_info(4)
             settings.msg_to_screen(
@@ -404,12 +502,102 @@ def gameplay():
                 constants.WHITE, 0, 75, size="small"
             )
 
+            if player.special_remove_SA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_SI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_SU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_SE == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_SO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
         elif current_level == level_list[3]:
             print_level_info(5)
             settings.msg_to_screen(
                 "TA, CHI, TSU, TE, dan TO",
                 constants.WHITE, 0, 75, size="small"
             )
+
+            if player.special_remove_TA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_TI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_TU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_TE == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_TO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
             # process each snow flake in the list
             for i in range(len(snow_list)):
@@ -440,6 +628,50 @@ def gameplay():
                 "NA, NI, NU, NE, dan NO",
                 constants.WHITE, 0, 75, size="small"
             )
+            if player.special_remove_NA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_NI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_NU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_NE == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_NO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         elif current_level == level_list[5]:
             # level number
@@ -448,6 +680,50 @@ def gameplay():
                 "HA, HI, FU, HE, dan HO",
                 constants.WHITE, 0, 75, size="small"
             )
+            if player.special_remove_HA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_HI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_HU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_HE == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_HO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         elif current_level == level_list[6]:
             # level number
@@ -456,6 +732,50 @@ def gameplay():
                 "MA, MI, MU, ME, dan MO",
                 constants.WHITE, 0, 75, size="small"
             )
+            if player.special_remove_MA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+
+            if player.special_remove_MI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_MU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_ME == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_MO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         elif current_level == level_list[7]:
             # level number
@@ -464,6 +784,32 @@ def gameplay():
                 "YA, YU, dan YO",
                 constants.WHITE, 0, 75, size="small"
             )
+            if player.special_remove_YA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_YU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_YO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         elif current_level == level_list[8]:
             # level number
@@ -472,6 +818,50 @@ def gameplay():
                 "RA, RI, RU, RE, dan RO",
                 constants.WHITE, 0, 75, size="small"
             )
+            if player.special_remove_RA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_RI == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_RU == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_RE == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_RO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         elif current_level == level_list[9]:
             # level number
@@ -480,6 +870,33 @@ def gameplay():
                 "WA, WO, dan N",
                 constants.WHITE, 0, 75, size="small"
             )
+            # for confirm text hiragana
+            if player.special_remove_WA == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_WO == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
+            
+            if player.special_remove_N == True:
+                if bullet.confirm_hiragana == True:
+                    settings.msg_to_screen(
+                        "benar",
+                        constants.GREEN,
+                        400, 0,
+                        size="small"
+                    )
 
         # Limit to 60 frames per second
         clock.tick(60)
