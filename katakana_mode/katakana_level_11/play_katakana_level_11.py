@@ -381,9 +381,11 @@ def gameplay():
             settings.msg_to_screen(
                 "WA, WO, dan N",
                 constants.WHITE, 0, 75, size="small"
-            )        
+            )
             # for confirm text hiragana
-            if player.special_remove_WA == True:
+            if player.special_remove_WA \
+                    or player.special_remove_WO \
+                    or player.special_remove_N == True:
                 if bullet.confirm_katakana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -392,20 +394,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_WO == True:
-                if bullet.confirm_katakana == True:
+                elif bullet.confirm_katakana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_N == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )

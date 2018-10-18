@@ -1809,6 +1809,11 @@ class Bullet(Player):
 
                 if self.special_remove_SA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SI \
+                        or self.special_remove_SU \
+                        or self.special_remove_SE \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1816,6 +1821,11 @@ class Bullet(Player):
 
                 if self.special_remove_SA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SI \
+                        or self.special_remove_SU \
+                        or self.special_remove_SE \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_SI in hitting_special_enemy_SI:
             if self.direction == "R":
@@ -1824,6 +1834,11 @@ class Bullet(Player):
 
                 if self.special_remove_SI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SU \
+                        or self.special_remove_SE \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1831,6 +1846,11 @@ class Bullet(Player):
 
                 if self.special_remove_SI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SU \
+                        or self.special_remove_SE \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_SU in hitting_special_enemy_SU:
             if self.direction == "R":
@@ -1839,6 +1859,11 @@ class Bullet(Player):
 
                 if self.special_remove_SU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SI \
+                        or self.special_remove_SE \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1846,6 +1871,11 @@ class Bullet(Player):
 
                 if self.special_remove_SU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SI \
+                        or self.special_remove_SE \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_SE in hitting_special_enemy_SE:
             if self.direction == "R":
@@ -1854,6 +1884,11 @@ class Bullet(Player):
 
                 if self.special_remove_SE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SI \
+                        or self.special_remove_SU \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1861,6 +1896,11 @@ class Bullet(Player):
 
                 if self.special_remove_SE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SI \
+                        or self.special_remove_SU \
+                        or self.special_remove_SO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_SO in hitting_special_enemy_SO:
             if self.direction == "R":
@@ -1869,6 +1909,11 @@ class Bullet(Player):
 
                 if self.special_remove_SO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SI \
+                        or self.special_remove_SU \
+                        or self.special_remove_SE == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1876,6 +1921,11 @@ class Bullet(Player):
 
                 if self.special_remove_SO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_SA \
+                        or self.special_remove_SI \
+                        or self.special_remove_SU \
+                        or self.special_remove_SE == True:
+                    self.confirm_katakana = False
         
 
         # FOR LEVEL 5
@@ -1887,6 +1937,11 @@ class Bullet(Player):
 
                 if self.special_remove_TA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TI \
+                        or self.special_remove_TU \
+                        or self.special_remove_TE \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1894,6 +1949,11 @@ class Bullet(Player):
 
                 if self.special_remove_TA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TI \
+                        or self.special_remove_TU \
+                        or self.special_remove_TE \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_TI in hitting_special_enemy_TI:
             if self.direction == "R":
@@ -1902,6 +1962,11 @@ class Bullet(Player):
 
                 if self.special_remove_TI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TU \
+                        or self.special_remove_TE \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1909,6 +1974,11 @@ class Bullet(Player):
 
                 if self.special_remove_TI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TU \
+                        or self.special_remove_TE \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_TU in hitting_special_enemy_TU:
             if self.direction == "R":
@@ -1917,6 +1987,11 @@ class Bullet(Player):
 
                 if self.special_remove_TU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TI \
+                        or self.special_remove_TE \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1924,6 +1999,11 @@ class Bullet(Player):
 
                 if self.special_remove_TU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TI \
+                        or self.special_remove_TE \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_TE in hitting_special_enemy_TE:
             if self.direction == "R":
@@ -1932,6 +2012,11 @@ class Bullet(Player):
 
                 if self.special_remove_TE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TI \
+                        or self.special_remove_TU \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1939,6 +2024,11 @@ class Bullet(Player):
 
                 if self.special_remove_TE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TI \
+                        or self.special_remove_TU \
+                        or self.special_remove_TO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_TO in hitting_special_enemy_TO:
             if self.direction == "R":
@@ -1947,6 +2037,11 @@ class Bullet(Player):
 
                 if self.special_remove_TO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TI \
+                        or self.special_remove_TU \
+                        or self.special_remove_TE == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1954,6 +2049,11 @@ class Bullet(Player):
 
                 if self.special_remove_TO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_TA \
+                        or self.special_remove_TI \
+                        or self.special_remove_TU \
+                        or self.special_remove_TE == True:
+                    self.confirm_katakana = False
         
 
         # FOR LEVEL 6
@@ -1962,16 +2062,26 @@ class Bullet(Player):
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_na.play()
-
+                
                 if self.special_remove_NA == True:
                     self.confirm_katakana = True
-
+                elif self.special_remove_NI \
+                        or self.special_remove_NU \
+                        or self.special_remove_NE \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
+            
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_na.play()
 
                 if self.special_remove_NA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NI \
+                        or self.special_remove_NU \
+                        or self.special_remove_NE \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_NI in hitting_special_enemy_NI:
             if self.direction == "R":
@@ -1980,6 +2090,11 @@ class Bullet(Player):
 
                 if self.special_remove_NI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NU \
+                        or self.special_remove_NE \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1987,6 +2102,11 @@ class Bullet(Player):
 
                 if self.special_remove_NI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NU \
+                        or self.special_remove_NE \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_NU in hitting_special_enemy_NU:
             if self.direction == "R":
@@ -1995,6 +2115,11 @@ class Bullet(Player):
 
                 if self.special_remove_NU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NI \
+                        or self.special_remove_NE \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2002,6 +2127,11 @@ class Bullet(Player):
 
                 if self.special_remove_NU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NI \
+                        or self.special_remove_NE \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_NE in hitting_special_enemy_NE:
             if self.direction == "R":
@@ -2010,6 +2140,11 @@ class Bullet(Player):
 
                 if self.special_remove_NE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NI \
+                        or self.special_remove_NU \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2017,6 +2152,11 @@ class Bullet(Player):
 
                 if self.special_remove_NE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NI \
+                        or self.special_remove_NU \
+                        or self.special_remove_NO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_NO in hitting_special_enemy_NO:
             if self.direction == "R":
@@ -2025,6 +2165,11 @@ class Bullet(Player):
 
                 if self.special_remove_NO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NI \
+                        or self.special_remove_NU \
+                        or self.special_remove_NE == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2032,6 +2177,11 @@ class Bullet(Player):
 
                 if self.special_remove_NO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_NA \
+                        or self.special_remove_NI \
+                        or self.special_remove_NU \
+                        or self.special_remove_NE == True:
+                    self.confirm_katakana = False
         
 
         # FOR LEVEL 7
@@ -2043,6 +2193,11 @@ class Bullet(Player):
 
                 if self.special_remove_HA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HI \
+                        or self.special_remove_HU \
+                        or self.special_remove_HE \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2050,14 +2205,24 @@ class Bullet(Player):
 
                 if self.special_remove_HA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HI \
+                        or self.special_remove_HU \
+                        or self.special_remove_HE \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_HI in hitting_special_enemy_HI:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_hi.play()
-
+                
                 if self.special_remove_HI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HU \
+                        or self.special_remove_HE \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2065,6 +2230,11 @@ class Bullet(Player):
 
                 if self.special_remove_HI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HU \
+                        or self.special_remove_HE \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_HU in hitting_special_enemy_HU:
             if self.direction == "R":
@@ -2073,6 +2243,11 @@ class Bullet(Player):
 
                 if self.special_remove_HU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HI \
+                        or self.special_remove_HE \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2080,6 +2255,11 @@ class Bullet(Player):
 
                 if self.special_remove_HU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HI \
+                        or self.special_remove_HE \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_HE in hitting_special_enemy_HE:
             if self.direction == "R":
@@ -2088,6 +2268,11 @@ class Bullet(Player):
 
                 if self.special_remove_HE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HI \
+                        or self.special_remove_HU \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2095,14 +2280,24 @@ class Bullet(Player):
 
                 if self.special_remove_HE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HI \
+                        or self.special_remove_HU \
+                        or self.special_remove_HO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_HO in hitting_special_enemy_HO:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.effect_ho.play()
-
+                
                 if self.special_remove_HO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HI \
+                        or self.special_remove_HU \
+                        or self.special_remove_HE == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2110,6 +2305,11 @@ class Bullet(Player):
 
                 if self.special_remove_HO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_HA \
+                        or self.special_remove_HI \
+                        or self.special_remove_HU \
+                        or self.special_remove_HE == True:
+                    self.confirm_katakana = False
         
 
         # FOR LEVEL 8
@@ -2121,6 +2321,11 @@ class Bullet(Player):
 
                 if self.special_remove_MA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2128,6 +2333,11 @@ class Bullet(Player):
 
                 if self.special_remove_MA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_MI in hitting_special_enemy_MI:
             if self.direction == "R":
@@ -2136,6 +2346,11 @@ class Bullet(Player):
 
                 if self.special_remove_MI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2143,6 +2358,11 @@ class Bullet(Player):
 
                 if self.special_remove_MI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_MU in hitting_special_enemy_MU:
             if self.direction == "R":
@@ -2151,6 +2371,11 @@ class Bullet(Player):
 
                 if self.special_remove_MU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2158,6 +2383,11 @@ class Bullet(Player):
 
                 if self.special_remove_MU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_ME in hitting_special_enemy_ME:
             if self.direction == "R":
@@ -2166,6 +2396,11 @@ class Bullet(Player):
 
                 if self.special_remove_ME == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2173,6 +2408,11 @@ class Bullet(Player):
 
                 if self.special_remove_ME == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_MO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_MO in hitting_special_enemy_MO:
             if self.direction == "R":
@@ -2181,6 +2421,11 @@ class Bullet(Player):
 
                 if self.special_remove_MO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2188,7 +2433,11 @@ class Bullet(Player):
 
                 if self.special_remove_MO == True:
                     self.confirm_katakana = True
-        
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME == True:
+                    self.confirm_katakana = False
 
         # FOR LEVEL 9
         # Vocal Y
@@ -2199,6 +2448,9 @@ class Bullet(Player):
 
                 if self.special_remove_YA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_YU \
+                        or self.special_remove_YO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2206,6 +2458,9 @@ class Bullet(Player):
 
                 if self.special_remove_YA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_YU \
+                        or self.special_remove_YO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_YU in hitting_special_enemy_YU:
             if self.direction == "R":
@@ -2214,6 +2469,9 @@ class Bullet(Player):
 
                 if self.special_remove_YU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_YA \
+                        or self.special_remove_YO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2221,6 +2479,9 @@ class Bullet(Player):
 
                 if self.special_remove_YU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_YA \
+                        or self.special_remove_YO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_YO in hitting_special_enemy_YO:
             if self.direction == "R":
@@ -2229,6 +2490,9 @@ class Bullet(Player):
 
                 if self.special_remove_YO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_YA \
+                        or self.special_remove_YU == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2236,7 +2500,9 @@ class Bullet(Player):
 
                 if self.special_remove_YO == True:
                     self.confirm_katakana = True
-        
+                elif self.special_remove_YA \
+                        or self.special_remove_YU == True:
+                    self.confirm_katakana = False
 
         # FOR LEVEL 10
         # Vocal R
@@ -2247,6 +2513,11 @@ class Bullet(Player):
 
                 if self.special_remove_RA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2254,6 +2525,11 @@ class Bullet(Player):
 
                 if self.special_remove_RA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_RI in hitting_special_enemy_RI:
             if self.direction == "R":
@@ -2262,6 +2538,11 @@ class Bullet(Player):
 
                 if self.special_remove_RI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2269,6 +2550,11 @@ class Bullet(Player):
 
                 if self.special_remove_RI == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_RU in hitting_special_enemy_RU:
             if self.direction == "R":
@@ -2277,6 +2563,11 @@ class Bullet(Player):
 
                 if self.special_remove_RU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2284,6 +2575,11 @@ class Bullet(Player):
 
                 if self.special_remove_RU == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_RE in hitting_special_enemy_RE:
             if self.direction == "R":
@@ -2292,6 +2588,11 @@ class Bullet(Player):
 
                 if self.special_remove_RE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2299,6 +2600,11 @@ class Bullet(Player):
 
                 if self.special_remove_RE == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RO == True:
+                    self.confirm_katakana = False
 
         for special_eaten_RO in hitting_special_enemy_RO:
             if self.direction == "R":
@@ -2307,6 +2613,11 @@ class Bullet(Player):
 
                 if self.special_remove_RO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2314,7 +2625,11 @@ class Bullet(Player):
 
                 if self.special_remove_RO == True:
                     self.confirm_katakana = True
-
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE == True:
+                    self.confirm_katakana = False
 
         # FOR LEVEL 11
         # Vocal W
@@ -2325,6 +2640,9 @@ class Bullet(Player):
 
                 if self.special_remove_WA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WO \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2332,6 +2650,9 @@ class Bullet(Player):
 
                 if self.special_remove_WA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WO \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
@@ -2340,6 +2661,9 @@ class Bullet(Player):
 
                 if self.special_remove_WO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2347,6 +2671,9 @@ class Bullet(Player):
 
                 if self.special_remove_WO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
@@ -2356,6 +2683,9 @@ class Bullet(Player):
 
                 if self.special_remove_N == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_WO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -2363,6 +2693,9 @@ class Bullet(Player):
 
                 if self.special_remove_N == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_WO == True:
+                    self.confirm_katakana = False
 
 
         # when hit platform the bullet is gone

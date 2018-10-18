@@ -14,7 +14,7 @@ import constants
 # import game screen modules
 from game_screens import endscreen
 from hiragana_mode.overscreen_hiragana import (
-    dead_hiragana_level_8, dead_hiragana_level_9, 
+    dead_hiragana_level_8, dead_hiragana_level_9,
     dead_hiragana_level_10, dead_hiragana_level_11
 )
 # import sounds module
@@ -91,9 +91,6 @@ class Player(pygame.sprite.Sprite):
 
         # Vocal N
         self.special_remove_N = None
-
-
-
 
         # List of sprites we can bump against
         self.level = None
@@ -212,56 +209,54 @@ class Player(pygame.sprite.Sprite):
 
             if isinstance(block, MovingPlatform_dirt_sand):
                 self.rect.x += block.change_x
-            
+
             elif isinstance(block, MovingPlatform_ancient_brick):
                 self.rect.x += block.change_x
-            
+
             elif isinstance(block, MovingPlatform_lava_rock):
                 self.rect.x += block.change_x
-
 
         # For general enemy list
         # If player touched by enemy
         hit_by_enemy_list_lv8 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv8, True)
-        
+
         hit_by_enemy_list_lv9 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv9, True)
-        
+
         hit_by_enemy_list_lv10 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv10, True)
-        
+
         hit_by_enemy_list_lv11 = pygame.sprite.spritecollide(
             self, self.level.enemy_list_lv11, True)
-        
+
         for eaten_lv8 in hit_by_enemy_list_lv8:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_8.show_game_over_hiragana()
-        
+
         for eaten_lv9 in hit_by_enemy_list_lv9:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_9.show_game_over_hiragana()
-        
+
         for eaten_lv10 in hit_by_enemy_list_lv10:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_10.show_game_over_hiragana()
-        
+
         for eaten_lv11 in hit_by_enemy_list_lv11:
             self.health_number -= self.general_enemy_dmg
             configsounds.ouch_sfx.play()
 
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_11.show_game_over_hiragana()
-
 
         # for special enemy list
         # If player touched by special enemys
@@ -327,7 +322,6 @@ class Player(pygame.sprite.Sprite):
             # if self.special_remove_MO == False:
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_8.show_game_over_hiragana()
-        
 
         # FOR LEVEL 9
         # Vocal Y
@@ -366,7 +360,6 @@ class Player(pygame.sprite.Sprite):
             # if self.special_remove_YO == False:
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_9.show_game_over_hiragana()
-        
 
         # FOR LEVEL 10
         # Vocal R
@@ -429,7 +422,6 @@ class Player(pygame.sprite.Sprite):
             # if self.special_remove_RO == False:
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_10.show_game_over_hiragana()
-        
 
         # FOR LEVEL 11
         # Vocal W
@@ -469,7 +461,6 @@ class Player(pygame.sprite.Sprite):
             if self.health_number == 0 or self.health_number < 0:
                 dead_hiragana_level_11.show_game_over_hiragana()
 
-
         # for portal list
         go_to_portal_list = pygame.sprite.spritecollide(
             self, self.level.portal_list, True)
@@ -496,13 +487,13 @@ class Player(pygame.sprite.Sprite):
         # for death sprite
         you_die_in_hell_lv8 = pygame.sprite.spritecollide(
             self, self.level.death_place_list_lv8, False)
-        
+
         you_die_in_hell_lv9 = pygame.sprite.spritecollide(
             self, self.level.death_place_list_lv9, False)
-        
+
         you_die_in_hell_lv10 = pygame.sprite.spritecollide(
             self, self.level.death_place_list_lv10, False)
-        
+
         you_die_in_hell_lv11 = pygame.sprite.spritecollide(
             self, self.level.death_place_list_lv11, False)
 
@@ -512,32 +503,30 @@ class Player(pygame.sprite.Sprite):
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
                 dead_hiragana_level_8.show_game_over_hiragana()
-        
+
         for water_suicide_lv9 in you_die_in_hell_lv9:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
                 dead_hiragana_level_9.show_game_over_hiragana()
-        
+
         for lava_water_suicide_10 in you_die_in_hell_lv10:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
                 dead_hiragana_level_10.show_game_over_hiragana()
-        
+
         for lava_water_suicide_11 in you_die_in_hell_lv11:
             self.rect.y += 20
             if self.rect.bottom >= constants.SCREEN_HEIGHT \
                     or self.rect.bottom < 0:
                 dead_hiragana_level_11.show_game_over_hiragana()
-        
 
         # for NPC purpose
         meet_himesama = pygame.sprite.spritecollide(
             self, self.level.himesama_list, False)
         for kiss_himesama in meet_himesama:
             endscreen.show_end_screen_hiragana()
-
 
         # For level 8 Hiragana Mode
         point1_hiragana_lv8 = pygame.sprite.spritecollide(
@@ -585,7 +574,6 @@ class Player(pygame.sprite.Sprite):
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_MO = True
-        
 
         # FOR LEVEL 9 Hiragana Mode
         point1_hiragana_lv9 = pygame.sprite.spritecollide(
@@ -615,7 +603,6 @@ class Player(pygame.sprite.Sprite):
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_YO = True
-        
 
         # For level 10 Hiragana Mode
         point1_hiragana_lv10 = pygame.sprite.spritecollide(
@@ -664,7 +651,6 @@ class Player(pygame.sprite.Sprite):
             self.scores += 100
             self.special_remove_RO = True
 
-
         # For level 11 Hiragana Mode
         point1_hiragana_lv11 = pygame.sprite.spritecollide(
             self, self.level.hiragana_WA, True)
@@ -693,7 +679,6 @@ class Player(pygame.sprite.Sprite):
             configsounds.coin_sfx.set_volume(0.5)
             self.scores += 100
             self.special_remove_N = True
-
 
     def calc_grav(self):
         """ Calculate effect of gravity. """
@@ -797,7 +782,6 @@ class Bullet(Player):
         # Vocal N
         self.special_remove_N = player.special_remove_N
 
-
         self.kills = player.kills
 
     def update(self):
@@ -827,7 +811,7 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-        
+
         for eaten_lv9 in hitting_enemy_lv9:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -836,7 +820,7 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-        
+
         for eaten_lv10 in hitting_enemy_lv10:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -845,7 +829,7 @@ class Bullet(Player):
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
                 configsounds.ouch_sfx.play()
-        
+
         for eaten_lv11 in hitting_enemy_lv11:
             if self.direction == "R":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -899,7 +883,6 @@ class Bullet(Player):
         elif not self.special_remove_MO:
             hitting_special_enemy_MO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_MO, False)
-        
 
         # FOR LEVEL 9
         # for point mission symbol YA
@@ -925,7 +908,6 @@ class Bullet(Player):
         elif not self.special_remove_YO:
             hitting_special_enemy_YO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_YO, False)
-
 
         # FOR LEVEL 10
         # for point mission symbol RA
@@ -967,7 +949,6 @@ class Bullet(Player):
         elif not self.special_remove_RO:
             hitting_special_enemy_RO = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_RO, False)
-        
 
         # FOR LEVEL 11
         # for point mision symbol WA
@@ -994,7 +975,6 @@ class Bullet(Player):
             hitting_special_enemy_N = pygame.sprite.spritecollide(
                 self, self.level.special_enemy_list_N, False)
 
-
         # attack a special enemy
         # Basic Vocal
 
@@ -1007,6 +987,11 @@ class Bullet(Player):
 
                 if self.special_remove_MA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1014,6 +999,11 @@ class Bullet(Player):
 
                 if self.special_remove_MA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_MI in hitting_special_enemy_MI:
             if self.direction == "R":
@@ -1022,6 +1012,11 @@ class Bullet(Player):
 
                 if self.special_remove_MI == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1029,6 +1024,11 @@ class Bullet(Player):
 
                 if self.special_remove_MI == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_MU in hitting_special_enemy_MU:
             if self.direction == "R":
@@ -1037,6 +1037,11 @@ class Bullet(Player):
 
                 if self.special_remove_MU == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1044,6 +1049,11 @@ class Bullet(Player):
 
                 if self.special_remove_MU == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_ME \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_ME in hitting_special_enemy_ME:
             if self.direction == "R":
@@ -1052,6 +1062,11 @@ class Bullet(Player):
 
                 if self.special_remove_ME == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1059,6 +1074,11 @@ class Bullet(Player):
 
                 if self.special_remove_ME == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_MO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_MO in hitting_special_enemy_MO:
             if self.direction == "R":
@@ -1067,6 +1087,11 @@ class Bullet(Player):
 
                 if self.special_remove_MO == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1074,7 +1099,11 @@ class Bullet(Player):
 
                 if self.special_remove_MO == True:
                     self.confirm_hiragana = True
-        
+                elif self.special_remove_MA \
+                        or self.special_remove_MI \
+                        or self.special_remove_MU \
+                        or self.special_remove_ME == True:
+                    self.confirm_hiragana = False
 
         # FOR LEVEL 9
         # Vocal Y
@@ -1085,6 +1114,9 @@ class Bullet(Player):
 
                 if self.special_remove_YA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_YU \
+                        or self.special_remove_YO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1092,6 +1124,9 @@ class Bullet(Player):
 
                 if self.special_remove_YA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_YU \
+                        or self.special_remove_YO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_YU in hitting_special_enemy_YU:
             if self.direction == "R":
@@ -1100,6 +1135,9 @@ class Bullet(Player):
 
                 if self.special_remove_YU == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_YA \
+                        or self.special_remove_YO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1107,6 +1145,9 @@ class Bullet(Player):
 
                 if self.special_remove_YU == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_YA \
+                        or self.special_remove_YO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_YO in hitting_special_enemy_YO:
             if self.direction == "R":
@@ -1115,6 +1156,9 @@ class Bullet(Player):
 
                 if self.special_remove_YO == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_YA \
+                        or self.special_remove_YU == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1122,7 +1166,9 @@ class Bullet(Player):
 
                 if self.special_remove_YO == True:
                     self.confirm_hiragana = True
-        
+                elif self.special_remove_YA \
+                        or self.special_remove_YU == True:
+                    self.confirm_hiragana = False
 
         # FOR LEVEL 10
         # Vocal R
@@ -1133,6 +1179,11 @@ class Bullet(Player):
 
                 if self.special_remove_RA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1140,6 +1191,11 @@ class Bullet(Player):
 
                 if self.special_remove_RA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_RI in hitting_special_enemy_RI:
             if self.direction == "R":
@@ -1148,6 +1204,11 @@ class Bullet(Player):
 
                 if self.special_remove_RI == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1155,6 +1216,11 @@ class Bullet(Player):
 
                 if self.special_remove_RI == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_RU in hitting_special_enemy_RU:
             if self.direction == "R":
@@ -1163,6 +1229,11 @@ class Bullet(Player):
 
                 if self.special_remove_RU == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1170,6 +1241,11 @@ class Bullet(Player):
 
                 if self.special_remove_RU == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RE \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_RE in hitting_special_enemy_RE:
             if self.direction == "R":
@@ -1178,6 +1254,11 @@ class Bullet(Player):
 
                 if self.special_remove_RE == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1185,6 +1266,11 @@ class Bullet(Player):
 
                 if self.special_remove_RE == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RO == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_RO in hitting_special_enemy_RO:
             if self.direction == "R":
@@ -1193,6 +1279,11 @@ class Bullet(Player):
 
                 if self.special_remove_RO == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1200,7 +1291,11 @@ class Bullet(Player):
 
                 if self.special_remove_RO == True:
                     self.confirm_hiragana = True
-
+                elif self.special_remove_RA \
+                        or self.special_remove_RI \
+                        or self.special_remove_RU \
+                        or self.special_remove_RE == True:
+                    self.confirm_hiragana = False
 
         # FOR LEVEL 11
         # Vocal W
@@ -1211,6 +1306,9 @@ class Bullet(Player):
 
                 if self.special_remove_WA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_WO \
+                        or self.special_remove_N == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1218,6 +1316,9 @@ class Bullet(Player):
 
                 if self.special_remove_WA == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_WO \
+                        or self.special_remove_N == True:
+                    self.confirm_hiragana = False
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
@@ -1226,6 +1327,9 @@ class Bullet(Player):
 
                 if self.special_remove_WO == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_N == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1233,6 +1337,9 @@ class Bullet(Player):
 
                 if self.special_remove_WO == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_N == True:
+                    self.confirm_hiragana = False
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
@@ -1242,6 +1349,9 @@ class Bullet(Player):
 
                 if self.special_remove_N == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_WO == True:
+                    self.confirm_hiragana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -1249,6 +1359,9 @@ class Bullet(Player):
 
                 if self.special_remove_N == True:
                     self.confirm_hiragana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_WO == True:
+                    self.confirm_hiragana = False
 
         # when hit platform the bullet is gone
         hitting_platform = pygame.sprite.spritecollide(

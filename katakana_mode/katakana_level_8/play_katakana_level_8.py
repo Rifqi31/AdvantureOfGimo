@@ -394,7 +394,11 @@ def gameplay():
                 "MA, MI, MU, ME, dan MO",
                 constants.WHITE, 0, 75, size="small"
             )
-            if player.special_remove_MA == True:
+            if player.special_remove_MA \
+                    or player.special_remove_MI \
+                    or player.special_remove_MU \
+                    or player.special_remove_ME \
+                    or player.special_remove_MO == True:
                 if bullet.confirm_katakana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -403,38 +407,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_MI == True:
-                if bullet.confirm_katakana == True:
+                elif bullet.confirm_katakana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_MU == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_ME == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_MO == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )
@@ -446,7 +422,9 @@ def gameplay():
                 "YA, YU, dan YO",
                 constants.WHITE, 0, 75, size="small"
             )
-            if player.special_remove_YA == True:
+            if player.special_remove_YA \
+                    or player.special_remove_YU \
+                    or player.special_remove_YO == True:
                 if bullet.confirm_katakana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -455,20 +433,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_YU == True:
-                if bullet.confirm_katakana == True:
+                elif bullet.confirm_katakana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-            
-            if player.special_remove_YO == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )
@@ -480,34 +448,11 @@ def gameplay():
                 "RA, RI, RU, RE, dan RO",
                 constants.WHITE, 0, 75, size="small"
             )
-            if player.special_remove_RA == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-            
-            if player.special_remove_RI == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-            
-            if player.special_remove_RU == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-            
-            if player.special_remove_RE == True:
+            if player.special_remove_RA \
+                    or player.special_remove_RI \
+                    or player.special_remove_RU \
+                    or player.special_remove_RE \
+                    or player.special_remove_RO == True:
                 if bullet.confirm_katakana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -516,11 +461,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_RO == True:
-                if bullet.confirm_katakana == True:
+                elif bullet.confirm_katakana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )
@@ -533,7 +477,9 @@ def gameplay():
                 constants.WHITE, 0, 75, size="small"
             )
             # for confirm text hiragana
-            if player.special_remove_WA == True:
+            if player.special_remove_WA \
+                    or player.special_remove_WO \
+                    or player.special_remove_N == True:
                 if bullet.confirm_katakana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -541,20 +487,11 @@ def gameplay():
                         400, 0,
                         size="small"
                     )
-            if player.special_remove_WO == True:
-                if bullet.confirm_katakana == True:
+
+                elif bullet.confirm_katakana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-            
-            if player.special_remove_N == True:
-                if bullet.confirm_katakana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )

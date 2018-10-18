@@ -320,7 +320,7 @@ def gameplay():
         # stage advanture for player
         def print_level_info(level_number):
             settings.msg_to_screen(
-            # level number
+                # level number
                 "Level {}".format(level_number), constants.WHITE, 0, 0, size="small")
 
             settings.msg_to_screen(
@@ -372,7 +372,7 @@ def gameplay():
                 constants.WHITE,
                 300, 0,
                 size="small"
-            )    
+            )
 
         # if the player in the level 11
         if current_level == level_list[0]:
@@ -381,9 +381,11 @@ def gameplay():
             settings.msg_to_screen(
                 "WA, WO, dan N",
                 constants.WHITE, 0, 75, size="small"
-            )        
+            )
             # for confirm text hiragana
-            if player.special_remove_WA == True:
+            if player.special_remove_WA \
+                    or player.special_remove_WO \
+                    or player.special_remove_N == True:
                 if bullet.confirm_hiragana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -392,20 +394,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_WO == True:
-                if bullet.confirm_hiragana == True:
+                elif bullet.confirm_hiragana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_N == True:
-                if bullet.confirm_hiragana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )

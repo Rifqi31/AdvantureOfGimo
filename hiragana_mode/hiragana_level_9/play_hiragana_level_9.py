@@ -19,7 +19,7 @@ from game_screens import mainmenu
 # from hiragana_mode.overscreen_hiragana import dead_hiragana_level_9
 # import levels
 from hiragana_mode.level_stage_hiragana import (
-    level_09, level_10, 
+    level_09, level_10,
     level_11, level_ending
 )
 # import config font and screen
@@ -323,7 +323,7 @@ def gameplay():
         # stage advanture for player
         def print_level_info(level_number):
             settings.msg_to_screen(
-            # level number
+                # level number
                 "Level {}".format(level_number), constants.WHITE, 0, 0, size="small")
 
             settings.msg_to_screen(
@@ -385,7 +385,9 @@ def gameplay():
                 "YA, YU, dan YO",
                 constants.WHITE, 0, 75, size="small"
             )
-            if player.special_remove_YA == True:
+            if player.special_remove_YA \
+                    or player.special_remove_YU \
+                    or player.special_remove_YO == True:
                 if bullet.confirm_hiragana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -394,20 +396,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_YU == True:
-                if bullet.confirm_hiragana == True:
+                elif bullet.confirm_hiragana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_YO == True:
-                if bullet.confirm_hiragana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )
@@ -419,7 +411,11 @@ def gameplay():
                 "RA, RI, RU, RE, dan RO",
                 constants.WHITE, 0, 75, size="small"
             )
-            if player.special_remove_RA == True:
+            if player.special_remove_RA \
+                    or player.special_remove_RI \
+                    or player.special_remove_RU \
+                    or player.special_remove_RE \
+                    or player.special_remove_RO == True:
                 if bullet.confirm_hiragana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -428,38 +424,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_RI == True:
-                if bullet.confirm_hiragana == True:
+                elif bullet.confirm_hiragana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_RU == True:
-                if bullet.confirm_hiragana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_RE == True:
-                if bullet.confirm_hiragana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_RO == True:
-                if bullet.confirm_hiragana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )
@@ -472,7 +440,9 @@ def gameplay():
                 constants.WHITE, 0, 75, size="small"
             )
             # for confirm text hiragana
-            if player.special_remove_WA == True:
+            if player.special_remove_WA \
+                    or player.special_remove_WO \
+                    or player.special_remove_N == True:
                 if bullet.confirm_hiragana == True:
                     settings.msg_to_screen(
                         "benar",
@@ -481,20 +451,10 @@ def gameplay():
                         size="small"
                     )
 
-            if player.special_remove_WO == True:
-                if bullet.confirm_hiragana == True:
+                elif bullet.confirm_hiragana == False:
                     settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
-                        400, 0,
-                        size="small"
-                    )
-
-            if player.special_remove_N == True:
-                if bullet.confirm_hiragana == True:
-                    settings.msg_to_screen(
-                        "benar",
-                        constants.GREEN,
+                        "salah",
+                        constants.RED,
                         400, 0,
                         size="small"
                     )

@@ -457,6 +457,9 @@ class Bullet(Player):
 
                 if self.special_remove_WA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WO \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -464,6 +467,9 @@ class Bullet(Player):
 
                 if self.special_remove_WA == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WO \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
         for special_eaten_WO in hitting_special_enemy_WO:
             if self.direction == "R":
@@ -472,6 +478,9 @@ class Bullet(Player):
 
                 if self.special_remove_WO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -479,6 +488,9 @@ class Bullet(Player):
 
                 if self.special_remove_WO == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_N == True:
+                    self.confirm_katakana = False
 
         # Vocal N
         for special_eaten_N in hitting_special_enemy_N:
@@ -488,6 +500,9 @@ class Bullet(Player):
 
                 if self.special_remove_N == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_WO == True:
+                    self.confirm_katakana = False
 
             elif self.direction == "L":
                 pygame.sprite.spritecollide(self, self.bullet_list, True)
@@ -495,6 +510,9 @@ class Bullet(Player):
 
                 if self.special_remove_N == True:
                     self.confirm_katakana = True
+                elif self.special_remove_WA \
+                        or self.special_remove_WO == True:
+                    self.confirm_katakana = False
 
 
 
