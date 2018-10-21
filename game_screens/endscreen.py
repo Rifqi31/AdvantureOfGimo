@@ -15,10 +15,12 @@ from game_screens import mainmenu
 # import hiragana & katakana main modul
 from game_settings import configscreen, configsounds
 # hiragana mode
+from hiragana_mode import platform_scroller_hiragana
 from hiragana_mode.hiragana_level_1 import (
     play_hiragana_level_1
 )
 # katakana mode
+from katakana_mode import platform_scroller_katakana
 from katakana_mode.katakana_level_1 import (
     play_katakana_level_1
 )
@@ -46,7 +48,7 @@ def show_end_screen_hiragana():
         window_height=constants.SCREEN_HEIGHT,
         window_width=constants.SCREEN_WIDTH
     )
-    end_game_screen.add_option('Retry', play_hiragana_level_1.gameplay)
+    end_game_screen.add_option('Retry', platform_scroller_hiragana.gameplay)
     end_game_screen.add_option('Main Menu', mainmenu.main_menu)
     end_game_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
@@ -90,7 +92,7 @@ def show_end_screen_katakana():
         window_height=constants.SCREEN_HEIGHT,
         window_width=constants.SCREEN_WIDTH
     )
-    end_game_screen.add_option('Retry', play_katakana_level_1.gameplay)
+    end_game_screen.add_option('Retry', platform_scroller_katakana.gameplay)
     end_game_screen.add_option('Main Menu', mainmenu.main_menu)
     end_game_screen.add_option('Exit Game', PYGAME_MENU_EXIT)
 
