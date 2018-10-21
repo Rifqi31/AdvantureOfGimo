@@ -15,6 +15,7 @@ from game_settings import configscreen
 # for tutorial
 from tutorial_mode import platform_scroller_tutorial
 # import level hiragana
+from hiragana_mode import platform_scroller_hiragana
 from hiragana_mode.hiragana_level_1 import (
     play_hiragana_level_1
 )
@@ -51,6 +52,7 @@ from hiragana_mode.hiragana_level_11 import (
 
 
 # import level katakana
+from katakana_mode import platform_scroller_katakana
 from katakana_mode.katakana_level_1 import (
     play_katakana_level_1
 )
@@ -304,6 +306,8 @@ def select_level_hiragana_display1():
     )
     # LEVEL PAGE 1
     select_level_hiragana_page1.add_option(
+        'Play All Levels', platform_scroller_hiragana.gameplay)
+    select_level_hiragana_page1.add_option(
         'Level 01 ', play_hiragana_level_1.gameplay)
     select_level_hiragana_page1.add_option(
         'Level 02', play_hiragana_level_2.gameplay)
@@ -462,6 +466,8 @@ def select_level_katakana_display1():
         window_width=constants.SCREEN_WIDTH
     )
     # LEVEL PAGE 1
+    select_level_katakana_page1.add_option(
+        'Play All Levels', platform_scroller_katakana.gameplay)
     select_level_katakana_page1.add_option(
         'Level 01 ', play_katakana_level_1.gameplay)
     select_level_katakana_page1.add_option(
