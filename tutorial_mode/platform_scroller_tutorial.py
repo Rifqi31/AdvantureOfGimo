@@ -384,19 +384,19 @@ def gameplay():
             settings.msg_to_screen(
                 "Jenis Musuh dan Point :", constants.WHITE, 0, 0, size="small")
             settings.msg_to_screen(
-                "Special Enemy : reduce health -40%",
+                "Special Enemy : mengurangi health pemain sebanyak -40%",
                 constants.WHITE,
                 150, 100,
                 size="small"
             )
             settings.msg_to_screen(
-                "General Enemy : reduce health -30%",
+                "General Enemy : mengurangi health pemain sebanyak -30%",
                 constants.WHITE,
                 150, 180,
                 size="small"
             )
             settings.msg_to_screen(
-                "Restore Health : increase health +20%",
+                "Restore Health : menambah health pemain sebanyak +20%",
                 constants.WHITE,
                 150, 270,
                 size="small"
